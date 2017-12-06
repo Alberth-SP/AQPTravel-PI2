@@ -81,7 +81,7 @@ public class AdminController {
 		return "true";
 	} 	
 
-
+	/* Request para envio de pagina de Paquete */
 	@RequestMapping(value="admin/paquetes", method=RequestMethod.GET)
 	public ModelAndView paquetes(ModelAndView model) throws IOException{
 
@@ -92,6 +92,7 @@ public class AdminController {
 
 	}
 	
+	/* Request para envio de Formulario de Paquete */	
 	@RequestMapping(value="admin/agregar_paquetes", method=RequestMethod.GET)
 	public ModelAndView formPaquetes(ModelAndView model) throws IOException{
 
