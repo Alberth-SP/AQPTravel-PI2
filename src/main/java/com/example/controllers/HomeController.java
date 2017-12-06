@@ -38,7 +38,7 @@ public class HomeController {
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public ModelAndView index(ModelAndView model) throws IOException{
 		
-		model.setViewName("home");	 		
+		model.setViewName("index");	 		
 		return model;
 	}
 	
