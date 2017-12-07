@@ -9,6 +9,7 @@
     <br>
     <a href="registrar"> Registrar</a>  
     prueba Jose
+    prueba Albert
 </body>
 
 
