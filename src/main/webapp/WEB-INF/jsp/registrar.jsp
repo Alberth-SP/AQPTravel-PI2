@@ -18,7 +18,7 @@
 	rel="stylesheet">
 <link href="<c:url value="/resources/css/languages.min.css"/> "
 	rel="stylesheet">
-<link href="<c:url value="/resources/css/style.css"/> " rel="stylesheet">
+<link href="<c:url value="/resources/css/style2.css"/> " rel="stylesheet">
 </head>
 <body class="container">
 	<div class="test"></div>

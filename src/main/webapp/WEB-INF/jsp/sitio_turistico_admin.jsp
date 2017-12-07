@@ -15,7 +15,7 @@
 
 <link href="<c:url value="/resources/css/bootstrap.css"/> " rel="stylesheet" 	media="all">
 <!-- Custom Theme files -->
-<link href="<c:url value="/resources/css/style.css"/> " rel="stylesheet" 	media="all">
+<link href="<c:url value="/resources/css/style2.css"/> " rel="stylesheet" 	media="all">
 <!--js-->
 
 <script src="<c:url value="/resources/js/jquery-2.1.1.min.js" />"></script>

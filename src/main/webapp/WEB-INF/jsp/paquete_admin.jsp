@@ -19,7 +19,7 @@
 <link href="<c:url value="/resources/css/bootstrap.css"/> "
 	rel="stylesheet" media="all">
 <!-- Custom Theme files -->
-<link href="<c:url value="/resources/css/style.css"/> " rel="stylesheet"
+<link href="<c:url value="/resources/css/style2.css"/> " rel="stylesheet"
 	media="all">
 <!--js-->
 
