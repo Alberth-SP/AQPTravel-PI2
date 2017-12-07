@@ -143,15 +143,188 @@
         
          </div>
 
-          <div class="col-lg-6 background order-lg-2 order-1 wow fadeInRight personalizado2"></div>
+           <div class="col-lg-6 background order-lg-2 order-1 wow fadeInRight personalizado2">
+              
+              <div class="row">
+                
+                 <div class="col-lg-5 background1"></div>
+                 <div class="col-lg-7 acerca-de">
+                   <h3 class="title">Nosotros</h3>
+                   <p><strong>PERUVIAJES</strong>, les da la bienvenida. Nuestra pasión por el turismo les asegurará una experiencia inolvidable y de gran calidad.</p>
+                 </div>
+              </div>
+
+           </div>
         </div>
 
       </div>
     </section><!-- #about -->
-
+    
     <!--==========================
-      Facts Section
+      Portfolio Section
     ============================-->
+    <section id="portfolio">
+      <div class="container wow fadeInUp">
+        <div class="section-header">
+          <h3 class="section-title">Paquetes</h3>
+          <p class="section-description">Reserva el paquete ideal para sus necesidades.</p>
+        </div>
+        <div class="row">
+
+          <div class="col-lg-12">
+            <ul id="portfolio-flters">
+              <li data-filter=".filter-app, .filter-card, .filter-logo, .filter-web" class="filter-active">Todo</li>
+              <li data-filter=".filter-app">Aventura</li>
+              <li data-filter=".filter-card">Cultura</li>
+              <li data-filter=".filter-logo">Relax</li>
+              <li data-filter=".filter-web">Naturaleza</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row" id="portfolio-wrapper">
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <a href="">
+              <img src="<c:url value="/resources/img/portfolio/aventura1.jpg"/>" alt="">
+              <div class="details">
+                <h4>Paracas</h4>
+                <span>$200</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <a href="">
+              <img src="<c:url value="/resources/img/portfolio/naturaleza2.jpg"/>" alt="">
+              <div class="details">
+                <h4>Titicaca</h4>
+                <span>$230</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <a href="">
+              <img src="<c:url value="/resources/img/portfolio/aventura3.jpg"/>" alt="">
+              <div class="details">
+                <h4>Ayacucho</h4>
+                <span>$100</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <a href="">
+              <img src="<c:url value="/resources/img/portfolio/cultura1.jpg"/>" alt="">
+              <div class="details">
+                <h4>Lambayeque</h4>
+                <span>$250</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <a href="">
+              <img src="<c:url value="/resources/img/portfolio/cultura2.jpg"/>" alt="">
+              <div class="details">
+                <h4>Arequipa</h4>
+                <span>$175</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <a href="">
+              <img src="<c:url value="/resources/img/portfolio/naturaleza3.jpg"/>" alt="">
+              <div class="details">
+                <h4>Cañon Colca</h4>
+                <span>$200</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <a href="">
+              <img src="<c:url value="/resources/img/portfolio/cultura3.jpg"/>" alt="">
+              <div class="details">
+                <h4>Cusco</h4>
+                <span>$200</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <a href="">
+              <img src="<c:url value="/resources/img/portfolio/aventura2.jpg"/>" alt="">
+              <div class="details">
+                <h4>Piura</h4>
+                <span>$300</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-logo">
+            <a href="">
+              <img src="<c:url value="/resources/img/portfolio/relax1.jpg"/>" alt="">
+              <div class="details">
+                <h4>Mancora</h4>
+                <span>$500</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-logo">
+            <a href="">
+              <img src="<c:url value="/resources/img/portfolio/relax3.jpg"/>" alt="">
+              <div class="details">
+                <h4>Cañete</h4>
+                <span>$250</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <a href="">
+              <img src="<c:url value="/resources/img/portfolio/naturaleza1.jpg"/>" alt="">
+              <div class="details">
+                <h4>Manu</h4>
+                <span>$350</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-logo">
+            <a href="">
+              <img src="<c:url value="/resources/img/portfolio/relax2.jpg"/>" alt="">
+              <div class="details">
+                <h4>Tambopata</h4>
+                <span>$275</span>
+              </div>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- #portfolio -->
+    
+<!--==========================
+    Call To Action Section
+    ============================-->
+    <section id="call-to-action">
+      <div class="container wow fadeIn">
+        <div class="row">
+          <div class="col-lg-9 text-center text-lg-left">
+            <h3 class="cta-title">Descuentos y Promociones</h3>
+            <p class="cta-text"> Obtén descuentos y promociones especiales uniendote en nuestra página y participando de nuestras actividades. Acumula bonos de descuento por la compra de nuestros paquetes</p>
+          </div>
+          <div class="col-lg-3 cta-btn-container text-center">
+            <a class="cta-btn align-middle" href="#">Iniciar Sesión</a>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- #call-to-action -->
     
     <!--==========================
       Services Section
@@ -191,172 +364,9 @@
       </div>
     </section><!-- #services -->
 
-    <!--==========================
-    Call To Action Section
-    ============================-->
-    <section id="call-to-action">
-      <div class="container wow fadeIn">
-        <div class="row">
-          <div class="col-lg-9 text-center text-lg-left">
-            <h3 class="cta-title">Descuentos y Promociones</h3>
-            <p class="cta-text"> Obtén descuentos y promociones especiales uniendote en nuestra página y participando de nuestras actividades. Acumula bonos de descuento por la compra de nuestros paquetes</p>
-          </div>
-          <div class="col-lg-3 cta-btn-container text-center">
-            <a class="cta-btn align-middle" href="#">Iniciar Sesión</a>
-          </div>
-        </div>
+    
 
-      </div>
-    </section><!-- #call-to-action -->
-
-    <!--==========================
-      Portfolio Section
-    ============================-->
-    <section id="portfolio">
-      <div class="container wow fadeInUp">
-        <div class="section-header">
-          <h3 class="section-title">Paquetes</h3>
-          <p class="section-description">Reserva el paquete ideal para sus necesidades.</p>
-        </div>
-        <div class="row">
-
-          <div class="col-lg-12">
-            <ul id="portfolio-flters">
-              <li data-filter=".filter-app, .filter-card, .filter-logo, .filter-web" class="filter-active">Todo</li>
-              <li data-filter=".filter-app">Aventura</li>
-              <li data-filter=".filter-card">Cultura</li>
-              <li data-filter=".filter-logo">Relax</li>
-              <li data-filter=".filter-web">Naturaleza</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="row" id="portfolio-wrapper">
-          <div class="col-lg-3 col-md-6 portfolio-item filter-app">
-            <a href="">
-              <img src="<c:url value="/resources/img/portfolio/aventura1.jpg"/>" alt="">
-              <div class="details">
-                <h4>Paracas</h4>
-                <span>$200</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-web">
-            <a href="">
-              <img src="<c:url value="/resources/img/portfolio/naturaleza2.jpg"/>" alt="">
-              <div class="details">
-                <h4>Titicaca</h4>
-                <span>$230</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-app">
-            <a href="">
-              <img src="<c:url value="/resources/img/portfolio/aventura3.jpg"/>" alt="">
-              <div class="details">
-                <h4>Ayacucho</h4>
-                <span>$100</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-card">
-            <a href="">
-              <img src="<c:url value="/resources/img/portfolio/cultura1.jpg"/>" alt="">
-              <div class="details">
-                <h4>Lambayeque</h4>
-                <span>$250</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-card">
-            <a href="">
-              <img src="<c:url value="/resources/img/portfolio/cultura2.jpg"/>" alt="">
-              <div class="details">
-                <h4>Arequipa</h4>
-                <span>$175</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-web">
-            <a href="">
-              <img src="<c:url value="/resources/img/portfolio/naturaleza3.jpg"/>" alt="">
-              <div class="details">
-                <h4>Cañon Colca</h4>
-                <span>$200</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-card">
-            <a href="">
-              <img src="<c:url value="/resources/img/portfolio/cultura3.jpg"/>" alt="">
-              <div class="details">
-                <h4>Cusco</h4>
-                <span>$200</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-app">
-            <a href="">
-              <img src="<c:url value="/resources/img/portfolio/aventura2.jpg"/>" alt="">
-              <div class="details">
-                <h4>Piura</h4>
-                <span>$300</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-logo">
-            <a href="">
-              <img src="<c:url value="/resources/img/portfolio/relax1.jpg"/>" alt="">
-              <div class="details">
-                <h4>Mancora</h4>
-                <span>$500</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-logo">
-            <a href="">
-              <img src="<c:url value="/resources/img/portfolio/relax3.jpg"/>" alt="">
-              <div class="details">
-                <h4>Cañete</h4>
-                <span>$250</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-web">
-            <a href="">
-              <img src="<c:url value="/resources/img/portfolio/naturaleza1.jpg"/>" alt="">
-              <div class="details">
-                <h4>Manu</h4>
-                <span>$350</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-logo">
-            <a href="">
-              <img src="<c:url value="/resources/img/portfolio/relax2.jpg"/>" alt="">
-              <div class="details">
-                <h4>Tambopata</h4>
-                <span>$275</span>
-              </div>
-            </a>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- #portfolio -->
-
+    
     <!--==========================
       Team Section
     ============================-->
