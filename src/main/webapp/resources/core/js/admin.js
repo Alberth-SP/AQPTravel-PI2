@@ -1,4 +1,4 @@
-alert("entrando a admin!!");
+
 function addAdmin(){	
 	var url = "admin/saveAdmin";
 	
