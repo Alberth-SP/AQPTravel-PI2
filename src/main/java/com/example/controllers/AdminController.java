@@ -42,12 +42,12 @@ public class AdminController {
 
 			if(admin.getEstadoAdmin() == '1'){
 				response += " <td> "
-						+ "<input type='checkbox' name='onoffswitch' class='checkAdmin onoffswitch-checkbox' id='' value='activo' onchange='changeCheckBox("+admin.getIdAdmin()+", this)' checked>"
+						+ "<input type='checkbox' name='onoffswitch' class='checkAdmin ' id='' value='activo' onchange='changeCheckBox("+admin.getIdAdmin()+", this)' checked>"
 						+ "</td></tr>";
 
 			}else if(admin.getEstadoAdmin() == '0'){
 				response += " <td> "
-						+ "<input type='checkbox' name='onoffswitch' class='checkAdmin onoffswitch-checkbox' id='' value='desactivo' onchange='changeCheckBox("+admin.getIdAdmin()+", this)' >"
+						+ "<input type='checkbox' name='onoffswitch' class='checkAdmin ' id='' value='desactivo' onchange='changeCheckBox("+admin.getIdAdmin()+", this)' >"
 						+ "</td></tr>";
 			}			
 		}
