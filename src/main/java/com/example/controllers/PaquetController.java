@@ -1,4 +1,5 @@
-package com.example.controllers;
+package com.aqptravel.controllers;
+
 
 import java.io.IOException;
 import java.util.List;
@@ -10,11 +11,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.example.dao.AdminDao;
-import com.example.dao.PaqueteDao;
-import com.example.logic.Admin;
-import com.example.logic.Agencia;
-import com.example.logic.Paquete;
+import com.aqptravel.dao.AdminDao;
+import com.aqptravel.dao.PaqueteDao;
+import com.aqptravel.logic.Admin;
+import com.aqptravel.logic.Agencia;
+import com.aqptravel.logic.Paquete;
 
 @Controller
 public class PaquetController {
@@ -60,22 +61,3 @@ public class PaquetController {
 	}
 
 }
-
-/* 
- * <tr>
-                                			<td>Arequipa Fullday</td>
-                                			<td>Agencia Arequipa Travel</td>
-                                			<td>
-                                				<div class='onoffswitch'>
-												    <input type='checkbox' name='onoffswitch' class='onoffswitch-checkbox' id='myonoffswitch' checked>
-												    <label class='onoffswitch-label' for='myonoffswitch'>
-												        <span class='onoffswitch-inner'></span>
-												        <span class='onoffswitch-switch'></span>
-												    </label>
-												</div>
-                                			</td>
-                                			<td>
-                                				
-                                			</td>
-                                		</tr>
-                                		*/

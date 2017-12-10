@@ -1,4 +1,4 @@
-package com.example.dao;
+package com.aqptravel.dao;
 
 import javax.activation.DataSource;
 
@@ -9,7 +9,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class Service {
 	private JdbcTemplate jdbcTemplate;
-
-    
 
 }

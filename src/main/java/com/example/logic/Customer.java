@@ -1,9 +1,9 @@
-package com.example.logic;
+package com.aqptravel.logic;
 
 
 public class Customer{
-	
-	private final String idCustomer;
+	//En la db no necesita que le envien la clave, es autogenerada usar solo el metodo getidCustomer y setIdCustomer para listar o eliminar 
+	private Integer idCustomer;
 	private final String name;
 	private final String lastname;
 	private final String email;
@@ -11,13 +11,12 @@ public class Customer{
 	private final String phone;
 	private final int age;
 	private char state;
-	public static class BuildCustomer implements BuildUser<Customer>{
+	public static class BuildCustomer implements Builder<Customer>{
 		
 		//Required parameters 
 		private final String name;
-		private final String email;
-		//Parameters initialized 
-		private String idCustomer="";
+		//Parameters initialized
+		private String email="";
 		private String lastname="";
 		private String password="";
 		private String phone="";
@@ -31,16 +30,16 @@ public class Customer{
 			lastname=val;
 			return this;
 		}
+		public BuildCustomer setEmail(String val) {
+			email=val;
+			return this;
+		}
 		public BuildCustomer setPassword(String val) {
-			password=val;
+			password=Utilidades.Encriptar(val);
 			return this;
 		}
 		public BuildCustomer setPhone(String val) {
 			phone=val;
-			return this;
-		}
-		public BuildCustomer setIdUser(int cod) {
-			this.idCustomer="CU"+cod;
 			return this;
 		}
 		public BuildCustomer setAge(int val) {
@@ -53,7 +52,6 @@ public class Customer{
 		}
 	}
 	private Customer(BuildCustomer build) {
-		this.idCustomer=build.idCustomer;
 		this.name=build.name;
 		this.lastname=build.lastname;
 		this.email=build.email;
@@ -62,7 +60,10 @@ public class Customer{
 		this.age=build.age;
 		this.setState(build.state);
 	}
-	public String getIdCustomer() {
+	public void setIdCustomer(Integer cod) {
+		this.idCustomer=cod;
+	}
+	public Integer getIdCustomer() {
 		return idCustomer;
 	}
 	public String getName() {

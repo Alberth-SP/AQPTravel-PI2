@@ -1,4 +1,4 @@
-package com.example.dao;
+package com.aqptravel.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,30 +15,27 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 
-import com.example.logic.Admin;
+import com.aqptravel.logic.Admin;
 
 @Repository
 public class AdminDaoImpl implements AdminDao{
 
 	private  JdbcTemplate jdbcTemplate; 	
 
-	@Override
 	public List<Admin> listAllAdmin() {
 		// TODO Auto-generated method stub		
 		String sql = "SELECT idAdmin, nombre, apellidoAdmin, correoAdmin, estadoAdmin FROM admin";
 
 		List<Admin> listContact = jdbcTemplate.query(sql, new RowMapper<Admin>() {
 
-			@Override
+
 			public Admin mapRow(ResultSet rs, int rowNum) throws SQLException {
 				// TODO Auto-generated method stub
 
-				Admin aContact = new Admin();		
+				Admin aContact = new Admin.BuildAdmin(rs.getString("nombre")).setEmail(rs.getString("correoAdmin"))
+						.setLastname(rs.getString("apellidoAdmin")).build();		
 				aContact.setIdAdmin(rs.getInt("idAdmin"));
-				aContact.setNombre(rs.getString("nombre"));
-				aContact.setApellidoAdmin(rs.getString("apellidoAdmin"));
-				aContact.setCorreoAdmin(rs.getString("correoAdmin"));
-				aContact.setEstadoAdmin(rs.getString("estadoAdmin").charAt(0));
+				aContact.setState(rs.getString("estadoAdmin").charAt(0));
 				return aContact;
 			}
 
@@ -46,36 +43,33 @@ public class AdminDaoImpl implements AdminDao{
 		return listContact;
 	}
 
-	@Override
+
 	public void addAdmin(Admin admin) {
 		String sql = "INSERT INTO admin(nombre,apellidoAdmin,celularAdmin,correoAdmin,direccionAdmin,contrasenaAdmin) values (?, ?, ?, ?, ?, ?)";
 
 		jdbcTemplate.update(sql,
-				admin.getNombre(),
-				admin.getApellidoAdmin(),
-				admin.getCelularAdmin(),
-				admin.getCorreoAdmin(),
-				admin.getDireccionAdmin(),
-				admin.getContrasenaAdmin());		
+				admin.getName(),
+				admin.getLastname(),
+				admin.getPhone(),
+				admin.getEmail(),
+				admin.getAddress(),
+				admin.getPassword());		
 	}
 
-	@Override
 	public void updateAdmin(Admin admin) {
 		// TODO Auto-generated method stub
-		String sql = "UPDATE admin SET nombre = '" + admin.getNombre()
-		+ "', apellidoAdmin = '" + admin.getApellidoAdmin()
-		+ "', celularAdmin = '" + admin.getCelularAdmin()
-		+ "', correoAdmin = '" + admin.getCorreoAdmin()
-		+ "', direccionAdmin = '" + admin.getDireccionAdmin()
-		+ "', contrasenaAdmin = '" + admin.getContrasenaAdmin()
-		+ "', estadoAdmin = '" + admin.getEstadoAdmin() + "' WHERE idAdmin = "+ admin.getIdAdmin()+"";
+		String sql = "UPDATE admin SET nombre = '" + admin.getName()
+		+ "', apellidoAdmin = '" + admin.getLastname()
+		+ "', celularAdmin = '" + admin.getPhone()
+		+ "', correoAdmin = '" + admin.getEmail()
+		+ "', direccionAdmin = '" + admin.getAddress()
+		+ "', contrasenaAdmin = '" + admin.getPassword()
+		+ "', estadoAdmin = '" + admin.getState() + "' WHERE idAdmin = "+ admin.getIdAdmin()+"";
 
 		jdbcTemplate.update(sql);
 
 	}
 
-
-	@Override
 	public void deleteAdmin(Admin admin) {		
 		String sql ="DELETE FROM admin WHERE id = ? ";
 		jdbcTemplate.update("DELETE FROM admin WHERE idAdmin = ?", new Object[] { admin.getIdAdmin() });
@@ -83,20 +77,17 @@ public class AdminDaoImpl implements AdminDao{
 
 	}
 
-	@Override
 	public Admin findAdminById(int id) {
 		// TODO Auto-generated method stub
 		String sql = "SELECT * FROM admin WHERE idAdmin = " + id;
 		List<Admin> listContact = jdbcTemplate.query(sql, new RowMapper<Admin>() {
 
-			@Override
+
 			public Admin mapRow(ResultSet rs, int rowNum) throws SQLException {
 				// TODO Auto-generated method stub
 
-				Admin aContact = new Admin();		
+				Admin aContact = new Admin.BuildAdmin(rs.getString("nombre")).setLastname(rs.getString("apellidoAdmin")).build();		
 				aContact.setIdAdmin(rs.getInt("idAdmin"));
-				aContact.setNombre(rs.getString("nombre"));
-				aContact.setApellidoAdmin(rs.getString("apellidoAdmin"));
 				return aContact;
 			}
 

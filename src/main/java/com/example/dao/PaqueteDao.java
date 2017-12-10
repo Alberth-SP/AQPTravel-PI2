@@ -1,8 +1,8 @@
-package com.example.dao;
+package com.aqptravel.dao;
 
 import java.util.List;
 
-import com.example.logic.Paquete;
+import com.aqptravel.logic.Paquete;
 
 
 public interface PaqueteDao {

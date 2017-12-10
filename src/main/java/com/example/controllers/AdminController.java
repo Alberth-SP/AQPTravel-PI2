@@ -1,4 +1,4 @@
-package com.example.controllers;
+package com.aqptravel.controllers;
 
 import java.io.IOException;
 import java.util.List;
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.example.dao.AdminDao;
-import com.example.logic.Admin;
+import com.aqptravel.dao.AdminDao;
+import com.aqptravel.logic.Admin;
 
 /* CLASE para responder a Solicitudes  desde ADMIN */
 
@@ -36,16 +36,16 @@ public class AdminController {
 		for(Admin admin : listContact){
 			response += "<tr>" +
 					"<td>"+ (++cont) +"</td>" +
-					"<td>"+admin.getNombre()+"</td>" +
-					"<td>"+admin.getApellidoAdmin()+"</td>" +
-					"<td>"+admin.getCorreoAdmin()+"</td>";
+					"<td>"+admin.getName()+"</td>" +
+					"<td>"+admin.getLastname()+"</td>" +
+					"<td>"+admin.getEmail()+"</td>";
 
-			if(admin.getEstadoAdmin() == '1'){
+			if(admin.getState() == '1'){
 				response += " <td> "
 						+ "<input type='checkbox' name='onoffswitch' class='checkAdmin ' id='' value='activo' onchange='changeCheckBox("+admin.getIdAdmin()+", this)' checked>"
 						+ "</td></tr>";
 
-			}else if(admin.getEstadoAdmin() == '0'){
+			}else if(admin.getState() == '0'){
 				response += " <td> "
 						+ "<input type='checkbox' name='onoffswitch' class='checkAdmin ' id='' value='desactivo' onchange='changeCheckBox("+admin.getIdAdmin()+", this)' >"
 						+ "</td></tr>";
@@ -69,14 +69,9 @@ public class AdminController {
 	@ResponseBody 
 	public String saveAdmin(@RequestBody MultiValueMap<String,String> params) throws IOException{    
 	
-		Admin admin = new Admin();
-
-		admin.setNombre(params.getFirst("nombre"));
-		admin.setApellidoAdmin(params.getFirst("apellidoAdmin"));
-		admin.setCelularAdmin(params.getFirst("celularAdmin"));
-		admin.setCorreoAdmin(params.getFirst("correoAdmin"));
-		admin.setDireccionAdmin(params.getFirst("direccionAdmin"));
-		admin.setContrasenaAdmin(params.getFirst("contrasenaAdmin"));		
+		Admin admin = new Admin.BuildAdmin(params.getFirst("nombre")).setEmail(params.getFirst("correoAdmin")).setLastName(params.getFirst("apellidoAdmin"))
+				.setAddress(params.getFirst("direccionAdmin")).setPhone(params.getFirst("celularAdmin")).setPassword(params.getFirst("contrasenaAdmin"))
+				.build();	
 		adminDao.addAdmin(admin);
 		return "true";
 	} 	
@@ -142,8 +137,6 @@ public class AdminController {
 											+ "	</div> </td>"+
 			"</tr>";			
 		}
-
-
 		return response; 
 	}*/
 	
