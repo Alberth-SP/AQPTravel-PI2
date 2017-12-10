@@ -1,5 +1,6 @@
 package com.example.controllers;
 
+
 import java.io.IOException;
 import java.util.List;
 
@@ -60,22 +61,3 @@ public class PaquetController {
 	}
 
 }
-
-/* 
- * <tr>
-                                			<td>Arequipa Fullday</td>
-                                			<td>Agencia Arequipa Travel</td>
-                                			<td>
-                                				<div class='onoffswitch'>
-												    <input type='checkbox' name='onoffswitch' class='onoffswitch-checkbox' id='myonoffswitch' checked>
-												    <label class='onoffswitch-label' for='myonoffswitch'>
-												        <span class='onoffswitch-inner'></span>
-												        <span class='onoffswitch-switch'></span>
-												    </label>
-												</div>
-                                			</td>
-                                			<td>
-                                				
-                                			</td>
-                                		</tr>
-                                		*/

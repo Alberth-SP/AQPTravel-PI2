@@ -48,5 +48,10 @@ public class HomeController {
 		model.setViewName("registrar");
 		return model;
 	}
+	@RequestMapping(value="agregar_paquete_admin", method=RequestMethod.GET)
+	public ModelAndView agregar(ModelAndView model) throws IOException{
+		model.setViewName("agregar_paquete_admin");
+		return model;
+	}
 
 }

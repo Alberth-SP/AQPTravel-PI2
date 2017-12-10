@@ -14,7 +14,7 @@ public class PaqueteDaoImpl implements PaqueteDao {
 	
 	private  JdbcTemplate jdbcTemplate;
 
-	@Override
+
 	public List<Paquete> listAllPaquetes() {
 		// TODO Auto-generated method stub
 		
@@ -22,7 +22,7 @@ public class PaqueteDaoImpl implements PaqueteDao {
 
 		List<Paquete> listPaquet = jdbcTemplate.query(sql, new RowMapper<Paquete>() {
 
-			@Override
+
 			public Paquete mapRow(ResultSet rs, int rowNum) throws SQLException {
 				// TODO Auto-generated method stub
 
@@ -41,31 +41,30 @@ public class PaqueteDaoImpl implements PaqueteDao {
 		return listPaquet;
 	}
 
-	@Override
+
 	public void addPaquete(Paquete admin) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
+
 	public void updatePaquete(Paquete admin) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
+
 	public void deletePaquete(Paquete admin) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
+
 	public Paquete findPaqueteById(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public void changeStatePaquete(int id, char state) {
 		// TODO Auto-generated method stub
 		
