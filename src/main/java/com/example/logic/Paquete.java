@@ -1,4 +1,4 @@
-package com.example.logic;
+package com.aqptravel.logic;
 
 import java.awt.Image;
 

@@ -1,9 +1,8 @@
-package com.example.dao;
-
+package com.aqptravel.dao;
 
 import java.util.List;
 
-import com.example.logic.Admin;
+import com.aqptravel.logic.Admin;
 public interface AdminDao {
 	
 	public List<Admin> listAllAdmin();

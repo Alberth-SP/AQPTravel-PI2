@@ -1,4 +1,4 @@
-package com.example.controllers;
+package com.aqptravel.controllers;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -23,8 +23,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.example.dao.AdminDao;
-import com.example.logic.Admin;
+import com.aqptravel.dao.AdminDao;
+import com.aqptravel.logic.Admin;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.util.JSONPObject;
 
@@ -46,6 +46,11 @@ public class HomeController {
 	@RequestMapping(value="registrar", method=RequestMethod.GET)
 	public ModelAndView register(ModelAndView model) throws IOException{
 		model.setViewName("registrar");
+		return model;
+	}
+	@RequestMapping(value="agregar_paquete_admin", method=RequestMethod.GET)
+	public ModelAndView agregar(ModelAndView model) throws IOException{
+		model.setViewName("agregar_paquete_admin");
 		return model;
 	}
 
