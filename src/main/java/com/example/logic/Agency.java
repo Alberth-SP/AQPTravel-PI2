@@ -2,22 +2,28 @@ package com.example.logic;
 
 public class Agency {
 
-	private final String idAgency;
-	private final String name;
-	private final String email;
-	private final String ruc;
-	private final String socialReason;
-	private final String ubigeo;
-	private final String address;
-	private final int rate;
-	private final String description;
-	private final String password;
-	private final String phone;
-	private final int dayMod;
-	private final int monthMod;
-	private final int yearMod;
-	private final String codAdmin; 
+
+	private String idAgency;
+	private String name;
+	private String email;
+	private String ruc;
+	private String socialReason;
+	private String ubigeo;
+	private String address;
+	private int rate;
+	private String description;
+	private String password;
+	private String phone;
+	private int dayMod;
+	private int monthMod;
+	private int yearMod;
+	private String codAdmin; 
 	private char state;
+	public Agency() {
+		super();
+	}
+
+	////////////////////////////////////////////////////
 	public static class BuildAgency implements BuildUser<Agency>{
 		
 		//Required parameters 
@@ -105,6 +111,9 @@ public class Agency {
 			return this;
 		}
 	}
+	
+
+////////////////////////////////////////////////////
 	private Agency(BuildAgency build) {
 		this.idAgency=build.idAgency;
 		this.name=build.name;
@@ -113,65 +122,144 @@ public class Agency {
 		this.socialReason=build.socialReason;
 		this.ubigeo=build.ubigeo;
 		this.address=build.address;
-		this.setState(build.state);
+		this.rate=build.rate;
 		this.description=build.description;
-		this.password=build.password;
 		this.phone=build.phone;
 		this.dayMod=build.dayMod;
 		this.monthMod=build.monthMod;
 		this.yearMod=build.yearMod;
-		this.rate=build.rate;
 		this.codAdmin=build.codAdmin;
+		this.password=build.password;
+		this.setStateAgency(build.state);
 	}
+	
+	
 	public String getIdAgency() {
 		return idAgency;
 	}
-	public String getName() {
+	public String getNameAgency() {
 		return name;
 	}
-	public String getEmail() {
+	public String getEmailAgency() {
 		return email;
 	}
-	public String getPassword() {
+	public String getPasswordAgency() {
 		return password;
 	}
-	public String getPhone() {
+	public String getPhoneAgency() {
 		return phone;
 	}
-	public char getState() {
+	public char getStateAgency() {
 		return state;
 	}
-	public void setState(char state) {
+	public void setStateAgency(char state) {
 		this.state = state;
 	}
-	public String getDescription() {
+	public String getDescriptionAgency() {
 		return description;
 	}
-	public int getRate() {
+	public int getRateAgency() {
 		return rate;
 	}
-	public String getUbigeo() {
+	public String getUbigeoAgency() {
 		return ubigeo;
 	}
-	public String getSocialReason() {
+	public String getSocialReasonAgency() {
 		return socialReason;
 	}
-	public String getRuc() {
+	public String getRucAgency() {
 		return ruc;
 	}
-	public int getDayMod() {
+	public int getDayModAgency() {
 		return dayMod;
 	}
-	public int getMonthMod() {
+	public int getMonthModAgency() {
 		return monthMod;
 	}
-	public int getYearMod() {
+	public int getYearModAgency() {
 		return yearMod;
 	}
-	public String getCodAdmin() {
+	public String getCodAdminAgency() {
 		return codAdmin;
 	}
-	public String getAddress() {
+	public String getAddressAgency() {
 		return address;
 	}
+	
+	
+	public void setIdAgency(String idAgency) {
+		this.idAgency = idAgency;
+	}
+
+
+	public void setNameAgency(String name) {
+		this.name = name;
+	}
+
+
+	public void setEmailAgency(String email) {
+		this.email = email;
+	}
+
+
+	public void setRucAgency(String ruc) {
+		this.ruc = ruc;
+	}
+
+
+	public void setSocialReasonAgency(String socialReason) {
+		this.socialReason = socialReason;
+	}
+
+
+	public void setUbigeoAgency(String ubigeo) {
+		this.ubigeo = ubigeo;
+	}
+
+
+	public void setAddressAgency(String address) {
+		this.address = address;
+	}
+
+
+	public void setRateAgency(int rate) {
+		this.rate = rate;
+	}
+
+
+	public void setDescriptionAgency(String description) {
+		this.description = description;
+	}
+
+
+	public void setPasswordAgency(String password) {
+		this.password = password;
+	}
+
+
+	public void setPhoneAgency(String phone) {
+		this.phone = phone;
+	}
+
+
+	public void setDayModAgency(int dayMod) {
+		this.dayMod = dayMod;
+	}
+
+
+	public void setMonthModAgency(int monthMod) {
+		this.monthMod = monthMod;
+	}
+
+
+	public void setYearModAgency(int yearMod) {
+		this.yearMod = yearMod;
+	}
+
+
+	public void setCodAdminAgency(String codAdmin) {
+		this.codAdmin = codAdmin;
+	}
+	
+	
 }
