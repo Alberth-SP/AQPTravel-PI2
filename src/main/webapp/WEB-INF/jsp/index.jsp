@@ -58,7 +58,7 @@
     <div class="hero-container">
       <h1>TURISMO y MÁS</h1>
       <h2>Cultura,Entretenimiento y Relax, Reserve ahora y obtenga grandes descuentos </h2>
-      <a href="#about" class="btn-get-started">Registrarse</a>
+      <a href="registrar" class="btn-get-started">Registrarse</a>
     </div>
   </section><!-- #hero -->
 

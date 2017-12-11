@@ -36,16 +36,16 @@ public class AdminController {
 		for(Admin admin : listContact){
 			response += "<tr>" +
 					"<td>"+ (++cont) +"</td>" +
-					"<td>"+admin.getNombre()+"</td>" +
-					"<td>"+admin.getApellidoAdmin()+"</td>" +
-					"<td>"+admin.getCorreoAdmin()+"</td>";
+					"<td>"+admin.getName()+"</td>" +
+					"<td>"+admin.getLastname()+"</td>" +
+					"<td>"+admin.getEmail()+"</td>";
 
-			if(admin.getEstadoAdmin() == '1'){
+			if(admin.getState() == '1'){
 				response += " <td> "
 						+ "<input type='checkbox' name='onoffswitch' class='checkAdmin ' id='' value='activo' onchange='changeCheckBox("+admin.getIdAdmin()+", this)' checked>"
 						+ "</td></tr>";
 
-			}else if(admin.getEstadoAdmin() == '0'){
+			}else if(admin.getState() == '0'){
 				response += " <td> "
 						+ "<input type='checkbox' name='onoffswitch' class='checkAdmin ' id='' value='desactivo' onchange='changeCheckBox("+admin.getIdAdmin()+", this)' >"
 						+ "</td></tr>";
@@ -71,12 +71,13 @@ public class AdminController {
 	
 		Admin admin = new Admin();
 
-		admin.setNombre(params.getFirst("nombre"));
-		admin.setApellidoAdmin(params.getFirst("apellidoAdmin"));
-		admin.setCelularAdmin(params.getFirst("celularAdmin"));
-		admin.setCorreoAdmin(params.getFirst("correoAdmin"));
-		admin.setDireccionAdmin(params.getFirst("direccionAdmin"));
-		admin.setContrasenaAdmin(params.getFirst("contrasenaAdmin"));		
+		admin.setName(params.getFirst("nombre"));
+		admin.setLastname(params.getFirst("apellidoAdmin"));
+		admin.setPhone(params.getFirst("celularAdmin"));
+		admin.setEmail(params.getFirst("correoAdmin"));
+		admin.setAddress(params.getFirst("direccionAdmin"));
+		admin.setPassword(params.getFirst("contrasenaAdmin"));		
+		
 		adminDao.addAdmin(admin);
 		return "true";
 	} 	
