@@ -212,7 +212,7 @@
     <div class="blank">
     	<div class="work-progres">
     	
-    		<form action="">
+    		<form id="form_regPaquete" >
     			<div class="panel panel-default" style=" font-family: 'Ruda', sans-serif;">
     				<div class="panel-heading" style="border-bottom:solid #CCC 1px; padding-top:25px; padding-left:25px">
                     	<h3 class="panel-title"><strong style="font-size:30px">Agregar Nuevo Producto </strong> Formulario</h3>   
@@ -227,7 +227,7 @@
                                                 <div class="col-md-9">                                            
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                                        <input type="text" class="form-control" name="nombrePaquete" required/>
+                                                        <input type="text" class="form-control" name="nombrePaquete" />
                                                     </div>                                            
                                                     <span class="help-block">Ingrese el Nombre del Paquete a Agregar</span>
                                                 </div>
@@ -238,7 +238,7 @@
                                                 <div class="col-md-9">                                            
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                        <input type="text" class="form-control" name="duracionPaquete" required/>
+                                                        <input type="text" class="form-control" name="duracionPaquete" />
                                                     </div>                                            
                                                     <span class="help-block">Ingrese la duraci&oacute;n del Paquete a Agregar</span>
                                                 </div>
@@ -409,9 +409,10 @@
                     	
                     </div>
     				<div class="panel-footer">
-                   	 	<button class="btn btn-default">Limpiar</button>                                    
-                    	<button class="btn btn-primary pull-right" style="background-color:#390; margin-top:-1px">Registrar</button>
-                    </div>
+    				<button class="btn btn-default">Limpiar</button>
+    				
+    				<button type="button" class="btn btn-primary pull-right"  onclick="addPaquete()" >Registrar</button>
+                   	 	</div>
     			</div>
     		</form>
     		
@@ -484,5 +485,8 @@ $(".sidebar-icon").click(function() {
             });
 </script>
 <!-- mother grid end here-->
+
+	<script src="<c:url value="/resources/js/jquery.min.js" />"></script>
+<script src="<c:url value="/resources/js/paquete.js" />"></script>
 </body>
 </html>                     

@@ -8,7 +8,8 @@
     <a href="admin"> Ver Todos</a>
     <br>
     <a href="registrar"> Registrar</a>  
-   
+    <br>
+    <a href="registrar"> otro registro</a> 
 </body>
 
 
