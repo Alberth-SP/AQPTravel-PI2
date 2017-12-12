@@ -187,8 +187,8 @@
             <a href="">
               <img src="<c:url value="/resources/img/portfolio/aventura1.jpg"/>" alt="">
               <div class="details">
-                <h4>Paracas</h4>
-                <span>$200</span>
+                <h4>Paracas - $200</h4>
+                <a href="" class="link-mas">Detalles</a>
               </div>
             </a>
           </div>
@@ -197,8 +197,8 @@
             <a href="">
               <img src="<c:url value="/resources/img/portfolio/naturaleza2.jpg"/>" alt="">
               <div class="details">
-                <h4>Titicaca</h4>
-                <span>$230</span>
+                <h4>Titicaca - $230</h4>
+                <a href="" class="link-mas">Detalles</a>
               </div>
             </a>
           </div>
@@ -207,8 +207,8 @@
             <a href="">
               <img src="<c:url value="/resources/img/portfolio/aventura3.jpg"/>" alt="">
               <div class="details">
-                <h4>Ayacucho</h4>
-                <span>$100</span>
+                <h4>Ayacucho - $170</h4>
+                <a href="" class="link-mas">Detalles</a>
               </div>
             </a>
           </div>
@@ -217,8 +217,8 @@
             <a href="">
               <img src="<c:url value="/resources/img/portfolio/cultura1.jpg"/>" alt="">
               <div class="details">
-                <h4>Lambayeque</h4>
-                <span>$250</span>
+                <h4>Lambayeque - $250</h4>
+                <a href="" class="link-mas">Detalles</a>
               </div>
             </a>
           </div>
@@ -227,8 +227,8 @@
             <a href="">
               <img src="<c:url value="/resources/img/portfolio/cultura2.jpg"/>" alt="">
               <div class="details">
-                <h4>Arequipa</h4>
-                <span>$175</span>
+                <h4>Arequipa - $175</h4>
+                <a href="" class="link-mas">Detalles</a>
               </div>
             </a>
           </div>
@@ -237,8 +237,8 @@
             <a href="">
               <img src="<c:url value="/resources/img/portfolio/naturaleza3.jpg"/>" alt="">
               <div class="details">
-                <h4>Cañon Colca</h4>
-                <span>$200</span>
+                <h4>Cañon Colca - $200</h4>
+                <a href="" class="link-mas">Detalles</a>
               </div>
             </a>
           </div>
@@ -247,8 +247,8 @@
             <a href="">
               <img src="<c:url value="/resources/img/portfolio/cultura3.jpg"/>" alt="">
               <div class="details">
-                <h4>Cusco</h4>
-                <span>$200</span>
+                <h4>Cusco - $250</h4>
+                <a href="" class="link-mas">Detalles</a>
               </div>
             </a>
           </div>
@@ -257,8 +257,8 @@
             <a href="">
               <img src="<c:url value="/resources/img/portfolio/aventura2.jpg"/>" alt="">
               <div class="details">
-                <h4>Piura</h4>
-                <span>$300</span>
+                <h4>Piura - $300</h4>
+                <a href="" class="link-mas">Detalles</a>
               </div>
             </a>
           </div>
@@ -267,8 +267,8 @@
             <a href="">
               <img src="<c:url value="/resources/img/portfolio/relax1.jpg"/>" alt="">
               <div class="details">
-                <h4>Mancora</h4>
-                <span>$500</span>
+                <h4>Mancora - $450</h4>
+                <a href="" class="link-mas">Detalles</a>
               </div>
             </a>
           </div>
@@ -277,8 +277,8 @@
             <a href="">
               <img src="<c:url value="/resources/img/portfolio/relax3.jpg"/>" alt="">
               <div class="details">
-                <h4>Cañete</h4>
-                <span>$250</span>
+                <h4>Cañete - $250</h4>
+                <a href="" class="link-mas">Detalles</a>
               </div>
             </a>
           </div>
@@ -287,8 +287,8 @@
             <a href="">
               <img src="<c:url value="/resources/img/portfolio/naturaleza1.jpg"/>" alt="">
               <div class="details">
-                <h4>Manu</h4>
-                <span>$350</span>
+                <h4>Manu - $350</h4>
+                <a href="" class="link-mas">Detalles</a>
               </div>
             </a>
           </div>
@@ -297,8 +297,8 @@
             <a href="">
               <img src="<c:url value="/resources/img/portfolio/relax2.jpg"/>" alt="">
               <div class="details">
-                <h4>Tambopata</h4>
-                <span>$275</span>
+                <h4>Tambopata - $275</h4>
+                <a href="" class="link-mas">Detalles</a>
               </div>
             </a>
           </div>
