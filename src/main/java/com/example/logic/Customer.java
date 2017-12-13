@@ -10,7 +10,7 @@ public class Customer{
 	private final String password;
 	private final String phone;
 	private final int age;
-	private char state;
+	private String state="0";
 	public static class BuildCustomer implements Builder<Customer>{
 		
 		//Required parameters 
@@ -20,11 +20,9 @@ public class Customer{
 		private String lastname="";
 		private String password="";
 		private String phone="";
-		private char state='0';
 		private int age=0;
-		public BuildCustomer(String name, String email) {
+		public BuildCustomer(String name) {
 			this.name=name;
-			this.email=email;
 		}
 		public BuildCustomer setLastName(String val) {
 			lastname=val;
@@ -58,7 +56,6 @@ public class Customer{
 		this.password=build.password;
 		this.phone=build.phone;
 		this.age=build.age;
-		this.setState(build.state);
 	}
 	public void setIdCustomer(Integer cod) {
 		this.idCustomer=cod;
@@ -84,10 +81,10 @@ public class Customer{
 	public int getAge() {
 		return age;
 	}
-	public char getState() {
+	public String getState() {
 		return state;
 	}
-	public void setState(char state) {
+	public void setState(String state) {
 		this.state = state;
 	}	
 }

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.example.dao.AdminDao;
+import com.example.dao.InterfaceDao;
 import com.example.logic.Admin;
 
 /* CLASE para responder a Solicitudes  desde ADMIN */
@@ -23,13 +23,13 @@ import com.example.logic.Admin;
 public class AdminController {
 
 	@Autowired
-	AdminDao adminDao;
+	InterfaceDao<Admin> adminDao;
 
 	/* Request para obtener lista de usaurios */
 	@RequestMapping(value="admin/list_admin",  method=RequestMethod.POST, produces="text/html;charset=UTF-8")
 	@ResponseBody
 	public String listContact(ModelAndView model) throws IOException{
-		List<Admin> listContact = adminDao.listAllAdmin();
+		List<Admin> listContact = adminDao.listAll();
 
 		String response="";
 		int cont = 0;
@@ -69,16 +69,10 @@ public class AdminController {
 	@ResponseBody 
 	public String saveAdmin(@RequestBody MultiValueMap<String,String> params) throws IOException{    
 	
-		Admin admin = new Admin();
-
-		admin.setName(params.getFirst("nombre"));
-		admin.setLastname(params.getFirst("apellidoAdmin"));
-		admin.setPhone(params.getFirst("celularAdmin"));
-		admin.setEmail(params.getFirst("correoAdmin"));
-		admin.setAddress(params.getFirst("direccionAdmin"));
-		admin.setPassword(params.getFirst("contrasenaAdmin"));		
-		
-		adminDao.addAdmin(admin);
+		Admin admin = new Admin.BuildAdmin(params.getFirst("nombre")).setEmail(params.getFirst("correoAdmin")).setLastName(params.getFirst("apellidoAdmin"))
+				.setAddress(params.getFirst("direccionAdmin")).setPhone(params.getFirst("celularAdmin")).setPassword(params.getFirst("contrasenaAdmin"))
+				.build();	
+		adminDao.add(admin);
 		return "true";
 	} 	
 
@@ -114,7 +108,7 @@ public class AdminController {
 		String []a1 = request.getParameterValues("key");	
 		String []a2 = request.getParameterValues("state");
 	
-		adminDao.changeStateAdmin(Integer.parseInt(a1[0]), a2[0].charAt(0));		
+		adminDao.changeState(Integer.parseInt(a1[0]), a2[0].charAt(0));		
 		return "true";		
 		
 	}
@@ -143,8 +137,6 @@ public class AdminController {
 											+ "	</div> </td>"+
 			"</tr>";			
 		}
-
-
 		return response; 
 	}*/
 	

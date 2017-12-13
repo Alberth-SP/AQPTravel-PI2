@@ -1,21 +1,15 @@
 package com.example.logic;
-
 public class Admin {
 
 	
 	private Integer idAdmin;
-	private String name;
-	private String email;
-	private String lastname;
-	private String phone;
-	private String address;
-	private String password;
+	private final String name;
+	private final String email;
+	private final String lastname;
+	private final String phone;
+	private final String address;
+	private final String password;
 	private char state;
-	
-	
-	public Admin(){ }
-	
-	
 	public static class BuildAdmin implements Builder<Admin>{
 		//Required parameters 
 		private final String name;
@@ -31,7 +25,6 @@ public class Admin {
 		public BuildAdmin(String name) {
 			this.name=name;
 		}
-		
 		
 		public Admin build() {
 			// TODO Auto-generated method stub
@@ -102,24 +95,6 @@ public class Admin {
 	}
 	public void setState(char state) {
 		this.state = state;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
-	}
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
-	public void setPassword(String password) {
-		this.password = password;
 	}
 
 

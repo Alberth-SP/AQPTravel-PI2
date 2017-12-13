@@ -17,12 +17,11 @@ public class Agency {
 	private final Integer monthMod;
 	private final Integer yearMod;
 	private final Integer codAdmin; 
-	private char state;
+	private String state="0";
 	public static class BuildAgency implements Builder<Agency>{
 		
 		//Required parameters 
 		private final String name;
-		
 		//Parameters initialized 
 		private String email="";
 		private String ruc="";
@@ -37,7 +36,6 @@ public class Agency {
 		private int monthMod=0;
 		private int yearMod=0;
 		private Integer codAdmin=0;
-		private char state='0';
 		public BuildAgency(String name) {
 			this.name=name;
 		}
@@ -111,7 +109,6 @@ public class Agency {
 		this.socialReason=build.socialReason;
 		this.ubigeo=build.ubigeo;
 		this.address=build.address;
-		this.setState(build.state);
 		this.description=build.description;
 		this.password=build.password;
 		this.phone=build.phone;
@@ -139,10 +136,10 @@ public class Agency {
 	public String getPhone() {
 		return phone;
 	}
-	public char getState() {
+	public String getState() {
 		return state;
 	}
-	public void setState(char state) {
+	public void setState(String state) {
 		this.state = state;
 	}
 	public String getDescription() {
