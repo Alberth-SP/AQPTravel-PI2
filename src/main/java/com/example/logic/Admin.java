@@ -119,7 +119,7 @@ public class Admin {
 		this.address = address;
 	}
 	public void setPassword(String password) {
-		this.password = password;
+		this.password = Utilidades.Encriptar(password);
 	}
 
 
