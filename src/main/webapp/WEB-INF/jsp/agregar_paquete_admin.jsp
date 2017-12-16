@@ -87,7 +87,7 @@
 												</div>
 											</li>
 											<li><a href="#">
-											   <div class="user_img"><img src="images/p4.png" alt=""></div>
+											   <div class="user_img"><img src="<c:url value="/resources/images/p4.png" />" alt=""></div>
 											   <div class="notification_desc">
 												<p>Jalar de BD mensaje</p>
 												<p><span>Hace 1 hora</span></p>
@@ -95,7 +95,7 @@
 											   <div class="clearfix"></div>	
 											</a></li>
 											<li class="odd"><a href="#">
-												<div class="user_img"><img src="images/p2.png" alt=""></div>
+												<div class="user_img"><img src="<c:url value="/resources/images/p2.png" />" alt=""></div>
 											   <div class="notification_desc">
 												<p>Jalar de BD mensaje</p>
 												<p><span>Hace 1 hora</span></p>
@@ -103,7 +103,7 @@
 											  <div class="clearfix"></div>	
 											</a></li>
 											<li><a href="#">
-											   <div class="user_img"><img src="images/p3.png" alt=""></div>
+											   <div class="user_img"><img src="<c:url value="/resources/images/p3.png" />" alt=""></div>
 											   <div class="notification_desc">
 												<p>Jalar de BD mensaje</p>
 												<p><span>Hace 2 horas</span></p>
@@ -126,7 +126,7 @@
 												</div>
 											</li>
 											<li><a href="#">
-												<div class="user_img"><img src="images/p5.png" alt=""></div>
+												<div class="user_img"><img src="<c:url value="/resources/images/p5.png" />" alt=""></div>
 											   <div class="notification_desc">
 												<p>La agencia (JalarBD) agregÃ³ nuevo paquete</p>
 												<p><span>Hace una hora</span></p>
@@ -134,7 +134,7 @@
 											  <div class="clearfix"></div>	
 											 </a></li>
 											 <li class="odd"><a href="#">
-												<div class="user_img"><img src="images/p6.png" alt=""></div>
+												<div class="user_img"><img src="<c:url value="/resources/images/p6.png" />" alt=""></div>
 											   <div class="notification_desc">
 												<p>La agencia (JalarBD) agregÃ³ nuevo paquete</p>
 												<p><span>Hace 1 hora</span></p>
@@ -142,7 +142,7 @@
 											   <div class="clearfix"></div>	
 											 </a></li>
 											 <li><a href="#">
-												<div class="user_img"><img src="images/p7.png" alt=""></div>
+												<div class="user_img"><img src="<c:url value="/resources/images/p7.png" />" alt=""></div>
 											   <div class="notification_desc">
 												<p>La agencia (JalarBD) agregÃ³ nuevo paquete</p>
 												<p><span>Hace 1 hora</span></p>
@@ -167,7 +167,7 @@
 									<li class="dropdown profile_details_drop">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 											<div class="profile_img">	
-												<span class="prfil-img"><img src="images/p1.png" alt=""> </span> 
+												<span class="prfil-img"><img src="<c:url value="/resources/images/p1.png" />" alt=""> </span> 
 												<div class="user-name">
 													<p>Admin1</p>
 													<span>Administrador</span>
@@ -257,7 +257,7 @@
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Imagen 1</label>
                                                 <div class="col-md-9">                                                                                                                                        
-                                                    <input type="file" class="fileinput btn" name="imagen1" id="filename" title="Browse file" style="font-size:13px"/>
+                                                    <input type="file" class="fileinput btn" name="imagen1" id="imagen1" title="Browse file" style="font-size:13px"/>
                                                     <span class="help-block">Cargue la Imagen 1 a mostrar del Paquete</span>
                                                 </div>
                                             </div>
@@ -265,7 +265,7 @@
                                               <div class="form-group">
                                                 <label class="col-md-3 control-label">Imagen 2</label>
                                                 <div class="col-md-9">                                                                                                                                        
-                                                    <input type="file" class="fileinput btn" name="imagen2" id="filename" title="Browse file" style="font-size:13px"/>
+                                                    <input type="file" class="fileinput btn" name="imagen2" id="imagen2" title="Browse file" style="font-size:13px"/>
                                                     <span class="help-block">Cargue la Imagen 2 a mostrar del Paquete</span>
                                                 </div>
                                             </div>
