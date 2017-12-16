@@ -2,11 +2,20 @@
 function addPaquete(){	
 	alert("inside");
 var url = "paquete/savePaquete";
-	
+var datas = new FormData();
+var other_data = $('#form_regPaquete').serializeArray();
+
+$.each(other_data,function(key,input){
+	datas.append(input.name,input.value);
+});
 	$.ajax({
-		url: url,
+		url: url,		
 		type: 'POST',
-		data: $('#form_regPaquete').serialize(),      
+		data: datas,  
+		enctype: 'multipart/form-data',
+		processData: false,
+		contentType: false,
+		data: datas,      
 		success: function(result){
 			if(result){  
 

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.dao.AdminDao;
@@ -67,12 +68,14 @@ public class PaquetController {
 	
 	@RequestMapping(value="admin/paquete/savePaquete", method=RequestMethod.POST)
 	@ResponseBody 
-	public String savePaquete(@RequestBody MultiValueMap<String,String> params) throws IOException{    
+	public String savePaquete(MultipartHttpServletRequest request) throws IOException{    
 	
 		Paquete paquete = new Paquete();
-		paquete.setNombrePaquete(params.getFirst("nombrePaquete"));
-		paquete.setDescripcionPaquete(params.getFirst("descripcionPaquete"));
-		paquetDao.addPaquete(paquete);
+		paquete.setNombrePaquete(request.getParameter("nombrePaquete"));	
+		paquete.setDescripcionPaquete(request.getParameter("descripcionPaquete"));		
+		
+		paquetDao.addPaquete(paquete);	
+		System.out.println("sdfdfdfddfdfdfdf");
 		
 		return "true";
 	} 	
