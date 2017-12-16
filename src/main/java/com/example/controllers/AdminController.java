@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.dao.AdminDao;
+import com.example.dao.DestinyDao;
 import com.example.logic.Admin;
+import com.example.logic.Destiny;
 
 /* CLASE para responder a Solicitudes  desde ADMIN */
 
@@ -24,6 +26,9 @@ public class AdminController {
 
 	@Autowired
 	AdminDao adminDao;
+	
+	@Autowired
+	DestinyDao destinyDao;
 
 	/* Request para obtener lista de usaurios */
 	@RequestMapping(value="admin/list_admin",  method=RequestMethod.POST, produces="text/html;charset=UTF-8")
@@ -117,6 +122,19 @@ public class AdminController {
 		adminDao.changeStateAdmin(Integer.parseInt(a1[0]), a2[0].charAt(0));		
 		return "true";		
 		
+	}
+	
+	@RequestMapping(value = "admin/getDestinos", method=RequestMethod.POST, produces="text/html;charset=UTF-8")
+	@ResponseBody
+	public String getDestinos(ModelAndView model) throws IOException {
+		System.out.println("hahahaahaha");
+		List<Destiny> listDestiny = destinyDao.listAllDestiny();
+		String response="";
+		
+		for(Destiny destiny : listDestiny)
+			response += "<option value='"+destiny.getIdDestino()+"'>"+destiny.getNombreDestino()+"</option>";					
+		
+		return response;		
 	}
 
 		/*

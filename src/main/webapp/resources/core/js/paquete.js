@@ -1,29 +1,3 @@
-<<<<<<< HEAD
-var d = new Date();
-alert("FECHA: "+d.getDate()+" "+(d.getMonth()+1)+" "+d.getFullYear());
-
-function addPaquete(){	
-	
-	var url = "paquete/savePaquete";
-	//var image1 = $("#imagen1")[0].files[0];
-	//var image2 = $("#imagen2")[0].files[0];
-	
-	//var destinos = $('#multiselectDestino').val();	
-
-	var datas = new FormData();
-	var form_data = $('#form_regPaquete').serializeArray();
-	
-	$.each(form_data,function(key,input){
-		datas.append(input.name,input.value);
-	});
-	
-	//datas.append("image1", image1);
-	//datas.append("image2", image2);
-	//datas.append("destinos", destinos);
-	alert("dfsdf");
-	$.ajax({
-		url: url,
-=======
 
 function addPaquete(){	
 	alert("inside");
@@ -36,16 +10,12 @@ $.each(other_data,function(key,input){
 });
 	$.ajax({
 		url: url,		
->>>>>>> origin/branch-noe
 		type: 'POST',
 		data: datas,  
 		enctype: 'multipart/form-data',
 		processData: false,
 		contentType: false,
-<<<<<<< HEAD
-=======
 		data: datas,      
->>>>>>> origin/branch-noe
 		success: function(result){
 			if(result){  
 
@@ -60,21 +30,13 @@ $.each(other_data,function(key,input){
 			alert('Ocurrio un erro en el Proceso');
 		}
 	});
-<<<<<<< HEAD
-=======
 	
->>>>>>> origin/branch-noe
 }
 
 
 function changeStatePaquete(id,state){  
 	var url = "paquete/changeStatePaquete";
-<<<<<<< HEAD
-	alert("vals: "+id + " "+state);
-
-=======
    alert("vals: "+id + " "+state);
->>>>>>> origin/branch-noe
 	$.ajax({
 		url: url,
 		type: 'POST',
@@ -98,13 +60,8 @@ function changeCheckBox2(id, check){
 
 	var state = "0";
 	if(check.checked){
-<<<<<<< HEAD
-		state="1";
-	}
-=======
 		   state="1";
     }
->>>>>>> origin/branch-noe
 	changeStatePaquete(id, state);		
 }
 

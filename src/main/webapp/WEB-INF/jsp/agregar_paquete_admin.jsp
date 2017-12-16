@@ -10,26 +10,37 @@
 
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<link href="<c:url value="/resources/css/bootstrap.css"/> " rel="stylesheet" 	media="all">
-<!-- Custom Theme files -->
-<link href="<c:url value="/resources/css/style2.css"/> " rel="stylesheet" 	media="all">
+
+<link href="<c:url value="/resources/css/style2.css"/> "
+	rel="stylesheet" media="all">
 <!--js-->
 <script src="<c:url value="/resources/js/jquery.min.js" />"></script>
 <!--icons-css-->
-<link href="<c:url value="/resources/css/font-awesome.css"/> " rel="stylesheet" 	media="all"> 
+<link href="<c:url value="/resources/css/font-awesome.css"/> "
+	rel="stylesheet" media="all">
 <!--Google Fonts-->
-<link href="https://fonts.googleapis.com/css?family=Carrois+Gothic|Work+Sans:400,500,600" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Ruda" rel="stylesheet">
-<link href="<c:url value="/resources/css/font-awesome.min.css"/> " rel="stylesheet" 	media="all"> 
-<link href="<c:url value="/resources/css/multiple-select.css"/> " rel="stylesheet" 	media="all"> 
-
-
+<link
+	href="https://fonts.googleapis.com/css?family=Carrois+Gothic|Work+Sans:400,500,600"
+	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Ruda"
+	rel="stylesheet">
+<link href="<c:url value="/resources/css/font-awesome.min.css"/> "
+	rel="stylesheet" media="all">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css"
+	rel="stylesheet" media="all">
+	
+<link href="<c:url value="/resources/css/bootstrap.css"/> "
+	rel="stylesheet" media="all">
+<link
+	href="<c:url value="/resources/css/bootstrap-datetimepicker.min.css"/>"
+	rel="stylesheet">
 <!--scrolling js-->
-		<script src="<c:url value="/resources/js/jquery.nicescroll.js" />"></script>
-		<script src="<c:url value="/resources/js/scripts.js.js" />"></script>
-		<!--//scrolling js-->
+<script src="<c:url value="/resources/js/jquery.min.js" />"></script>
+<script src="<c:url value="/resources/js/jquery.nicescroll.js" />"></script>
+<script src="<c:url value="/resources/js/scripts.js.js" />"></script>
+<!--//scrolling js-->
 <script src="<c:url value="/resources/js/bootstrap.js" />"></script>
-<script src="<c:url value="/resources/js/multiple-select.js" />"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
 
 <script>
     $(function() {
@@ -234,25 +245,54 @@
                                             </div>
                                             
                                             <div class="form-group">
+													<label class="col-md-3 control-label">Tipo de
+														Paquete</label>
+													<div class="col-md-9">
+														<select class="form-control select" name="tipoPaquete">
+															<option value="Aventura">Aventura</option>
+															<option value="Naturaleza">Naturaleza</option>
+															<option value="Historia y cultura">Historia y
+																cultura</option>
+															<option value="Descanso y relax">Descanso y
+																relax</option>
+															<option value="Entretenimiento">Entretenimiento</option>
+															<option value="Turismo">Turismo</option>
+														</select> <span class="help-block">Seleccione el tipo de
+															paquete</span>
+													</div>
+												</div>
+												
+                                            
+                                            <div class="form-group">
                                                 <label class="col-md-3 control-label">Duraci&oacute;n del Paquete</label>
                                                 <div class="col-md-9">                                            
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                        <input type="text" class="form-control" name="duracionPaquete" />
+                                                        <input type="text" class="form-control" name="duracionPaquete" id="duracionPaquete" readonly />
                                                     </div>                                            
                                                     <span class="help-block">Ingrese la duraci&oacute;n del Paquete a Agregar</span>
                                                 </div>
                                             </div>
+                                            
                                             <!--Aqui se llena la lista con la base de datos-->
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label">Agencia</label>
-                                                <div class="col-md-9">                                                                                            
-                                                    <select class="form-control select"  name="idAgencia">
-                                                        <option value="Agencias BD">Agencias BD</option>
-                                                    </select>
-                                                    <span class="help-block">Seleccione la agencia a la que pertenece el Paquete</span>
-                                                </div>
-                                            </div>
+                                          
+                                          <div class="form-group">
+													<label for="num_personas" class="col-md-3 control-label">Nro.
+														Personas: </label>
+													<div class="col-md-9">
+														<select id="num_niños" name="capacidadPaquete"  
+															class="form-control">
+															<option value="0" selected>0</option>
+															<option value="1">1</option>
+															<option value="2">2</option>
+															<option value="3">3</option>
+															<option value="4">4</option>
+														</select> <span class="help-block">Ingrese el numero
+															m&oacute;aximo de Personas</span>
+													</div>
+												</div>
+												
+												
                                             
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Imagen 1</label>
@@ -270,45 +310,23 @@
                                                 </div>
                                             </div>
                                             
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label">Tipo de Paquete</label>
-                                                <div class="col-md-9">                                                                                            
-                                                    <select class="form-control select"  name="tipoPaquete">
-                                                        <option value="Aventura">Aventura</option>
-                                                        <option value="Naturaleza">Naturaleza</option>
-                                                        <option value="Historia y cultura">Historia y cultura</option>
-                                                        <option value="Descanso y relax">Descanso y relax</option>
-                                                        <option value="Entretenimiento">Entretenimiento</option>
-                                                        <option value="Turismo">Turismo</option>
-                                                    </select>
-                                                    <span class="help-block">Seleccione el tipo de paquete</span>
-                                                </div>
-                                            </div>
+                                            
                                             
                                             <!--Aqui se llena la lista de los destinos turiticos para seleccionar varios(getselects metodo para obtener la lista de seleccionados http://wenzhixin.net.cn/p/multiple-select/docs/#constructor)-->
-                                            
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label">Destino de Paquete</label>
-                                                <div class="col-md-9" style="font-size:13px">                                                                                            
-                                                    
-											        <select id="ms" multiple="multiple" name="destinos">
-											            <option value="1">  January</option>
-											            <option value="2">  February</option>
-											            <option value="3">  March</option>
-											            <option value="4">  April</option>
-											            <option value="5">  May</option>
-											            <option value="6">  June</option>
-											            <option value="7">  July</option>
-											            <option value="8">  August</option>
-											            <option value="9">  September</option>
-											            <option value="10">  October</option>
-											            <option value="11">  November</option>
-											            <option value="12">  December</option>
-											        </select>
+                                            <p><i class="glyphicon glyphicon-search"></i></p>
+                                          <div class="form-group">
+													<label class="col-md-3 control-label">Destino de
+														Paquete</label>
+													<div class="col-md-9" style="font-size: 13px">
+
+														<select id="multiselectDestino" name="multiselectDestinos" class="form-control" multiple="multiple"
+															title="Choose one of the following...">
+														
+															
+														</select> <span class="help-block">Seleccione llos destinosturisticos del paquete</span>
 													
-                                                    <span class="help-block">Seleccione llos destinos turisticos del paquete</span>
-                                                </div>
-                                            </div>
+													</div>
+												</div>
                                          
                         	</fieldset>
                         	
@@ -465,6 +483,29 @@
 	<div class="clearfix"> </div>
 </div>
 <!--slide bar menu end here-->
+<script src="<c:url value="/resources/js/bootstrap-datetimepicker.min.js"/>"></script>
+
+<script>
+$(document).ready(function() {
+	alert("okkkk");
+    $('#multiselectDestino').multiselect({
+    	includeSelectAllOption: true,
+    	nonSelectedText: 'select option',
+    	enableFiltering: true,
+    	enableCaseInsensitiveFiltering:true,
+    	buttonWidth:'300px',  	
+    	
+    }); 
+    
+    $.post("getDestinos",function(data){    	
+    	$("#multiselectDestino").html(data);
+    	$('#multiselectDestino').multiselect('rebuild');
+	});
+    
+      
+    
+});
+</script>
 <script>
 var toggle = true;
             
@@ -483,10 +524,26 @@ $(".sidebar-icon").click(function() {
   }               
                 toggle = !toggle;
             });
+            
+$("#duracionPaquete").datetimepicker({
+	format : 'yyyy-mm-dd',
+	minView : 2,
+	autoclose : 1
+});
+
+$("#duracionOferta").datetimepicker({
+	format : 'yyyy-mm-dd',
+	minView : 2,
+	autoclose : 1
+});
+
+$("#labelOferta").click(function() {
+	alert("change!!");
+});
+
 </script>
 <!-- mother grid end here-->
 
-	<script src="<c:url value="/resources/js/jquery.min.js" />"></script>
 <script src="<c:url value="/resources/js/paquete.js" />"></script>
 </body>
 </html>                     
