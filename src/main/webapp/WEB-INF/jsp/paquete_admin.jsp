@@ -470,7 +470,8 @@ $(".sidebar-icon").click(function() {
             });
 </script>
 
-	<script src="<c:url value="/resources/js/bootstrap.js" />"></script>
+	<script src="<c:url value="/resources/js/bootstrap.js" />"></script>}
+	<script src="<c:url value="/resources/js/paquete.js" />"></script>
 </body>
 </html>
 

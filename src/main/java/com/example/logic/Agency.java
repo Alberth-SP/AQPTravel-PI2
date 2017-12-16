@@ -2,6 +2,7 @@ package com.example.logic;
 
 public class Agency {
 
+<<<<<<< HEAD
 
 	private String idAgency;
 	private String name;
@@ -25,12 +26,31 @@ public class Agency {
 
 	////////////////////////////////////////////////////
 	public static class BuildAgency implements BuildUser<Agency>{
+=======
+	private Integer idAgency;
+	private final String name;
+	private final String email;
+	private final String ruc;
+	private final String socialReason;
+	private final String ubigeo;
+	private final String address;
+	private final Integer rate;
+	private final String description;
+	private final String password;
+	private final String phone;
+	private final Integer dayMod;
+	private final Integer monthMod;
+	private final Integer yearMod;
+	private final Integer codAdmin; 
+	private char state;
+	public static class BuildAgency implements Builder<Agency>{
+>>>>>>> master
 		
 		//Required parameters 
 		private final String name;
-		private final String email;
+		
 		//Parameters initialized 
-		private String idAgency="";
+		private String email="";
 		private String ruc="";
 		private String socialReason="";
 		private String ubigeo="";
@@ -42,11 +62,14 @@ public class Agency {
 		private int dayMod=0;
 		private int monthMod=0;
 		private int yearMod=0;
-		private String codAdmin="";
+		private Integer codAdmin=0;
 		private char state='0';
-		public BuildAgency(String name, String email) {
+		public BuildAgency(String name) {
 			this.name=name;
-			this.email=email;
+		}
+		public BuildAgency setEmail(String val) {
+			this.email=val;
+			return this;
 		}
 		public BuildAgency setAddress(String val) {
 			this.address=val;
@@ -57,15 +80,11 @@ public class Agency {
 			return this;
 		}
 		public BuildAgency setPassword(String val) {
-			password=val;
+			password=Utilidades.Encriptar(val);
 			return this;
 		}
 		public BuildAgency setPhone(String val) {
 			phone=val;
-			return this;
-		}
-		public BuildAgency setIdAgency(int cod) {
-			this.idAgency="AG"+cod;
 			return this;
 		}
 		public Agency build() {
@@ -106,7 +125,7 @@ public class Agency {
 			this.yearMod = yearMod;
 			return this;
 		}
-		public BuildAgency setCodAdmin(String codAdmin) {
+		public BuildAgency setCodAdmin(Integer codAdmin) {
 			this.codAdmin =codAdmin;
 			return this;
 		}
@@ -115,7 +134,6 @@ public class Agency {
 
 ////////////////////////////////////////////////////
 	private Agency(BuildAgency build) {
-		this.idAgency=build.idAgency;
 		this.name=build.name;
 		this.email=build.email;
 		this.ruc=build.ruc;
@@ -132,9 +150,16 @@ public class Agency {
 		this.password=build.password;
 		this.setStateAgency(build.state);
 	}
+<<<<<<< HEAD
 	
 	
 	public String getIdAgency() {
+=======
+	public void setIdAgency(Integer val) {
+		this.idAgency=val;
+	}
+	public Integer getIdAgency() {
+>>>>>>> master
 		return idAgency;
 	}
 	public String getNameAgency() {
@@ -179,7 +204,11 @@ public class Agency {
 	public int getYearModAgency() {
 		return yearMod;
 	}
+<<<<<<< HEAD
 	public String getCodAdminAgency() {
+=======
+	public Integer getCodAdmin() {
+>>>>>>> master
 		return codAdmin;
 	}
 	public String getAddressAgency() {

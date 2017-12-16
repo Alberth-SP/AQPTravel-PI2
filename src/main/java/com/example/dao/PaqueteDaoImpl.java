@@ -28,7 +28,7 @@ public class PaqueteDaoImpl implements PaqueteDao {
 
 				Paquete aPaquet = new Paquete();		
 				aPaquet.setIdPaquete(rs.getInt("idPaquete"));
-				aPaquet.setIdPaquete(rs.getInt("idAgencia"));				
+				aPaquet.setIdAgencia(rs.getInt("idAgencia"));				
 				aPaquet.setNombrePaquete(rs.getString("nombrePaquete"));				
 				aPaquet.setNumPaquete(rs.getInt("numPaquete"));					
 				aPaquet.setEstadoPaquete(rs.getString("estadoPaquete").charAt(0));				
@@ -42,8 +42,12 @@ public class PaqueteDaoImpl implements PaqueteDao {
 	}
 
 	@Override
-	public void addPaquete(Paquete admin) {
+	public void addPaquete(Paquete paquete) {
 		// TODO Auto-generated method stub
+		String sql = "INSERT INTO paquete(idAgencia,nombrePaquete,descripcionPaquete) values (?, ?, ?)";
+
+		jdbcTemplate.update(sql, 2, paquete.getNombrePaquete(), paquete.getDescripcionPaquete());
+		
 		
 	}
 
@@ -64,10 +68,17 @@ public class PaqueteDaoImpl implements PaqueteDao {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
 	@Override
-	public void changeStatePaquete(int id, char state) {
+	public void changeStatePaquete(int idPaquete, char state) {
 		// TODO Auto-generated method stub
+		System.out.println("state: "+ state);
+		String sql = "UPDATE paquete SET estadoPaquete = '" + state 
+				+ "' WHERE idPaquete = "+ idPaquete +"";
+
+				int res = jdbcTemplate.update(sql);
+				if(res == 1) 
+					System.out.println("state: "+ state);
 		
 	}
 	
