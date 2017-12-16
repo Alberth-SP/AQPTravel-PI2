@@ -126,7 +126,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header.header-fixed {
-  background: rgba(52, 59, 64, 0.9);
+  background: rgba(52, 59, 64, 1);
   padding: 20px 0;
   height: 72px;
   transition: all 0.5s;
@@ -481,13 +481,16 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #about .about-container .background {
+
   min-height: 300px;
-  background: url(../img/per-imagen.jpg) center top no-repeat;
-  margin-bottom: 10px;
+
+ 
+
 }
 
 #about .about-container .content {
   background: #fff;
+
 }
 
 #about .about-container .title {
@@ -956,9 +959,44 @@ body.mobile-nav-active #mobile-nav-toggle {
   border-width: 2px;
   border-color: #756E6B;
   padding:35px;
-  padding-bottom: 25px;
+  padding-bottom: 5px;
 
 }
 .personalizado2{
+ 
 
 }
+.background1{
+   min-height: 480px;
+  background: url(../img/back1.jpeg) center top no-repeat;
+}
+.acerca-de{
+  padding: 20px;
+  padding-top: 100px;
+  background: #658525;
+  color:#fff;
+}
+.acerca-de p{
+  font-size: 20px;
+}
+#test1{
+  position:absolute;
+  left:80%;
+  color:red;
+}
+.link-mas{
+  position:absolute;
+  color:#fff;
+  left:60%;
+  bottom: 15%;
+  padding:3px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+    .link-mas:hover{
+      background: #fff;
+      color:#2DC997;
+    }

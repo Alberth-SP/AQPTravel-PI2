@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 var d = new Date();
 alert("FECHA: "+d.getDate()+" "+(d.getMonth()+1)+" "+d.getFullYear());
 
@@ -22,11 +23,29 @@ function addPaquete(){
 	alert("dfsdf");
 	$.ajax({
 		url: url,
+=======
+
+function addPaquete(){	
+	alert("inside");
+var url = "paquete/savePaquete";
+var datas = new FormData();
+var other_data = $('#form_regPaquete').serializeArray();
+
+$.each(other_data,function(key,input){
+	datas.append(input.name,input.value);
+});
+	$.ajax({
+		url: url,		
+>>>>>>> origin/branch-noe
 		type: 'POST',
 		data: datas,  
 		enctype: 'multipart/form-data',
 		processData: false,
 		contentType: false,
+<<<<<<< HEAD
+=======
+		data: datas,      
+>>>>>>> origin/branch-noe
 		success: function(result){
 			if(result){  
 
@@ -41,13 +60,21 @@ function addPaquete(){
 			alert('Ocurrio un erro en el Proceso');
 		}
 	});
+<<<<<<< HEAD
+=======
+	
+>>>>>>> origin/branch-noe
 }
 
 
 function changeStatePaquete(id,state){  
 	var url = "paquete/changeStatePaquete";
+<<<<<<< HEAD
 	alert("vals: "+id + " "+state);
 
+=======
+   alert("vals: "+id + " "+state);
+>>>>>>> origin/branch-noe
 	$.ajax({
 		url: url,
 		type: 'POST',
@@ -71,8 +98,13 @@ function changeCheckBox2(id, check){
 
 	var state = "0";
 	if(check.checked){
+<<<<<<< HEAD
 		state="1";
 	}
+=======
+		   state="1";
+    }
+>>>>>>> origin/branch-noe
 	changeStatePaquete(id, state);		
 }
 
