@@ -1098,7 +1098,7 @@
 		        <li id="menu-comunicacao" ><a href="#"><i class="fa fa-cogs"></i><span>Configuraciones</span><span class="fa fa-angle-right" style="float: right"></span></a>
                 <ul>
 		            <li><a href="admin">Usuarios</a></li>
-		            <li><a href="#">Agencias Tur&iacute;sticas</a></li>	
+		            <li><a href="admin/agencias">Agencias Tur&iacute;sticas</a></li>	
                     <li><a href="admin/paquetes">Paquetes Tur&iacute;sticas</a></li>
                     
                     <!-- AGREGUEN ESTOOOOOOOOOOOOOOO -->  

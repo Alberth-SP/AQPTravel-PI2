@@ -3,7 +3,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Administrador</title>
+<title>Administrador-Agencias</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -30,6 +30,7 @@
 		<!--//scrolling js-->
 <script src="<c:url value="/resources/js/bootstrap.js" />"></script>
 <script src="<c:url value="/resources/js/multiple-select.js" />"></script>
+<link href="<c:url value="/resources/css/bootstrap-datetimepicker.min.css"/>" rel="stylesheet">
 
 <script>
     $(function() {
@@ -212,158 +213,101 @@
     <div class="blank">
     	<div class="work-progres">
     	
-    		<form id="form_regPaquete" >
+    		<form id="form_regAgencia" >
     			<div class="panel panel-default" style=" font-family: 'Ruda', sans-serif;">
     				<div class="panel-heading" style="border-bottom:solid #CCC 1px; padding-top:25px; padding-left:25px">
-                    	<h3 class="panel-title"><strong style="font-size:30px">Agregar Nuevo Producto </strong> Formulario</h3>   
+                    	<h3 class="panel-title"><strong style="font-size:30px">Agregar Nueva Agencia </strong> Formulario</h3>   
                     </div>
                     <div class="panel-body">
                     	<div class="col-md-6">
                     		<fieldset>
-                                        <legend> Datos del Producto </legend>
+                                        <legend> Datos de la Agencia</legend>
                                             
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label">Nombre del Paquete</label>
+                                                <label class="col-md-3 control-label">Nombre de Agencia</label>
                                                 <div class="col-md-9">                                            
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                                        <input type="text" class="form-control" name="nombrePaquete" />
+                                                        <input type="text" class="form-control" name="nombreAgencia" />
                                                     </div>                                            
-                                                    <span class="help-block">Ingrese el Nombre del Paquete a Agregar</span>
+                                                    <span class="help-block">Ingrese el Nombre de la agencia</span>
                                                 </div>
                                             </div>
-                                            
+
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label">Duraci&oacute;n del Paquete</label>
+                                                <label class="col-md-3 control-label">RUC Agencia</label>
                                                 <div class="col-md-9">                                            
                                                     <div class="input-group">
-                                                        <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                        <input type="text" class="form-control" name="duracionPaquete" />
+                                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                                        <input type="text" class="form-control" name="rucAgencia" />
                                                     </div>                                            
-                                                    <span class="help-block">Ingrese la duraci&oacute;n del Paquete a Agregar</span>
+                                                    <span class="help-block">Ingrese RUC de la agencia</span>
                                                 </div>
                                             </div>
-                                            <!--Aqui se llena la lista con la base de datos-->
+
+
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label">Agencia</label>
-                                                <div class="col-md-9">                                                                                            
-                                                    <select class="form-control select"  name="idAgencia">
-                                                        <option value="Agencias BD">Agencias BD</option>
-                                                    </select>
-                                                    <span class="help-block">Seleccione la agencia a la que pertenece el Paquete</span>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label">Imagen 1</label>
-                                                <div class="col-md-9">                                                                                                                                        
-                                                    <input type="file" class="fileinput btn" name="imagen1" id="filename" title="Browse file" style="font-size:13px"/>
-                                                    <span class="help-block">Cargue la Imagen 1 a mostrar del Paquete</span>
-                                                </div>
-                                            </div>
-                                            
-                                              <div class="form-group">
-                                                <label class="col-md-3 control-label">Imagen 2</label>
-                                                <div class="col-md-9">                                                                                                                                        
-                                                    <input type="file" class="fileinput btn" name="imagen2" id="filename" title="Browse file" style="font-size:13px"/>
-                                                    <span class="help-block">Cargue la Imagen 2 a mostrar del Paquete</span>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label">Tipo de Paquete</label>
-                                                <div class="col-md-9">                                                                                            
-                                                    <select class="form-control select"  name="tipoPaquete">
-                                                        <option value="Aventura">Aventura</option>
-                                                        <option value="Naturaleza">Naturaleza</option>
-                                                        <option value="Historia y cultura">Historia y cultura</option>
-                                                        <option value="Descanso y relax">Descanso y relax</option>
-                                                        <option value="Entretenimiento">Entretenimiento</option>
-                                                        <option value="Turismo">Turismo</option>
-                                                    </select>
-                                                    <span class="help-block">Seleccione el tipo de paquete</span>
-                                                </div>
-                                            </div>
-                                            
-                                            <!--Aqui se llena la lista de los destinos turiticos para seleccionar varios(getselects metodo para obtener la lista de seleccionados http://wenzhixin.net.cn/p/multiple-select/docs/#constructor)-->
-                                            
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label">Destino de Paquete</label>
-                                                <div class="col-md-9" style="font-size:13px">                                                                                            
-                                                    
-											        <select id="ms" multiple="multiple" name="destinos">
-											            <option value="1">  January</option>
-											            <option value="2">  February</option>
-											            <option value="3">  March</option>
-											            <option value="4">  April</option>
-											            <option value="5">  May</option>
-											            <option value="6">  June</option>
-											            <option value="7">  July</option>
-											            <option value="8">  August</option>
-											            <option value="9">  September</option>
-											            <option value="10">  October</option>
-											            <option value="11">  November</option>
-											            <option value="12">  December</option>
-											        </select>
-													
-                                                    <span class="help-block">Seleccione llos destinos turisticos del paquete</span>
-                                                </div>
-                                            </div>
-                                         
-                        	</fieldset>
-                        	
-                        	<fieldset>
-                                <legend>Precio y Stock </legend>
-                                            
-                                            <div class="form-group">                                        
-                                                <label class="col-md-3 control-label">Precio Paquete: S/.</label>
-                                                <div class="col-md-9">
+                                                <label class="col-md-3 control-label">Raz. Social de Agencia</label>
+                                                <div class="col-md-9">                                            
                                                     <div class="input-group">
-                                                        <span class="input-group-addon"><span class="fa  fa-usd"></span></span>
-                                                        <input type="text" class="form-control" name="precioPaquete" maxlength="5" pattern="+[1-9]*[0-9]{3}\\+.*[0.9]{2}">                                            
-                                                    </div>
-                                                    <span class="help-block">Ingrese precio sin Descuentos</span>
+                                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                                        <input type="text" class="form-control" name="razonsocialAgencia" />
+                                                    </div>                                            
+                                                    <span class="help-block">Ingrese Raz. Social de la agencia</span>
                                                 </div>
                                             </div>
-                                            
-                                            
-                                             <div class="form-group">                                        
-                                                <label class="col-md-3 control-label">Precio Descuento: S/.</label>
-                                                <div class="col-md-9">
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon"><span class="fa  fa-usd"></span></span>
-                                                        <input type="text" name="capacidadPaquete" class="form-control"  maxlength="5" pattern="+[1-9]*[0-9]{3}\\+.*[0.9]{2}">                                            
-                                                    </div>
-                                                    <span class="help-block">Ingrese precio para Decuentos</span>
-                                                </div>
-                                            </div>
-                                            
-                                             <div class="form-group">                                        
-                                                <label class="col-md-3 control-label">Stock</label>
-                                                <div class="col-md-9">
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon"><span class="fa fa-refresh"></span></span>
-                                                        <input type="text" class="form-control" name="stock" maxlength="5" pattern="[0-9]">                                            
-                                                    </div>
-                                                    <span class="help-block">Ingrese Stock actual del Paquete</span>
-                                                </div>
-                                            </div>
-                                            
+
+
                                             <div class="form-group">
-                                            	<label class="col-md-3 control-label">Descuento</label>
-                                                <div class="col-md-9">     
-                                                	<div class="btn-group" data-toggle="buttons">
-			
-														<label class="btn btn-success active">
-															<input type="checkbox" autocomplete="off" checked>
-															<span class="fa fa-check"></span>
-															
-														</label>
-														<span class="input-group-addon" style="font-size:16px;height:34px"> &nbsp;&nbsp;Seleccione si est&aacute; en descuento</span>
-													</div>
-                                                    
+                                                <label class="col-md-3 control-label">Email de Agencia</label>
+                                                <div class="col-md-9">                                            
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                                        <input type="text" class="form-control" name="emailAgencia" />
+                                                    </div>                                            
+                                                    <span class="help-block">Ingrese el email de la agencia</span>
                                                 </div>
                                             </div>
+
+
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Ubigeo de Agencia</label>
+                                                <div class="col-md-9">                                            
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                                        <input type="text" class="form-control" name="ubigeoAgencia" />
+                                                    </div>                                            
+                                                    <span class="help-block">Ingrese el Ubigeo de la agencia</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Direccion de Agencia</label>
+                                                <div class="col-md-9">                                            
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                                        <input type="text" class="form-control" name="direccionAgencia" />
+                                                    </div>                                            
+                                                    <span class="help-block">Ingrese el Direccion de la agencia</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Telefono de Agencia</label>
+                                                <div class="col-md-9">                                            
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                                        <input type="text" class="form-control" name="telefonoAgencia" />
+                                                    </div>                                            
+                                                    <span class="help-block">Ingrese el telefono de la agencia</span>
+                                                </div>
+                                            </div>
+
+
+
+
+
+       
                                        
                         	</fieldset>
                         	
@@ -372,37 +316,92 @@
                     	<div class="col-md-6">
                     		<fieldset>
 	                    		<legend> Descripci&oacute;n General </legend>
+
 	                    		<div class="form-group">
-	                            	<label class="col-md-3 control-label">Descripción del Paquete</label>
+                                                <label class="col-md-3 control-label">Valoracion de la Agencia</label>
+                                                <div class="col-md-9">                                                                                            
+                                                    <select class="form-control select"  name="valoracionAgencia">
+                                                        <option value="0">000</option>
+                                                        <option value="1">111</option>
+                                                        <option value="2">222</option>
+                                                        <option value="3">333</option>
+                                                        <option value="4">444</option>
+                                                        <option value="5">555</option>
+                                                    </select>
+                                                    <span class="help-block">Seleccione valoracion de Agencia</span>
+                                                </div>
+                                            </div>
+
+
+
+
+	                    		<div class="form-group">
+	                            	<label class="col-md-3 control-label">Descripci&oacute;n de la Agencia</label>
 	                              	<div class="col-md-9 col-xs-12">                                            
-	                                	<textarea class="form-control" rows="6" name="descripcionPaquete"></textarea>
-	                                    <span class="help-block">Ingrese la descripción detallada del Paquete</span>
+	                                	<textarea class="form-control" rows="6" name="descripcionAgencia"></textarea>
+	                                    <span class="help-block">Ingrese la descripción detallada de la agencia</span>
 	                              	</div>
 	                          	</div>
+
+
+
+								<div class="form-group">
+                                    <label class="col-md-3 control-label">Fecha de Agencia</label>
+                                    <div class="col-md-9">                                            
+                                        <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                        <input size="16" type="text" class="form-control" id="fecha_ida" name="fechaAgencia" readonly>
+                                         </div>                                            
+                                            <span class="help-block">Ingrese fecha de la agencia</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                                <label class="col-md-3 control-label">ADMIN de la Agencia</label>
+                                                <div class="col-md-9">                                                                                            
+                                                    <select class="form-control select"  name="adminAgencia">
+                                                        <option value="0">000</option>
+                                                        <option value="1">111</option>
+                                                        <option value="2">222</option>
+                                                        <option value="3">333</option>
+                                                        <option value="4">444</option>
+                                                        <option value="5">555</option>
+                                                    </select>
+                                                    <span class="help-block">Seleccione admin de Agencia</span>
+                                                </div>
+                                            </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Contraseña de Agencia</label>
+                                    <div class="col-md-9">                                            
+                                        <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                        <input type="text" class="form-control" name="passAgencia" />
+                                         </div>                                            
+                                            <span class="help-block">Ingrese password de la agencia</span>
+                                    </div>
+                                </div>
+
+                                
+
+								<div class="form-group">
+                                    <label class="col-md-3 control-label">EstadoAgencia</label>
+                                    <div class="col-md-9">                                            
+                                        <div class="input-group">
+	                                        <label class="radio-inline"><input type="radio" name="estadoAgencia" value="0">0</label>
+											<label class="radio-inline"><input type="radio" name="estadoAgencia" value="1">1</label>
+                                         </div>                                            
+                                            <span class="help-block">Ingrese estado de la agencia</span>
+                                    </div>
+                                </div>
+
 	                          	
-	                          	<div class="form-group">
-	                            	<label class="col-md-3 control-label">Itinerario del Paquete</label>
-	                              	<div class="col-md-9 col-xs-12">                                            
-	                                	<textarea class="form-control" rows="10" name="itinerario"></textarea>
-	                                    <span class="help-block">Ingrese el itinerario del Paquete</span>
-	                              	</div>
-	                          	</div>
-	                          	
-	                          	<div class="form-group">
-	                            	<label class="col-md-3 control-label">Recomendaciones del Paquete</label>
-	                              	<div class="col-md-9 col-xs-12">                                            
-	                                	<textarea class="form-control" rows="6" name="recomendacionesPaquete"></textarea>
-	                                    <span class="help-block">Ingrese las recomendaciones del Paquete</span>
-	                              	</div>
-	                          	</div>
-	                          	
-	                          	<div class="form-group">
-	                            	<label class="col-md-3 control-label" >Servicios incluidos en el Paquete</label>
-	                              	<div class="col-md-9 col-xs-12">                                            
-	                                	<textarea class="form-control" rows="6" name="servicios"></textarea>
-	                                    <span class="help-block">Ingrese los servicios incluidos en el Paquete</span>
-	                              	</div>
-	                          	</div>
+
+
+
+
+
+
                     		</fieldset>
                           	
                     	</div>
@@ -411,7 +410,7 @@
     				<div class="panel-footer">
     				<button class="btn btn-default">Limpiar</button>
     				
-    				<button type="button" class="btn btn-primary pull-right"  onclick="addPaquete()" >Registrar</button>
+    				<button type="button" class="btn btn-primary pull-right"  onclick="addAgencia()" >Registrar</button>
                    	 	</div>
     			</div>
     		</form>
@@ -487,6 +486,21 @@ $(".sidebar-icon").click(function() {
 <!-- mother grid end here-->
 
 	<script src="<c:url value="/resources/js/jquery.min.js" />"></script>
-<script src="<c:url value="/resources/js/paquete.js" />"></script>
+<script src="<c:url value="/resources/js/agencia.js" />"></script>
+<script src="<c:url value="/resources/js/bootstrap-datetimepicker.min.js"/>"></script>
+
+ <script src="<c:url value="/resources/js/main.js"/>"></script>
+  <script type="text/javascript">
+    $("#fecha_ida").datetimepicker({
+        format: 'yyyy-mm-dd',
+        minView: 2,
+        autoclose: 1
+    });
+    $("#fecha_regreso").datetimepicker({
+        format: 'yyyy-mm-dd',
+        minView: 2,
+        autoclose: 1
+    });
+  </script>
 </body>
 </html>                     

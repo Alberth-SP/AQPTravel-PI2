@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.dao.AdminDao;
+import com.example.dao.AgenciaDao;
 import com.example.logic.Admin;
 
 /* CLASE para responder a Solicitudes  desde ADMIN */
@@ -118,6 +119,34 @@ public class AdminController {
 		return "true";		
 		
 	}
+	
+	
+	
+	
+	
+	/* Request para envio de pagina de Agencia */
+	@RequestMapping(value="admin/agencias", method=RequestMethod.GET)
+	public ModelAndView agencias(ModelAndView model) throws IOException{
+
+		ModelAndView model2 = new ModelAndView();
+		model2.setViewName("agencia_admin");	 
+		
+		return model2;
+
+	}
+	
+	/* Request para envio de Formulario de Agencia */	
+	@RequestMapping(value="admin/agregar_agencias", method=RequestMethod.GET)
+	public ModelAndView formAgencias(ModelAndView model) throws IOException{
+
+		ModelAndView model2 = new ModelAndView();
+		model2.setViewName("agregar_agencia_admin");	 
+		
+		return model2;
+
+	}
+	
+
 
 		/*
 	 * @RequestMapping(value="admin/list_admin", produces="text/html;charset=UTF-8")

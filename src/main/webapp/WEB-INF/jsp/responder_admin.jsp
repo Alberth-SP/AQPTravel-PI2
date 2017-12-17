@@ -261,7 +261,7 @@
 		        <li id="menu-comunicacao" ><a href="#"><i class="fa fa-cogs"></i><span>Configuraciones</span><span class="fa fa-angle-right" style="float: right"></span></a>
                 <ul>
 		            <li><a href="admin">Usuarios</a></li>
-		            <li><a href="#">Agencias Tur&iacute;sticas</a></li>	
+		            <li><a href="admin/agencias">Agencias Tur&iacute;sticas</a></li>	
                     <li><a href="admin/paquetes">Paquetes Tur&iacute;sticas</a></li>
                     <li><a href="admin/sitios_turisticos">Sitios Tur&iacute;sticos</a></li>	
                     <li><a href="#">Restaurar Informaci&oacute;n</a></li>            

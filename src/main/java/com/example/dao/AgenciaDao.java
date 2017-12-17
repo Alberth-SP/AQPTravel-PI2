@@ -1,6 +1,7 @@
 package com.example.dao;
 
 import java.sql.ResultSet;
+
 import java.sql.SQLException;
 import java.util.List;
 
@@ -22,12 +23,17 @@ import com.example.logic.Admin;
 
 import com.example.logic.Agency;
 
+
+@Repository
 public class AgenciaDao implements InterfaceDao<Agency>{
 	
-	private  JdbcTemplate jdbcTemplate; 
+	private  JdbcTemplate jdbcTemplate;
 
 	public List<Agency> listAll() {
-		String sql = "SELECT idAdmin, nombre, apellidoAdmin, correoAdmin, estadoAdmin FROM admin";
+		String sql = "SELECT idAgencia, nombreAgencia, correoAgencia, rucAgencia, razonsocialAgencia, "
+				+ "ubigeoAgencia, direccionAgencia, valoracionAgencia, descripcionAgencia,"
+				+ "telefonoAgencia, diaModAgencia, mesModAgencia, anioModAgencia, "
+				+ "idAdmin, contrasenaAgencia, estadoAgencia  FROM agencia";
 
 		List<Agency> listContact = jdbcTemplate.query(sql, new RowMapper<Agency>() {
 
@@ -49,6 +55,8 @@ public class AgenciaDao implements InterfaceDao<Agency>{
 						.setYearMod(rs.getInt("anioModAgencia"))
 						.setCodAdmin(rs.getInt("idAdmin"))
 						.setPassword(rs.getString("contrasenaAgencia"))
+						.setState(rs.getString("estadoAgencia").charAt(0))
+
 						.build();
 				aContact.setIdAgency(rs.getInt("idAgencia"));
 				return aContact;
@@ -60,10 +68,11 @@ public class AgenciaDao implements InterfaceDao<Agency>{
 
 	public void add(Agency t) {
 		
-		String sql = "INSERT INTO agency(nombreAgencia,correoAgencia,rucAgencia,razonsocialAgencia"
+		
+		String sql = "INSERT INTO agencia(nombreAgencia,correoAgencia,rucAgencia,razonsocialAgencia"
 				+ ",ubigeoAgencia,direccionAgencia,valoracionAgencia,descripcionAgencia"
 				+ ",telefonoAgencia,diaModAgencia,mesModAgencia,anioModAgencia,idAdmin"
-				+ ",contrasenaAdmin,estadoAgencia) values (?, ?, ?, ?, ?, ?,?,?, ?, ?, ?, ?, ?,?)";
+				+ ",contrasenaAgencia,estadoAgencia) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
 
 		jdbcTemplate.update(sql,
 				t.getName(),
@@ -80,7 +89,7 @@ public class AgenciaDao implements InterfaceDao<Agency>{
 				t.getYearMod(),
 				t.getCodAdmin(),
 				t.getPassword(),
-				t.getState()
+				Integer.parseInt(t.getState()+"")
 				);	
 		
 	}
@@ -146,6 +155,7 @@ public class AgenciaDao implements InterfaceDao<Agency>{
 	}
 
 	public void changeState(int id, char state) {
+		
 		String sql = "UPDATE agencia SET estadoAgencia = '" + state 
 				+ "' WHERE idAgencia = "+ id +"";
 				jdbcTemplate.update(sql);
@@ -169,6 +179,10 @@ public class AgenciaDao implements InterfaceDao<Agency>{
 
 		});		 
 		return listContact.get(0);
+	}
+	
+	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+		this.jdbcTemplate = jdbcTemplate;
 	}
 
 }
