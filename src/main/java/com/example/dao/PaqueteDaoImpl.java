@@ -1,12 +1,19 @@
 package com.example.dao;
 
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.logic.Paquete;
 @Repository
@@ -41,14 +48,32 @@ public class PaqueteDaoImpl implements PaqueteDao {
 		return listPaquet;
 	}
 
-	@Override
-	public void addPaquete(Paquete paquete) {
-		// TODO Auto-generated method stub
-		String sql = "INSERT INTO paquete(idAgencia,nombrePaquete,descripcionPaquete) values (?, ?, ?)";
+	@Override	
+	public int addPaquete(Paquete paquete) {	
+		 
+		 GeneratedKeyHolder holder = new GeneratedKeyHolder();
+		 KeyHolder keyHolder = new GeneratedKeyHolder();
+		    this.jdbcTemplate.update(new PreparedStatementCreator() {
+		       
+				@Override
+				public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
+					// TODO Auto-generated method stub
+					PreparedStatement ps = connection.prepareStatement(
+		                    "insert into paquete (idAgencia, nombrePaquete, descripcionPaquete) values (?, ?, ?)",
+		                    new String[] { "id" });					
+		            
+		            ps.setInt(1, 3);
+		            ps.setString(2, paquete.getNombrePaquete());
+		            ps.setString(3, paquete.getDescripcionPaquete());
+		            return ps;
+				}
 
-		jdbcTemplate.update(sql, 3, paquete.getNombrePaquete(), paquete.getDescripcionPaquete());
-		
-		
+				
+		    }, keyHolder);
+		    int id= keyHolder.getKey().intValue();
+		    System.out.println("TU ID ES: "+id);
+		    return id;
+		    
 	}
 
 	@Override

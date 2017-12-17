@@ -9,7 +9,7 @@ public interface PaqueteDao {
 	
 	public List<Paquete> listAllPaquetes();
 	
-	public void addPaquete(Paquete admin);
+	public int addPaquete(Paquete admin);
 	
 	public void updatePaquete(Paquete admin);
 	

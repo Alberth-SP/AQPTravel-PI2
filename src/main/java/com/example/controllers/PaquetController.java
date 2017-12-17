@@ -92,8 +92,12 @@ public class PaquetController {
 		MultipartFile image1 = request.getFile("image1");
 		MultipartFile image2 = request.getFile("image2");		
 		
-		paquetDao.addPaquete(paquete);	
-		System.out.println("sdfdfdfddfdfdfdf");
+		int state = paquetDao.addPaquete(paquete);	
+		if(state > 0){
+			
+			
+		}
+		System.out.println("sdfdfdfddfdfdfdf " + image1.getOriginalFilename() );
 		
 		return "true";
 	} 	
