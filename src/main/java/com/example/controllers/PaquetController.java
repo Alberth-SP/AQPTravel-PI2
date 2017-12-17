@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -108,6 +109,16 @@ public class PaquetController {
 		return "true";		
 		
 	}
+	
+	
+
+	@RequestMapping(value = "admin/imageController/{imageId}")
+	@ResponseBody
+	public byte[] getImage(@PathVariable int imageId)  {
+		Paquete paquete = paquetDao.findPaqueteById(imageId); 		
+		return paquete.getMapaPaquete();
+	}
+	
 
 }
 
