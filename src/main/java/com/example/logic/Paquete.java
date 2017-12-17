@@ -16,7 +16,7 @@ public class Paquete {
 	private char estadoPaquete;
 	private char ofertaPaquete;
 	private Integer tiempoOferta;
-	private Image mapaPaquete;
+	private byte[] mapaPaquete;
 	private String destinoPaquete;
 	private Integer valoracionPaquete;
 	private Integer diaModPaquete;
@@ -112,10 +112,10 @@ public class Paquete {
 	public void setTiempoOferta(Integer tiempoOferta) {
 		this.tiempoOferta = tiempoOferta;
 	}
-	public Image getMapaPaquete() {
+	public byte[] getMapaPaquete() {
 		return mapaPaquete;
 	}
-	public void setMapaPaquete(Image mapaPaquete) {
+	public void setMapaPaquete(byte[] mapaPaquete) {
 		this.mapaPaquete = mapaPaquete;
 	}
 	public String getDestinoPaquete() {

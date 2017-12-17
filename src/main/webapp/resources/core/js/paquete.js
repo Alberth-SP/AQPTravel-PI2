@@ -2,12 +2,21 @@
 function addPaquete(){	
 	alert("inside");
 var url = "paquete/savePaquete";
+
+var destinos = $('#multiselectDestino').val();
+var image1 = $("#imagen1")[0].files[0];
+var image2 = $("#imagen2")[0].files[0];
 var datas = new FormData();
 var other_data = $('#form_regPaquete').serializeArray();
 
 $.each(other_data,function(key,input){
 	datas.append(input.name,input.value);
 });
+
+if(destinos !=null) datas.append("destinosPaquete",destinos);
+if(image1 !=null) datas.append("image1",image1);
+if(image2 !=null) datas.append("image2",image2);
+
 	$.ajax({
 		url: url,		
 		type: 'POST',

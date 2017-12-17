@@ -46,7 +46,7 @@ public class PaqueteDaoImpl implements PaqueteDao {
 		// TODO Auto-generated method stub
 		String sql = "INSERT INTO paquete(idAgencia,nombrePaquete,descripcionPaquete) values (?, ?, ?)";
 
-		jdbcTemplate.update(sql, 2, paquete.getNombrePaquete(), paquete.getDescripcionPaquete());
+		jdbcTemplate.update(sql, 3, paquete.getNombrePaquete(), paquete.getDescripcionPaquete());
 		
 		
 	}

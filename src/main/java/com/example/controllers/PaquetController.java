@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -73,6 +74,22 @@ public class PaquetController {
 		Paquete paquete = new Paquete();
 		paquete.setNombrePaquete(request.getParameter("nombrePaquete"));	
 		paquete.setDescripcionPaquete(request.getParameter("descripcionPaquete"));		
+		System.out.println(request.getParameter("tipoPaquete"));
+		System.out.println(request.getParameter("duracionPaquete"));
+		System.out.println(request.getParameter("capacidadPaquete"));		
+		System.out.println(request.getParameter("precioPaquete"));
+		System.out.println(request.getParameter("precioOferta"));
+		System.out.println(request.getParameter("stockPaquete"));
+		
+		System.out.println(request.getParameter("descripcionPaquete"));
+		System.out.println(request.getParameter("itinerarioPaquete"));
+		System.out.println(request.getParameter("recomendacionesPaquete"));
+		System.out.println(request.getParameter("serviciosPaquete"));
+		
+		System.out.println(request.getParameter("destinosPaquete"));
+		
+		MultipartFile image1 = request.getFile("image1");
+		MultipartFile image2 = request.getFile("image2");		
 		
 		paquetDao.addPaquete(paquete);	
 		System.out.println("sdfdfdfddfdfdfdf");

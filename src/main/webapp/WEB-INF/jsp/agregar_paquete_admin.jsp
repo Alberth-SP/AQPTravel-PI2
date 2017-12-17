@@ -313,7 +313,7 @@
                                             
                                             
                                             <!--Aqui se llena la lista de los destinos turiticos para seleccionar varios(getselects metodo para obtener la lista de seleccionados http://wenzhixin.net.cn/p/multiple-select/docs/#constructor)-->
-                                            <p><i class="glyphicon glyphicon-search"></i></p>
+                                            
                                           <div class="form-group">
 													<label class="col-md-3 control-label">Destino de
 														Paquete</label>
@@ -350,7 +350,7 @@
                                                 <div class="col-md-9">
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><span class="fa  fa-usd"></span></span>
-                                                        <input type="text" name="capacidadPaquete" class="form-control"  maxlength="5" pattern="+[1-9]*[0-9]{3}\\+.*[0.9]{2}">                                            
+                                                        <input type="text" name="precioOferta" class="form-control"  maxlength="5" pattern="+[1-9]*[0-9]{3}\\+.*[0.9]{2}">                                            
                                                     </div>
                                                     <span class="help-block">Ingrese precio para Decuentos</span>
                                                 </div>
@@ -361,7 +361,7 @@
                                                 <div class="col-md-9">
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><span class="fa fa-refresh"></span></span>
-                                                        <input type="text" class="form-control" name="stock" maxlength="5" pattern="[0-9]">                                            
+                                                        <input type="text" class="form-control" name="stockPaquete" maxlength="5" pattern="[0-9]">                                            
                                                     </div>
                                                     <span class="help-block">Ingrese Stock actual del Paquete</span>
                                                 </div>
@@ -401,7 +401,7 @@
 	                          	<div class="form-group">
 	                            	<label class="col-md-3 control-label">Itinerario del Paquete</label>
 	                              	<div class="col-md-9 col-xs-12">                                            
-	                                	<textarea class="form-control" rows="10" name="itinerario"></textarea>
+	                                	<textarea class="form-control" rows="10" name="itinerarioPaquete"></textarea>
 	                                    <span class="help-block">Ingrese el itinerario del Paquete</span>
 	                              	</div>
 	                          	</div>
@@ -417,7 +417,7 @@
 	                          	<div class="form-group">
 	                            	<label class="col-md-3 control-label" >Servicios incluidos en el Paquete</label>
 	                              	<div class="col-md-9 col-xs-12">                                            
-	                                	<textarea class="form-control" rows="6" name="servicios"></textarea>
+	                                	<textarea class="form-control" rows="6" name="serviciosPaquete"></textarea>
 	                                    <span class="help-block">Ingrese los servicios incluidos en el Paquete</span>
 	                              	</div>
 	                          	</div>
