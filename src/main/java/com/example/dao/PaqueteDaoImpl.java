@@ -15,6 +15,7 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.example.logic.FotosPaquete;
 import com.example.logic.Paquete;
 @Repository
 public class PaqueteDaoImpl implements PaqueteDao {
@@ -107,8 +108,20 @@ public class PaqueteDaoImpl implements PaqueteDao {
 		
 	}
 	
+	
+	@Override
+	public boolean addFotoPaquete(FotosPaquete foto) {
+		// TODO Auto-generated method stub
+		String sql = "INSERT INTO fotospaquete(idPaquete,nombreFoto,imagenFoto) values (?, ?, ?)";
+
+		int res = jdbcTemplate.update(sql,foto.getIdPaquete(), foto.getNombreFoto(), foto.getImagenFoto());
+		return (res != 0);
+	}
+	
 	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
+
+	
 
 }

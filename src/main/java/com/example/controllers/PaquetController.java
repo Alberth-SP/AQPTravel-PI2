@@ -21,6 +21,7 @@ import com.example.dao.AdminDao;
 import com.example.dao.PaqueteDao;
 import com.example.logic.Admin;
 import com.example.logic.Agencia;
+import com.example.logic.FotosPaquete;
 import com.example.logic.Paquete;
 
 @Controller
@@ -92,12 +93,13 @@ public class PaquetController {
 		MultipartFile image1 = request.getFile("image1");
 		MultipartFile image2 = request.getFile("image2");		
 		
-		int state = paquetDao.addPaquete(paquete);	
-		if(state > 0){
-			
+		int idReg = paquetDao.addPaquete(paquete);	
+		if(idReg > 0){
+			if(image1 != null) paquetDao.addFotoPaquete(new FotosPaquete(idReg, image1.getOriginalFilename(), image1.getBytes()));
+			if(image2 != null) paquetDao.addFotoPaquete(new FotosPaquete(idReg, image2.getOriginalFilename(), image2.getBytes()));
 			
 		}
-		System.out.println("sdfdfdfddfdfdfdf " + image1.getOriginalFilename() );
+		System.out.println("sdfdfdfddfdfdfdf " );
 		
 		return "true";
 	} 	

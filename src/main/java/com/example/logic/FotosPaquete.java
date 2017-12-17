@@ -2,6 +2,7 @@ package com.example.logic;
 
 public class FotosPaquete {
 	
+	
 	private Integer idFoto;
 	private Integer idPaquete;
 	private String nombreFoto;
@@ -12,6 +13,15 @@ public class FotosPaquete {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	public FotosPaquete(Integer idPaquete, String nombreFoto, byte[] imagenFoto) {
+		super();
+		this.idPaquete = idPaquete;
+		this.nombreFoto = nombreFoto;
+		this.imagenFoto = imagenFoto;
+	}
+	
+	
 	
 	public int getIdFoto() {
 		return idFoto;
