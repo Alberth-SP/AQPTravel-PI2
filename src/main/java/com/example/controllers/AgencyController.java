@@ -178,7 +178,7 @@ public class AgencyController {
 	
 	
 	private void populateDefaultModel(Model model) {
-
+/*
 		List<String> frameworksList = new ArrayList<String>();
 		frameworksList.add("Spring MVC");
 		frameworksList.add("Struts 2");
@@ -195,29 +195,31 @@ public class AgencyController {
 		skill.put("Groovy", "Groovy");
 		skill.put("Grails", "Grails");
 		model.addAttribute("javaSkillList", skill);
-
+*/
+		//l lista de valoracio
 		List<Integer> numbers = new ArrayList<Integer>();
 		numbers.add(1);
 		numbers.add(2);
 		numbers.add(3);
 		numbers.add(4);
 		numbers.add(5);
-		model.addAttribute("numberList", numbers);
 
+		model.addAttribute("numberList", numbers);
+/*
 		Map<String, String> country = new LinkedHashMap<String, String>();
 		country.put("US", "United Stated");
 		country.put("CN", "China");
 		country.put("SG", "Singapore");
 		country.put("MY", "Malaysia");
 		model.addAttribute("countryList", country);
-		
+		*/
+		//deberian exisiter 3s admin con esos ids
 		Map<Integer, String> valoracion = new LinkedHashMap<Integer, String>();
-		valoracion.put(0, "000");
-		valoracion.put(1, "111");
-		valoracion.put(2, "222");
-		valoracion.put(3, "333");
-		valoracion.put(4, "444");
-		valoracion.put(5, "555");
+
+		valoracion.put(1, "id Admin #1");
+		valoracion.put(2, "id Admin #2");
+		valoracion.put(3, "id Admin #3");
+
 		model.addAttribute("valoracionList", valoracion);
 		
 		

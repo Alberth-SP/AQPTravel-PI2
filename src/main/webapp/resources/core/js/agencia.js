@@ -1,5 +1,5 @@
 function addAgencia(){	
-	alert("inside");
+	
 var url = "agencia/saveAgencia";
 	
 	$.ajax({
@@ -9,7 +9,8 @@ var url = "agencia/saveAgencia";
 		success: function(result){
 			if(result){  
 
-				alert('sucess add Admin Agencia!' + result);                        
+				alert('Se ha aregado nueva agencia');    
+				window.location.replace("agencias");
 			}
 			else{
 				alert('ocurrio algun ERROR, vuelva a intentarlo ');
@@ -25,43 +26,20 @@ var url = "agencia/saveAgencia";
 
 
 
-function modAgencia(){	
-	alert("inside");
-var url = "agencia/updateAgencia";
-	
-	$.ajax({
-		url: url,
-		type: 'POST',
-		data: $('#form_modAgencia').serialize(),      
-		success: function(result){
-			if(result){  
 
-				alert('sucess add Admin Agencia!' + result);                        
-			}
-			else{
-				alert('ocurrio algun ERROR, vuelva a intentarlo ');
-			}   
-
-		},
-		error: function(){
-			alert('Ocurrio un erro en el Proceso');
-		}
-	});
-	
-}
 
 
 
 function changeStateAgencia(id,state){  
 	var url = "agencia/changeStateAgencia";
-   alert("vals: "+id + " "+state);
+   
 	$.ajax({
 		url: url,
 		type: 'POST',
 		data: {"key": id, "state":state},      
 		success: function(result){
 			if(result){  
-				alert('sucess change State Agemncia!' + result);
+				alert('Se ha cambiado estado');
 			}
 			else{
 				alert('ocurrio algun ERROR, vuelva a intentarlo ');

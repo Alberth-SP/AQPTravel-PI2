@@ -39,7 +39,7 @@
 
 <script>
 $(document).ready(function() {
-	alert("akii");
+	
 
 	$.post("../agencia/list_agencias",function(data){
 		$('#list_agencia').html(data);
