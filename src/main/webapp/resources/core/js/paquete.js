@@ -47,7 +47,8 @@ if(oferta !="") datas.append("ofertaPaquete",oferta);
 		success: function(result){
 			if(result){  
 
-				alert('sucess add Admin!' + result);                        
+				alert('sucess add Admin!' + result);
+				window.location.replace("paquetes");
 			}
 			else{
 				alert('ocurrio algun ERROR, vuelva a intentarlo ');
