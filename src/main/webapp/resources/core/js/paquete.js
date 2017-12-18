@@ -1,11 +1,27 @@
+/* function for calcule date */
+function parseDate(str) {
+    var mdy = str.split('-');
+    return new Date(mdy[0], mdy[1]-1, mdy[2]);
+}
+
+function daydiff(first, second) {
+    return Math.round((second-first)/(1000*60*60*24)).toString();
+}
 
 function addPaquete(){	
-	alert("inside");
+	
 var url = "paquete/savePaquete";
+
+var d = new Date(); // date today
+var today = d.getFullYear()+ "-" + (d.getMonth()+1)+ "-"+d.getDate();
+var duracion = $('#duracionPaquete').val();
+var duracionOf = $('#duracionOfertaPaquete').val();
+var oferta =  $('#ofertaPaquete').val();
 
 var destinos = $('#multiselectDestino').val();
 var image1 = $("#imagen1")[0].files[0];
 var image2 = $("#imagen2")[0].files[0];
+
 var datas = new FormData();
 var other_data = $('#form_regPaquete').serializeArray();
 
@@ -13,9 +29,12 @@ $.each(other_data,function(key,input){
 	datas.append(input.name,input.value);
 });
 
-if(destinos !=null) datas.append("destinosPaquete",destinos);
-if(image1 !=null) datas.append("image1",image1);
-if(image2 !=null) datas.append("image2",image2);
+if(destinos !="") datas.append("destinosPaquete",destinos);
+if(image1 !="" ) datas.append("image1",image1);
+if(image2 !="") datas.append("image2",image2);
+if(duracion !="") datas.append("duracion",daydiff(parseDate(today), parseDate(duracion)));
+if(duracionOf !="") datas.append("duracionOf",daydiff(parseDate(today), parseDate(duracionOf)));
+if(oferta !="") datas.append("ofertaPaquete",oferta);
 
 	$.ajax({
 		url: url,		

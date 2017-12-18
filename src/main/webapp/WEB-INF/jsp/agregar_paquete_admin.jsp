@@ -368,18 +368,29 @@
                                             </div>
                                             
                                             <div class="form-group">
-                                            	<label class="col-md-3 control-label">Descuento</label>
+                                            	<label class="col-md-3 control-label">Oferta</label>
                                                 <div class="col-md-9">     
-                                                	<div class="btn-group" data-toggle="buttons">
-			
-														<label class="btn btn-success active">
-															<input type="checkbox" autocomplete="off" checked>
+                                                	<div class="btn-group" data-toggle="buttons">			
+														<label class="btn btn-success active" id="labelOferta">
+															<input type="checkbox" value="1" autocomplete="off" id="ofertaPaquete" checked>
 															<span class="fa fa-check"></span>
 															
 														</label>
-														<span class="input-group-addon" style="font-size:16px;height:34px"> &nbsp;&nbsp;Seleccione si est&aacute; en descuento</span>
+														<span class="input-group-addon" style="font-size:16px;height:34px;"> &nbsp;&nbsp;Seleccione si est&aacute; en Oferta</span>
 													</div>
-                                                    
+                                                    <span class="help-block">secci&oacute;n oferta</span>
+                                                </div>
+                                            </div>
+                                            
+                                           
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Duraci&oacute;n de Oferta</label>
+                                                <div class="col-md-9">                                            
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+                                                        <input type="text" class="form-control" name="duracionOfertaPaquete" id="duracionOfertaPaquete" readonly />
+                                                    </div>                                            
+                                                    <span class="help-block">Ingrese la duraci&oacute;n de la Oferta del Paquete</span>
                                                 </div>
                                             </div>
                                        
@@ -487,13 +498,13 @@
 
 <script>
 $(document).ready(function() {
-	alert("okkkk");
+	
     $('#multiselectDestino').multiselect({
     	includeSelectAllOption: true,
-    	nonSelectedText: 'select option',
+    	nonSelectedText: 'selecciona los destinos',
     	enableFiltering: true,
     	enableCaseInsensitiveFiltering:true,
-    	buttonWidth:'300px',  	
+    	buttonWidth:'380px',  	
     	
     }); 
     
@@ -531,14 +542,22 @@ $("#duracionPaquete").datetimepicker({
 	autoclose : 1
 });
 
-$("#duracionOferta").datetimepicker({
+$("#duracionOfertaPaquete").datetimepicker({
 	format : 'yyyy-mm-dd',
 	minView : 2,
 	autoclose : 1
 });
 
 $("#labelOferta").click(function() {
-	alert("change!!");
+	if($("#ofertaPaquete").attr('checked')) {		
+		$('#ofertaPaquete').attr('checked', false);
+		$('#ofertaPaquete').val('0');
+	}	
+	else {		
+		$('#ofertaPaquete').attr('checked', true);
+		$('#ofertaPaquete').val('1');
+	}
+	
 });
 
 </script>

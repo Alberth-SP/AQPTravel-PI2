@@ -1,31 +1,33 @@
 package com.example.logic;
 
 import java.awt.Image;
+import java.util.HashMap;
 
 public class Paquete {
 	
 	
 	private Integer idPaquete;
-	private Integer idAgencia;
-	private String nombrePaquete;
-	private Double precioPaquete;
-	private Double precioOferta;
-	private Integer capacidadPaquete;
-	private String descripcionPaquete;
-	private Integer numPaquete;
-	private char estadoPaquete;
-	private char ofertaPaquete;
-	private Integer tiempoOferta;
-	private byte[] mapaPaquete;
-	private String destinoPaquete;
-	private Integer valoracionPaquete;
-	private Integer diaModPaquete;
-	private Integer mesModPaquete;
-	private Integer anioModPaquete;
-	private Integer duracionPaquete;
-	private String itinerario;
-	private String servicios;
-	private String recomendaciones;
+	private Integer idAgencia = 3;
+	private String nombrePaquete = "";
+	private Double precioPaquete = 0.0;
+	private Double precioOferta = 0.0;
+	private String tipoPaquete = "";
+	private Integer capacidadPaquete = 0;
+	private String descripcionPaquete = "";
+	private Integer numPaquete = 0;
+	private char estadoPaquete = '1';
+	private char ofertaPaquete = '0';
+	private Integer tiempoOferta = 0;
+	private byte[] mapaPaquete = null;
+	private String destinoPaquete = "";
+	private Integer valoracionPaquete = 0;
+	private Integer diaModPaquete = 0;
+	private Integer mesModPaquete = 0;
+	private Integer anioModPaquete = 0;
+	private Integer duracionPaquete = 0;
+	private String itinerario = "";
+	private String servicios = "";
+	private String recomendaciones = "";
 	
 	
 	public Paquete() {
@@ -43,7 +45,54 @@ public class Paquete {
 		this.destinoPaquete = destinoPaquete;
 		this.duracionPaquete = duracionPaquete;
 	}
-	
+		
+	public Paquete(HashMap<String, String> data){
+		
+		if(data.get("nombrePaquete") != null && data.get("nombrePaquete") != "") 
+			this.nombrePaquete = data.get("nombrePaquete");
+		
+		if(data.get("tipoPaquete") != null){
+			this.tipoPaquete = data.get("tipoPaquete");
+		}	
+		
+		if(data.get("duracionPaquete") != null && data.get("duracionPaquete").length() > 0)
+			this.duracionPaquete = Integer.parseInt(data.get("duracionPaquete"));
+		
+		if(data.get("capacidadPaquete") != null && data.get("capacidadPaquete").length() > 0) 
+			this.capacidadPaquete = Integer.parseInt(data.get("capacidadPaquete"));
+		
+		if(data.get("precioPaquete") != null && data.get("precioPaquete").length() > 0) 
+			this.precioPaquete = Double.parseDouble(data.get("precioPaquete"));
+		
+		if(data.get("precioOferta") != null && data.get("precioOferta").length() > 0) 
+			this.precioOferta = Double.parseDouble(data.get("precioOferta"));
+		
+		if(data.get("tiempoOferta") != null && data.get("tiempoOferta").length() > 0)
+			this.tiempoOferta = Integer.parseInt(data.get("tiempoOferta"));		
+		
+		if(data.get("ofertaPaquete") != null && data.get("ofertaPaquete").length() > 0)
+			this.ofertaPaquete = (data.get("ofertaPaquete").charAt(0));
+		
+		if(data.get("stockPaquete") != null && data.get("stockPaquete").length() > 0) 
+			this.numPaquete = Integer.parseInt(data.get("stockPaquete"));
+		
+		
+		if(data.get("descripcionPaquete") != null && data.get("descripcionPaquete") != "") 
+			this.descripcionPaquete = data.get("descripcionPaquete");
+		
+		if(data.get("itinerarioPaquete") != null && data.get("itinerarioPaquete") != "") 
+			this.itinerario = data.get("itinerarioPaquete");
+		
+		if(data.get("recomendacionesPaquete") != null && data.get("recomendacionesPaquete") != "")
+			this.recomendaciones = data.get("recomendacionesPaquete");
+		
+		if(data.get("serviciosPaquete") != null && data.get("serviciosPaquete") != "") 
+			this.servicios = data.get("serviciosPaquete");
+		
+		if(data.get("destinosPaquete") != null && data.get("destinosPaquete").length() > 0) 
+			this.destinoPaquete = data.get("destinosPaquete");
+		
+	}
 	
 	
 	public Integer getIdPaquete() {
@@ -171,6 +220,12 @@ public class Paquete {
 	}
 	public void setRecomendaciones(String recomendaciones) {
 		this.recomendaciones = recomendaciones;
+	}
+	public String getTipoPaquete() {
+		return tipoPaquete;
+	}
+	public void setTipoPaquete(String tipoPaquete) {
+		this.tipoPaquete = tipoPaquete;
 	}
 	
 	

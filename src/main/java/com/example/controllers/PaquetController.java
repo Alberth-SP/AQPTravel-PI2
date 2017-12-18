@@ -1,6 +1,8 @@
 package com.example.controllers;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -73,36 +75,66 @@ public class PaquetController {
 	@ResponseBody 
 	public String savePaquete(MultipartHttpServletRequest request) throws IOException{    
 	
-		Paquete paquete = new Paquete();
-		paquete.setNombrePaquete(request.getParameter("nombrePaquete"));	
-		paquete.setDescripcionPaquete(request.getParameter("descripcionPaquete"));		
-		System.out.println(request.getParameter("tipoPaquete"));
-		System.out.println(request.getParameter("duracionPaquete"));
-		System.out.println(request.getParameter("capacidadPaquete"));		
-		System.out.println(request.getParameter("precioPaquete"));
-		System.out.println(request.getParameter("precioOferta"));
-		System.out.println(request.getParameter("stockPaquete"));
+		HashMap<String, String> data = new HashMap<>();
+		 
+		data.put("nombrePaquete", request.getParameter("nombrePaquete"));
+		data.put("tipoPaquete", request.getParameter("tipoPaquete"));		
+		data.put("duracionPaquete", request.getParameter("duracion"));
+		data.put("capacidadPaquete", request.getParameter("capacidadPaquete"));
+		data.put("precioPaquete", request.getParameter("precioPaquete"));
+		data.put("precioOferta", request.getParameter("precioOferta"));		
+		data.put("ofertaPaquete", request.getParameter("ofertaPaquete"));
+		data.put("tiempoOferta", request.getParameter("duracionOf"));
+		data.put("stockPaquete", request.getParameter("stockPaquete"));
 		
-		System.out.println(request.getParameter("descripcionPaquete"));
-		System.out.println(request.getParameter("itinerarioPaquete"));
-		System.out.println(request.getParameter("recomendacionesPaquete"));
-		System.out.println(request.getParameter("serviciosPaquete"));
-		
-		System.out.println(request.getParameter("destinosPaquete"));
-		
+		data.put("descripcionPaquete", request.getParameter("descripcionPaquete"));
+		data.put("itinerarioPaquete", request.getParameter("itinerarioPaquete"));
+		data.put("recomendacionesPaquete", request.getParameter("recomendacionesPaquete"));
+		data.put("serviciosPaquete", request.getParameter("serviciosPaquete"));
+		data.put("destinosPaquete", request.getParameter("destinosPaquete"));	
+			
 		MultipartFile image1 = request.getFile("image1");
-		MultipartFile image2 = request.getFile("image2");		
+		MultipartFile image2 = request.getFile("image2");	
+		
+		Paquete paquete = new Paquete(data);
 		
 		int idReg = paquetDao.addPaquete(paquete);	
+		
 		if(idReg > 0){
 			if(image1 != null) paquetDao.addFotoPaquete(new FotosPaquete(idReg, image1.getOriginalFilename(), image1.getBytes()));
 			if(image2 != null) paquetDao.addFotoPaquete(new FotosPaquete(idReg, image2.getOriginalFilename(), image2.getBytes()));
+			if(paquete.getDestinoPaquete().length() > 0){
+				
+				System.out.println(paquete.getDestinoPaquete());
+				List<Integer> destinations = obtainList(paquete.getDestinoPaquete());
+				paquetDao.insertDestinations(idReg, destinations);
+			}
 			
+		
 		}
 		System.out.println("sdfdfdfddfdfdfdf " );
 		
 		return "true";
 	} 	
+	
+	private List<Integer> obtainList(String streamList){
+		List<Integer> list = new ArrayList<>();
+		
+		int index = 0;
+		int pos = 0;
+		while(index < streamList.length()){
+			if(streamList.charAt(index) == ','){
+					list.add(Integer.parseInt(streamList.substring(pos,index)));
+					pos = index+1;
+			}
+			if(index == (streamList.length()-1)){
+				list.add(Integer.parseInt(streamList.substring(pos)));				
+			}
+			 index++;
+		}				
+		return list;		
+	}
+		
 	
 	@RequestMapping(value="admin/paquete/changeStatePaquete", method=RequestMethod.POST)
 	@ResponseBody
