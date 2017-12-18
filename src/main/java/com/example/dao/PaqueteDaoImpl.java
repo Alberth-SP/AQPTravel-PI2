@@ -93,8 +93,9 @@ public class PaqueteDaoImpl implements PaqueteDao {
 				}
 				
 		    }, keyHolder);
-		    int id= keyHolder.getKey().intValue();
-		    System.out.println("TU ID ES: "+id);
+		    
+		    int id = keyHolder.getKey().intValue();
+		    
 		    return id;
 		    
 	}

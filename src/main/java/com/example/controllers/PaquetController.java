@@ -52,7 +52,7 @@ public class PaquetController {
 					"<td>" + paquet.getDestinoPaquete() + "</td>";
 			
 			if(paquet.getEstadoPaquete() == '1'){
-				System.out.println("controller paquete! "+paquet.getEstadoPaquete());
+				
 				response += " <td> "
 						+ "<input type='checkbox' name='' class=' ' id='' value='activo' onchange='changeCheckBox2("+paquet.getIdPaquete()+", this)' checked>"
 						+ "</td>";
@@ -105,15 +105,13 @@ public class PaquetController {
 			if(image2 != null) paquetDao.addFotoPaquete(new FotosPaquete(idReg, image2.getOriginalFilename(), image2.getBytes()));
 			if(paquete.getDestinoPaquete().length() > 0){
 				
-				System.out.println(paquete.getDestinoPaquete());
+				
 				List<Integer> destinations = obtainList(paquete.getDestinoPaquete());
 				paquetDao.insertDestinations(idReg, destinations);
 			}
 			
 		
-		}
-		System.out.println("sdfdfdfddfdfdfdf " );
-		
+		}		
 		return "true";
 	} 	
 	
@@ -160,21 +158,3 @@ public class PaquetController {
 
 }
 
-/* 
- * <tr>
-                                			<td>Arequipa Fullday</td>
-                                			<td>Agencia Arequipa Travel</td>
-                                			<td>
-                                				<div class='onoffswitch'>
-												    <input type='checkbox' name='onoffswitch' class='onoffswitch-checkbox' id='myonoffswitch' checked>
-												    <label class='onoffswitch-label' for='myonoffswitch'>
-												        <span class='onoffswitch-inner'></span>
-												        <span class='onoffswitch-switch'></span>
-												    </label>
-												</div>
-                                			</td>
-                                			<td>
-                                				
-                                			</td>
-                                		</tr>
-                                		*/

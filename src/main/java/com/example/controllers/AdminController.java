@@ -127,7 +127,7 @@ public class AdminController {
 	@RequestMapping(value = "admin/getDestinos", method=RequestMethod.POST, produces="text/html;charset=UTF-8")
 	@ResponseBody
 	public String getDestinos(ModelAndView model) throws IOException {
-		System.out.println("hahahaahaha");
+		
 		List<Destiny> listDestiny = destinyDao.listAllDestiny();
 		String response="";
 		
@@ -135,38 +135,7 @@ public class AdminController {
 			response += "<option value='"+destiny.getIdDestino()+"'>"+destiny.getNombreDestino()+"</option>";					
 		
 		return response;		
-	}
-
-		/*
-	 * @RequestMapping(value="admin/list_admin", produces="text/html;charset=UTF-8")
-	@ResponseBody
-	public String listContact(ModelAndView model) throws IOException{
-		List<Admin> listContact = adminDao.listAllAdmin();
-		//model.addObject("listAdmin", listContact);
-		//model.setViewName("admin/admin_page"); 
-		String response="";
-		int cont = 0;
-		for(Admin admin : listContact){
-			response += "<tr>" +
-			"<td>"+ (++cont) +"</td>" +
-			"<td>"+admin.getNombre()+"</td>" +
-			"<td>"+admin.getApellidoAdmin()+"</td>" +
-			"<td>"+admin.getCorreoAdmin()+"</td>" +
-			" <td> <div class='onoffswitch'>"
-			+ "<input type='checkbox' name='onoffswitch' class='onoffswitch-checkbox' id='myonoffswitch' checked>"
-					+ "  <label class='onoffswitch-label' for='myonoffswitch'>"
-							+ "        <span class='onoffswitch-inner'></span>"
-									+ "	        <span class='onoffswitch-switch'></span>"
-											+ "	    </label>"
-											+ "	</div> </td>"+
-			"</tr>";			
-		}
-
-
-		return response; 
-	}*/
+	}	
 	
-	
-
 
 }
