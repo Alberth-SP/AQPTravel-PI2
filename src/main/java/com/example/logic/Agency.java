@@ -11,13 +11,15 @@ public class Agency {
 	private final String address;
 	private final Integer rate;
 	private final String description;
-	private final String password;
 	private final String phone;
 	private final Integer dayMod;
 	private final Integer monthMod;
 	private final Integer yearMod;
 	private final Integer codAdmin; 
+	private final String password;
 	private char state;
+	
+	
 	public static class BuildAgency implements Builder<Agency>{
 		
 		//Required parameters 
@@ -54,7 +56,8 @@ public class Agency {
 			return this;
 		}
 		public BuildAgency setPassword(String val) {
-			password=Utilidades.Encriptar(val);
+			//password=Utilidades.Encriptar(val);
+			password=val;
 			return this;
 		}
 		public BuildAgency setPhone(String val) {
@@ -103,15 +106,21 @@ public class Agency {
 			this.codAdmin =codAdmin;
 			return this;
 		}
+		public BuildAgency setState(char s) {
+			this.state =s;
+			return this;
+		}
 	}
-	private Agency(BuildAgency build) {
+	
+
+	public Agency(BuildAgency build) {
 		this.name=build.name;
 		this.email=build.email;
 		this.ruc=build.ruc;
 		this.socialReason=build.socialReason;
 		this.ubigeo=build.ubigeo;
 		this.address=build.address;
-		this.setState(build.state);
+		this.state=build.state;
 		this.description=build.description;
 		this.password=build.password;
 		this.phone=build.phone;
@@ -121,6 +130,7 @@ public class Agency {
 		this.rate=build.rate;
 		this.codAdmin=build.codAdmin;
 	}
+
 	public void setIdAgency(Integer val) {
 		this.idAgency=val;
 	}

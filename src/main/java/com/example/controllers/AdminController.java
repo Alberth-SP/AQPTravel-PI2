@@ -135,7 +135,30 @@ public class AdminController {
 			response += "<option value='"+destiny.getIdDestino()+"'>"+destiny.getNombreDestino()+"</option>";					
 		
 		return response;		
-	}	
+	}
+	
+	
+	/* Request para envio de pagina de Agencia */
+	@RequestMapping(value="admin/agencias", method=RequestMethod.GET)
+	public ModelAndView agencias(ModelAndView model) throws IOException{
+
+		ModelAndView model2 = new ModelAndView();
+		model2.setViewName("agencia_admin");	 
+		
+		return model2;
+
+	}
+	
+	/* Request para envio de Formulario de Agencia */	
+	@RequestMapping(value="admin/agregar_agencias", method=RequestMethod.GET)
+	public ModelAndView formAgencias(ModelAndView model) throws IOException{
+
+		ModelAndView model2 = new ModelAndView();
+		model2.setViewName("agregar_agencia_admin");	 
+		
+		return model2;
+
+	}
 	
 
 }

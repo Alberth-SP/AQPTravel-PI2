@@ -9,7 +9,7 @@
     <br>
     <a href="registrar"> Registrar</a>  
     <br>
-    <a href="registrar"> otro registro</a> 
+    <a href="registrar"> otrox registro</a> 
 </body>
 
 

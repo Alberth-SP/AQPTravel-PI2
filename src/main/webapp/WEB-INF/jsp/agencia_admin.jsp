@@ -4,7 +4,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Administrador</title>
+<title>Administrador-Agencia</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -40,9 +40,10 @@
 <script>
 $(document).ready(function() {
 	
-	$.post("../paquete/list_paquetes",function(data){
-		$('#list_paquete').html(data);
-		$('#tablePaquete').DataTable();
+
+	$.post("../agencia/list_agencias",function(data){
+		$('#list_agencia').html(data);
+		$('#tableAgencia').DataTable();
 	})
     
 } );
@@ -127,6 +128,8 @@ $(document).ready(function() {
 .onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-switch {
 	right: 0px;
 }
+
+
 </style>
 
 
@@ -313,7 +316,7 @@ $(document).ready(function() {
 						<div class="col-md-12 chit-chat-layer1-left">
 							<div class="work-progres">
 								<div class="chit-chat-heading">
-									Gesti&oacute;n de paquetes tur&iacute;sticos
+									Gesti&oacute;n de agencias tur&iacute;sticos
 
 									<p>&nbsp</p>
 								</div>
@@ -323,7 +326,7 @@ $(document).ready(function() {
 										<div class="btn btn_1 btn-default mrg5R">
 											<i class="fa fa-refresh"> </i>
 										</div>
-										<a class="btn btn-primary" href="../admin/agregar_paquetes">
+										<a class="btn btn-primary" href="../admin/agregar_agencias">
 											<i class="fa fa-plus fa-lg"></i> &nbsp;Agregar Nuevo
 										</a>
 
@@ -359,15 +362,15 @@ $(document).ready(function() {
 								<p>&nbsp</p>
 
 								<div class="table-responsive">
-									<table id="tablePaquete" class="table table-hover display"
+									<table id="tableAgencia" class="table table-hover display"
 										cellspacing="0" width="100%">
 
 										<thead>
 											<tr>
 												<th>Nro.</th>
-												<th>Nombre de Paquete Tur&iacute;stico</th>
-												<th>Agencia Tur&iacute;stica</th>												
-												<th>Destino</th>
+												<th>Nombre de Agencia Tur&iacute;stico</th>
+												<th>RUC</th>												
+												<th>Raz. Social</th>
 												<th>Estado</th>
 												<th>Opciones</th>
 											</tr>
@@ -376,15 +379,14 @@ $(document).ready(function() {
 										<tfoot>
 											<tr>
 												<th>Nro.</th>
-												<th>Nombre de Paquete Tur&iacute;stico</th>
-												<th>Agencia Tur&iacute;stica</th>											
-												<th>Destino</th>
+												<th>Nombre de Agencia Tur&iacute;stico</th>
+												<th>RUC</th>												
+												<th>Raz. Social</th>
 												<th>Estado</th>
 												<th>Opciones</th>
-
 											</tr>
 										</tfoot>
-										<tbody id="list_paquete">
+										<tbody id="list_agencia">
 
 										</tbody>
 									</table>
@@ -398,6 +400,16 @@ $(document).ready(function() {
 				</div>
 				<!--inner block end here-->
 				<!-- modal  -->
+				
+
+     <!-- Modal HTML -->
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <!-- Content will be loaded here from "remote.php" file -->
+            </div>
+        </div>
+    </div>
 
 
 
@@ -449,7 +461,12 @@ $(document).ready(function() {
 		<div class="clearfix"></div>
 	</div>
 	<!--slide bar menu end here-->
-	<script>
+<script>
+
+$('body').on('hidden.bs.modal', '.modal', function () {
+    $(this).removeData('bs.modal');
+  });
+
 var toggle = true;
             
 $(".sidebar-icon").click(function() {                
@@ -467,11 +484,9 @@ $(".sidebar-icon").click(function() {
   }               
                 toggle = !toggle;
             });
-</script>
 
-	<script src="<c:url value="/resources/js/bootstrap.js" />"></script>}
-	<script src="<c:url value="/resources/js/paquete.js" />"></script>
+</script>
+	<script src="<c:url value="/resources/js/agencia.js" />"></script>
+	<script src="<c:url value="/resources/js/bootstrap-datetimepicker.min.js"/>"></script>
 </body>
 </html>
-
-

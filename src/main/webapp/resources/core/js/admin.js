@@ -71,6 +71,8 @@ function changeStateAdmin(id,state){
 	});
 }
 
+
+
 function changeCheckBox(id, check){
 
 	var state = "0";
@@ -79,4 +81,5 @@ function changeCheckBox(id, check){
     }
 	changeStateAdmin(id, state);		
 }
+
 
