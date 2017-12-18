@@ -50,9 +50,7 @@ $(document).ready(function() {
 <script src="<c:url value="/resources/js/bootstrap.js" />"></script>
 
 <script>
-$(document).ready(function() {
-	alert("akii");
-
+$(document).ready(function() {	
 	$.post("../paquete/list_paquetes",function(data){
 		$('#list_paquete').html(data);
 		$('#tablePaquete').DataTable();

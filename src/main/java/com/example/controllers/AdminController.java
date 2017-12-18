@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.dao.AdminDao;
+import com.example.dao.DestinyDao;
 import com.example.logic.Admin;
+import com.example.logic.Destiny;
 
 /* CLASE para responder a Solicitudes  desde ADMIN */
 
@@ -24,6 +26,9 @@ public class AdminController {
 
 	@Autowired
 	AdminDao adminDao;
+	
+	@Autowired
+	DestinyDao destinyDao;
 
 	/* Request para obtener lista de usaurios */
 	@RequestMapping(value="admin/list_admin",  method=RequestMethod.POST, produces="text/html;charset=UTF-8")
@@ -118,37 +123,19 @@ public class AdminController {
 		return "true";		
 		
 	}
-
-		/*
-	 * @RequestMapping(value="admin/list_admin", produces="text/html;charset=UTF-8")
+	
+	@RequestMapping(value = "admin/getDestinos", method=RequestMethod.POST, produces="text/html;charset=UTF-8")
 	@ResponseBody
-	public String listContact(ModelAndView model) throws IOException{
-		List<Admin> listContact = adminDao.listAllAdmin();
-		//model.addObject("listAdmin", listContact);
-		//model.setViewName("admin/admin_page"); 
+	public String getDestinos(ModelAndView model) throws IOException {
+		
+		List<Destiny> listDestiny = destinyDao.listAllDestiny();
 		String response="";
-		int cont = 0;
-		for(Admin admin : listContact){
-			response += "<tr>" +
-			"<td>"+ (++cont) +"</td>" +
-			"<td>"+admin.getNombre()+"</td>" +
-			"<td>"+admin.getApellidoAdmin()+"</td>" +
-			"<td>"+admin.getCorreoAdmin()+"</td>" +
-			" <td> <div class='onoffswitch'>"
-			+ "<input type='checkbox' name='onoffswitch' class='onoffswitch-checkbox' id='myonoffswitch' checked>"
-					+ "  <label class='onoffswitch-label' for='myonoffswitch'>"
-							+ "        <span class='onoffswitch-inner'></span>"
-									+ "	        <span class='onoffswitch-switch'></span>"
-											+ "	    </label>"
-											+ "	</div> </td>"+
-			"</tr>";			
-		}
-
-
-		return response; 
-	}*/
+		
+		for(Destiny destiny : listDestiny)
+			response += "<option value='"+destiny.getIdDestino()+"'>"+destiny.getNombreDestino()+"</option>";					
+		
+		return response;		
+	}	
 	
-	
-
 
 }
