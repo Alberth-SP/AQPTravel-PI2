@@ -15,11 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.dao.AdminDao;
-<<<<<<< HEAD
-import com.example.dao.AgenciaDao;
-=======
 import com.example.dao.DestinyDao;
->>>>>>> 0e670768c8a6f5828cbf0d0c997d5bd2ef82f4c2
 import com.example.logic.Admin;
 import com.example.logic.Destiny;
 
@@ -128,9 +124,18 @@ public class AdminController {
 		
 	}
 	
-<<<<<<< HEAD
-	
-	
+	@RequestMapping(value = "admin/getDestinos", method=RequestMethod.POST, produces="text/html;charset=UTF-8")
+	@ResponseBody
+	public String getDestinos(ModelAndView model) throws IOException {
+		
+		List<Destiny> listDestiny = destinyDao.listAllDestiny();
+		String response="";
+		
+		for(Destiny destiny : listDestiny)
+			response += "<option value='"+destiny.getIdDestino()+"'>"+destiny.getNombreDestino()+"</option>";					
+		
+		return response;		
+	}
 	
 	
 	/* Request para envio de pagina de Agencia */
@@ -154,25 +159,6 @@ public class AdminController {
 		return model2;
 
 	}
-	
-
-
-		/*
-	 * @RequestMapping(value="admin/list_admin", produces="text/html;charset=UTF-8")
-=======
-	@RequestMapping(value = "admin/getDestinos", method=RequestMethod.POST, produces="text/html;charset=UTF-8")
->>>>>>> 0e670768c8a6f5828cbf0d0c997d5bd2ef82f4c2
-	@ResponseBody
-	public String getDestinos(ModelAndView model) throws IOException {
-		
-		List<Destiny> listDestiny = destinyDao.listAllDestiny();
-		String response="";
-		
-		for(Destiny destiny : listDestiny)
-			response += "<option value='"+destiny.getIdDestino()+"'>"+destiny.getNombreDestino()+"</option>";					
-		
-		return response;		
-	}	
 	
 
 }
