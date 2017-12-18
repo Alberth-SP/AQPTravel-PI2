@@ -1,13 +1,22 @@
 package com.example.dao;
 
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.example.logic.FotosPaquete;
 import com.example.logic.Paquete;
 @Repository
 public class PaqueteDaoImpl implements PaqueteDao {
@@ -41,14 +50,54 @@ public class PaqueteDaoImpl implements PaqueteDao {
 		return listPaquet;
 	}
 
-	@Override
-	public void addPaquete(Paquete paquete) {
-		// TODO Auto-generated method stub
-		String sql = "INSERT INTO paquete(idAgencia,nombrePaquete,descripcionPaquete) values (?, ?, ?)";
-
-		jdbcTemplate.update(sql, 2, paquete.getNombrePaquete(), paquete.getDescripcionPaquete());
-		
-		
+	@Override	
+	public int addPaquete(Paquete paquete) {	
+		 
+		 GeneratedKeyHolder holder = new GeneratedKeyHolder();
+		 KeyHolder keyHolder = new GeneratedKeyHolder();
+		 
+		    this.jdbcTemplate.update(new PreparedStatementCreator() {
+		       
+				@Override
+				public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
+					// TODO Auto-generated method stub
+					PreparedStatement ps = connection.prepareStatement(
+		                    "insert into paquete (idAgencia, nombrePaquete, "
+		                    + "precioPaquete, precioOferta, "
+		                    + "capacidadPaquete, descripcionPaquete,"
+		                    + " numPaquete, estadoPaquete, ofertaPaquete,"
+		                    + " tiempoOferta, destinoPaquete, valoracionPaquete,"
+		                    + " duracionPaquete, itenerario, servicios,"
+		                    + " recomendacionesPaquete, tipoPaquete) "
+		                    + "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )",
+		                    new String[] { "id" });					
+		            
+		            ps.setInt(1, paquete.getIdAgencia());
+		            ps.setString(2, paquete.getNombrePaquete());
+		            ps.setDouble(3, paquete.getPrecioPaquete());
+		            ps.setDouble(4,  paquete.getPrecioOferta());
+		            ps.setInt(5, paquete.getCapacidadPaquete());		            
+		            ps.setString(6, paquete.getDescripcionPaquete());
+		            ps.setInt(7, paquete.getNumPaquete());
+		            ps.setString(8, Character.toString(paquete.getEstadoPaquete()));
+		            ps.setString(9, Character.toString(paquete.getOfertaPaquete()));
+		            ps.setInt(10, paquete.getTiempoOferta());
+		            ps.setString(11, paquete.getDestinoPaquete());
+		            ps.setInt(12, paquete.getValoracionPaquete());
+		            ps.setInt(13, paquete.getDuracionPaquete());
+		            ps.setString(14, paquete.getItinerario());
+		            ps.setString(15, paquete.getServicios());
+		            ps.setString(16, paquete.getRecomendaciones());	
+		            ps.setString(17, paquete.getTipoPaquete());	
+		            return ps;
+				}
+				
+		    }, keyHolder);
+		    
+		    int id = keyHolder.getKey().intValue();
+		    
+		    return id;
+		    
 	}
 
 	@Override
@@ -82,8 +131,54 @@ public class PaqueteDaoImpl implements PaqueteDao {
 		
 	}
 	
+	
+	@Override
+	public boolean addFotoPaquete(FotosPaquete foto) {
+		// TODO Auto-generated method stub
+		String sql = "INSERT INTO fotospaquete(idPaquete,nombreFoto,imagenFoto) values (?, ?, ?)";
+
+		int res = jdbcTemplate.update(sql,foto.getIdPaquete(), foto.getNombreFoto(), foto.getImagenFoto());
+		return (res != 0);
+	}
+	
+	
+	
+	
 	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
+
+	@Override
+	public boolean addDestiny(int idPaquete, int idFoto) {
+		String sql = "INSERT INTO fotospaquete(idPaquete,idDestino) values (?, ?)";
+		int res = jdbcTemplate.update(sql,idPaquete, idFoto);
+		return (res != 0);
+		
+	}
+
+	@Override
+	public void insertDestinations(int idPaquete, List<Integer> listDestiny) {
+		// TODO Auto-generated method stub
+		String sql = "insert into paquetedestino " +
+				"(idPaquete, idDestino) VALUES (?, ?)";
+
+			   jdbcTemplate.batchUpdate(sql, new BatchPreparedStatementSetter() {
+
+				@Override
+				public void setValues(PreparedStatement ps, int i) throws SQLException {
+					Integer idDestiny = listDestiny.get(i);
+					ps.setInt(1, idPaquete);
+					ps.setInt(2, idDestiny);
+				}
+
+				@Override
+				public int getBatchSize() {
+					return listDestiny.size();
+				}
+			  });
+		
+	}
+
+	
 
 }

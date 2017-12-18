@@ -10,26 +10,37 @@
 
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<link href="<c:url value="/resources/css/bootstrap.css"/> " rel="stylesheet" 	media="all">
-<!-- Custom Theme files -->
-<link href="<c:url value="/resources/css/style2.css"/> " rel="stylesheet" 	media="all">
+
+<link href="<c:url value="/resources/css/style2.css"/> "
+	rel="stylesheet" media="all">
 <!--js-->
 <script src="<c:url value="/resources/js/jquery.min.js" />"></script>
 <!--icons-css-->
-<link href="<c:url value="/resources/css/font-awesome.css"/> " rel="stylesheet" 	media="all"> 
+<link href="<c:url value="/resources/css/font-awesome.css"/> "
+	rel="stylesheet" media="all">
 <!--Google Fonts-->
-<link href="https://fonts.googleapis.com/css?family=Carrois+Gothic|Work+Sans:400,500,600" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Ruda" rel="stylesheet">
-<link href="<c:url value="/resources/css/font-awesome.min.css"/> " rel="stylesheet" 	media="all"> 
-<link href="<c:url value="/resources/css/multiple-select.css"/> " rel="stylesheet" 	media="all"> 
-
-
+<link
+	href="https://fonts.googleapis.com/css?family=Carrois+Gothic|Work+Sans:400,500,600"
+	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Ruda"
+	rel="stylesheet">
+<link href="<c:url value="/resources/css/font-awesome.min.css"/> "
+	rel="stylesheet" media="all">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css"
+	rel="stylesheet" media="all">
+	
+<link href="<c:url value="/resources/css/bootstrap.css"/> "
+	rel="stylesheet" media="all">
+<link
+	href="<c:url value="/resources/css/bootstrap-datetimepicker.min.css"/>"
+	rel="stylesheet">
 <!--scrolling js-->
-		<script src="<c:url value="/resources/js/jquery.nicescroll.js" />"></script>
-		<script src="<c:url value="/resources/js/scripts.js.js" />"></script>
-		<!--//scrolling js-->
+<script src="<c:url value="/resources/js/jquery.min.js" />"></script>
+<script src="<c:url value="/resources/js/jquery.nicescroll.js" />"></script>
+<script src="<c:url value="/resources/js/scripts.js.js" />"></script>
+<!--//scrolling js-->
 <script src="<c:url value="/resources/js/bootstrap.js" />"></script>
-<script src="<c:url value="/resources/js/multiple-select.js" />"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
 
 <script>
     $(function() {
@@ -87,7 +98,7 @@
 												</div>
 											</li>
 											<li><a href="#">
-											   <div class="user_img"><img src="images/p4.png" alt=""></div>
+											   <div class="user_img"><img src="<c:url value="/resources/images/p4.png" />" alt=""></div>
 											   <div class="notification_desc">
 												<p>Jalar de BD mensaje</p>
 												<p><span>Hace 1 hora</span></p>
@@ -95,7 +106,7 @@
 											   <div class="clearfix"></div>	
 											</a></li>
 											<li class="odd"><a href="#">
-												<div class="user_img"><img src="images/p2.png" alt=""></div>
+												<div class="user_img"><img src="<c:url value="/resources/images/p2.png" />" alt=""></div>
 											   <div class="notification_desc">
 												<p>Jalar de BD mensaje</p>
 												<p><span>Hace 1 hora</span></p>
@@ -103,7 +114,7 @@
 											  <div class="clearfix"></div>	
 											</a></li>
 											<li><a href="#">
-											   <div class="user_img"><img src="images/p3.png" alt=""></div>
+											   <div class="user_img"><img src="<c:url value="/resources/images/p3.png" />" alt=""></div>
 											   <div class="notification_desc">
 												<p>Jalar de BD mensaje</p>
 												<p><span>Hace 2 horas</span></p>
@@ -126,7 +137,7 @@
 												</div>
 											</li>
 											<li><a href="#">
-												<div class="user_img"><img src="images/p5.png" alt=""></div>
+												<div class="user_img"><img src="<c:url value="/resources/images/p5.png" />" alt=""></div>
 											   <div class="notification_desc">
 												<p>La agencia (JalarBD) agregÃ³ nuevo paquete</p>
 												<p><span>Hace una hora</span></p>
@@ -134,7 +145,7 @@
 											  <div class="clearfix"></div>	
 											 </a></li>
 											 <li class="odd"><a href="#">
-												<div class="user_img"><img src="images/p6.png" alt=""></div>
+												<div class="user_img"><img src="<c:url value="/resources/images/p6.png" />" alt=""></div>
 											   <div class="notification_desc">
 												<p>La agencia (JalarBD) agregÃ³ nuevo paquete</p>
 												<p><span>Hace 1 hora</span></p>
@@ -142,7 +153,7 @@
 											   <div class="clearfix"></div>	
 											 </a></li>
 											 <li><a href="#">
-												<div class="user_img"><img src="images/p7.png" alt=""></div>
+												<div class="user_img"><img src="<c:url value="/resources/images/p7.png" />" alt=""></div>
 											   <div class="notification_desc">
 												<p>La agencia (JalarBD) agregÃ³ nuevo paquete</p>
 												<p><span>Hace 1 hora</span></p>
@@ -167,7 +178,7 @@
 									<li class="dropdown profile_details_drop">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 											<div class="profile_img">	
-												<span class="prfil-img"><img src="images/p1.png" alt=""> </span> 
+												<span class="prfil-img"><img src="<c:url value="/resources/images/p1.png" />" alt=""> </span> 
 												<div class="user-name">
 													<p>Admin1</p>
 													<span>Administrador</span>
@@ -234,30 +245,59 @@
                                             </div>
                                             
                                             <div class="form-group">
+													<label class="col-md-3 control-label">Tipo de
+														Paquete</label>
+													<div class="col-md-9">
+														<select class="form-control select" name="tipoPaquete">
+															<option value="Aventura">Aventura</option>
+															<option value="Naturaleza">Naturaleza</option>
+															<option value="Historia y cultura">Historia y
+																cultura</option>
+															<option value="Descanso y relax">Descanso y
+																relax</option>
+															<option value="Entretenimiento">Entretenimiento</option>
+															<option value="Turismo">Turismo</option>
+														</select> <span class="help-block">Seleccione el tipo de
+															paquete</span>
+													</div>
+												</div>
+												
+                                            
+                                            <div class="form-group">
                                                 <label class="col-md-3 control-label">Duraci&oacute;n del Paquete</label>
                                                 <div class="col-md-9">                                            
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                        <input type="text" class="form-control" name="duracionPaquete" />
+                                                        <input type="text" class="form-control" name="duracionPaquete" id="duracionPaquete" readonly />
                                                     </div>                                            
                                                     <span class="help-block">Ingrese la duraci&oacute;n del Paquete a Agregar</span>
                                                 </div>
                                             </div>
+                                            
                                             <!--Aqui se llena la lista con la base de datos-->
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label">Agencia</label>
-                                                <div class="col-md-9">                                                                                            
-                                                    <select class="form-control select"  name="idAgencia">
-                                                        <option value="Agencias BD">Agencias BD</option>
-                                                    </select>
-                                                    <span class="help-block">Seleccione la agencia a la que pertenece el Paquete</span>
-                                                </div>
-                                            </div>
+                                          
+                                          <div class="form-group">
+													<label for="num_personas" class="col-md-3 control-label">Nro.
+														Personas: </label>
+													<div class="col-md-9">
+														<select id="num_ni�os" name="capacidadPaquete"  
+															class="form-control">
+															<option value="0" selected>0</option>
+															<option value="1">1</option>
+															<option value="2">2</option>
+															<option value="3">3</option>
+															<option value="4">4</option>
+														</select> <span class="help-block">Ingrese el numero
+															m&oacute;aximo de Personas</span>
+													</div>
+												</div>
+												
+												
                                             
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Imagen 1</label>
                                                 <div class="col-md-9">                                                                                                                                        
-                                                    <input type="file" class="fileinput btn" name="imagen1" id="filename" title="Browse file" style="font-size:13px"/>
+                                                    <input type="file" class="fileinput btn" name="imagen1" id="imagen1" title="Browse file" style="font-size:13px"/>
                                                     <span class="help-block">Cargue la Imagen 1 a mostrar del Paquete</span>
                                                 </div>
                                             </div>
@@ -265,50 +305,28 @@
                                               <div class="form-group">
                                                 <label class="col-md-3 control-label">Imagen 2</label>
                                                 <div class="col-md-9">                                                                                                                                        
-                                                    <input type="file" class="fileinput btn" name="imagen2" id="filename" title="Browse file" style="font-size:13px"/>
+                                                    <input type="file" class="fileinput btn" name="imagen2" id="imagen2" title="Browse file" style="font-size:13px"/>
                                                     <span class="help-block">Cargue la Imagen 2 a mostrar del Paquete</span>
                                                 </div>
                                             </div>
                                             
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label">Tipo de Paquete</label>
-                                                <div class="col-md-9">                                                                                            
-                                                    <select class="form-control select"  name="tipoPaquete">
-                                                        <option value="Aventura">Aventura</option>
-                                                        <option value="Naturaleza">Naturaleza</option>
-                                                        <option value="Historia y cultura">Historia y cultura</option>
-                                                        <option value="Descanso y relax">Descanso y relax</option>
-                                                        <option value="Entretenimiento">Entretenimiento</option>
-                                                        <option value="Turismo">Turismo</option>
-                                                    </select>
-                                                    <span class="help-block">Seleccione el tipo de paquete</span>
-                                                </div>
-                                            </div>
+                                            
                                             
                                             <!--Aqui se llena la lista de los destinos turiticos para seleccionar varios(getselects metodo para obtener la lista de seleccionados http://wenzhixin.net.cn/p/multiple-select/docs/#constructor)-->
                                             
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label">Destino de Paquete</label>
-                                                <div class="col-md-9" style="font-size:13px">                                                                                            
-                                                    
-											        <select id="ms" multiple="multiple" name="destinos">
-											            <option value="1">  January</option>
-											            <option value="2">  February</option>
-											            <option value="3">  March</option>
-											            <option value="4">  April</option>
-											            <option value="5">  May</option>
-											            <option value="6">  June</option>
-											            <option value="7">  July</option>
-											            <option value="8">  August</option>
-											            <option value="9">  September</option>
-											            <option value="10">  October</option>
-											            <option value="11">  November</option>
-											            <option value="12">  December</option>
-											        </select>
+                                          <div class="form-group">
+													<label class="col-md-3 control-label">Destino de
+														Paquete</label>
+													<div class="col-md-9" style="font-size: 13px">
+
+														<select id="multiselectDestino" name="multiselectDestinos" class="form-control" multiple="multiple"
+															title="Choose one of the following...">
+														
+															
+														</select> <span class="help-block">Seleccione llos destinosturisticos del paquete</span>
 													
-                                                    <span class="help-block">Seleccione llos destinos turisticos del paquete</span>
-                                                </div>
-                                            </div>
+													</div>
+												</div>
                                          
                         	</fieldset>
                         	
@@ -332,7 +350,7 @@
                                                 <div class="col-md-9">
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><span class="fa  fa-usd"></span></span>
-                                                        <input type="text" name="capacidadPaquete" class="form-control"  maxlength="5" pattern="+[1-9]*[0-9]{3}\\+.*[0.9]{2}">                                            
+                                                        <input type="text" name="precioOferta" class="form-control"  maxlength="5" pattern="+[1-9]*[0-9]{3}\\+.*[0.9]{2}">                                            
                                                     </div>
                                                     <span class="help-block">Ingrese precio para Decuentos</span>
                                                 </div>
@@ -343,25 +361,36 @@
                                                 <div class="col-md-9">
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><span class="fa fa-refresh"></span></span>
-                                                        <input type="text" class="form-control" name="stock" maxlength="5" pattern="[0-9]">                                            
+                                                        <input type="text" class="form-control" name="stockPaquete" maxlength="5" pattern="[0-9]">                                            
                                                     </div>
                                                     <span class="help-block">Ingrese Stock actual del Paquete</span>
                                                 </div>
                                             </div>
                                             
                                             <div class="form-group">
-                                            	<label class="col-md-3 control-label">Descuento</label>
+                                            	<label class="col-md-3 control-label">Oferta</label>
                                                 <div class="col-md-9">     
-                                                	<div class="btn-group" data-toggle="buttons">
-			
-														<label class="btn btn-success active">
-															<input type="checkbox" autocomplete="off" checked>
+                                                	<div class="btn-group" data-toggle="buttons">			
+														<label class="btn btn-success active" id="labelOferta">
+															<input type="checkbox" value="1" autocomplete="off" id="ofertaPaquete" checked>
 															<span class="fa fa-check"></span>
 															
 														</label>
-														<span class="input-group-addon" style="font-size:16px;height:34px"> &nbsp;&nbsp;Seleccione si est&aacute; en descuento</span>
+														<span class="input-group-addon" style="font-size:16px;height:34px;"> &nbsp;&nbsp;Seleccione si est&aacute; en Oferta</span>
 													</div>
-                                                    
+                                                    <span class="help-block">secci&oacute;n oferta</span>
+                                                </div>
+                                            </div>
+                                            
+                                           
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Duraci&oacute;n de Oferta</label>
+                                                <div class="col-md-9">                                            
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+                                                        <input type="text" class="form-control" name="duracionOfertaPaquete" id="duracionOfertaPaquete" readonly />
+                                                    </div>                                            
+                                                    <span class="help-block">Ingrese la duraci&oacute;n de la Oferta del Paquete</span>
                                                 </div>
                                             </div>
                                        
@@ -383,7 +412,7 @@
 	                          	<div class="form-group">
 	                            	<label class="col-md-3 control-label">Itinerario del Paquete</label>
 	                              	<div class="col-md-9 col-xs-12">                                            
-	                                	<textarea class="form-control" rows="10" name="itinerario"></textarea>
+	                                	<textarea class="form-control" rows="10" name="itinerarioPaquete"></textarea>
 	                                    <span class="help-block">Ingrese el itinerario del Paquete</span>
 	                              	</div>
 	                          	</div>
@@ -399,7 +428,7 @@
 	                          	<div class="form-group">
 	                            	<label class="col-md-3 control-label" >Servicios incluidos en el Paquete</label>
 	                              	<div class="col-md-9 col-xs-12">                                            
-	                                	<textarea class="form-control" rows="6" name="servicios"></textarea>
+	                                	<textarea class="form-control" rows="6" name="serviciosPaquete"></textarea>
 	                                    <span class="help-block">Ingrese los servicios incluidos en el Paquete</span>
 	                              	</div>
 	                          	</div>
@@ -465,6 +494,29 @@
 	<div class="clearfix"> </div>
 </div>
 <!--slide bar menu end here-->
+<script src="<c:url value="/resources/js/bootstrap-datetimepicker.min.js"/>"></script>
+
+<script>
+$(document).ready(function() {
+	
+    $('#multiselectDestino').multiselect({
+    	includeSelectAllOption: true,
+    	nonSelectedText: 'selecciona los destinos',
+    	enableFiltering: true,
+    	enableCaseInsensitiveFiltering:true,
+    	buttonWidth:'380px',  	
+    	
+    }); 
+    
+    $.post("getDestinos",function(data){    	
+    	$("#multiselectDestino").html(data);
+    	$('#multiselectDestino').multiselect('rebuild');
+	});
+    
+      
+    
+});
+</script>
 <script>
 var toggle = true;
             
@@ -483,10 +535,34 @@ $(".sidebar-icon").click(function() {
   }               
                 toggle = !toggle;
             });
+            
+$("#duracionPaquete").datetimepicker({
+	format : 'yyyy-mm-dd',
+	minView : 2,
+	autoclose : 1
+});
+
+$("#duracionOfertaPaquete").datetimepicker({
+	format : 'yyyy-mm-dd',
+	minView : 2,
+	autoclose : 1
+});
+
+$("#labelOferta").click(function() {
+	if($("#ofertaPaquete").attr('checked')) {		
+		$('#ofertaPaquete').attr('checked', false);
+		$('#ofertaPaquete').val('0');
+	}	
+	else {		
+		$('#ofertaPaquete').attr('checked', true);
+		$('#ofertaPaquete').val('1');
+	}
+	
+});
+
 </script>
 <!-- mother grid end here-->
 
-	<script src="<c:url value="/resources/js/jquery.min.js" />"></script>
 <script src="<c:url value="/resources/js/paquete.js" />"></script>
 </body>
 </html>                     
