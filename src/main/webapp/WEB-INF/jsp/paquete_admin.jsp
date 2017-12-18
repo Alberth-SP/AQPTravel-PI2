@@ -39,8 +39,7 @@
 
 <script>
 $(document).ready(function() {
-	alert("akii");
-
+	
 	$.post("../paquete/list_paquetes",function(data){
 		$('#list_paquete').html(data);
 		$('#tablePaquete').DataTable();
