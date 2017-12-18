@@ -95,6 +95,8 @@ public class AgenciaDao implements InterfaceDao<Agency>{
 	}
 
 	public void update(Agency t) {
+		
+	
 		String sql = "UPDATE agencia SET nombreAgencia = '" + t.getName()
 		+ "', correoAgencia = '" + t.getEmail()
 		+ "', rucAgencia = '" + t.getRuc()
@@ -106,11 +108,11 @@ public class AgenciaDao implements InterfaceDao<Agency>{
 		+ "', telefonoAgencia = '" + t.getPhone()
 		+ "', diaModAgencia = '" + t.getDayMod()
 		+ "', mesModAgencia = '" + t.getMonthMod()
-		+ "', anioModAgencia = '" + t.getPassword()
+		+ "', anioModAgencia = '" + t.getYearMod()
 		+ "', idAdmin = '" + t.getCodAdmin()
 		+ "', contrasenaAgencia = '" + t.getPassword()
-		+ "', estadoAgencia = '" + t.getPassword()
-		+ "' WHERE idAgencia = "+ t.getIdAgency()+"";
+		+ "', estadoAgencia = '" + Integer.parseInt(t.getState()+"")
+		+ "' WHERE idAgencia = "+ t.getIdAgency();
 
 		jdbcTemplate.update(sql);
 		
@@ -144,6 +146,7 @@ public class AgenciaDao implements InterfaceDao<Agency>{
 						.setYearMod(rs.getInt("anioModAgencia"))
 						.setCodAdmin(rs.getInt("idAdmin"))
 						.setPassword(rs.getString("contrasenaAgencia"))
+						.setState(rs.getString("estadoAgencia").charAt(0))
 						.build();
 				aContact.setIdAgency(rs.getInt("idAgencia"));		
 				return aContact;

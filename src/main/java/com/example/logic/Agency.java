@@ -56,7 +56,8 @@ public class Agency {
 			return this;
 		}
 		public BuildAgency setPassword(String val) {
-			password=Utilidades.Encriptar(val);
+			//password=Utilidades.Encriptar(val);
+			password=val;
 			return this;
 		}
 		public BuildAgency setPhone(String val) {

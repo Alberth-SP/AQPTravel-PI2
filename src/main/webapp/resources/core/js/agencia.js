@@ -25,7 +25,30 @@ var url = "agencia/saveAgencia";
 
 
 
+function modAgencia(){	
+	alert("inside");
+var url = "agencia/updateAgencia";
+	
+	$.ajax({
+		url: url,
+		type: 'POST',
+		data: $('#form_modAgencia').serialize(),      
+		success: function(result){
+			if(result){  
 
+				alert('sucess add Admin Agencia!' + result);                        
+			}
+			else{
+				alert('ocurrio algun ERROR, vuelva a intentarlo ');
+			}   
+
+		},
+		error: function(){
+			alert('Ocurrio un erro en el Proceso');
+		}
+	});
+	
+}
 
 
 

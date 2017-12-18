@@ -128,6 +128,8 @@ $(document).ready(function() {
 .onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-switch {
 	right: 0px;
 }
+
+
 </style>
 
 
@@ -398,6 +400,16 @@ $(document).ready(function() {
 				</div>
 				<!--inner block end here-->
 				<!-- modal  -->
+				
+
+     <!-- Modal HTML -->
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <!-- Content will be loaded here from "remote.php" file -->
+            </div>
+        </div>
+    </div>
 
 
 
@@ -449,7 +461,12 @@ $(document).ready(function() {
 		<div class="clearfix"></div>
 	</div>
 	<!--slide bar menu end here-->
-	<script>
+<script>
+
+$('body').on('hidden.bs.modal', '.modal', function () {
+    $(this).removeData('bs.modal');
+  });
+
 var toggle = true;
             
 $(".sidebar-icon").click(function() {                
@@ -467,9 +484,9 @@ $(".sidebar-icon").click(function() {
   }               
                 toggle = !toggle;
             });
-</script>
 
-	<script src="<c:url value="/resources/js/bootstrap.js" />"></script>}
+</script>
 	<script src="<c:url value="/resources/js/agencia.js" />"></script>
+	<script src="<c:url value="/resources/js/bootstrap-datetimepicker.min.js"/>"></script>
 </body>
 </html>
