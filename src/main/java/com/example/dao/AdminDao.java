@@ -22,6 +22,4 @@ public interface AdminDao {
 	
 	public Admin findAdminByEmail(String id);
 	
-	public boolean validateUser(String correo,String pwd,Admin ad) throws Exception;
-
 }

@@ -280,7 +280,7 @@ $(document).ready(function() {
 											<span class="prfil-img"><img src="images/p1.png"
 												alt=""> </span>
 											<div class="user-name">
-												<p>Admin1</p>
+												<p>${nombre}</p>
 												<span>Administrador</span>
 											</div>
 											<i class="fa fa-angle-down lnr"></i> <i

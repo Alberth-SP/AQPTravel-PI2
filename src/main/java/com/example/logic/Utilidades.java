@@ -10,15 +10,15 @@ import org.apache.commons.codec.binary.Base64;
 
 public class Utilidades {
 	
-	private static final String sk="aqptraveldewmanager";
-    public static String Encriptar(String texto) {
- 
+	public static String Encriptar(String texto) {
+		 
+        String secretKey = "qualityinfosolutions"; //llave para encriptar datos
         String base64EncryptedString = "";
  
         try {
  
             MessageDigest md = MessageDigest.getInstance("MD5");
-            byte[] digestOfPassword = md.digest(sk.getBytes("utf-8"));
+            byte[] digestOfPassword = md.digest(secretKey.getBytes("utf-8"));
             byte[] keyBytes = Arrays.copyOf(digestOfPassword, 24);
  
             SecretKey key = new SecretKeySpec(keyBytes, "DESede");
@@ -37,13 +37,13 @@ public class Utilidades {
  
     public static String Desencriptar(String textoEncriptado) throws Exception {
  
-        
+        String secretKey = "qualityinfosolutions"; //llave para encriptar datos
         String base64EncryptedString = "";
  
         try {
             byte[] message = Base64.decodeBase64(textoEncriptado.getBytes("utf-8"));
             MessageDigest md = MessageDigest.getInstance("MD5");
-            byte[] digestOfPassword = md.digest(sk.getBytes("utf-8"));
+            byte[] digestOfPassword = md.digest(secretKey.getBytes("utf-8"));
             byte[] keyBytes = Arrays.copyOf(digestOfPassword, 24);
             SecretKey key = new SecretKeySpec(keyBytes, "DESede");
  

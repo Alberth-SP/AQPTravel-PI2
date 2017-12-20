@@ -166,11 +166,11 @@ public class AgenciaDao implements InterfaceDao<Agency>{
 	}
 	public boolean checkByEmail(String val) {
 		Integer cnt = jdbcTemplate.queryForObject(
-			    "SELECT * FROM admin WHERE correoAgencia = "+val, Integer.class);
+			    "SELECT * FROM admin WHERE correoAgencia = '"+val+"'", Integer.class);
 			return cnt != null && cnt > 0;
 	}
 	public Agency findByEmail(String val) {
-		String sql = "SELECT * FROM agencia WHERE correoAgencia = " + val;
+		String sql = "SELECT * FROM agencia WHERE correoAgencia = '" + val+"'";
 		List<Agency> listContact = jdbcTemplate.query(sql, new RowMapper<Agency>() {
 
 

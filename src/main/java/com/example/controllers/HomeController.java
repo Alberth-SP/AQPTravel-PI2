@@ -43,7 +43,7 @@ public class HomeController {
 	/* Request para pagina principal */
 	@RequestMapping(value="/", method=RequestMethod.GET ,produces="text/html;charset=UTF-8")
 	public ModelAndView index(ModelAndView model) throws IOException{
-		model.setViewName("login");	 		
+		model.setViewName("index");	 		
 		return model;
 	}
 	

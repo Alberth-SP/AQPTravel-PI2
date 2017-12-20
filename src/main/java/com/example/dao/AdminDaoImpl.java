@@ -134,10 +134,4 @@ public class AdminDaoImpl implements AdminDao{
 	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
-	public boolean validateUser(String correo, String pwd, Admin ad) throws Exception {
-		if(correo.equals("123"))
-				return true;
-		return false;
-	}
-
 }
