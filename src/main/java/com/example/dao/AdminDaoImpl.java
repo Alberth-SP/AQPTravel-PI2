@@ -16,6 +16,7 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 
 import com.example.logic.Admin;
+import com.example.logic.Utilidades;
 
 @Repository
 public class AdminDaoImpl implements AdminDao{
@@ -24,7 +25,7 @@ public class AdminDaoImpl implements AdminDao{
 
 	public List<Admin> listAllAdmin() {
 		// TODO Auto-generated method stub		
-		String sql = "SELECT idAdmin, nombre, apellidoAdmin, correoAdmin, estadoAdmin FROM admin";
+		String sql = "SELECT * FROM admin";
 
 		List<Admin> listContact = jdbcTemplate.query(sql, new RowMapper<Admin>() {
 
@@ -33,7 +34,8 @@ public class AdminDaoImpl implements AdminDao{
 				// TODO Auto-generated method stub
 
 				Admin aContact = new Admin.BuildAdmin(rs.getString("nombre")).setEmail(rs.getString("correoAdmin"))
-						.setLastname(rs.getString("apellidoAdmin")).build();		
+						.setLastname(rs.getString("apellidoAdmin"))
+						.setPassword(rs.getString("contrasenaAdmin")).build();		
 				aContact.setIdAdmin(rs.getInt("idAdmin"));
 				aContact.setState(rs.getString("estadoAdmin").charAt(0));
 				return aContact;
@@ -79,7 +81,7 @@ public class AdminDaoImpl implements AdminDao{
 
 	public Admin findAdminById(int id) {
 		// TODO Auto-generated method stub
-		String sql = "SELECT * FROM admin WHERE idAdmin = " + id;
+		String sql = "SELECT * FROM admin WHERE idAdmin = '" + id+"'";
 		List<Admin> listContact = jdbcTemplate.query(sql, new RowMapper<Admin>() {
 
 
@@ -104,9 +106,38 @@ public class AdminDaoImpl implements AdminDao{
 		jdbcTemplate.update(sql);
 
 	}
+	public boolean checkByEmail(String val) {
+		Integer cnt = jdbcTemplate.queryForObject(
+			    "SELECT * FROM admin WHERE correoAdmin = '"+val+"'", Integer.class);
+			return cnt != null && cnt > 0;
+	}
+	public Admin findAdminByEmail(String id) {
+		// TODO Auto-generated method stub
+		String sql = "SELECT * FROM admin WHERE correoAdmin = '" + id+"'";
+		List<Admin> listContact = jdbcTemplate.query(sql, new RowMapper<Admin>() {
 
+
+			public Admin mapRow(ResultSet rs, int rowNum) throws SQLException {
+				// TODO Auto-generated method stub
+
+				Admin aContact = new Admin.BuildAdmin(rs.getString("nombre")).setLastname(rs.getString("apellidoAdmin"))
+						.setEmail(rs.getString("correoAdmin"))
+						.setPassword(rs.getString("contrasenaAdmin")).build();		
+				aContact.setIdAdmin(rs.getInt("idAdmin"));
+				return aContact;
+			}
+
+		});		 
+
+		return listContact.get(0);		
+	}
 	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
+	}
+	public boolean validateUser(String correo, String pwd, Admin ad) throws Exception {
+		if(correo.equals("123"))
+				return true;
+		return false;
 	}
 
 }

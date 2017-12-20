@@ -18,5 +18,10 @@ public interface AdminDao {
 	
 	public void changeStateAdmin(int id, char state);
 	
+	public boolean checkByEmail(String val);
+	
+	public Admin findAdminByEmail(String id);
+	
+	public boolean validateUser(String correo,String pwd,Admin ad) throws Exception;
 
 }

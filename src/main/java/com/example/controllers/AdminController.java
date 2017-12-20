@@ -7,11 +7,13 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.dao.AdminDao;
@@ -22,6 +24,7 @@ import com.example.logic.Destiny;
 /* CLASE para responder a Solicitudes  desde ADMIN */
 
 @Controller
+@SessionAttributes("nombre")
 public class AdminController {
 
 	@Autowired
@@ -158,6 +161,20 @@ public class AdminController {
 		
 		return model2;
 
+	}
+	@RequestMapping(value = "plogin", method = RequestMethod.POST)
+	public ModelAndView index(ModelAndView model, @RequestBody MultiValueMap<String, String> params, ModelMap modelp)
+			throws Exception {
+		ModelAndView model2 = new ModelAndView();
+		// Verificacion Admin
+		if (adminDao.validateUser("123", params.getFirst("contrasena"), adminDao.findAdminByEmail(params.getFirst("correo"))))
+		{
+			modelp.put("nombre","Ingreso");
+			model2.setViewName("welcome");
+		}
+		modelp.put("nombre", "no ingreso");
+		model2.setViewName("welcome");
+		return model2;
 	}
 	
 

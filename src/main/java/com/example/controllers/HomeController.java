@@ -21,32 +21,41 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.dao.AdminDao;
+import com.example.dao.AdminDaoImpl;
+import com.example.dao.AgenciaDao;
+import com.example.dao.ClienteDao;
 import com.example.logic.Admin;
+import com.example.logic.Agency;
+import com.example.logic.Customer;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.util.JSONPObject;
 
 
 /* CLASE para responder a Solicitudes  desde HOME */
+
 @Controller
 public class HomeController {
 
-		
 	/* Request para pagina principal */
-	@RequestMapping(value="/", method=RequestMethod.GET)
+	@RequestMapping(value="/", method=RequestMethod.GET ,produces="text/html;charset=UTF-8")
 	public ModelAndView index(ModelAndView model) throws IOException{
-		
-		model.setViewName("index");	 		
+		model.setViewName("login");	 		
 		return model;
 	}
 	
 	/* Request para formulario de registro de usurio */
-	@RequestMapping(value="registrar", method=RequestMethod.GET)
+	@RequestMapping(value="registrar", method=RequestMethod.GET,produces="text/html;charset=UTF-8")
 	public ModelAndView register(ModelAndView model) throws IOException{
 		model.setViewName("registrar");
 		return model;
+	}
+	@RequestMapping(value = "login", method = RequestMethod.GET)
+	public String showLoginPage() {
+		return "login";
 	}
 
 }

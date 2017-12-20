@@ -120,8 +120,13 @@ public class ClienteDao implements InterfaceDao<Customer>{
 				jdbcTemplate.update(sql);
 		
 	}
+	public boolean checkByEmail(String val) {
+		Integer cnt = jdbcTemplate.queryForObject(
+			    "SELECT * FROM cliente WHERE correoCliente = "+val, Integer.class);
+			return cnt != null && cnt > 0;
+	}
 	public Customer findByEmail(String val) {
-		String sql = "SELECT * FROM admin WHERE correoAdmin = " + val;
+		String sql = "SELECT * FROM cliente WHERE correoCliente = " + val;
 		List<Customer> listContact = jdbcTemplate.query(sql, new RowMapper<Customer>() {
 
 
