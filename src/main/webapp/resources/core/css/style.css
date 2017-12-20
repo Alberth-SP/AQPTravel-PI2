@@ -694,12 +694,28 @@ body.mobile-nav-active #mobile-nav-toggle {
   padding-right: 15px;
 }
 
+#resultados #resultados-wrapper {
+  padding-right: 15px;
+}
+
+
+
 #portfolio #portfolio-flters {
   padding: 0;
   margin: 0 0 45px 0;
   list-style: none;
   text-align: center;
 }
+#resultados #resultados-flters {
+  padding: 0;
+  margin: 0 0 45px 0;
+  list-style: none;
+  text-align: center;
+}
+
+
+
+
 
 #portfolio #portfolio-flters li {
   cursor: pointer;
@@ -715,8 +731,33 @@ body.mobile-nav-active #mobile-nav-toggle {
   margin-bottom: 5px;
   transition: all 0.3s ease-in-out;
 }
+#resultados #resultados-flters li {
+  cursor: pointer;
+  margin: 0 10px;
+  display: inline-block;
+  padding: 10px 22px;
+  font-size: 12px;
+  line-height: 20px;
+  color: #666666;
+  border-radius: 4px;
+  text-transform: uppercase;
+  background: #fff;
+  margin-bottom: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+
+
+
+
 
 #portfolio #portfolio-flters li:hover, #portfolio #portfolio-flters li.filter-active {
+  background: #2dc997;
+  color: #fff;
+}
+
+
+#resultados #resultados-flters li:hover, #resultados #resultados-flters li.filter-active {
   background: #2dc997;
   color: #fff;
 }
@@ -730,16 +771,37 @@ body.mobile-nav-active #mobile-nav-toggle {
   transform: scale(1);
 }
 
-#portfolio .portfolio-item a {
+#resultados .resultados-item {
+  position: relative;
+  height: 200px;
+  overflow: hidden !important;
+  margin-bottom: 15px;
+  transition: all 350ms ease;
+  transform: scale(1);
+}
+
+ .portfolio-item a {
   display: block;
   margin-right: 15px;
 }
+.resultados-item a {
+  display: block;
+  margin-right: 15px;
+}
+
 
 #portfolio .portfolio-item img {
   position: relative;
   top: 0;
   transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
 }
+#resultados .resultados-item img {
+  position: relative;
+  top: 0;
+  transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+
 
 #portfolio .portfolio-item .details {
   height: 50px;
@@ -751,6 +813,23 @@ body.mobile-nav-active #mobile-nav-toggle {
   transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
+#resultados .resultados-item .details {
+  height: 50px;
+  background: #2dc997;
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  bottom: -50px;
+  transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+#info-pag{
+
+}
+
+
+
+
+
 #portfolio .portfolio-item .details h4 {
   font-size: 14px;
   font-weight: 700;
@@ -758,6 +837,14 @@ body.mobile-nav-active #mobile-nav-toggle {
   padding: 8px 0 2px 8px;
   margin: 0;
 }
+#resultados .resultados-item .details h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  padding: 8px 0 2px 8px;
+  margin: 0;
+}
+
 
 #portfolio .portfolio-item .details span {
   display: block;
@@ -765,14 +852,35 @@ body.mobile-nav-active #mobile-nav-toggle {
   font-size: 13px;
   padding-left: 8px;
 }
+#resultados .resultados-item .details span {
+  display: block;
+  color: #fff;
+  font-size: 13px;
+  padding-left: 8px;
+}
+
+
 
 #portfolio .portfolio-item:hover .details {
   bottom: 0;
 }
+#resultados .resultados-item:hover .details {
+  bottom: 0;
+}
+
+
+
+
+
 
 #portfolio .portfolio-item:hover img {
   top: -30px;
 }
+#resultados .resultados-item:hover img {
+  top: -30px;
+}
+
+
 
 /* Team Section
 --------------------------------*/
@@ -962,18 +1070,15 @@ body.mobile-nav-active #mobile-nav-toggle {
   padding-bottom: 5px;
 
 }
-.personalizado2{
- 
 
-}
 .background1{
    min-height: 480px;
-  background: url(../img/back1.jpeg) center top no-repeat;
+  background: url(../img/back2.jpg) center top no-repeat;
 }
 .acerca-de{
   padding: 20px;
   padding-top: 100px;
-  background: #658525;
+  background: #FFC700;
   color:#fff;
 }
 .acerca-de p{
@@ -1000,3 +1105,24 @@ body.mobile-nav-active #mobile-nav-toggle {
       background: #fff;
       color:#2DC997;
     }
+
+
+/********************PERSONALIZADOS*********************/
+.misheader{
+  background: rgba(52, 59, 64, 1);
+}
+.misPaq{
+  margin-top: 50px;
+}
+.misTitulo{
+  font-size: 20px;
+  font-weight: bold;
+}
+ p .misTitulo{
+  font-size: 8px;
+}
+
+
+
+
+/******************************************************/

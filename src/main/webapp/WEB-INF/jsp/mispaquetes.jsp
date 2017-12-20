@@ -68,31 +68,22 @@
     <!--==========================
       About Us Section
     ============================-->
-    <section id="about">
+    <section id="about"  class="misPaq">
       <div class="container">
         <div class="row about-container">
 
-          <div class="col-lg-6 content order-lg-1 order-2 personalizado-form">
-            <h2 class="title">Paquetes Personalizados</h2>
-            <p>
-              Encuentra el paquete que más se ajuste a tus necesidades.
-            </p>
-
+          <div class="col-lg-4 content order-lg-1 order-1 personalizado-form">
+            <h4 >Paquetes Personalizados</h4>
+       
             <form>
+                
                 <div class="form-group row">
-                  
-                  <div class="col-md-6">
-                      <div class="form-group">
                       <label for="fecha_ida" class= "label-form">Fecha Ida:</label>
                       <input size="16" type="text" class="form-control" id="fecha_ida" readonly>
-                  </div>
-                  </div>
-                  <div class="col-md-6">
-                      <div class="form-group">
+                </div>
+                <div class="form-group row">
                       <label for="fecha_regreso" class= "label-form">Fecha Regreso:</label>
                       <input size="16" type="text" class="form-control" id="fecha_regreso" readonly>
-                  </div>
-                  </div>
                 </div>
                 <div class="form-group row">
                   <label for="num_adultos" class="col-sm-4 col-form-label label-form">Nro. Adultos:</label>
@@ -132,245 +123,72 @@
                   </div>
                 </div>
          
-                <div class="form-group row justify-content-between" id = "seccion3-1-footer">
-                    <div id= "seccion3-1-help2" class="col-sm-auto align-self-end">
-                      <a href="#seccion3-1-help2"><span class="Icon-svg"></span> Opciones Avanzadas</a>
-                    </div>
+                <div class="form-group row justify-content-center" id = "seccion3-1-footer">
+                   
                     <div class="col-sm-auto">
-                      <button type="submit" class = "btn btn-md btn-outline-info"><span class="Icon-search"></span> Buscar</button>
+                      <button type="submit" class = "btn btn-lg btn-outline-info"><span class="Icon-search"></span> Buscar</button>
                     </div>
                 </div>
                  </form>
         
-         </div>
+           </div>
 
-           <div class="col-lg-6 background order-lg-2 order-1 wow fadeInRight personalizado2">
-              
-              <div class="row">
-                
-                 <div class="col-lg-5 background1"></div>
-                 <div class="col-lg-7 acerca-de">
-                   <h3 class="title">Nosotros</h3>
-                   <p><strong>PERUVIAJES</strong>, les da la bienvenida. Nuestra pasión por el turismo les asegurará una experiencia inolvidable y de gran calidad.</p>
-                 </div>
+		   <div id = "resultados" class="col-lg-8  order-lg-2 order-2   ">              
+              <div class="container wow fadeInRight">
+               
+
+                <div class="row" id="resultados-wrapper">
+                  <div class="col-lg-6 col-md-6 resultados-item filter-app">
+                    <a href="">
+                      <img src="<c:url value="/resources/img/portfolio/aventura1.jpg"/>" alt="">
+                      <div class="details">
+                        
+                        <h4> PARACAS - $200</h4>
+                        <a href="" class="link-mas">Detalles</a>
+                      
+                      </div>
+                    </a>
+                  </div>
+
+                  <div class="col-lg-6 col-md-6 resultados-item filter-web">
+                    <a href="">
+                      <img src="<c:url value="/resources/img/portfolio/naturaleza2.jpg"/>" alt="">
+                      <div class="details">
+                        <h4>Titicaca - $300</h4>
+                        <a href="" class="link-mas">Detalles</a>
+                      </div>
+                    </a>
+                  </div>
+
+                  <div class="col-lg-6 col-md-6 resultados-item filter-app">
+                    <a href="">
+                      <img src="<c:url value="/resources/img/portfolio/aventura3.jpg"/>" alt="">
+                      <div class="details">
+                        <h4>Ayacucho - $100</h4>
+                        <a href="" class="link-mas">Detalles</a>
+                      </div>
+                    </a>
+                  </div>
+
+                  <div class="col-lg-6 col-md-6 resultados-item filter-card">
+                    <a href="">
+                      <img src="<c:url value="/resources/img/portfolio/cultura1.jpg"/>" alt="">
+                      <div class="details">
+                        <h4>Lambayeque - $250</h4>
+                        <a href="" class="link-mas">Detalles</a>
+                      </div>
+                    </a>
+                  </div>
+                </div>
               </div>
 
            </div>
         </div>
 
       </div>
-    </section><!-- #about -->
+    </section>
     
-    <!--==========================
-      Portfolio Section
-    ============================-->
-    <section id="portfolio">
-      <div class="container wow fadeInUp">
-        <div class="section-header">
-          <h3 class="section-title">Paquetes</h3>
-          <p class="section-description">Reserva el paquete ideal para sus necesidades.</p>
-        </div>
-        <div class="row">
-
-          <div class="col-lg-12">
-            <ul id="portfolio-flters">
-              <li data-filter=".filter-app, .filter-card, .filter-logo, .filter-web" class="filter-active">Todo</li>
-              <li data-filter=".filter-app">Aventura</li>
-              <li data-filter=".filter-card">Cultura</li>
-              <li data-filter=".filter-logo">Relax</li>
-              <li data-filter=".filter-web">Naturaleza</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="row" id="portfolio-wrapper">
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <a href="">
-              <img src="<c:url value="/resources/img/portfolio/aventura1.jpg"/>" alt="">
-              <div class="details">
-                <h4>Paracas - $200</h4>
-                <a href="" class="link-mas">Detalles</a>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <a href="">
-              <img src="<c:url value="/resources/img/portfolio/naturaleza2.jpg"/>" alt="">
-              <div class="details">
-                <h4>Titicaca - $230</h4>
-                <a href="" class="link-mas">Detalles</a>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <a href="">
-              <img src="<c:url value="/resources/img/portfolio/aventura3.jpg"/>" alt="">
-              <div class="details">
-                <h4>Ayacucho - $170</h4>
-                <a href="" class="link-mas">Detalles</a>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <a href="">
-              <img src="<c:url value="/resources/img/portfolio/cultura1.jpg"/>" alt="">
-              <div class="details">
-                <h4>Lambayeque - $250</h4>
-                <a href="" class="link-mas">Detalles</a>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <a href="">
-              <img src="<c:url value="/resources/img/portfolio/cultura2.jpg"/>" alt="">
-              <div class="details">
-                <h4>Arequipa - $175</h4>
-                <a href="" class="link-mas">Detalles</a>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <a href="">
-              <img src="<c:url value="/resources/img/portfolio/naturaleza3.jpg"/>" alt="">
-              <div class="details">
-                <h4>Cañon Colca - $200</h4>
-                <a href="" class="link-mas">Detalles</a>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <a href="">
-              <img src="<c:url value="/resources/img/portfolio/cultura3.jpg"/>" alt="">
-              <div class="details">
-                <h4>Cusco - $250</h4>
-                <a href="" class="link-mas">Detalles</a>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <a href="">
-              <img src="<c:url value="/resources/img/portfolio/aventura2.jpg"/>" alt="">
-              <div class="details">
-                <h4>Piura - $300</h4>
-                <a href="" class="link-mas">Detalles</a>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-logo">
-            <a href="">
-              <img src="<c:url value="/resources/img/portfolio/relax1.jpg"/>" alt="">
-              <div class="details">
-                <h4>Mancora - $450</h4>
-                <a href="" class="link-mas">Detalles</a>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-logo">
-            <a href="">
-              <img src="<c:url value="/resources/img/portfolio/relax3.jpg"/>" alt="">
-              <div class="details">
-                <h4>Cañete - $250</h4>
-                <a href="" class="link-mas">Detalles</a>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <a href="">
-              <img src="<c:url value="/resources/img/portfolio/naturaleza1.jpg"/>" alt="">
-              <div class="details">
-                <h4>Manu - $350</h4>
-                <a href="" class="link-mas">Detalles</a>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-logo">
-            <a href="">
-              <img src="<c:url value="/resources/img/portfolio/relax2.jpg"/>" alt="">
-              <div class="details">
-                <h4>Tambopata - $275</h4>
-                <a href="" class="link-mas">Detalles</a>
-              </div>
-            </a>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- #portfolio -->
-    
-<!--==========================
-    Call To Action Section
-    ============================-->
-    <section id="call-to-action">
-      <div class="container wow fadeIn">
-        <div class="row">
-          <div class="col-lg-9 text-center text-lg-left">
-            <h3 class="cta-title">Descuentos y Promociones</h3>
-            <p class="cta-text"> Obtén descuentos y promociones especiales uniendote en nuestra página y participando de nuestras actividades. Acumula bonos de descuento por la compra de nuestros paquetes</p>
-          </div>
-          <div class="col-lg-3 cta-btn-container text-center">
-            <a class="cta-btn align-middle" href="#">Iniciar Sesión</a>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- #call-to-action -->
-    
-    <!--==========================
-      Services Section
-    ============================-->
-    <section id="services">
-      <div class="container wow fadeIn">
-        <div class="section-header">
-          <h3 class="section-title">Servicios Adicionales</h3>
-          <p class="section-description">Para mejorar la experiencia de nuestros clientes, los paquetes incluyen: </p>
-        </div>
-        <div class="row">
-          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-            <div class="box">
-              <div class="icon"><a href=""><i class="fa fa-desktop"></i></a></div>
-              <h4 class="title"><a href="">Multimedia</a></h4>
-              <p class="description">Nuestras unidades de transporte cuentan con modernos dispositivos multimedia(TV,Internet,etc).</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
-            <div class="box">
-              <div class="icon"><a href=""><i class="fa fa-bar-chart"></i></a></div>
-              <h4 class="title"><a href="">Guía Turística</a></h4>
-              <p class="description">Contamos con personal de guías calificados en todos nuestros recorridos. </p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
-            <div class="box">
-              <div class="icon"><a href=""><i class="fa fa-shopping-bag"></i></a></div>
-              <h4 class="title"><a href="">Refrigerio</a></h4>
-              <p class="description">Brindamos refrigerios y bebidas según nuestros recorridos.</p>
-            </div>
-          </div>
-
-         
-        </div>
-
-      </div>
-    </section><!-- #services -->
-
-    
-
-    
-    <!--==========================
-      Team Section
-    ============================-->
+ 
     
 
     <!--==========================
