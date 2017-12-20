@@ -66,7 +66,7 @@
     box-shadow: 5px 10px 8px #888888;">
             <h6 style="font-weight: bold;">Encuentra tu Paquete!!</h46>
        
-            <form>           
+            <form id="form_filter">           
             
             
             
@@ -74,7 +74,7 @@
             <span style="font-size: 15px;font-weight: bold;" class="help-block">Fecha de Regreso:</span>
                            <div class="input-group">
                       <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                      <input size="5" type="text" placeholder="--/--/--" class="form-control" id="fecha_regreso" readonly>
+                      <input size="5" type="text" name="fecha_regreso" placeholder="--/--/--" class="form-control" id="fecha_regreso" readonly>
                       </div>
                 </div>        
                                          
@@ -85,7 +85,7 @@
             <span style="font-size: 15px;font-weight: bold;" class="help-block">Fecha de Salida:</span>
                            <div class="input-group">
                       <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                      <input size="5" type="text" class="form-control" id="fecha_ida" placeholder="--/--/--" readonly>
+                      <input size="5" type="text" name="fecha_salida" class="form-control" id="fecha_salida" placeholder="--/--/--" readonly>
                       </div>
                 </div>
                 
@@ -94,7 +94,7 @@
                   <span style="font-size: 15px;font-weight: bold;" class="help-block">Ingrese Destino:</span>
                            <div class="input-group">
                       <span class="input-group-addon"><span class="fa fa-globe"></span></span>
-                      <input size="5" type="text" placeholder="..." class="form-control" id="fecha_ida" >
+                      <input size="5" type="text" placeholder="..." class="form-control" name="destino" >
                       </div>
                 </div>
                 
@@ -103,7 +103,7 @@
                 
                 <div class="form-group row">   
                 		<span style="font-size: 14px;font-weight: bold;" class="help-block">Numero de Personas:</span>
-														<select id="num_niños" name="capacidadPaquete"  
+														<select id="num_personas" name="num_personas"  
 															class="form-control" title="Numero de Pesonas">
 															
 															<option value="0" selected>0</option>
@@ -120,7 +120,7 @@
                 <div class="form-group row">
                   
               <span style="font-size: 14px;font-weight: bold;" class="help-block">Tipo de Actividad:</span>
-                    <select id="actividad" class="form-control">
+                    <select name="tipo_actividad" id="tipo_actividad" class="form-control">
                       <option value= "aventura" selected>Aventura</option>
                       <option value= "naturaleza" >Naturaleza</option>
                       <option value= "cultural" >Cultural</option>
@@ -134,15 +134,15 @@
                 <div class="form-group row">
                   
               
-                     <span style="font-size: 14px;font-weight: bold;" class="help-block">  <input type="checkbox" >  Ver Solo Ofertas.</span>
+                     <span style="font-size: 14px;font-weight: bold;" class="help-block">  <input type="checkbox" value="0" name="oferta" id="checkfilter" >  Ver Solo Ofertas.</span>
                   
                 </div>
          
                 <div class="panel-footer">
     				
     			
-    				<button type="button" class="btn btn-success pull-right col-md-12" style="margin:15px 0px;" onclick="" >Buscar</button>
-                   	 	<button class="btn btn-default col-md-12" style="margin:10px 0px;">Limpiar</button>
+    				<button type="button" class="btn btn-success pull-right col-md-12" style="margin:15px 0px;" onclick="searchPaquets()" > <i class="fa fa-search fa-lg"></i> Buscar</button>
+                   	 	<button class="btn btn-default col-md-12" style="margin:10px 0px;" onclick="clearFilters()">Limpiar</button>
                    	 	</div>
                 
                  </form>
@@ -174,9 +174,9 @@
                    
                    <a href=""> <h4 style="font-weight:bold;color:black;"> LA MONTAÑA ARCO IRIS VINICUNCA - FULL DAY </h4></a>
                     <span> 
-	                    <i class="fa fa-star" aria-hidden="true" style="color: #FFD700;"></i>
-						<i class="fa fa-star" aria-hidden="true" style="color: #FFD700;"></i>
-						<i class="fa fa-star" aria-hidden="true" style="color: #FFD700;"></i>
+	                    <i class="fa fa-star" aria-hidden="true" style="color: #f48f00;"></i>
+						<i class="fa fa-star" aria-hidden="true" style="color: #f48f00;"></i>
+						<i class="fa fa-star" aria-hidden="true" style="color: #f48f00;"></i>
 					</span>
                     
                     <p  style="font-size: 14px;"> Este lugar es reconocido</p>
@@ -203,9 +203,9 @@
                    
                    <a href=""> <h4 style="font-weight:bold;color:black;"> LA MONTAÑA ARCO IRIS VINICUNCA - FULL DAY </h4></a>
                     <span> 
-	                    <i class="fa fa-star" aria-hidden="true" style="color: #FFD700;"></i>
-						<i class="fa fa-star" aria-hidden="true" style="color: #FFD700;"></i>
-						<i class="fa fa-star" aria-hidden="true" style="color: #FFD700;"></i>
+	                    <i class="fa fa-star" aria-hidden="true" style="color: #f48f00;"></i>
+						<i class="fa fa-star" aria-hidden="true" style="color: #f48f00;"></i>
+						<i class="fa fa-star" aria-hidden="true" style="color: #f48f00;"></i>
 					</span>
                     
                     <p  style="font-size: 14px;"> Este lugar es reconocido</p>
@@ -233,9 +233,9 @@
                    
                    <a href=""> <h4 style="font-weight:bold;color:black;"> LA MONTAÑA ARCO IRIS VINICUNCA - FULL DAY </h4></a>
                     <span> 
-	                    <i class="fa fa-star" aria-hidden="true" style="color: #FFD700;"></i>
-						<i class="fa fa-star" aria-hidden="true" style="color: #FFD700;"></i>
-						<i class="fa fa-star" aria-hidden="true" style="color: #FFD700;"></i>
+	                    <i class="fa fa-star" aria-hidden="true" style="color: #f48f00;"></i>
+						<i class="fa fa-star" aria-hidden="true" style="color: #f48f00;"></i>
+						<i class="fa fa-star" aria-hidden="true" style="color: #f48f00;"></i>
 					</span>
                     
                     <p  style="font-size: 14px;"> Este lugar es reconocido</p>
@@ -263,9 +263,9 @@
                    
                    <a href=""> <h4 style="font-weight:bold;color:black;"> LA MONTAÑA ARCO IRIS VINICUNCA - FULL DAY </h4></a>
                     <span> 
-	                    <i class="fa fa-star" aria-hidden="true" style="color: #FFD700;"></i>
-						<i class="fa fa-star" aria-hidden="true" style="color: #FFD700;"></i>
-						<i class="fa fa-star" aria-hidden="true" style="color: #FFD700;"></i>
+	                    <i class="fa fa-star" aria-hidden="true" style="color: #f48f00;"></i>
+						<i class="fa fa-star" aria-hidden="true" style="color: #f48f00;"></i>
+						<i class="fa fa-star" aria-hidden="true" style="color: #f48f00;"></i>
 					</span>
                     
                     <p  style="font-size: 14px;"> Este lugar es reconocido</p>
@@ -293,9 +293,9 @@
                    
                    <a href=""> <h4 style="font-weight:bold;color:black;"> LA MONTAÑA ARCO IRIS VINICUNCA - FULL DAY </h4></a>
                     <span> 
-	                    <i class="fa fa-star" aria-hidden="true" style="color: #FFD700;"></i>
-						<i class="fa fa-star" aria-hidden="true" style="color: #FFD700;"></i>
-						<i class="fa fa-star" aria-hidden="true" style="color: #FFD700;"></i>
+	                    <i class="fa fa-star" aria-hidden="true" style="color: #f48f00;"></i>
+						<i class="fa fa-star" aria-hidden="true" style="color: #f48f00;"></i>
+						<i class="fa fa-star" aria-hidden="true" style="color: #f48f00;"></i>
 					</span>
                     
                     <p  style="font-size: 14px;"> Este lugar es reconocido</p>
@@ -453,7 +453,7 @@
   <!-- Template Main Javascript File -->
   <script src="<c:url value="/resources/js/main.js"/>"></script>
   <script type="text/javascript">
-    $("#fecha_ida").datetimepicker({
+    $("#fecha_salida").datetimepicker({
         format: 'yyyy-mm-dd',
         minView: 2,
         autoclose: 1
@@ -464,6 +464,8 @@
         autoclose: 1
     });
   </script>
-	
+	  <script src="<c:url value="/resources/js/filterPage.js"/>"></script>
 </body>
+
+ 
 </html>

@@ -20,6 +20,8 @@ public interface PaqueteDao {
 	
 	public void changeStatePaquete(int id, char state);
 	
+	public List<Paquete> listFilterPaquetes(Paquete param);
+	
 	/*¨detalles paqute */	
 
 	public boolean addFotoPaquete(FotosPaquete foto);

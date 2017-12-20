@@ -178,6 +178,31 @@ public class PaqueteDaoImpl implements PaqueteDao {
 			  });
 		
 	}
+	
+	
+	/* request for filter paquet */
+
+	@Override
+	public List<Paquete> listFilterPaquetes(Paquete param) {
+		// TODO Auto-generated method stub
+		
+		String query = "select distinct paquete.nombrePaquete, paquete.idPaquete from paquete, paquetedestino, destino where destino.nombreDestino LIKE '%"+param.getDestinoPaquete()+"%' and paquetedestino.idDestino = destino.idDestino AND paquete.idPaquete = paqueteDestino.idPaquete;";
+		
+		List<Paquete> listPaquet = jdbcTemplate.query(query, new RowMapper<Paquete>() {
+
+			@Override
+			public Paquete mapRow(ResultSet rs, int rowNum) throws SQLException {
+				// TODO Auto-generated method stub
+
+				Paquete aPaquet = new Paquete();		
+				aPaquet.setIdPaquete(rs.getInt("idPaquete"));			
+				aPaquet.setNombrePaquete(rs.getString("nombrePaquete"));					
+				return aPaquet;
+			}
+
+		});		 
+		return listPaquet;	
+	}
 
 	
 
