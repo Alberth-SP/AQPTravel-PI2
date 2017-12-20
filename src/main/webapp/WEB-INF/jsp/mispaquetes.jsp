@@ -4,7 +4,7 @@
 <html >
 <head>
  
-  <title>PERUVIAJES</title>
+  <title>AQP-TRAVEL</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta content="" name="keywords">
@@ -23,19 +23,20 @@
   <link href="<c:url value="/resources/lib/animate/animate.min.css"/>" rel="stylesheet">
 
   <!-- Main Stylesheet File -->
-  <link href="<c:url value="/resources/css/style.css"/>" rel="stylesheet">
+  <link href="<c:url value="/resources/css/style.css"/>" rel="stylesheet">	
   <link href="<c:url value="/resources/css/bootstrap-datetimepicker.min.css"/>" rel="stylesheet">
+  <link href="<c:url value="/resources/css/mystyle.css"/>" rel="stylesheet">
   
 </head>
 <body>
-	<header id="header">
-    <div class="container">
-
-      <div id="logo" class="pull-left">
-        <a href="#hero"><img src="<c:url value="/resources/img/LOGO1.png"/>" alt="" title="" /></img></a>
+	<header id="header" style="background:#37454d;">
+    <div class="container">  
+    
+    <div id="logo" class="pull-left">
+        <h3 style="color:white;"> AQP-TRAVEL</h3>
         <!-- Uncomment below if you prefer to use a text logo -->
         <!--<h1><a href="#hero">Regna</a></h1>-->
-      </div>
+      </div>   
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
@@ -55,63 +56,70 @@
   <!--==========================
     Hero Section
   ============================-->
-  <section id="hero">
-    <div class="hero-container">
-      <h1>TURISMO y MÁS</h1>
-      <h2>Cultura,Entretenimiento y Relax, Reserve ahora y obtenga grandes descuentos </h2>
-      <a href="registrar" class="btn-get-started">Registrarse</a>
-    </div>
-  </section><!-- #hero -->
 
-  <main id="main">
+  <section id="" style="padding-top:50px;">
+    <div class="container">
+    
+    <div class="row about-container" style="margin: 100px 10px 80px 10px;">
 
-    <!--==========================
-      About Us Section
-    ============================-->
-    <section id="about"  class="misPaq">
-      <div class="container">
-        <div class="row about-container">
-
-          <div class="col-lg-4 content order-lg-1 order-1 personalizado-form">
-            <h4 >Paquetes Personalizados</h4>
+          <div class="col-lg-4 content order-lg-1  personalizado-form" style="height:700px;padding:20px 50px 0px 50px; background:white;  border: 1px solid;
+    box-shadow: 5px 10px 8px #888888;">
+            <h6 style="font-weight: bold;">Encuentra tu Paquete!!</h46>
        
-            <form>
+            <form>           
+            
+            
+            
+            <div class="form-group row" style="margin-top:30px;">
+            <span style="font-size: 15px;font-weight: bold;" class="help-block">Fecha de Regreso:</span>
+                           <div class="input-group">
+                      <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+                      <input size="5" type="text" placeholder="--/--/--" class="form-control" id="fecha_regreso" readonly>
+                      </div>
+                </div>        
+                                         
+                                              
+           
+            
+                           <div class="form-group row">                           
+            <span style="font-size: 15px;font-weight: bold;" class="help-block">Fecha de Salida:</span>
+                           <div class="input-group">
+                      <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+                      <input size="5" type="text" class="form-control" id="fecha_ida" placeholder="--/--/--" readonly>
+                      </div>
+                </div>
                 
-                <div class="form-group row">
-                      <label for="fecha_ida" class= "label-form">Fecha Ida:</label>
-                      <input size="16" type="text" class="form-control" id="fecha_ida" readonly>
-                </div>
-                <div class="form-group row">
-                      <label for="fecha_regreso" class= "label-form">Fecha Regreso:</label>
-                      <input size="16" type="text" class="form-control" id="fecha_regreso" readonly>
-                </div>
-                <div class="form-group row">
-                  <label for="num_adultos" class="col-sm-4 col-form-label label-form">Nro. Adultos:</label>
-                  <div class="col-sm-auto">
-                    <select id="num_adultos" class="form-control">
-                      <option value= "0" selected>0</option>
-                      <option value= "1">1</option>
-                      <option value= "2">2</option>
-                      <option value= "3">3</option>
-                      <option value= "4">4</option>
-                    </select>
-                  </div>
-                </div>
+                 
                  <div class="form-group row">
-                  <label for="num_niños" class="col-sm-4 col-form-label label-form">Nro. Niños:</label>
-                  <div class="col-sm-auto">
-                    <select id="num_niños" class="form-control">
-                      <option value = "0" selected>0</option>
-                      <option value= "1">1</option>
-                      <option value= "2">2</option>
-                      <option value= "3">3</option>
-                      <option value= "4">4</option>
-                    </select>
-                  </div>
+                  <span style="font-size: 15px;font-weight: bold;" class="help-block">Ingrese Destino:</span>
+                           <div class="input-group">
+                      <span class="input-group-addon"><span class="fa fa-globe"></span></span>
+                      <input size="5" type="text" placeholder="..." class="form-control" id="fecha_ida" >
+                      </div>
                 </div>
-                <div class="form-group row justify-content-center">
-                  <div id= "seccion3-1-help1" class="col-sm-auto align-self-end">¿Que quieres hacer?</div>
-                  <div class="col-sm-auto">
+                
+                
+              
+                
+                <div class="form-group row">   
+                		<span style="font-size: 14px;font-weight: bold;" class="help-block">Numero de Personas:</span>
+														<select id="num_niños" name="capacidadPaquete"  
+															class="form-control" title="Numero de Pesonas">
+															
+															<option value="0" selected>0</option>
+															<option value="1">1</option>
+															<option value="2">2</option>
+															<option value="3">3</option>
+															<option value="4">4</option>
+														</select> 
+													
+													
+												</div>
+                
+                 
+                <div class="form-group row">
+                  
+              <span style="font-size: 14px;font-weight: bold;" class="help-block">Tipo de Actividad:</span>
                     <select id="actividad" class="form-control">
                       <option value= "aventura" selected>Aventura</option>
                       <option value= "naturaleza" >Naturaleza</option>
@@ -120,73 +128,201 @@
                       <option value= "entretenimiento" >Compras/Entretenimiento</option>
                       <option value= "Festividades" >Festividades</option>          
                     </select>
-                  </div>
+                  
+                </div>
+                
+                <div class="form-group row">
+                  
+              
+                     <span style="font-size: 14px;font-weight: bold;" class="help-block">  <input type="checkbox" >  Ver Solo Ofertas.</span>
+                  
                 </div>
          
-                <div class="form-group row justify-content-center" id = "seccion3-1-footer">
-                   
-                    <div class="col-sm-auto">
-                      <button type="submit" class = "btn btn-lg btn-outline-info"><span class="Icon-search"></span> Buscar</button>
-                    </div>
-                </div>
+                <div class="panel-footer">
+    				
+    			
+    				<button type="button" class="btn btn-success pull-right col-md-12" style="margin:15px 0px;" onclick="" >Buscar</button>
+                   	 	<button class="btn btn-default col-md-12" style="margin:10px 0px;">Limpiar</button>
+                   	 	</div>
+                
                  </form>
         
            </div>
 
-		   <div id = "resultados" class="col-lg-8  order-lg-2 order-2   ">              
-              <div class="container wow fadeInRight">
-               
+		   <div id = "resultados" class="col-lg-8  order-lg-2 order-2 ">   
+		   
+		              
+              <div class="container wow fadeInRight" >               
 
-                <div class="row" id="resultados-wrapper">
-                  <div class="col-lg-6 col-md-6 resultados-item filter-app">
+                <div class="row" id="resultados-wrapper" style="padding:12px 10px 10px 0px; margin:10px 0px;background:white;border: 1px solid;
+    box-shadow: 5px 8px 8px #888888;">
+                
+                  <div class="col-lg-6 resultados-item filter-app" >
+                    
                     <a href="">
                       <img src="<c:url value="/resources/img/portfolio/aventura1.jpg"/>" alt="">
                       <div class="details">
                         
                         <h4> PARACAS - $200</h4>
-                        <a href="" class="link-mas">Detalles</a>
-                      
+                        <a href="" class="link-mas">Detalles</a>                      
                       </div>
-                    </a>
-                  </div>
-
-                  <div class="col-lg-6 col-md-6 resultados-item filter-web">
+                    </a>  
+                   
+                  </div> 
+                  
+                  <div class="col-lg-6 " >                  
+                   
+                   <a href=""> <h4 style="font-weight:bold;color:black;"> LA MONTAÑA ARCO IRIS VINICUNCA - FULL DAY </h4></a>
+                    <span> 
+	                    <i class="fa fa-star" aria-hidden="true" style="color: #FFD700;"></i>
+						<i class="fa fa-star" aria-hidden="true" style="color: #FFD700;"></i>
+						<i class="fa fa-star" aria-hidden="true" style="color: #FFD700;"></i>
+					</span>
+                    
+                    <p  style="font-size: 14px;"> Este lugar es reconocido</p>
+                  </div>                   
+               </div>
+               
+               <div class="row" id="resultados-wrapper" style="padding:12px 10px 10px 0px; margin:10px 0px;background:white;border: 1px solid;
+    box-shadow: 5px 8px 8px #888888;">
+                
+                  <div class="col-lg-6 resultados-item filter-app" >
+                    
                     <a href="">
-                      <img src="<c:url value="/resources/img/portfolio/naturaleza2.jpg"/>" alt="">
+                      <img src="<c:url value="/resources/img/portfolio/aventura2.jpg"/>" alt="">
                       <div class="details">
-                        <h4>Titicaca - $300</h4>
-                        <a href="" class="link-mas">Detalles</a>
+                        
+                        <h4> PARACAS - $200</h4>
+                        <a href="" class="link-mas">Detalles</a>                      
                       </div>
-                    </a>
-                  </div>
-
-                  <div class="col-lg-6 col-md-6 resultados-item filter-app">
+                    </a>  
+                   
+                  </div> 
+                  
+                  <div class="col-lg-6 " >                  
+                   
+                   <a href=""> <h4 style="font-weight:bold;color:black;"> LA MONTAÑA ARCO IRIS VINICUNCA - FULL DAY </h4></a>
+                    <span> 
+	                    <i class="fa fa-star" aria-hidden="true" style="color: #FFD700;"></i>
+						<i class="fa fa-star" aria-hidden="true" style="color: #FFD700;"></i>
+						<i class="fa fa-star" aria-hidden="true" style="color: #FFD700;"></i>
+					</span>
+                    
+                    <p  style="font-size: 14px;"> Este lugar es reconocido</p>
+                  </div>                   
+               </div>
+               
+               
+               <div class="row" id="resultados-wrapper" style="padding:12px 10px 10px 0px; margin:10px 0px;background:white;border: 1px solid;
+    box-shadow: 5px 8px 8px #888888;">
+                
+                  <div class="col-lg-6 resultados-item filter-app" >
+                    
                     <a href="">
                       <img src="<c:url value="/resources/img/portfolio/aventura3.jpg"/>" alt="">
                       <div class="details">
-                        <h4>Ayacucho - $100</h4>
-                        <a href="" class="link-mas">Detalles</a>
+                        
+                        <h4> PARACAS - $200</h4>
+                        <a href="" class="link-mas">Detalles</a>                      
                       </div>
-                    </a>
-                  </div>
-
-                  <div class="col-lg-6 col-md-6 resultados-item filter-card">
+                    </a>  
+                   
+                  </div> 
+                  
+                  <div class="col-lg-6 " >                  
+                   
+                   <a href=""> <h4 style="font-weight:bold;color:black;"> LA MONTAÑA ARCO IRIS VINICUNCA - FULL DAY </h4></a>
+                    <span> 
+	                    <i class="fa fa-star" aria-hidden="true" style="color: #FFD700;"></i>
+						<i class="fa fa-star" aria-hidden="true" style="color: #FFD700;"></i>
+						<i class="fa fa-star" aria-hidden="true" style="color: #FFD700;"></i>
+					</span>
+                    
+                    <p  style="font-size: 14px;"> Este lugar es reconocido</p>
+                  </div>                   
+               </div>
+               
+               
+               <div class="row" id="resultados-wrapper" style="padding:12px 10px 10px 0px; margin:10px 0px;background:white;border: 1px solid;
+    box-shadow: 5px 8px 8px #888888;">
+                
+                  <div class="col-lg-6 resultados-item filter-app" >
+                    
                     <a href="">
                       <img src="<c:url value="/resources/img/portfolio/cultura1.jpg"/>" alt="">
                       <div class="details">
-                        <h4>Lambayeque - $250</h4>
-                        <a href="" class="link-mas">Detalles</a>
+                        
+                        <h4> PARACAS - $200</h4>
+                        <a href="" class="link-mas">Detalles</a>                      
                       </div>
-                    </a>
-                  </div>
-                </div>
+                    </a>  
+                   
+                  </div> 
+                  
+                  <div class="col-lg-6 " >                  
+                   
+                   <a href=""> <h4 style="font-weight:bold;color:black;"> LA MONTAÑA ARCO IRIS VINICUNCA - FULL DAY </h4></a>
+                    <span> 
+	                    <i class="fa fa-star" aria-hidden="true" style="color: #FFD700;"></i>
+						<i class="fa fa-star" aria-hidden="true" style="color: #FFD700;"></i>
+						<i class="fa fa-star" aria-hidden="true" style="color: #FFD700;"></i>
+					</span>
+                    
+                    <p  style="font-size: 14px;"> Este lugar es reconocido</p>
+                  </div>                   
+               </div>
+               
+               
+               <div class="row" id="resultados-wrapper" style="padding:12px 10px 10px 0px; margin:10px 0px;background:white;border: 1px solid;
+    box-shadow: 5px 8px 8px #888888;">
+                
+                  <div class="col-lg-6 resultados-item filter-app" >
+                    
+                    <a href="">
+                      <img src="<c:url value="/resources/img/portfolio/cultura2.jpg"/>" alt="">
+                      <div class="details">
+                        
+                        <h4> PARACAS - $200</h4>
+                        <a href="" class="link-mas">Detalles</a>                      
+                      </div>
+                    </a>  
+                   
+                  </div> 
+                  
+                  <div class="col-lg-6 " >                  
+                   
+                   <a href=""> <h4 style="font-weight:bold;color:black;"> LA MONTAÑA ARCO IRIS VINICUNCA - FULL DAY </h4></a>
+                    <span> 
+	                    <i class="fa fa-star" aria-hidden="true" style="color: #FFD700;"></i>
+						<i class="fa fa-star" aria-hidden="true" style="color: #FFD700;"></i>
+						<i class="fa fa-star" aria-hidden="true" style="color: #FFD700;"></i>
+					</span>
+                    
+                    <p  style="font-size: 14px;"> Este lugar es reconocido</p>
+                  </div>                   
+               </div>
+               
+               
+               
+               
+               
+                  
+                  
+                  
               </div>
 
            </div>
         </div>
+      
+    </div>
+  </section><!-- #hero -->
 
-      </div>
-    </section>
+  <main id="main">
+
+    <!--==========================
+      About Us Section
+    ============================-->
+    
     
  
     

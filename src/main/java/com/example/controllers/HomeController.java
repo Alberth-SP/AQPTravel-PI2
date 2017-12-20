@@ -48,5 +48,12 @@ public class HomeController {
 		model.setViewName("registrar");
 		return model;
 	}
+	
+    /* request para devolver pagina de filtro de paquete */
+	@RequestMapping(value="pageFiltroPaquete", method=RequestMethod.GET)
+	public ModelAndView getPageFilterPaquet(ModelAndView model) throws IOException{
+		model.setViewName("mispaquetes");
+		return model;
+	}
 
 }
