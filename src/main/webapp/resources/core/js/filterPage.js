@@ -1,28 +1,36 @@
+function pagination(pag){
+	searchPaquets(pag);
+}
+
+
 function pagefilterPage(){
-	alert("oka");
 	window.location.replace("pageFiltroPaquete");
 }
 
-$("#checkfilter").change(function(){
+$("#checkfilter").change(function(){	
 	if(this.checked){
-		this.val("1");
+		$("#checkfilter").val('1');
 	} else{
-		this.val("0");
+		$("#checkfilter").val('0');;
 	}
 });
 
-
-function searchPaquets(){
+function searchPaquets(pag){
 	
 	var url = 'searchFilterPaquet';
 	var datas = new FormData();
 	var other_data = $('#form_filter').serializeArray();	
+	
 	$.each(other_data,function(key,input){
 		datas.append(input.name,input.value);
 	});
+	
 	var oferta = $("#checkfilter").val();
+	
 	datas.append("oferta",oferta);
-	alert("gsfg34 "+oferta);
+	datas.append("pagina",pag);
+	
+	
 	$.ajax({
 		url: url,
 		type: 'POST',
@@ -31,8 +39,17 @@ function searchPaquets(){
 		contentType: false,
 		data:datas,      
 		success: function(result){
-			if(result){  
-				alert('sucess search paquet!' + result);                        
+			if(result){      
+				if(("true".localeCompare(result[0])) == 0){
+					$('#pagination').html(result[2]);
+					$('#listPaquete').html(result[1]); 
+					alert("success");
+				}else{
+					$('#pagination').html("");
+					$('#listPaquete').html("No se Encontraron resultados");
+					alert("No se encontraron registros");
+				}				
+				
 			}
 			else{
 				alert('ocurrio algun ERROR, vuelva a intentarlo ');

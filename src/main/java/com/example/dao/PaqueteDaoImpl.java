@@ -16,6 +16,7 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.example.logic.Admin;
 import com.example.logic.FotosPaquete;
 import com.example.logic.Paquete;
 @Repository
@@ -115,8 +116,31 @@ public class PaqueteDaoImpl implements PaqueteDao {
 	@Override
 	public Paquete findPaqueteById(int id) {
 		// TODO Auto-generated method stub
+		
 		return null;
 	}
+	
+	@Override
+	public List<FotosPaquete> getImagePaquete(int idPaquete) {
+		// TODO Auto-generated method stub
+		String sql = "SELECT idFotos, nombreFoto, imagenFoto FROM fotospaquete WHERE idPaquete = " + idPaquete;
+		List<FotosPaquete> listFotoPaquete = jdbcTemplate.query(sql, new RowMapper<FotosPaquete>() {
+
+			public FotosPaquete mapRow(ResultSet rs, int rowNum) throws SQLException {
+				// TODO Auto-generated method stub
+				FotosPaquete afotoPaquete = new FotosPaquete();
+				afotoPaquete.setIdFoto(rs.getInt("idFotos"));
+				afotoPaquete.setNombreFoto(rs.getString("nombreFoto"));
+				afotoPaquete.setImagenFoto(rs.getBytes("imagenFoto"));
+				return afotoPaquete;
+			}
+
+		});		
+
+		return listFotoPaquete;		
+	}
+	
+	
 	
 	@Override
 	public void changeStatePaquete(int idPaquete, char state) {
@@ -186,8 +210,15 @@ public class PaqueteDaoImpl implements PaqueteDao {
 	public List<Paquete> listFilterPaquetes(Paquete param) {
 		// TODO Auto-generated method stub
 		
-		String query = "select distinct paquete.nombrePaquete, paquete.idPaquete from paquete, paquetedestino, destino where destino.nombreDestino LIKE '%"+param.getDestinoPaquete()+"%' and paquetedestino.idDestino = destino.idDestino AND paquete.idPaquete = paqueteDestino.idPaquete;";
-		
+		String query = "select distinct agencia.nombreAgencia, paquete.precioPaquete, "
+				+ "paquete.nombrePaquete, paquete.tipoPaquete, "
+				+ " paquete.valoracionPaquete, paquete.idPaquete "
+				+ "from paquete, paquetedestino, destino, agencia where "
+				+ "destino.nombreDestino LIKE '%"+param.getDestinoPaquete()+"%' and paquetedestino.idDestino = destino.idDestino "
+				+ "AND paquete.idPaquete = paqueteDestino.idPaquete and agencia.idAgencia = paquete.idAgencia"
+				+ " and (paquete.capacidadPaquete >= "+param.getCapacidadPaquete()+") and paquete.tipoPaquete like '%"+param.getTipoPaquete()+"%' "
+				+ "and (paquete.duracionPaquete <= "+param.getDuracionPaquete()+") and paquete.ofertaPaquete like '"+param.getOfertaPaquete()+"' "
+				+ " and paquete.estadoPaquete = '1' and (paquete.numPaquete > 0) order by paquete.idPaquete";
 		List<Paquete> listPaquet = jdbcTemplate.query(query, new RowMapper<Paquete>() {
 
 			@Override
@@ -196,7 +227,10 @@ public class PaqueteDaoImpl implements PaqueteDao {
 
 				Paquete aPaquet = new Paquete();		
 				aPaquet.setIdPaquete(rs.getInt("idPaquete"));			
-				aPaquet.setNombrePaquete(rs.getString("nombrePaquete"));					
+				aPaquet.setNombrePaquete(rs.getString("nombrePaquete"));
+				aPaquet.setValoracionPaquete(rs.getInt("valoracionPaquete"));
+				aPaquet.setDescripcionPaquete(rs.getString("nombreAgencia"));
+				aPaquet.setTipoPaquete(rs.getString("tipoPaquete"));
 				return aPaquet;
 			}
 

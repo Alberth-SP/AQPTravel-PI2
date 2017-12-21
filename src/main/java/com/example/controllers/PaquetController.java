@@ -151,8 +151,8 @@ public class PaquetController {
 	@RequestMapping(value = "admin/imageController/{imageId}")
 	@ResponseBody
 	public byte[] getImage(@PathVariable int imageId)  {
-		Paquete paquete = paquetDao.findPaqueteById(imageId); 		
-		return paquete.getMapaPaquete();
+		List<FotosPaquete> fotos = paquetDao.getImagePaquete(imageId); 		
+		return fotos.get(0).getImagenFoto();
 	}
 	
 

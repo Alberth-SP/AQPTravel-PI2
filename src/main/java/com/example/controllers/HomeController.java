@@ -36,62 +36,162 @@ import com.fasterxml.jackson.databind.util.JSONPObject;
 /* CLASE para responder a Solicitudes  desde HOME */
 @Controller
 public class HomeController {
-	
+
 	@Autowired
 	PaqueteDao paquetDao;
 
-		
+
 	/* Request para pagina principal */
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public ModelAndView index(ModelAndView model) throws IOException{
-		
+
 		model.setViewName("index");	 		
 		return model;
 	}
-	
+
 	/* Request para formulario de registro de usurio */
 	@RequestMapping(value="registrar", method=RequestMethod.GET)
 	public ModelAndView register(ModelAndView model) throws IOException{
 		model.setViewName("registrar");
 		return model;
 	}
-	
-    /* request para devolver pagina de filtro de paquete */
+
+	/* request para devolver pagina de filtro de paquete */
 	@RequestMapping(value="pageFiltroPaquete", method=RequestMethod.GET)
 	public ModelAndView getPageFilterPaquet(ModelAndView model) throws IOException{
 		model.setViewName("mispaquetes");
 		return model;
 	}
-	
-	
+
+	/*Request for filter packet in query */
 	@RequestMapping(value="searchFilterPaquet", method=RequestMethod.POST)
 	@ResponseBody 
-	public String searchFilterPaquet(MultipartHttpServletRequest request) throws IOException{   
-	
-		System.out.println(request.getParameter("oferta"));
-		System.out.println(request.getParameter("destino"));
-		System.out.println(request.getParameter("fecha_regreso"));
-		System.out.println(request.getParameter("fecha_salida"));
-		System.out.println(request.getParameter("tipo_actividad"));	
-		System.out.println(request.getParameter("num_personas"));
+	public List<String> searchFilterPaquet(MultipartHttpServletRequest request) throws IOException{   
+
+		HashMap<String, String> data = new HashMap<>();
+		 
+		data.put("oferta", request.getParameter("oferta"));
+		data.put("destino", request.getParameter("destino"));		
+		data.put("duracion", request.getParameter("duracion"));
+		data.put("tipo_actividad", request.getParameter("tipo_actividad"));
+		data.put("num_personas", request.getParameter("num_personas"));
 		
-		Paquete paquet = new Paquete();
-		paquet.setDestinoPaquete(request.getParameter("destino"));
-		paquet.setCapacidadPaquete(Integer.parseInt(request.getParameter("num_personas")));
-		paquet.setOfertaPaquete(request.getParameter("oferta").charAt(0));
-		
+		Paquete paquet = getFilterPaquete(data);	
+		/*System.out.println(": "+paquet.getOfertaPaquete()+" "+paquet.getDestinoPaquete()+" "+paquet.getDuracionPaquete()+" "
+				+paquet.getTipoPaquete()+" "+paquet.getCapacidadPaquete());*/
+
 		List<Paquete> listFilterPaquet = paquetDao.listFilterPaquetes(paquet);
-		
+		List<String> res = new ArrayList<>();
+
+		double numLote = 2;		
+		int numPages = 0;
+
+		int pageCurrent = Integer.parseInt(request.getParameter("pagina"));
+		//System.out.println("pagina: "+pageCurrent);
+		String pagination="";
+		String listContent="";
+
 		if(listFilterPaquet.size() > 0) {
-			System.out.println("SIZE: "+listFilterPaquet.size());
-			for(Paquete p: listFilterPaquet){
+
+			/*for(Paquete p: listFilterPaquet){
 				System.out.print(p.getNombrePaquete());
+			}*/
+
+			numPages = (int)Math.ceil(listFilterPaquet.size()/numLote);
+			
+			
+			if(pageCurrent > 1){		        
+				pagination += "<li><a href='#' onclick='pagination("+(pageCurrent-1)+")' >"+"Anterior </a></li>";
 			}
-		}
+
+			for(int i=1; i<=numPages; i++){
+				if(i == pageCurrent){
+					pagination += "<li class='active'><a href='#' onclick='pagination("+i+")' >"+i+"</a></li>";
+				}else{
+					pagination += "<li><a href='#' onclick='pagination("+i+")' >"+i+"</a></li>";
+				}
+			}	
+
+			if(pageCurrent < numPages){		        
+				pagination += "<li><a href='#' onclick='pagination("+(pageCurrent+1)+")' >"+"Siguiente </a></li>";
+			}
+
+			int limit = 0;
+			if(pageCurrent > 1){
+				limit = (int)numLote*(pageCurrent-1);
+			}
+						
+
 		
-		return "true";
+			for(int index = limit; index<listFilterPaquet.size() && index<(numLote+limit) ; index++){		
+				Paquete onePaquet = listFilterPaquet.get(index);
+				listContent += "<div class='row' id='resultados-wrapper'"
+						+ "style='padding: 12px 10px 10px 0px; margin: 10px 0px;"
+						+ " background: white; border: 1px solid; box-shadow: 5px 8px 8px #888888;'>"
+						+ "<div class='col-lg-6 resultados-item filter-app'>"
+						+ "	<a href=''> <img src='admin/imageController/"+onePaquet.getIdPaquete()+"'	alt='gsaga'>"
+						+ "<div class='details'>"
+						+ "<h4>PARACAS - $200</h4>"
+						+ "<a href='' class='link-mas'>Detalles</a>"
+						+ "</div>"
+						+ "</a> </div>"
+						+ "	<div class='col-lg-6 '>"
+						+ "<a href=''>"
+						+ "<h4 style='font-weight: bold; color: black;'>"+onePaquet.getNombrePaquete()+"</h4></a><span>";
+				        
+				         for(int i=0;i<onePaquet.getValoracionPaquete();i++)
+				        	listContent += " <i class='fa fa-star' aria-hidden='true' style='color: #f48f00;'> </i>";
+				        	
+						
+				         listContent +=  "</span>"
+						+ "<p style='font-size: 14px;'>Agencia: "+onePaquet.getDescripcionPaquete()+"</p>"
+						+ "<p style='font-size: 14px;'>Actividad: "+onePaquet.getTipoPaquete()+"</p></div></div>";
+			}
+
+			res.add("true");
+			res.add(listContent);
+			res.add(pagination);
+			
+
+
+		}	
+		else{
+			res.add("false");
+		}
+
+		return res;
 	}
 	
 	
+	private Paquete getFilterPaquete(HashMap<String,String> data){
+		Paquete temp = new Paquete();
+		
+		if(data.get("oferta")!=null && data.get("oferta").length() > 0){
+			System.out.println("CALUE: "+data.get("oferta"));
+			if(data.get("oferta").charAt(0) == '0')temp.setOfertaPaquete('_');
+		    else temp.setOfertaPaquete('1');
+		}
+		
+		if(data.get("destino")!=null && data.get("destino").length() > 0)
+			temp.setDestinoPaquete(data.get("destino"));	
+		
+		if(data.get("duracion")!=null && data.get("duracion").length() > 0)			
+			temp.setDuracionPaquete(Integer.parseInt(data.get("duracion")));
+		 else temp.setDuracionPaquete(100);
+		
+		if(data.get("tipo_actividad")!=null && data.get("tipo_actividad").length() > 2)
+			temp.setTipoPaquete(data.get("tipo_actividad"));
+		 else temp.setTipoPaquete("_");
+		
+		
+		if(data.get("num_personas")!=null && data.get("num_personas").length() > 0)
+			temp.setCapacidadPaquete(Integer.parseInt(data.get("num_personas")));
+		 else temp.setCapacidadPaquete(1);		
+		
+		return temp;
+		
+	}
+
+
 
 }
