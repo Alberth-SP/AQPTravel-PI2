@@ -137,7 +137,7 @@
                       <a href="#seccion3-1-help2"><span class="Icon-svg"></span> Opciones Avanzadas</a>
                     </div>
                     <div class="col-sm-auto">
-                      <button type="submit" class = "btn btn-md btn-outline-info"><span class="Icon-search"></span> Buscar</button>
+                      <button type="button" class = "btn btn-md btn-outline-info" onclick="pagefilterPage()" ><span class="Icon-search"></span> Buscar</button>
                     </div>
                 </div>
                  </form>
@@ -510,6 +510,8 @@
         autoclose: 1
     });
   </script>
+  
+  <script src="<c:url value="/resources/js/filterPage.js"/>"></script>
 	
 </body>
 </html>

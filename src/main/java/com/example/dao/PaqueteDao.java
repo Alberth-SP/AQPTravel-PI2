@@ -20,11 +20,13 @@ public interface PaqueteDao {
 	
 	public void changeStatePaquete(int id, char state);
 	
+	public List<Paquete> listFilterPaquetes(Paquete param);
+	
 	/*¨detalles paqute */	
 
 	public boolean addFotoPaquete(FotosPaquete foto);
 	public boolean addDestiny(int idPaquete, int idFoto);	
 	public void insertDestinations(int idPaquete, List<Integer> listDestiny);
-	
+	public List<FotosPaquete> getImagePaquete(int idPaquete);
 
 }
