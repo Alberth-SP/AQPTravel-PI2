@@ -33,7 +33,7 @@ import com.example.dao.ClienteDao;
 import com.example.logic.Admin;
 import com.example.logic.Agency;
 import com.example.logic.Customer;
-=======
+
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -41,7 +41,7 @@ import com.example.dao.AdminDao;
 import com.example.dao.PaqueteDao;
 import com.example.logic.Admin;
 import com.example.logic.Paquete;
->>>>>>> branch-albert
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.util.JSONPObject;
 
@@ -71,6 +71,15 @@ public class HomeController {
 		model.setViewName("registrar");
 		return model;
 	}
+	
+	/* Request para pagina principal de usuario */
+	@RequestMapping(value="pagina_usuario", method=RequestMethod.GET,produces="text/html;charset=UTF-8")
+	public ModelAndView getPageMainAdmin(ModelAndView model) throws IOException{
+		model.setViewName("pagina_usuario");
+		return model;
+	}
+	
+	
 	@RequestMapping(value = "login", method = RequestMethod.GET)
 	public String showLoginPage() {
 		return "login";
