@@ -211,7 +211,7 @@ public class PaqueteDaoImpl implements PaqueteDao {
 		// TODO Auto-generated method stub
 		
 		String query = "select distinct agencia.nombreAgencia, paquete.precioPaquete, "
-				+ "paquete.nombrePaquete, paquete.tipoPaquete, "
+				+ "paquete.nombrePaquete, paquete.tipoPaquete, paquete.capacidadPaquete, "
 				+ " paquete.valoracionPaquete, paquete.idPaquete "
 				+ "from paquete, paquetedestino, destino, agencia where "
 				+ "destino.nombreDestino LIKE '%"+param.getDestinoPaquete()+"%' and paquetedestino.idDestino = destino.idDestino "
@@ -229,6 +229,7 @@ public class PaqueteDaoImpl implements PaqueteDao {
 				aPaquet.setIdPaquete(rs.getInt("idPaquete"));			
 				aPaquet.setNombrePaquete(rs.getString("nombrePaquete"));
 				aPaquet.setValoracionPaquete(rs.getInt("valoracionPaquete"));
+				aPaquet.setCapacidadPaquete(rs.getInt("capacidadPaquete"));
 				aPaquet.setDescripcionPaquete(rs.getString("nombreAgencia"));
 				aPaquet.setTipoPaquete(rs.getString("tipoPaquete"));
 				return aPaquet;

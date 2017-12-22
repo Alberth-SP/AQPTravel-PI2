@@ -174,6 +174,7 @@ public class HomeController {
 						
 				         listContent +=  "</span>"
 						+ "<p style='font-size: 14px;'>Agencia: "+onePaquet.getDescripcionPaquete()+"</p>"
+						+ "<p style='font-size: 14px;'>Capacidad: "+onePaquet.getCapacidadPaquete() +" personas.</p>"
 						+ "<p style='font-size: 14px;'>Actividad: "+onePaquet.getTipoPaquete()+"</p></div></div>";
 			}
 

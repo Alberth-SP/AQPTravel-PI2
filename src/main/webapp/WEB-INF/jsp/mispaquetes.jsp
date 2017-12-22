@@ -83,23 +83,7 @@
 
 						<form id="form_filter">
 
-
-
 							<div class="form-group row" style="margin-top: 30px;">
-								<span style="font-size: 15px; font-weight: bold;"
-									class="help-block">Fecha de Regreso:</span>
-								<div class="input-group">
-									<span class="input-group-addon"><span
-										class="fa fa-calendar"></span></span> <input size="5" type="text"
-										name="fecha_regreso" placeholder="--/--/--"
-										class="form-control" id="fecha_regreso" readonly>
-								</div>
-							</div>
-
-
-
-
-							<div class="form-group row">
 								<span style="font-size: 15px; font-weight: bold;"
 									class="help-block">Fecha de Salida:</span>
 								<div class="input-group">
@@ -107,6 +91,17 @@
 										class="fa fa-calendar"></span></span> <input size="5" type="text"
 										name="fecha_salida" class="form-control" id="fecha_salida"
 										placeholder="--/--/--" readonly>
+								</div>
+							</div>
+							
+							<div class="form-group row" >
+								<span style="font-size: 15px; font-weight: bold;"
+									class="help-block">Fecha de Regreso:</span>
+								<div class="input-group">
+									<span class="input-group-addon"><span
+										class="fa fa-calendar"></span></span> <input size="5" type="text"
+										name="fecha_regreso" placeholder="--/--/--"
+										class="form-control" id="fecha_regreso" readonly>
 								</div>
 							</div>
 
@@ -352,6 +347,9 @@
 			minView : 2,
 			autoclose : 1
 		});
+		
+		
+		
 	</script>
 	<script src="<c:url value="/resources/js/filterPage.js"/>"></script>
 </body>
