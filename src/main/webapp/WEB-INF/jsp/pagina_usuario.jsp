@@ -23,7 +23,7 @@
   <link href="<c:url value="/resources/lib/animate/animate.min.css"/>" rel="stylesheet">
 
   <!-- Main Stylesheet File -->
-  <link href="<c:url value="/resources/css/style.css"/>" rel="stylesheet">
+  <link href="<c:url value="/resources/css/pagina_usuario.css"/>" rel="stylesheet">
   
 
 
@@ -32,7 +32,7 @@
   
 </head>
 <body>
-	<header id="header">
+	<header id="header" style="background: #37454d;">
     <div class="container">
 
       <div id="logo" class="pull-left">
