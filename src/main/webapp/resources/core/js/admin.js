@@ -17,7 +17,7 @@ function addAdmin(){
 
 		},
 		error: function(){
-			alert('Ocurrio un erro en el Proceso');
+			alert('Correo ya registrado!');
 		}
 	});
 }

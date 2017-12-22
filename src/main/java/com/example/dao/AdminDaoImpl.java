@@ -46,9 +46,10 @@ public class AdminDaoImpl implements AdminDao{
 	}
 
 
-	public void addAdmin(Admin admin) {
+	public void addAdmin(Admin admin){
+		addUserForRole(admin.getEmail(),admin.getPassword());
+		addRole(admin.getEmail());
 		String sql = "INSERT INTO admin(nombre,apellidoAdmin,celularAdmin,correoAdmin,direccionAdmin,contrasenaAdmin) values (?, ?, ?, ?, ?, ?)";
-
 		jdbcTemplate.update(sql,
 				admin.getName(),
 				admin.getLastname(),
@@ -67,7 +68,7 @@ public class AdminDaoImpl implements AdminDao{
 		+ "', direccionAdmin = '" + admin.getAddress()
 		+ "', contrasenaAdmin = '" + admin.getPassword()
 		+ "', estadoAdmin = '" + admin.getState() + "' WHERE idAdmin = "+ admin.getIdAdmin()+"";
-
+		updateStateRole(admin.getEmail(),admin.getState());
 		jdbcTemplate.update(sql);
 
 	}
@@ -88,7 +89,7 @@ public class AdminDaoImpl implements AdminDao{
 			public Admin mapRow(ResultSet rs, int rowNum) throws SQLException {
 				// TODO Auto-generated method stub
 
-				Admin aContact = new Admin.BuildAdmin(rs.getString("nombre")).setLastname(rs.getString("apellidoAdmin")).build();		
+				Admin aContact = new Admin.BuildAdmin(rs.getString("nombre")).setLastname(rs.getString("apellidoAdmin")).setEmail(rs.getString("correoAdmin")).build();		
 				aContact.setIdAdmin(rs.getInt("idAdmin"));
 				return aContact;
 			}
@@ -99,9 +100,11 @@ public class AdminDaoImpl implements AdminDao{
 	}
 
 	public void changeStateAdmin(int idAdmin, char state){
+		Admin ad=findAdminById(idAdmin);
+		updateStateRole(ad.getEmail(),state);
 
 		String sql = "UPDATE admin SET estadoAdmin = '" + state 
-		+ "' WHERE idAdmin = "+ idAdmin +"";
+		+ "' WHERE idAdmin = '"+ idAdmin +"'";
 
 		jdbcTemplate.update(sql);
 
@@ -122,7 +125,8 @@ public class AdminDaoImpl implements AdminDao{
 
 				Admin aContact = new Admin.BuildAdmin(rs.getString("nombre")).setLastname(rs.getString("apellidoAdmin"))
 						.setEmail(rs.getString("correoAdmin"))
-						.setPassword(rs.getString("contrasenaAdmin")).build();		
+						.setPassword(rs.getString("contrasenaAdmin")).build();
+				
 				aContact.setIdAdmin(rs.getInt("idAdmin"));
 				return aContact;
 			}
@@ -133,5 +137,22 @@ public class AdminDaoImpl implements AdminDao{
 	}
 	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
+	}
+	private void addUserForRole(String email,String pass){
+		String sql = "INSERT into usuario (correoUsuario,contrasenaUsuario) values (?, ?)";
+		jdbcTemplate.update(sql,
+				email,
+				pass);
+	}
+	private void addRole(String email) {
+		String sql = "INSERT into rol (correoUsuario,rol) values (?, ?)";
+		jdbcTemplate.update(sql,
+				email,
+				"ROLE_ADMIN");
+	}
+	private void updateStateRole(String email,char id) {
+		String sql = "UPDATE usuario SET enable = '" + id 
+				+ "' WHERE correoUsuario = '"+ email +"'";
+		jdbcTemplate.update(sql);
 	}
 }

@@ -19,8 +19,6 @@ import java.util.List;
 
 import com.example.logic.Actividad;
 import com.example.logic.Admin;
-
-
 import com.example.logic.Customer;
 
 public class ClienteDao implements InterfaceDao<Customer>{
@@ -59,6 +57,8 @@ public class ClienteDao implements InterfaceDao<Customer>{
 
 
 	public void add(Customer t) {
+		addUserForRole(t.getEmail(),t.getPassword());
+		addRole(t.getEmail());
 		String sql = "INSERT INTO cliente(nombreCliente, apellidoCliente, correoCliente, telefonoCliente, estadoCliente, contrasenaCliente) VALUES (?,?,?,?,?,?,?)";
 		jdbcTemplate.update(sql,
 				t.getName(),
@@ -78,6 +78,12 @@ public class ClienteDao implements InterfaceDao<Customer>{
 		+ "', estadoCliente = '" + t.getState()
 		+ "', contrasenaCliente = '" + t.getPassword()
 		+ "' WHERE idComentario = "+t.getIdCustomer()+"";
+		if('0'==t.getState()) {
+			updateStateRole(t.getEmail(),1);
+		}
+		if('1'==t.getState()) {
+			updateStateRole(t.getEmail(),0);
+		}
 		jdbcTemplate.update(sql);
 		
 	}
@@ -115,6 +121,13 @@ public class ClienteDao implements InterfaceDao<Customer>{
 
 
 	public void changeState(int id, char state) {
+		Customer cu=findById(id);
+		if('0'==state) {
+			updateStateRole(cu.getEmail(),1);
+		}
+		if('1'==state) {
+			updateStateRole(cu.getEmail(),0);
+		}
 		String sql = "UPDATE cliente SET estadoCliente = '" + state 
 				+ "' WHERE idCliente = "+ id +"";
 				jdbcTemplate.update(sql);
@@ -141,6 +154,23 @@ public class ClienteDao implements InterfaceDao<Customer>{
 			}
 		});
 		return listContact.get(0);
+	}
+	private void addUserForRole(String email,String pass){
+		String sql = "INSERT into usuario (correoUsuario,contrasenaUsuario) values (?, ?)";
+		jdbcTemplate.update(sql,
+				email,
+				pass);
+	}
+	private void addRole(String email) {
+		String sql = "INSERT into rol (correoUsuario,rol) values (?, ?)";
+		jdbcTemplate.update(sql,
+				email,
+				"ROLE_CU");
+	}
+	private void updateStateRole(String email,int id) {
+		String sql = "UPDATE usuario SET enable = '" + id 
+				+ "' WHERE correoUsuario = '"+ email +"'";
+		jdbcTemplate.update(sql);
 	}
 
 }
