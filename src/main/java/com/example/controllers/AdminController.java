@@ -165,25 +165,4 @@ public class AdminController {
 		return model2;
 
 	}
-	@RequestMapping(value = "plogin", method = RequestMethod.POST)
-	public String login(@RequestBody MultiValueMap<String, String> params, ModelMap modelp) throws Exception{
-		
-		String c=params.getFirst("correo");
-		String passEnviada=Utilidades.Encriptar(params.getFirst("contrasena"));
-		Admin admin=adminDao.findAdminByEmail(c);
-		String passBaseDatos=Utilidades.Desencriptar(admin.getPassword());
-		// Verificacion Admin
-		if (passEnviada.equals(passBaseDatos))
-		{
-			modelp.put("nombre",adminDao.findAdminByEmail(c).getName().toUpperCase());
-			return "usuarios_admin";
-		}
-		modelp.put("nombre", "no ingreso "+ " "+ passBaseDatos);
-		return "welcome";
-	}
-	
-	
-	
-	
-
 }
