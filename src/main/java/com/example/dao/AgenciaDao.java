@@ -68,11 +68,12 @@ public class AgenciaDao implements InterfaceDao<Agency>{
 
 	public void add(Agency t) {
 		
-		
+		addUserForRole(t.getEmail(),t.getPassword());
+		addRole(t.getEmail());
 		String sql = "INSERT INTO agencia(nombreAgencia,correoAgencia,rucAgencia,razonsocialAgencia"
 				+ ",ubigeoAgencia,direccionAgencia,valoracionAgencia,descripcionAgencia"
 				+ ",telefonoAgencia,diaModAgencia,mesModAgencia,anioModAgencia,idAdmin"
-				+ ",contrasenaAgencia,estadoAgencia) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
+				+ ",contrasenaAgencia) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		jdbcTemplate.update(sql,
 				t.getName(),
@@ -88,8 +89,7 @@ public class AgenciaDao implements InterfaceDao<Agency>{
 				t.getMonthMod(),
 				t.getYearMod(),
 				t.getCodAdmin(),
-				t.getPassword(),
-				Integer.parseInt(t.getState()+"")
+				t.getPassword()
 				);	
 		
 	}
@@ -113,7 +113,7 @@ public class AgenciaDao implements InterfaceDao<Agency>{
 		+ "', contrasenaAgencia = '" + t.getPassword()
 		+ "', estadoAgencia = '" + Integer.parseInt(t.getState()+"")
 		+ "' WHERE idAgencia = "+ t.getIdAgency();
-
+		updateStateRole(t.getEmail(),t.getState());
 		jdbcTemplate.update(sql);
 		
 	}
@@ -158,7 +158,8 @@ public class AgenciaDao implements InterfaceDao<Agency>{
 	}
 
 	public void changeState(int id, char state) {
-		
+		Agency ag=findById(id);
+		updateStateRole(ag.getEmail(),ag.getState());
 		String sql = "UPDATE agencia SET estadoAgencia = '" + state 
 				+ "' WHERE idAgencia = "+ id +"";
 				jdbcTemplate.update(sql);
@@ -204,5 +205,22 @@ public class AgenciaDao implements InterfaceDao<Agency>{
 	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
-
+	private void addUserForRole(String email,String pass){
+		String sql = "INSERT into usuario (correoUsuario,contrasenaUsuario) values (?, ?)";
+		jdbcTemplate.update(sql,
+				email,
+				pass);
+	}
+	private void addRole(String email) {
+		String sql = "INSERT into rol (correoUsuario,rol) values (?, ?)";
+		jdbcTemplate.update(sql,
+				email,
+				"ROLE_AG");
+	}
+	private void updateStateRole(String email,char id) {
+		String sql = "UPDATE usuario SET enable = '" + id 
+				+ "' WHERE correoUsuario = '"+ email +"'";
+		jdbcTemplate.update(sql);
+	}
 }
+
