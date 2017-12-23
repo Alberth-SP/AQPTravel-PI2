@@ -27,7 +27,7 @@ import com.example.logic.Agency;
 /* CLASE para responder a Solicitudes  desde ADMIN */
 
 @Controller
-@SessionAttributes("nombre")
+@SessionAttributes("iduser")
 public class AdminController {
 
 	@Autowired
@@ -102,9 +102,6 @@ public class AdminController {
 		return model2;
 	}
 	
-	
-	
-
 	/* Request para agregar usuario a la BD */
 	@RequestMapping(value="admin/saveAdmin", method=RequestMethod.POST)
 	@ResponseBody 

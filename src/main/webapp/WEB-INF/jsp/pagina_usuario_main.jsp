@@ -244,7 +244,7 @@ $(document).ready(function() {
 											<div class="profile_img">	
 												<span class="prfil-img"><img src="images/p1.png" alt=""> </span> 
 												<div class="user-name">
-													<p>Admin1</p>
+													<p>${iduser}</p>
 													<span>Administrador</span>
 												</div>
 												<i class="fa fa-angle-down lnr"></i>
