@@ -66,13 +66,43 @@ public class AdminController {
 	}
 
 	/* Request para cargar la pagina del Admin */
-	@RequestMapping(value="admin", method=RequestMethod.GET)
+	@RequestMapping(value="admin/users", method=RequestMethod.GET)
 	public ModelAndView index(ModelAndView model) throws IOException{
 		ModelAndView model2 = new ModelAndView();
 		model2.setViewName("usuarios_admin");
 		
 		return model2;
 	}
+	
+	
+	/* Request para cargar la pagina del Admin */
+	@RequestMapping(value="admin/mensajes", method=RequestMethod.GET)
+	public ModelAndView getPageMensajes(ModelAndView model) throws IOException{
+		ModelAndView model2 = new ModelAndView();
+		model2.setViewName("mensajes_admin");
+		
+		return model2;
+	}
+	
+	/* Request para cargar la pagina del Admin */
+	@RequestMapping(value="admin/destinos", method=RequestMethod.GET)
+	public ModelAndView getPageDestinos(ModelAndView model) throws IOException{
+		ModelAndView model2 = new ModelAndView();
+		model2.setViewName("sitio_turistico_admin");
+		
+		return model2;
+	}
+	
+	/* Request para cargar la pagina del Admin */
+	@RequestMapping(value="admin", method=RequestMethod.GET)
+	public ModelAndView getPageAdmin(ModelAndView model) throws IOException{
+		ModelAndView model2 = new ModelAndView();
+		model2.setViewName("pagina_usuario_main");
+		
+		return model2;
+	}
+	
+	
 	
 
 	/* Request para agregar usuario a la BD */

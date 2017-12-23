@@ -53,7 +53,7 @@
 												</div>
 											</li>
 											<li><a href="#">
-											   <div class="user_img"><img src="images/p4.png" alt=""></div>
+											   <div class="user_img"><img src="images/p4.png" alt="gdfgdf"></div>
 											   <div class="notification_desc">
 												<p>Jalar de BD mensaje</p>
 												<p><span>Hace 1 hora</span></p>
@@ -649,16 +649,16 @@
 			  </a> </div>		  
 		    <div class="menu">
 		      <ul id="menu" >
-		        <li id="menu-home" ><a href="index.html"><i class="fa fa-tachometer"></i><span>Dashboard</span></a></li>
-		        <li><a href="#"><i class="fa fa-envelope"></i><span>Mensajes</span></a>
+		        <li id="menu-home" ><a href="../admin"><i class="fa fa-tachometer"></i><span>Dashboard</span></a></li>
+		        <li><a href="../admin/mensajes"><i class="fa fa-envelope"></i><span>Mensajes</span></a>
 		         
 		        </li>
 		        <li id="menu-comunicacao" ><a href="#"><i class="fa fa-cogs"></i><span>Configuraciones</span><span class="fa fa-angle-right" style="float: right"></span></a>
                 <ul>
-		            <li><a href=admin>Usuarios</a></li>
-		            <li><a href="admin/pagencias">Agencias Tur&iacute;sticas</a></li>	
-                    <li><a href="admin/paquetes">Paquetes Tur&iacute;sticas</a></li>
-                    <li><a href="admsitios_turisticos">Sitios Tur&iacute;sticos</a></li>	
+		            <li><a href=../admin/users>Usuarios</a></li>
+		            <li><a href="../admin/agencias">Agencias Tur&iacute;sticas</a></li>	
+                    <li><a href="../admin/paquetes">Paquetes Tur&iacute;sticas</a></li>
+                    <li><a href="../admin/destinos">Sitios Tur&iacute;sticos</a></li>	
                     <li><a href="#">Restaurar Informaci&oacute;n</a></li>            
 		          </ul>
 		        </li>

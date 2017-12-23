@@ -1,6 +1,6 @@
 
 function addAdmin(){	
-	var url = "admin/saveAdmin";
+	var url = "../admin/saveAdmin";
 	
 	$.ajax({
 		url: url,
@@ -50,7 +50,7 @@ function deleteAdmin(){
 
 
 function changeStateAdmin(id,state){  
-	var url = "admin/changeStateAdmin";
+	var url = "../admin/changeStateAdmin";
 
 	$.ajax({
 		url: url,

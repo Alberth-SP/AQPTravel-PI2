@@ -45,7 +45,7 @@
         <ul class="nav-menu">
           <li ><a href="index">Inicio</a></li>
   
-          <li class="menu-active"><a href="misPaquetes">Perfil</a></li>
+          <li class="menu-active"><a href="#mi-perfil">Perfil</a></li>
          
           <li><a href="#contact">Contacto</a></li>
         </ul>

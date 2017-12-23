@@ -54,6 +54,14 @@ public class HomeController {
 
 	@Autowired
 	PaqueteDao paquetDao;
+	
+	/* Request para pagina principal */
+	@RequestMapping(value="/index", method=RequestMethod.GET ,produces="text/html;charset=UTF-8")
+	public ModelAndView indexs(ModelAndView model) throws IOException{
+
+		model.setViewName("index");	 		
+		return model;
+	}
 
 
 

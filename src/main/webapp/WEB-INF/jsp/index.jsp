@@ -94,8 +94,26 @@
                   </div>
                   </div>
                 </div>
+                
+                
+                 
                 <div class="form-group row">
-                  <label for="num_adultos" class="col-sm-4 col-form-label label-form">Nro. Adultos:</label>
+                  <label for="num_adultos" class="col-sm-4 col-form-label label-form">Tipo ACtividad:</label>
+                  <div class="">
+                    <select id="num_adultos" class="form-control">
+                      <option value= "aventura" selected>Aventura</option>
+                      <option value= "naturaleza" >Naturaleza</option>
+                      <option value= "cultural" >Cultural</option>
+                      <option value= "relax" >Relax</option>
+                      <option value= "entretenimiento" >Compras/Entretenimiento</option>
+                      <option value= "Festividades" >Festividades</option>  
+                    </select>
+                  </div>
+                </div>
+                
+                
+                <div class="form-group row">
+                  <label for="num_adultos" class="col-sm-4 col-form-label label-form">Nro. Personas:</label>
                   <div class="col-sm-auto">
                     <select id="num_adultos" class="form-control">
                       <option value= "0" selected>0</option>
@@ -106,31 +124,9 @@
                     </select>
                   </div>
                 </div>
-                 <div class="form-group row">
-                  <label for="num_niños" class="col-sm-4 col-form-label label-form">Nro. Niños:</label>
-                  <div class="col-sm-auto">
-                    <select id="num_niños" class="form-control">
-                      <option value = "0" selected>0</option>
-                      <option value= "1">1</option>
-                      <option value= "2">2</option>
-                      <option value= "3">3</option>
-                      <option value= "4">4</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="form-group row justify-content-center">
-                  <div id= "seccion3-1-help1" class="col-sm-auto align-self-end">¿Que quieres hacer?</div>
-                  <div class="col-sm-auto">
-                    <select id="actividad" class="form-control">
-                      <option value= "aventura" selected>Aventura</option>
-                      <option value= "naturaleza" >Naturaleza</option>
-                      <option value= "cultural" >Cultural</option>
-                      <option value= "relax" >Relax</option>
-                      <option value= "entretenimiento" >Compras/Entretenimiento</option>
-                      <option value= "Festividades" >Festividades</option>          
-                    </select>
-                  </div>
-                </div>
+                             
+               
+                
          
                 <div class="form-group row justify-content-between" id = "seccion3-1-footer">
                     <div id= "seccion3-1-help2" class="col-sm-auto align-self-end">

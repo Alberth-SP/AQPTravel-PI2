@@ -469,18 +469,18 @@
 			  </a> </div>		  
 		    <div class="menu">
 		      <ul id="menu" >
-		        <li id="menu-home" ><a href="index.html"><i class="fa fa-tachometer"></i><span>Dashboard</span></a></li>
-		        <li><a href="#"><i class="fa fa-envelope"></i><span>Mensajes</span></a>
+		        <li id="menu-home" ><a href="../admin"><i class="fa fa-tachometer"></i><span>Dashboard</span></a></li>
+		        <li><a href="../admin/mensajes"><i class="fa fa-envelope"></i><span>Mensajes</span></a>
 		         
 		        </li>
 		        <li id="menu-comunicacao" ><a href="#"><i class="fa fa-cogs"></i><span>Configuraciones</span><span class="fa fa-angle-right" style="float: right"></span></a>
                 <ul>
-		            <li><a href="admin">Usuarios</a></li>
-		            <li><a href="agencias">Agencias Tur&iacute;sticas</a></li>	
-                    <li><a href="paquetes">Paquetes Tur&iacute;sticas</a></li>
+		            <li><a href="../admin/users">Usuarios</a></li>
+		            <li><a href="../admin/agencias">Agencias Tur&iacute;sticas</a></li>	
+                    <li><a href="../admin/paquetes">Paquetes Tur&iacute;sticas</a></li>
                     
 					<!-- AGREGUEN ESTOOOOOOOOOOOOOOO -->                   
-                    <li><a href="sitios_turisticos">Sitios Tur&iacute;sticos</a></li>	
+                    <li><a href="../admin/destinos">Sitios Tur&iacute;sticos</a></li>	
                     
                     <li><a href="#">Restaurar Informaci&oacute;n</a></li>            
 		          </ul>
