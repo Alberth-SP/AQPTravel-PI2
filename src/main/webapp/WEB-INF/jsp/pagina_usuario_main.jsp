@@ -39,6 +39,17 @@ $(document).ready(function() {
 } );
 
 </script>
+<script>
+$(document).ready(function() {
+	
+	$.post("agencia/list_valoracion",function(data){
+		$('#list_valoracion').html(data);
+		$('#table_valoracion').DataTable();
+	})
+    
+} );
+
+</script>
 
 <link href="<c:url value="/resources/css/bootstrap.css"/> "
 	rel="stylesheet" media="all">
@@ -381,7 +392,7 @@ $(document).ready(function() {
                           </tbody>
                       </table>
                   </div-->
-                  								<div class="table-responsive">
+                  				<div class="table-responsive">
 									<table id="tablePaquete" class="table table-hover display"
 										cellspacing="0" width="100%">
 
@@ -439,77 +450,6 @@ $(document).ready(function() {
 			
          </div>
          
- 		<!--SCRIPTS CALENDARIO-->
-		<script type="text/javascript" src="js/jquery.calendario.js"></script>
-		<script type="text/javascript" src="js/data.js"></script>
-		<script type="text/javascript">	
-			$(function() {
-			
-				var transEndEventNames = {
-						'WebkitTransition' : 'webkitTransitionEnd',
-						'MozTransition' : 'transitionend',
-						'OTransition' : 'oTransitionEnd',
-						'msTransition' : 'MSTransitionEnd',
-						'transition' : 'transitionend'
-					},
-					transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ],
-					$wrapper = $( '#custom-inner' ),
-					$calendar = $( '#calendar' ),
-					cal = $calendar.calendario( {
-						onDayClick : function( $el, $contentEl, dateProperties ) {
-
-							if( $contentEl.length > 0 ) {
-								showEvents( $contentEl, dateProperties );
-							}
-
-						},
-						caldata : codropsEvents,
-						displayWeekAbbr : true
-					} ),
-					$month = $( '#custom-month' ).html( cal.getMonthName() ),
-					$year = $( '#custom-year' ).html( cal.getYear() );
-
-				$( '#custom-next' ).on( 'click', function() {
-					cal.gotoNextMonth( updateMonthYear );
-				} );
-				$( '#custom-prev' ).on( 'click', function() {
-					cal.gotoPreviousMonth( updateMonthYear );
-				} );
-
-				function updateMonthYear() {				
-					$month.html( cal.getMonthName() );
-					$year.html( cal.getYear() );
-				}
-
-				// just an example..
-				function showEvents( $contentEl, dateProperties ) {
-
-					hideEvents();
-					
-					var $events = $( '<div id="custom-content-reveal" class="custom-content-reveal"><h4>Events for ' + dateProperties.monthname + ' ' + dateProperties.day + ', ' + dateProperties.year + '</h4></div>' ),
-						$close = $( '<span class="custom-content-close"></span>' ).on( 'click', hideEvents );
-
-					$events.append( $contentEl.html() , $close ).insertAfter( $wrapper );
-					
-					setTimeout( function() {
-						$events.css( 'top', '0%' );
-					}, 25 );
-
-				}
-				function hideEvents() {
-
-					var $events = $( '#custom-content-reveal' );
-					if( $events.length > 0 ) {
-						
-						$events.css( 'top', '100%' );
-						Modernizr.csstransitions ? $events.on( transEndEventName, function() { $( this ).remove(); } ) : $events.remove();
-
-					}
-
-				}
-			
-			});
-		</script>
         
       </div-->
      <div class="clearfix"> </div>
@@ -556,18 +496,23 @@ $(document).ready(function() {
                               <p> &nbsp </p>			  
                             </div>
                             
-                            <div class="table-responsive">
-                                <table class="table table-hover">
-                                  <thead>
-                                    <tr>
-                                      <th>Puesto</th>
-                                      <th>C&oacute;digo</th>
-                                      <th>Agencia</th>
-                                      <th>Rating</th>
+                  				<div class="table-responsive">
+									<table id="table_valoracion" class="table table-hover display"
+										cellspacing="0" width="100%">
+
+										<thead>
+											<tr>
+			                                      <th>Puesto</th>
+			                                      <th>C&oacute;digo</th>
+			                                      <th>Agencia</th>
+			                                      <th>Rating</th>
                                       
-                                  </tr>
-                              </thead>
-                              <tbody>
+											</tr>
+
+										</thead>
+
+										<tbody id="list_valoracion">
+
                                 <tr>
                                   <td>1</td>
                                   <td>JalarCodigoAg</td>
@@ -618,9 +563,13 @@ $(document).ready(function() {
       </div></td>
                                   
                               </tr>
-                          </tbody>
-                      </table>
-                  </div>
+               
+										</tbody>
+									</table>
+
+
+
+								</div>
              </div>
 		</div>
 	 <div class="clearfix"> </div>
