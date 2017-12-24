@@ -224,7 +224,7 @@ public class AgenciaDao implements InterfaceDao<Agency>{
 	}
 	
 	public List<Agency> listRate() {
-		String sql = "SELECT * From agencia order by valoracionAgencia DESC";
+		String sql = "SELECT * From agencia order by valoracionAgencia DESC LIMIT 0, 5";
 
 		List<Agency> listContact = jdbcTemplate.query(sql, new RowMapper<Agency>() {
 
