@@ -402,8 +402,7 @@ $(document).ready(function() {
 												<th>Nombre de Paquete Tur&iacute;stico</th>
 												<th>Agencia Tur&iacute;stica</th>												
 												<th>Destino</th>
-												<th>Estado</th>
-												<th>Opciones</th>
+
 											</tr>
 
 										</thead>
@@ -413,8 +412,7 @@ $(document).ready(function() {
 												<th>Nombre de Paquete Tur&iacute;stico</th>
 												<th>Agencia Tur&iacute;stica</th>											
 												<th>Destino</th>
-												<th>Estado</th>
-												<th>Opciones</th>
+
 
 											</tr>
 										</tfoot>
