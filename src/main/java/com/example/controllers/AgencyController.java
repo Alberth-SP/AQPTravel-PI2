@@ -103,7 +103,6 @@ public class AgencyController {
 			
 			response += "<tr>" +
 					"<td>" + (++cont) + "</td>" +
-					"<td>" + tmpAgencia.getIdAgency() + "</td>" +
 					"<td>" + tmpAgencia.getName() + "</td>" +
 					//"<td>" + " <div id=\"stars-existing\" class=\"starrr\" data-rating="+"'"+tmpAgencia.getRate() +"'"+"></div>" + "</td>";
 					"<td>"+rate+"</td>";
