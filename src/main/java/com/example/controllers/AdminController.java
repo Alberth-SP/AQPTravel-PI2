@@ -41,6 +41,11 @@ public class AdminController {
 	
 	@Autowired
 	PaqueteDao paqueteDao;
+	
+	@Autowired
+	
+	AgenciaDao agenciaDao;
+	
 	/* Request para obtener lista de usaurios */
 	@RequestMapping(value="admin/list_admin",  method=RequestMethod.POST, produces="text/html;charset=UTF-8")
 	@ResponseBody
@@ -69,7 +74,7 @@ public class AdminController {
 		}
 		return response; 
 	}
-	//
+	//PAQUETES RECIENTES POR AÑO 
 	@RequestMapping(value="admin/list_paquetesRecientes",  method=RequestMethod.POST, produces="text/html;charset=UTF-8")
 	@ResponseBody
 	public String paquetesRecientes(ModelAndView model) throws IOException{
@@ -90,25 +95,13 @@ public class AdminController {
 					"<td>" + paquet.getNombrePaquete() + "</td>" +
 					"<td>" + agencia.getNombreAgencia() + "</td>" +
 					"<td>" + paquet.getDestinoPaquete() + "</td>";
-			
-			if(paquet.getEstadoPaquete() == '1'){
-				
-				response += " <td> "
-						+ "<input type='checkbox' name='' class=' ' id='' value='activo' onchange='changeCheckBox2("+paquet.getIdPaquete()+", this)' checked>"
-						+ "</td>";
-
-			}else{
-				response += " <td> "
-						+ "<input type='checkbox' name='' class=' ' id='' value='desactivo' onchange='changeCheckBox2("+paquet.getIdPaquete()+", this)' >"
-						+ "</td>";
-			}			
-			
-			response += "<td> <a class='btn btn-warning' href='editar_paquete_admin.html' aria-label='Delete'>"
-					+ "	<i class='fa fa-pencil' aria-hidden='true'></i>&nbsp;Editar	</a> </td></tr>";
+	
 		}
 		
 		return response; 
 	}
+	
+
 	/* Request para cargar la pagina del Admin */
 	@RequestMapping(value="admin/users", method=RequestMethod.GET)
 	public ModelAndView index(ModelAndView model) throws IOException{
