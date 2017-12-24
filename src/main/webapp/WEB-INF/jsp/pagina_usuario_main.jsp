@@ -506,7 +506,7 @@ $(document).ready(function() {
 											<tr>
 											
 			                                      <th>Puesto</th>
-			                                      <th>C&oacute;digo</th>
+			                         
 			                                      <th>Agencia</th>
 			                                      <th>Rating</th>
                                       
