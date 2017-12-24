@@ -16,6 +16,7 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 
 import com.example.logic.Admin;
+import com.example.logic.User;
 import com.example.logic.Utilidades;
 
 @Repository
@@ -154,5 +155,11 @@ public class AdminDaoImpl implements AdminDao{
 		String sql = "UPDATE usuario SET enable = '" + id 
 				+ "' WHERE correoUsuario = '"+ email +"'";
 		jdbcTemplate.update(sql);
+	}
+	public User findUserByEmail(String c) {
+		return null;
+	}
+	public String findRolByEmail(String c) {
+		return "";
 	}
 }

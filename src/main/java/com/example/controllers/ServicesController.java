@@ -41,8 +41,8 @@ public class ServicesController {
 		// Verificacion Admin
 		if (passEnviada.equals(passBaseDatos))
 		{
-			modelp.put("iduser",adminDao.findAdminByEmail(c).getEmail());
-			return "usuarios_admin";
+			modelp.put("iduser",adminDao.findAdminByEmail(c).getEmail().toUpperCase());
+			return "pagina_usuario_main";
 		}
 		modelp.put("nombre", "no ingreso "+ " "+ passBaseDatos);
 		return "welcome";
