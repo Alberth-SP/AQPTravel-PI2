@@ -19,11 +19,14 @@ import org.springframework.web.servlet.ModelAndView;
 import com.example.dao.AdminDao;
 import com.example.dao.AgenciaDao;
 import com.example.dao.DestinyDao;
+import com.example.dao.PaqueteDao;
 import com.example.logic.Admin;
+import com.example.logic.Agencia;
 import com.example.logic.Destiny;
+import com.example.logic.Paquete;
 import com.example.logic.Utilidades;
 import com.example.logic.Agency;
-
+import com.example.logic.Paquete;
 /* CLASE para responder a Solicitudes  desde ADMIN */
 
 @Controller
@@ -36,6 +39,8 @@ public class AdminController {
 	@Autowired
 	DestinyDao destinyDao;
 	
+	@Autowired
+	PaqueteDao paqueteDao;
 	/* Request para obtener lista de usaurios */
 	@RequestMapping(value="admin/list_admin",  method=RequestMethod.POST, produces="text/html;charset=UTF-8")
 	@ResponseBody
@@ -64,7 +69,46 @@ public class AdminController {
 		}
 		return response; 
 	}
+	//
+	@RequestMapping(value="admin/list_paquetesRecientes",  method=RequestMethod.POST, produces="text/html;charset=UTF-8")
+	@ResponseBody
+	public String paquetesRecientes(ModelAndView model) throws IOException{
+		
+		//List<Paquete> listContact = paqueteDao.listAllPaquetes();
+		
+		
+		List<Paquete> listContact= paqueteDao.ordenadoPorAnio();
+		
+		Agencia agencia = new Agencia();
+		
+		String response="";
+		int cont = 0;
+		for(Paquete paquet : listContact){
+			
+			response += "<tr>" +
+					"<td>" + (++cont) + "</td>" +
+					"<td>" + paquet.getNombrePaquete() + "</td>" +
+					"<td>" + agencia.getNombreAgencia() + "</td>" +
+					"<td>" + paquet.getDestinoPaquete() + "</td>";
+			
+			if(paquet.getEstadoPaquete() == '1'){
+				
+				response += " <td> "
+						+ "<input type='checkbox' name='' class=' ' id='' value='activo' onchange='changeCheckBox2("+paquet.getIdPaquete()+", this)' checked>"
+						+ "</td>";
 
+			}else{
+				response += " <td> "
+						+ "<input type='checkbox' name='' class=' ' id='' value='desactivo' onchange='changeCheckBox2("+paquet.getIdPaquete()+", this)' >"
+						+ "</td>";
+			}			
+			
+			response += "<td> <a class='btn btn-warning' href='editar_paquete_admin.html' aria-label='Delete'>"
+					+ "	<i class='fa fa-pencil' aria-hidden='true'></i>&nbsp;Editar	</a> </td></tr>";
+		}
+		
+		return response; 
+	}
 	/* Request para cargar la pagina del Admin */
 	@RequestMapping(value="admin/users", method=RequestMethod.GET)
 	public ModelAndView index(ModelAndView model) throws IOException{
