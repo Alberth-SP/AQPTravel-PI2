@@ -250,7 +250,7 @@ public class PaqueteDaoImpl implements PaqueteDao {
 	@Override
 	public List<Paquete> ordenadoPorAnio() {
 		
-		String sql = "SELECT * From paquete order by anioModPaquete DESC";
+		String sql = "SELECT * From paquete order by anioModPaquete DESC LIMIT 0, 10";
 
 		List<Paquete> listPaquet = jdbcTemplate.query(sql, new RowMapper<Paquete>() {
 
@@ -275,7 +275,7 @@ public class PaqueteDaoImpl implements PaqueteDao {
 
 	@Override
 	public List<Paquete> ordenadoPorMes() {
-		String sql = "SELECT * From paquete order by MesModPaquete DESC";
+		String sql = "SELECT * From paquete order by MesModPaquete DESC LIMIT 0, 10";
 
 		List<Paquete> listPaquet = jdbcTemplate.query(sql, new RowMapper<Paquete>() {
 
@@ -300,7 +300,7 @@ public class PaqueteDaoImpl implements PaqueteDao {
 
 	@Override
 	public List<Paquete> ordenadoPorDia() {
-		String sql = "SELECT * From paquete order by diaModPaquete DESC";
+		String sql = "SELECT * From paquete order by diaModPaquete DESC LIMIT 0, 10";
 
 		List<Paquete> listPaquet = jdbcTemplate.query(sql, new RowMapper<Paquete>() {
 
