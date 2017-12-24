@@ -238,6 +238,91 @@ public class PaqueteDaoImpl implements PaqueteDao {
 		});		 
 		return listPaquet;	
 	}
+	
+	@Override
+	public String getNombreAgencia(int id) {
+		
+		String nombreAgencia = jdbcTemplate.queryForObject(
+			    "SELECT nombreAgencia FROM Agencia WHERE idAgencia= '"+id, String.class);
+		return  nombreAgencia;
+	}
+
+	@Override
+	public List<Paquete> ordenadoPorAnio() {
+		
+		String sql = "SELECT * From paquete order by anioModPaquete DESC";
+
+		List<Paquete> listPaquet = jdbcTemplate.query(sql, new RowMapper<Paquete>() {
+
+			@Override
+			public Paquete mapRow(ResultSet rs, int rowNum) throws SQLException {
+				// TODO Auto-generated method stub
+
+				Paquete aPaquet = new Paquete();		
+				aPaquet.setIdPaquete(rs.getInt("idPaquete"));
+				aPaquet.setIdAgencia(rs.getInt("idAgencia"));				
+				aPaquet.setNombrePaquete(rs.getString("nombrePaquete"));				
+				aPaquet.setNumPaquete(rs.getInt("numPaquete"));					
+				aPaquet.setEstadoPaquete(rs.getString("estadoPaquete").charAt(0));				
+				aPaquet.setDestinoPaquete(rs.getString("destinoPaquete"));
+				
+				return aPaquet;
+			}
+
+		});		 
+		return listPaquet;
+	}
+
+	@Override
+	public List<Paquete> ordenadoPorMes() {
+		String sql = "SELECT * From paquete order by anioModPaquete DESC";
+
+		List<Paquete> listPaquet = jdbcTemplate.query(sql, new RowMapper<Paquete>() {
+
+			@Override
+			public Paquete mapRow(ResultSet rs, int rowNum) throws SQLException {
+				// TODO Auto-generated method stub
+
+				Paquete aPaquet = new Paquete();		
+				aPaquet.setIdPaquete(rs.getInt("idPaquete"));
+				aPaquet.setIdAgencia(rs.getInt("idAgencia"));				
+				aPaquet.setNombrePaquete(rs.getString("nombrePaquete"));				
+				aPaquet.setNumPaquete(rs.getInt("numPaquete"));					
+				aPaquet.setEstadoPaquete(rs.getString("estadoPaquete").charAt(0));				
+				aPaquet.setDestinoPaquete(rs.getString("destinoPaquete"));
+				
+				return aPaquet;
+			}
+
+		});		 
+		return listPaquet;
+	}
+
+	@Override
+	public List<Paquete> ordenadoPorDia() {
+		String sql = "SELECT * From paquete order by anioModPaquete DESC";
+
+		List<Paquete> listPaquet = jdbcTemplate.query(sql, new RowMapper<Paquete>() {
+
+			@Override
+			public Paquete mapRow(ResultSet rs, int rowNum) throws SQLException {
+				// TODO Auto-generated method stub
+
+				Paquete aPaquet = new Paquete();		
+				aPaquet.setIdPaquete(rs.getInt("idPaquete"));
+				aPaquet.setIdAgencia(rs.getInt("idAgencia"));				
+				aPaquet.setNombrePaquete(rs.getString("nombrePaquete"));				
+				aPaquet.setNumPaquete(rs.getInt("numPaquete"));					
+				aPaquet.setEstadoPaquete(rs.getString("estadoPaquete").charAt(0));				
+				aPaquet.setDestinoPaquete(rs.getString("destinoPaquete"));
+				
+				return aPaquet;
+			}
+
+		});		 
+		return listPaquet;
+	}
+	
 
 	
 
