@@ -492,8 +492,10 @@ $(document).ready(function() {
 			<div class="work-progres">
                             <div class="chit-chat-heading">
                               
-                                  Top 5 Rating de Agencias Registradas 	
-                              <p> &nbsp </p>			  
+                                  Top 5 Rating de Agencias Registradas 
+
+                              <p> &nbsp </p>	
+  
                             </div>
                             
                   				<div class="table-responsive">
@@ -502,6 +504,7 @@ $(document).ready(function() {
 
 										<thead>
 											<tr>
+											
 			                                      <th>Puesto</th>
 			                                      <th>C&oacute;digo</th>
 			                                      <th>Agencia</th>
@@ -523,46 +526,9 @@ $(document).ready(function() {
       </div></td>
                                   
                               </tr>
-                              <tr>
-                                  <td>2</td>
-                                  <td>JalarCodigoAg</td>
-                                  <td>JalarNombreAgen</td>                                 
-                                  <!--ACA SACAN EL PONDERADO DEL RATING Y LO PONEN EN VEZ DEL 60%-->
-                                  <td><div class="progress">
-        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%"></div>
-      </div></td>
-                                  
-                              </tr>
-                              <tr>
-                                  <td>3</td>
-                                  <td>JalarCodigoAg</td>
-                                  <td>JalarNombreAgen</td>                                 
-                                  <!--ACA SACAN EL PONDERADO DEL RATING Y LO PONEN EN VEZ DEL 60%-->
-                                  <td><div class="progress">
-        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%"></div>
-      </div></td>
-                                  
-                              </tr>
-                              <tr>
-                                  <td>4</td>
-                                  <td>JalarCodigoAg</td>
-                                  <td>JalarNombreAgen</td>                                 
-                                  <!--ACA SACAN EL PONDERADO DEL RATING Y LO PONEN EN VEZ DEL 60%-->
-                                  <td><div class="progress">
-        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%"></div>
-      </div></td>
-                                  
-                              </tr>
-                              <tr>
-                                  <td>5</td>
-                                  <td>JalarCodigoAg</td>
-                                  <td>JalarNombreAgen</td>                                 
-                                  <!--ACA SACAN EL PONDERADO DEL RATING Y LO PONEN EN VEZ DEL 60%-->
-                                  <td><div class="progress">
-        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%"></div>
-      </div></td>
-                                  
-                              </tr>
+
+
+
                
 										</tbody>
 									</table>
