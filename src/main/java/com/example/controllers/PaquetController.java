@@ -92,12 +92,14 @@ public class PaquetController {
 		data.put("recomendacionesPaquete", request.getParameter("recomendacionesPaquete"));
 		data.put("serviciosPaquete", request.getParameter("serviciosPaquete"));
 		data.put("destinosPaquete", request.getParameter("destinosPaquete"));	
+		
+		
 			
 		MultipartFile image1 = request.getFile("image1");
 		MultipartFile image2 = request.getFile("image2");	
 		
 		Paquete paquete = new Paquete(data);
-		
+		System.out.println("capa: "+paquete.getCapacidadPaquete());
 		int idReg = paquetDao.addPaquete(paquete);	
 		
 		if(idReg > 0){

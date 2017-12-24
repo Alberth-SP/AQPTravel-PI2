@@ -22,7 +22,31 @@ $(document).ready(function() {
 
 	$.post("../admin/list_admin",function(data){
 		$('#list_user').html(data);
-		$('#example').DataTable();
+		$('#example').DataTable({
+			"language": {
+				"decimal": "",
+		        "emptyTable": "No hay información",
+		        "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+		        "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+		        "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+		        "infoPostFix": "",
+		        "thousands": ",",
+		        "lengthMenu": "Mostrar _MENU_ Entradas",
+		        "loadingRecords": "Cargando...",
+		        "processing": "Procesando...",
+		        "search": "Buscar:",
+		        "zeroRecords": "Sin resultados encontrados",
+		        "paginate": {
+		            "first": "Primero",
+		            "last": "Ultimo",
+		            "next": "Siguiente",
+		            "previous": "Anterior"
+		            
+		        }
+				
+	        }
+			
+		});
 	})
     
 } );
@@ -49,16 +73,6 @@ $(document).ready(function() {
 <!--//scrolling js-->
 <script src="<c:url value="/resources/js/bootstrap.js" />"></script>
 
-<script>
-$(document).ready(function() {	
-	$.post("../paquete/list_paquetes",function(data){
-		$('#list_paquete').html(data);
-		$('#tablePaquete').DataTable();
-	})
-    
-} );
-
-</script>
 
 <style type="text/css" media=screen>
 .onoffswitch {
@@ -334,9 +348,7 @@ $(document).ready(function() {
 									
 								</div>
 
-								
-								<p>&nbsp</p>
-								<p>&nbsp</p>
+							
 
 								<div class="table-responsive">
 									<table id="example" class="table display" cellspacing="0"
