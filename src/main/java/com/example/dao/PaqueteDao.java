@@ -22,6 +22,14 @@ public interface PaqueteDao {
 	
 	public List<Paquete> listFilterPaquetes(Paquete param);
 	
+	public String getNombreAgencia(int id);
+	
+	public List<Paquete> ordenadoPorAnio();
+	
+	public List<Paquete> ordenadoPorMes();
+	
+	public List<Paquete> ordenadoPorDia();
+	
 	/*¨detalles paqute */	
 
 	public boolean addFotoPaquete(FotosPaquete foto);

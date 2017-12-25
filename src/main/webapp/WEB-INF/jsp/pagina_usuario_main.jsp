@@ -25,6 +25,32 @@ $(document).ready(function() {
 } );
 
 </script>
+
+
+
+<script>
+$(document).ready(function() {
+	
+	$.post("admin/list_paquetesRecientes",function(data){
+		$('#list_paquete').html(data);
+		$('#tablePaquete').DataTable();
+	})
+    
+} );
+
+</script>
+<script>
+$(document).ready(function() {
+	
+	$.post("agencia/list_valoracion",function(data){
+		$('#list_valoracion').html(data);
+		$('#table_valoracion').DataTable();
+	})
+    
+} );
+
+</script>
+
 <link href="<c:url value="/resources/css/bootstrap.css"/> "
 	rel="stylesheet" media="all">
 <!-- Custom Theme files -->
@@ -327,15 +353,15 @@ $(document).ready(function() {
 <!--market updates end here-->
 <!--mainpage chit-chating-->
 <div class="chit-chat-layer1">
-	<div class="col-md-6 chit-chat-layer1-left">
+	<div class="col-md12 chit-chat-layer1-left">
                <div class="work-progres">
                             <div class="chit-chat-heading">
                                   Paquetes Turísticos Agregados Recientemente 	
                               <p> &nbsp </p>			  
                             </div>
                             
-                            <div class="table-responsive">
-                                <table class="table table-hover">
+                            <!-- div class="table-responsive">
+                                <table id="tablePaquete" class="table table-hover">
                                   <thead>
                                     <tr>
                                       <th>ID</th>
@@ -346,7 +372,15 @@ $(document).ready(function() {
                                   </tr>
                               </thead>
                               <tbody>
-                                <tr>
+                              
+                              <tbody id="list_paquete">
+                              
+                              
+                              
+                              
+                              
+                              
+                                < tr>
                                   <td>1</td>
                                   <td>JalarNombrePaq</td>
                                   <td>JalarNombreAgen</td>                                 
@@ -354,46 +388,45 @@ $(document).ready(function() {
                                   <td><span class="label label-danger">Desactivado</span></td>
                                   
                               </tr>
-                              <tr>
-                                  <td>2</td>
-                                  <td>JalarPaq2</td>
-                                  <td>JalarAgencia</td>                               
-                                                                  
-                                  <td><span class="label label-success">Publicado</span></td>
-                                  
-                              </tr>
-                              <tr>
-                                  <td>3</td>
-                                  <td>JalarPaq3</td>
-                                  <td>JalarAgencia</td>
-                                  <td><span class="label label-warning">Sin revisión</span></td>
-                                  
-                              </tr>
-                              <tr>
-                              	  <td>4</td>
-                                  <td>JalarPaq4</td>
-                                  <td>JalarAgencia</td>                
-                                  <td><span class="label label-warning">Sin revisión</span></td>
-                                  
-                              </tr>
-                              <tr>
-                                  <td>5</td>
-                                  <td>JalarPaq5</td>
-                                  <td>JalarAgencia</td>
-                                  <td><span class="label label-warning">Sin revisión</span></td>
-                              </tr>
-                              <tr>
-                                 <td>6</td>
-                                  <td>JalarPaq6</td>
-                                  <td>JalarAgencia</td>
-                                  <td><span class="label label-warning">Sin revisión</span></td>
-                              </tr>
+                            
                           </tbody>
                       </table>
-                  </div>
+                  </div-->
+                  				<div class="table-responsive">
+									<table id="tablePaquete" class="table table-hover display"
+										cellspacing="0" width="100%">
+
+										<thead>
+											<tr>
+												<th>Nro.</th>
+												<th>Nombre de Paquete Tur&iacute;stico</th>
+												<th>Agencia Tur&iacute;stica</th>												
+												<th>Destino</th>
+
+											</tr>
+
+										</thead>
+										<tfoot>
+											<tr>
+												<th>Nro.</th>
+												<th>Nombre de Paquete Tur&iacute;stico</th>
+												<th>Agencia Tur&iacute;stica</th>											
+												<th>Destino</th>
+
+
+											</tr>
+										</tfoot>
+										<tbody id="list_paquete">
+
+										</tbody>
+									</table>
+
+
+
+								</div>
              </div>
       </div>
-      <div class="col-md-6 chit-chat-layer1-rit"> 
+      <!-- div class="col-md-6 chit-chat-layer1-rit"> 
       	<div class="work-progres">   	
       	  		<div class="chit-chat-heading">
                                   Calendario 	
@@ -415,79 +448,8 @@ $(document).ready(function() {
 			
          </div>
          
- 		<!--SCRIPTS CALENDARIO-->
-		<script type="text/javascript" src="js/jquery.calendario.js"></script>
-		<script type="text/javascript" src="js/data.js"></script>
-		<script type="text/javascript">	
-			$(function() {
-			
-				var transEndEventNames = {
-						'WebkitTransition' : 'webkitTransitionEnd',
-						'MozTransition' : 'transitionend',
-						'OTransition' : 'oTransitionEnd',
-						'msTransition' : 'MSTransitionEnd',
-						'transition' : 'transitionend'
-					},
-					transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ],
-					$wrapper = $( '#custom-inner' ),
-					$calendar = $( '#calendar' ),
-					cal = $calendar.calendario( {
-						onDayClick : function( $el, $contentEl, dateProperties ) {
-
-							if( $contentEl.length > 0 ) {
-								showEvents( $contentEl, dateProperties );
-							}
-
-						},
-						caldata : codropsEvents,
-						displayWeekAbbr : true
-					} ),
-					$month = $( '#custom-month' ).html( cal.getMonthName() ),
-					$year = $( '#custom-year' ).html( cal.getYear() );
-
-				$( '#custom-next' ).on( 'click', function() {
-					cal.gotoNextMonth( updateMonthYear );
-				} );
-				$( '#custom-prev' ).on( 'click', function() {
-					cal.gotoPreviousMonth( updateMonthYear );
-				} );
-
-				function updateMonthYear() {				
-					$month.html( cal.getMonthName() );
-					$year.html( cal.getYear() );
-				}
-
-				// just an example..
-				function showEvents( $contentEl, dateProperties ) {
-
-					hideEvents();
-					
-					var $events = $( '<div id="custom-content-reveal" class="custom-content-reveal"><h4>Events for ' + dateProperties.monthname + ' ' + dateProperties.day + ', ' + dateProperties.year + '</h4></div>' ),
-						$close = $( '<span class="custom-content-close"></span>' ).on( 'click', hideEvents );
-
-					$events.append( $contentEl.html() , $close ).insertAfter( $wrapper );
-					
-					setTimeout( function() {
-						$events.css( 'top', '0%' );
-					}, 25 );
-
-				}
-				function hideEvents() {
-
-					var $events = $( '#custom-content-reveal' );
-					if( $events.length > 0 ) {
-						
-						$events.css( 'top', '100%' );
-						Modernizr.csstransitions ? $events.on( transEndEventName, function() { $( this ).remove(); } ) : $events.remove();
-
-					}
-
-				}
-			
-			});
-		</script>
         
-      </div>
+      </div-->
      <div class="clearfix"> </div>
 </div>
 <!--main page chit chating end here-->
@@ -495,7 +457,7 @@ $(document).ready(function() {
 <!--main page chart start here-->
 <div class="main-page-charts">
    <div class="main-page-chart-layer1">
-		<div class="col-md-6 chart-layer1-left"> 
+		<!-- div class="col-md-12 chart-layer1-left"> 
 			<div class="glocy-chart">
 			<div class="span-2c">  
                         <h3 class="tlt">Estad&iacute;sticas de Reservas</h3>
@@ -522,28 +484,36 @@ $(document).ready(function() {
                         </script>
                     </div> 			  		   			
 			</div>
-		</div>
+		</div-->
         <!--ACA TERMINA LAS ESTADISTICAS-->
-		<div class="col-md-6 chart-layer1-right"> 
+		<div class="col-md-12 chart-layer1-right"> 
 			<div class="work-progres">
                             <div class="chit-chat-heading">
                               
-                                  Top 5 Rating de Agencias Registradas 	
-                              <p> &nbsp </p>			  
+                                  Top 5 Rating de Agencias Registradas 
+
+                              <p> &nbsp </p>	
+  
                             </div>
                             
-                            <div class="table-responsive">
-                                <table class="table table-hover">
-                                  <thead>
-                                    <tr>
-                                      <th>Puesto</th>
-                                      <th>C&oacute;digo</th>
-                                      <th>Agencia</th>
-                                      <th>Rating</th>
+                  				<div class="table-responsive">
+									<table id="table_valoracion" class="table table-hover display"
+										cellspacing="0" width="100%">
+
+										<thead>
+											<tr>
+											
+			                                      <th>Puesto</th>
+			                         
+			                                      <th>Agencia</th>
+			                                      <th>Rating</th>
                                       
-                                  </tr>
-                              </thead>
-                              <tbody>
+											</tr>
+
+										</thead>
+
+										<tbody id="list_valoracion">
+
                                 <tr>
                                   <td>1</td>
                                   <td>JalarCodigoAg</td>
@@ -554,49 +524,16 @@ $(document).ready(function() {
       </div></td>
                                   
                               </tr>
-                              <tr>
-                                  <td>2</td>
-                                  <td>JalarCodigoAg</td>
-                                  <td>JalarNombreAgen</td>                                 
-                                  <!--ACA SACAN EL PONDERADO DEL RATING Y LO PONEN EN VEZ DEL 60%-->
-                                  <td><div class="progress">
-        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%"></div>
-      </div></td>
-                                  
-                              </tr>
-                              <tr>
-                                  <td>3</td>
-                                  <td>JalarCodigoAg</td>
-                                  <td>JalarNombreAgen</td>                                 
-                                  <!--ACA SACAN EL PONDERADO DEL RATING Y LO PONEN EN VEZ DEL 60%-->
-                                  <td><div class="progress">
-        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%"></div>
-      </div></td>
-                                  
-                              </tr>
-                              <tr>
-                                  <td>4</td>
-                                  <td>JalarCodigoAg</td>
-                                  <td>JalarNombreAgen</td>                                 
-                                  <!--ACA SACAN EL PONDERADO DEL RATING Y LO PONEN EN VEZ DEL 60%-->
-                                  <td><div class="progress">
-        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%"></div>
-      </div></td>
-                                  
-                              </tr>
-                              <tr>
-                                  <td>5</td>
-                                  <td>JalarCodigoAg</td>
-                                  <td>JalarNombreAgen</td>                                 
-                                  <!--ACA SACAN EL PONDERADO DEL RATING Y LO PONEN EN VEZ DEL 60%-->
-                                  <td><div class="progress">
-        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%"></div>
-      </div></td>
-                                  
-                              </tr>
-                          </tbody>
-                      </table>
-                  </div>
+
+
+
+               
+										</tbody>
+									</table>
+
+
+
+								</div>
              </div>
 		</div>
 	 <div class="clearfix"> </div>

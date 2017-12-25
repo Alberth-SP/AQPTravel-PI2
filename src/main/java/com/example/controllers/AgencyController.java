@@ -76,6 +76,43 @@ public class AgencyController {
 		return response; 
 	}
 	
+	//VALORACION DE PAQUETES POR AÑO
+	@RequestMapping(value="agencia/list_valoracion",  method=RequestMethod.POST, produces="text/html;charset=UTF-8")
+	@ResponseBody
+	public String paquetesValoracion(ModelAndView model) throws IOException{
+		
+		List<Agency> listAgency = agenciaDao.listRate();
+		
+		//Agencia agencia = new Agencia();
+		
+		String response="";
+		int cont = 0;
+		String rate="";
+	
+		for(Agency tmpAgencia : listAgency){
+			int r=tmpAgencia.getRate();
+			
+			for(int i=0;i<5;i++) {
+				if(i<r) 
+					rate=rate+"<span class=\"glyphicon glyphicon-star\" aria-hidden=\"true\"></span>";
+				else {
+					rate=rate+"<span class=\"glyphicon glyphicon-star-empty\" aria-hidden=\"true\"></span>";
+				}
+					
+			}
+			
+			response += "<tr>" +
+					"<td>" + (++cont) + "</td>" +
+					"<td>" + tmpAgencia.getName() + "</td>" +
+					//"<td>" + " <div id=\"stars-existing\" class=\"starrr\" data-rating="+"'"+tmpAgencia.getRate() +"'"+"></div>" + "</td>";
+					"<td>"+rate+"</td>";
+			
+			rate="";
+		}
+		
+		return response; 
+	}
+	
 	
 	
 	
