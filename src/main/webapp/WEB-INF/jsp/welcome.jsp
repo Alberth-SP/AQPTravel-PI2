@@ -6,6 +6,6 @@
 <title>Yahoo!!</title>
 </head>
 <body>
-Welcome ${nombre}. You are now authenticated. <a href="login">Volver</a>
+Welcome ${nombre}. admin You are now authenticated. <a href="login">Volver</a>
 </body>
 </html>

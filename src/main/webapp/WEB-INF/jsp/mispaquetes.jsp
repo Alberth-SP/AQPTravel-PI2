@@ -77,9 +77,9 @@
 
 				<div class="col-lg-4 content order-lg-1  personalizado-form"
 					style="height: 700px; padding: 20px 50px 0px 50px; background: white; border: 1px solid; box-shadow: 5px 10px 8px #888888;">
-					<h6 style="font-weight: bold;">
+					<h4 style="font-weight: bold;">
 						Encuentra tu Paquete!!
-						</h6>
+						</h4>
 
 						<form id="form_filter">
 
@@ -112,7 +112,7 @@
 								<div class="input-group">
 									<span class="input-group-addon"><span
 										class="fa fa-globe"></span></span> <input size="5" type="text"
-										placeholder="..." class="form-control" name="destino">
+										placeholder="..." class="form-control" name="destino" id="destino">
 								</div>
 							</div>
 
@@ -126,10 +126,14 @@
 									title="Numero de Pesonas">
 
 									<option value="1" selected>1</option>
-									<option value="2">1</option>
-									<option value="3">2</option>
-									<option value="4">3</option>
-									<option value="5">4</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+									<option value="9">9</option>
 								</select>
 							</div>
 
@@ -165,7 +169,7 @@
 									style="margin: 15px 0px;" onclick="searchPaquets(1)">
 									<i class="fa fa-search fa-lg"></i> Buscar
 								</button>
-								<button class="btn btn-default col-md-12"
+								<button class="btn btn-default col-md-12" type="button"
 									style="margin: 10px 0px;" onclick="clearFilters()">Limpiar</button>
 						</div>
 
