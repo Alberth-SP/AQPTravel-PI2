@@ -564,6 +564,7 @@ $("#labelOferta").click(function() {
 	
 });
 
+
 </script>
 <!-- mother grid end here-->
 

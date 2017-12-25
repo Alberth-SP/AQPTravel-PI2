@@ -107,16 +107,20 @@ public class AgencyController {
 		a.setEmail(params.getFirst("email"));
 		a.setUbigeo(params.getFirst("ubigeo"));
 		a.setDirecction(params.getFirst("address"));
+		
 		a.setRate(Integer.parseInt(params.getFirst("rate")));
+	
 		a.setDescription(params.getFirst("description"));
 		a.setPhone(params.getFirst("phone"));
 		a.setDayMod(Integer.parseInt(params.getFirst("dayMod")));
 		a.setMonthMod(Integer.parseInt(params.getFirst("monthMod")));
 		a.setYearMod(Integer.parseInt(params.getFirst("yearMod")));
-		a.setCodAdmin(Integer.parseInt(params.getFirst("codAdmin")));
+		//a.setCodAdmin(Integer.parseInt(params.getFirst("codAdmin")));
 		a.setPassword(params.getFirst("password"));
 		a.setState(params.getFirst("state").charAt(0));
 		
+		//session cod admin
+		a.setCodAdmin(1);//<<<<-----
 		Agency agencia=new Agency(a);
 		agencia.setIdAgency(Integer.parseInt(params.getFirst("idAgency")));
 		agenciaDao.update(agencia);
@@ -140,15 +144,17 @@ public class AgencyController {
 		a.setRate(Integer.parseInt(params.getFirst("valoracionAgencia")));
 		a.setDescription(params.getFirst("descripcionAgencia"));
 		a.setPhone(params.getFirst("telefonoAgencia"));
+		if(!params.getFirst("fechaAgencia").isEmpty()){
 		a.setDayMod(Integer.parseInt(params.getFirst("fechaAgencia").substring(8, 10)));
 		a.setMonthMod(Integer.parseInt(params.getFirst("fechaAgencia").substring(5, 7)));
 		a.setYearMod(Integer.parseInt(params.getFirst("fechaAgencia").substring(0, 4)));
-		a.setCodAdmin(Integer.parseInt(params.getFirst("adminAgencia")));
+		}
+		//a.setCodAdmin(Integer.parseInt(params.getFirst("adminAgencia")));
 		a.setPassword(params.getFirst("passAgencia"));
 		a.setState(params.getFirst("estadoAgencia").charAt(0));
 	
-
-		
+		int idsesscion=1;
+		a.setCodAdmin(idsesscion);
 		Agency agencia=new Agency(a);
 		agenciaDao.add(agencia);
 		
@@ -167,6 +173,7 @@ public class AgencyController {
 		
 		tmpAgencia=agenciaDao.findById(id);
 		
+		System.out.println("->> "+tmpAgencia.getName());
 		model.addAttribute("agenciaForm", tmpAgencia);
 		
 		populateDefaultModel(model);
@@ -178,26 +185,10 @@ public class AgencyController {
 	
 	
 	private void populateDefaultModel(Model model) {
-/*
-		List<String> frameworksList = new ArrayList<String>();
-		frameworksList.add("Spring MVC");
-		frameworksList.add("Struts 2");
-		frameworksList.add("JSF 2");
-		frameworksList.add("GWT");
-		frameworksList.add("Play");
-		frameworksList.add("Apache Wicket");
-		model.addAttribute("frameworkList", frameworksList);
 
-		Map<String, String> skill = new LinkedHashMap<String, String>();
-		skill.put("Hibernate", "Hibernate");
-		skill.put("Spring", "Spring");
-		skill.put("Struts", "Struts");
-		skill.put("Groovy", "Groovy");
-		skill.put("Grails", "Grails");
-		model.addAttribute("javaSkillList", skill);
-*/
 		//l lista de valoracio
 		List<Integer> numbers = new ArrayList<Integer>();
+		numbers.add(0);
 		numbers.add(1);
 		numbers.add(2);
 		numbers.add(3);

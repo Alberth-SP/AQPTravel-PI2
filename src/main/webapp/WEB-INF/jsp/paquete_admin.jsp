@@ -8,21 +8,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-<link href="<c:url value="/resources/css/jquery.dataTables.min.css"/> "
-	rel="stylesheet">
-<script src="<c:url value="/resources/js/jquery-3.2.1.min.js" />"></script>
-<script src="<c:url value="/resources/js/jquery.dataTables.min.js" />"></script>
-
-
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<link href="<c:url value="/resources/css/bootstrap.css"/> "
-	rel="stylesheet" media="all">
-<!-- Custom Theme files -->
-<link href="<c:url value="/resources/css/style2.css"/> " rel="stylesheet"
-	media="all">
-<!--js-->
 
+<link href="<c:url value="/resources/css/style2.css"/> "
+	rel="stylesheet" media="all">
+<!--js-->
+<script src="<c:url value="/resources/js/jquery.min.js" />"></script>
 <!--icons-css-->
 <link href="<c:url value="/resources/css/font-awesome.css"/> "
 	rel="stylesheet" media="all">
@@ -30,12 +22,36 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Carrois+Gothic|Work+Sans:400,500,600"
 	rel="stylesheet">
-</script>
+<link href="https://fonts.googleapis.com/css?family=Ruda"
+	rel="stylesheet">
+<link href="<c:url value="/resources/css/font-awesome.min.css"/> "
+	rel="stylesheet" media="all">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css"
+	rel="stylesheet" media="all">
+	
+<link href="<c:url value="/resources/css/bootstrap.css"/> "
+	rel="stylesheet" media="all">
+<link
+	href="<c:url value="/resources/css/bootstrap-datetimepicker.min.css"/>"
+	rel="stylesheet">
 <!--scrolling js-->
+<script src="<c:url value="/resources/js/jquery.min.js" />"></script>
 <script src="<c:url value="/resources/js/jquery.nicescroll.js" />"></script>
-<script src="<c:url value="/resources/js/scripts.js" />"></script>
+<script src="<c:url value="/resources/js/scripts.js.js" />"></script>
 <!--//scrolling js-->
 <script src="<c:url value="/resources/js/bootstrap.js" />"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
+
+<script>
+    $(function() {
+        $('#ms').change(function() {
+            console.log($(this).val());
+        }).multipleSelect({
+            width: '100%'
+        });
+    });
+</script>
+
 
 <script>
 $(document).ready(function() {
@@ -401,7 +417,13 @@ $(document).ready(function() {
 				<!--inner block end here-->
 				<!-- modal  -->
 
-
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <!-- Content will be loaded here from "remote.php" file -->
+            </div>
+        </div>
+    </div>
 
 				<!--copy rights start here-->
 				<div class="copyrights">
@@ -452,6 +474,14 @@ $(document).ready(function() {
 	</div>
 	<!--slide bar menu end here-->
 	<script>
+
+
+	 $(document).on('hidden.bs.modal', function (e) {
+	        var target = $(e.target);
+	        target.removeData('bs.modal')
+	              .find(".modal-content").html('');
+	    });
+	 
 var toggle = true;
             
 $(".sidebar-icon").click(function() {                
@@ -469,10 +499,17 @@ $(".sidebar-icon").click(function() {
   }               
                 toggle = !toggle;
             });
+            
+            
+            
+            
+            
+
 </script>
 
-	<script src="<c:url value="/resources/js/bootstrap.js" />"></script>}
+
 	<script src="<c:url value="/resources/js/paquete.js" />"></script>
+		<script src="<c:url value="/resources/js/bootstrap-datetimepicker.min.js"/>"></script>
 </body>
 </html>
 

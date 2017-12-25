@@ -213,7 +213,7 @@
     <div class="blank">
     	<div class="work-progres">
     	
-    		<form id="form_regAgencia" >
+    		<form name="form_regAgencia" id="form_regAgencia">
     			<div class="panel panel-default" style=" font-family: 'Ruda', sans-serif;">
     				<div class="panel-heading" style="border-bottom:solid #CCC 1px; padding-top:25px; padding-left:25px">
                     	<h3 class="panel-title"><strong style="font-size:30px">Agregar Nueva Agencia </strong> Formulario</h3>   
@@ -263,9 +263,9 @@
                                                 <div class="col-md-9">                                            
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                                        <input type="text" class="form-control" name="emailAgencia" />
+                                                        <input type="text" class="form-control" id="emailAgencia" name="emailAgencia" required>
                                                     </div>                                            
-                                                    <span class="help-block">Ingrese el email de la agencia</span>
+                                                    <span class="help-block">Ingrese el email de la agencia(*)</span>
                                                 </div>
                                             </div>
 
@@ -355,7 +355,7 @@
                                             <span class="help-block">Ingrese fecha de la agencia</span>
                                     </div>
                                 </div>
-
+<%--=
                                 <div class="form-group">
                                                 <label class="col-md-3 control-label">ADMIN de la Agencia</label>
                                                 <div class="col-md-9">                                                                                            
@@ -370,13 +370,13 @@
                                                     <span class="help-block">Seleccione admin de Agencia</span>
                                                 </div>
                                             </div>
-
+                                --%>  
                                 <div class="form-group">
                                     <label class="col-md-3 control-label">Contraseña de Agencia</label>
                                     <div class="col-md-9">                                            
                                         <div class="input-group">
                                         <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                        <input type="text" class="form-control" name="passAgencia" />
+                                        <input type="text" class="form-control" name="passAgencia"/>
                                          </div>                                            
                                             <span class="help-block">Ingrese password de la agencia</span>
                                     </div>
@@ -389,7 +389,7 @@
                                     <div class="col-md-9">                                            
                                         <div class="input-group">
 	                                        <label class="radio-inline"><input type="radio" name="estadoAgencia" value="0">0</label>
-											<label class="radio-inline"><input type="radio" name="estadoAgencia" value="1">1</label>
+											<label class="radio-inline"><input type="radio" name="estadoAgencia" value="1" checked="checked">1</label>
                                          </div>                                            
                                             <span class="help-block">Ingrese estado de la agencia</span>
                                     </div>
@@ -465,6 +465,8 @@
 </div>
 <!--slide bar menu end here-->
 <script>
+
+
 var toggle = true;
             
 $(".sidebar-icon").click(function() {                
@@ -492,11 +494,13 @@ $(".sidebar-icon").click(function() {
  <script src="<c:url value="/resources/js/main.js"/>"></script>
   <script type="text/javascript">
     $("#fecha_ida").datetimepicker({
+    	
         format: 'yyyy-mm-dd',
         minView: 2,
         autoclose: 1
     });
     $("#fecha_regreso").datetimepicker({
+    	
         format: 'yyyy-mm-dd',
         minView: 2,
         autoclose: 1

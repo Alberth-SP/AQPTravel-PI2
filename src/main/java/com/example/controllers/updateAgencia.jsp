@@ -1,9 +1,11 @@
 <%@ page session="false"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -161,21 +163,18 @@
 
 
 								<div class="form-group">
-                                    <label class="col-md-3 control-label">Fecha(*)</label>
+                                    <label class="col-md-3 control-label">Fecha</label>
                                     <div class="col-md-9">                                            
                                                <div class="form-group">
 											        <div class="col-sm-4">
 											          <form:input path="dayMod" type="text" class="form-control " name="diaAgencia" />
-											         <span class="help-block">DD/MM/AAAA</span>
 											        </div>
 											        <div class="col-sm-4">
 											          <form:input path="monthMod" type="text" class="form-control " name="mesAgencia"  />
 											        </div>
 											        <div class="col-sm-4">
 											            <form:input path="yearMod" type="text" class="form-control " name="anioAgencia" />
-											          
 											          </div>
-											         
 											        </div>                                           
                                     </div>
                                 </div>
@@ -183,7 +182,7 @@
                                 
                                 
                                 
-                               <%--= 
+                                
 
                                 <div class="form-group">
                                                 <label class="col-md-3 control-label">Admin</label>
@@ -197,7 +196,7 @@
                                                     <span class="help-block">Seleccione</span>
                                                 </div>
                                             </div>
-       --%>
+
                                 <div class="form-group">
                                     <label class="col-md-3 control-label">Password</label>
                                     <div class="col-md-9">                                            
