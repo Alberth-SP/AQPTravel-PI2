@@ -20,6 +20,7 @@ import com.example.dao.AgenciaDao;
 import com.example.dao.DestinyDao;
 import com.example.logic.Admin;
 import com.example.logic.Destiny;
+import com.example.logic.User;
 import com.example.logic.Utilidades;
 import com.example.logic.Agency;
 
@@ -31,20 +32,31 @@ public class ServicesController {
 	@Autowired
 	AdminDao adminDao;
 	
-	@RequestMapping(value = "plogin", method = RequestMethod.POST)
+	@RequestMapping(value = "sessionuser", method = RequestMethod.POST)
 	public String login(@RequestBody MultiValueMap<String, String> params, ModelMap modelp) throws Exception{
 		
-		String c=params.getFirst("correo");
-		String passEnviada=Utilidades.Encriptar(params.getFirst("contrasena"));
-		Admin admin=adminDao.findAdminByEmail(c);
-		String passBaseDatos=Utilidades.Desencriptar(admin.getPassword());
+		String c=params.getFirst("username");
+		String passEnviada=params.getFirst("password");
+		User user=adminDao.findUserByEmail(c);
+		String passBaseDatos=Utilidades.Desencriptar(user.getContrasena());
 		// Verificacion Admin
 		if (passEnviada.equals(passBaseDatos))
 		{
-			modelp.put("iduser",adminDao.findAdminByEmail(c).getEmail().toUpperCase());
-			return "pagina_usuario_main";
+			modelp.put("iduser",adminDao.findUserByEmail(c).getCorreoUsuario());
+			if(adminDao.findRolByEmail(c).equals("ROLE_ADMIN")&& adminDao.findUserByEmail(c).getEnable()==1)
+				return "pagina_usuario_main";
+			else if(adminDao.findRolByEmail(c).equals("ROLE_AG"))
+				return "agencia_admin";
+			else
+				return "pagina_usuario";
 		}
-		modelp.put("nombre", "no ingreso "+ " "+ passBaseDatos);
-		return "welcome";
+		return "noauto";
+	}
+	@RequestMapping(value = "welcome", method = RequestMethod.GET)
+	public String showLoginPage(ModelMap model, String name) {
+		String iduser = (String) model.get("iduser");
+		if(adminDao.findRolByEmail(iduser).equals("ROLE_ADMIN"))
+			return "welcome";
+		return "noauto";
 	}
 }

@@ -137,31 +137,26 @@ public class AdminDaoImpl implements AdminDao{
 
 		return listContact.get(0);		
 	}
-	
 	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
-	
 	private void addUserForRole(String email,String pass){
 		String sql = "INSERT into usuario (correoUsuario,contrasenaUsuario) values (?, ?)";
 		jdbcTemplate.update(sql,
 				email,
 				pass);
 	}
-	
 	private void addRole(String email) {
 		String sql = "INSERT into rol (correoUsuario,rol) values (?, ?)";
 		jdbcTemplate.update(sql,
 				email,
 				"ROLE_ADMIN");
 	}
-	
 	private void updateStateRole(String email,char id) {
 		String sql = "UPDATE usuario SET enable = '" + id 
 				+ "' WHERE correoUsuario = '"+ email +"'";
 		jdbcTemplate.update(sql);
 	}
-	
 	public User findUserByEmail(String c) {
 		String sql = "SELECT * FROM usuario WHERE correoUsuario = '" + c +"'";
 		List<User> listContact = jdbcTemplate.query(sql, new RowMapper<User>() {

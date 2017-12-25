@@ -3661,11 +3661,15 @@ ul.simplefilter {
 	 font-family: 'Tenor Sans', sans-serif;
  }
 
- .modal-header, .modal-header h4, .close {
+ .modal-header, .close {
 	 background-color:#333;
       color:white !important;
+      padding:0 5%;
       text-align: center;
       font-size: 30px;
+  }
+  .modal-header{
+  	padding:10%;
   }
   .modal-footer {
       background-color: #f9f9f9;
@@ -3673,6 +3677,7 @@ ul.simplefilter {
   }
   .modal-footer p{
 	 font-family: 'Source Sans Pro', sans-serif;
+	 padding:0 3%;
   }
   
   

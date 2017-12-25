@@ -29,13 +29,12 @@ public class Paquete {
 	private String servicios = "";
 	private String recomendaciones = "";
 	
-	private String nombreAgencia="";
 	
 	public Paquete() {
 		super();
 	}
 	public Paquete(Integer idAgencia, String nombrePaquete, Double precioPaquete, Integer capacidadPaquete,
-			String descripcionPaquete, Integer numPaquete, String destinoPaquete, Integer duracionPaquete,String nombreAgencia) {
+			String descripcionPaquete, Integer numPaquete, String destinoPaquete, Integer duracionPaquete) {
 		super();
 		this.idAgencia = idAgencia;
 		this.nombrePaquete = nombrePaquete;
@@ -45,7 +44,6 @@ public class Paquete {
 		this.numPaquete = numPaquete;
 		this.destinoPaquete = destinoPaquete;
 		this.duracionPaquete = duracionPaquete;
-		this.nombreAgencia=nombreAgencia;
 	}
 		
 	public Paquete(HashMap<String, String> data){
@@ -229,14 +227,6 @@ public class Paquete {
 	public void setTipoPaquete(String tipoPaquete) {
 		this.tipoPaquete = tipoPaquete;
 	}
-	
-	public String getNombreAgencia() {
-		return nombreAgencia;
-	}	
-	public void setNombreAgencia(String nombreAgencia) {
-		this.nombreAgencia=nombreAgencia;
-	}
-	
 	
 	
 }

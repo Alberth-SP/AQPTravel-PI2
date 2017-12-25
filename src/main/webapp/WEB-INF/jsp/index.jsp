@@ -12,8 +12,7 @@
 
 
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
 
   <!-- Bootstrap CSS File -->
   <link href="<c:url value="/resources/lib/bootstrap/css/bootstrap.min.css"/>" rel="stylesheet">
@@ -45,8 +44,8 @@
           <li><a href="#call-to-action">Ofertas</a></li>
           <li><a href="mispaquetes">Mis Paquetes</a></li>
           <li><a href="#team">Nosotros</a></li>
-         
           <li><a href="#contact">Contacto</a></li>
+          <li><a href="#">Iniciar Sesión</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
@@ -58,8 +57,8 @@
   <section id="hero">
     <div class="hero-container">
       <h1>TURISMO y MÁS</h1>
-      <h2>Cultura,Entretenimiento y Relax, Reserve ahora y obtenga grandes descuentos </h2>
-      <a href="registrar" class="btn-get-started">Registrarse</a>
+      <h2 class="barra">Cultura,Entretenimiento y Relax, Reserve ahora y obtenga grandes descuentos </h2>
+     
     </div>
   </section><!-- #hero -->
 

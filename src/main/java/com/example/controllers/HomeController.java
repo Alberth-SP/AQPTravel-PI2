@@ -49,42 +49,35 @@ import com.fasterxml.jackson.databind.util.JSONPObject;
 /* CLASE para responder a Solicitudes  desde HOME */
 
 @Controller
+@SessionAttributes("iduser")
 public class HomeController {
 
 
 	@Autowired
 	PaqueteDao paquetDao;
+	@Autowired
+	AdminDao admin;
 	
 	/* Request para pagina principal */
 	@RequestMapping(value="/index", method=RequestMethod.GET ,produces="text/html;charset=UTF-8")
-	public ModelAndView indexs(ModelAndView model) throws IOException{
-
-		model.setViewName("index");	 		
-		return model;
+	public String indexs(ModelMap model){
+		model.put("iduser", "empty");
+		return "index";
 	}
-
-
-
 	/* Request para pagina principal */
 	@RequestMapping(value="/", method=RequestMethod.GET ,produces="text/html;charset=UTF-8")
-	public ModelAndView index(ModelAndView model) throws IOException{
-
-		model.setViewName("index");	 		
-		return model;
+	public String showLoginPage(ModelMap model) {
+		model.put("iduser", "empty");
+		return "index";
 	}
-
-	/* Request para formulario de registro de usurio */
-	@RequestMapping(value="registrar", method=RequestMethod.GET,produces="text/html;charset=UTF-8")
-	public ModelAndView register(ModelAndView model) throws IOException{
-		model.setViewName("registrar");
-		return model;
-	}
-	
 	/* Request para pagina principal de usuario */
 	@RequestMapping(value="pagina_usuario", method=RequestMethod.GET,produces="text/html;charset=UTF-8")
-	public ModelAndView getPageMainAdmin(ModelAndView model) throws IOException{
-		model.setViewName("pagina_usuario");
-		return model;
+	public String getPageMainAdmin(ModelMap model){
+		
+		String correo=(String) model.get("iduser");
+		if(admin.findRolByEmail(correo).equals("ROLE_CU"))
+			return "pagina_usuario";
+		return "noauto";
 	}
 	
 	
@@ -92,7 +85,6 @@ public class HomeController {
 	public String showLoginPage() {
 		return "login";
 	}
-
 	/* request para devolver pagina de filtro de paquete */
 	@RequestMapping(value="pageFiltroPaquete", method=RequestMethod.GET)
 	public ModelAndView getPageFilterPaquet(ModelAndView model) throws IOException{
