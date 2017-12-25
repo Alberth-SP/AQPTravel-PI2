@@ -1,14 +1,14 @@
 package com.example.logic;
 
 public class User {
-	private Integer idUsuario;
+	private String correoUsuario;
 	private String contrasena;
-	private char enable;
-	public Integer getIdUsuario() {
-		return idUsuario;
+	private Integer enable;
+	public String getCorreoUsuario() {
+		return correoUsuario;
 	}
-	public void setIdUsuario(Integer idUsuario) {
-		this.idUsuario = idUsuario;
+	public void setCorreoUsuario(String correoUsuario) {
+		this.correoUsuario = correoUsuario;
 	}
 	public String getContrasena() {
 		return contrasena;
@@ -16,10 +16,10 @@ public class User {
 	public void setContrasena(String contrasena) {
 		this.contrasena = contrasena;
 	}
-	public char getEnable() {
+	public Integer getEnable() {
 		return enable;
 	}
-	public void setEnable(char enable) {
+	public void setEnable(Integer enable) {
 		this.enable = enable;
 	}
 

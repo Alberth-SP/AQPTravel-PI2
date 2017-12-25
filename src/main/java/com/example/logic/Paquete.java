@@ -29,6 +29,7 @@ public class Paquete {
 	private String servicios = "";
 	private String recomendaciones = "";
 	
+	private String nombreAgencia="";
 	
 	public Paquete() {
 		super();
@@ -226,6 +227,12 @@ public class Paquete {
 	}
 	public void setTipoPaquete(String tipoPaquete) {
 		this.tipoPaquete = tipoPaquete;
+	}
+	public String getNombreAgencia() {
+		return nombreAgencia;
+	}
+	public void setNombreAgencia(String nombreAgencia) {
+		this.nombreAgencia = nombreAgencia;
 	}
 	
 	
