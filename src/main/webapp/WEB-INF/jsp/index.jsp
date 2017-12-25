@@ -45,7 +45,7 @@
           <li><a href="mispaquetes">Mis Paquetes</a></li>
           <li><a href="#team">Nosotros</a></li>
           <li><a href="#contact">Contacto</a></li>
-          <li><a href="#">Iniciar Sesión</a></li>
+          <li><a href="login">Iniciar Sesión</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
@@ -329,7 +329,7 @@
             <p class="cta-text"> Obtén descuentos y promociones especiales uniendote en nuestra página y participando de nuestras actividades. Acumula bonos de descuento por la compra de nuestros paquetes</p>
           </div>
           <div class="col-lg-3 cta-btn-container text-center">
-            <a class="cta-btn align-middle" href="#">Iniciar Sesión</a>
+            <a class="cta-btn align-middle" href="login">Iniciar Sesión</a>
           </div>
         </div>
 
