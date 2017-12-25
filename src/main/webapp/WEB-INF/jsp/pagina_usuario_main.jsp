@@ -401,7 +401,7 @@ $(document).ready(function() {
 												<th>Nro.</th>
 												<th>Nombre de Paquete Tur&iacute;stico</th>
 												<th>Agencia Tur&iacute;stica</th>												
-												<th>Destino</th>
+												<th>Fecha de Creaci&oacute;n</th>
 
 											</tr>
 
@@ -426,30 +426,7 @@ $(document).ready(function() {
 								</div>
              </div>
       </div>
-      <!-- div class="col-md-6 chit-chat-layer1-rit"> 
-      	<div class="work-progres">   	
-      	  		<div class="chit-chat-heading">
-                                  Calendario 	
-                             	   <p> &nbsp </p>		  
-                 </div>
-				<div class="custom-calendar-wrap">
-					<div id="custom-inner" class="custom-inner">
-						<div class="custom-header clearfix">
-							<nav>
-								<span id="custom-prev" class="custom-prev"></span>
-								<span id="custom-next" class="custom-next"></span>
-							</nav>
-							<h2 id="custom-month" class="custom-month"></h2>
-							<h3 id="custom-year" class="custom-year"></h3>
-						</div>
-						<div id="calendar" class="fc-calendar-container"></div>
-					</div>
-				</div>
-			
-         </div>
-         
-        
-      </div-->
+   
      <div class="clearfix"> </div>
 </div>
 <!--main page chit chating end here-->
@@ -503,9 +480,10 @@ $(document).ready(function() {
 										<thead>
 											<tr>
 											
-			                                      <th>Puesto</th>
-			                         
+			                                      <th>Puesto</th>			                         
 			                                      <th>Agencia</th>
+			                                      <th> RUC </th>
+			                                      <th>Email </th>
 			                                      <th>Rating</th>
                                       
 											</tr>
@@ -540,30 +518,7 @@ $(document).ready(function() {
   </div>
  </div>
 <!--main page chart layer2-->
-<div class="chart-layer-2">
-	
-	<div class="col-md-12 chart-layer2-right">
-			<div class="prograc-blocks">
-		     <!--Progress bars-->
-	        <div class="home-progres-main">
-	           <h3>Estad&iacute;sticas Base de Datos</h3>
-	         </div>
-	        <div class='bar_group'>
-					<div class='bar_group__bar thin' label='Base de Datos' show_values='true' tooltip='true' value='343'></div>
-					<div class='bar_group__bar thin' label='Agencias' show_values='true' tooltip='true' value='235'></div>
-					<div class='bar_group__bar thin' label='Paquetes' show_values='true' tooltip='true' value='550'></div>
-					<div class='bar_group__bar thin' label='Usuarios' show_values='true' tooltip='true' value='456'></div>
-		    </div>
-				<script src="js/bars.js"></script>
 
-	      <!--//Progress bars-->
-	      </div>
-	</div>
-	<div class="col-md-6 chart-layer2-left">
-		
-	</div>
-  <div class="clearfix"> </div>
-</div>
 </div>
 <!--inner block end here-->
 <!--copy rights start here-->

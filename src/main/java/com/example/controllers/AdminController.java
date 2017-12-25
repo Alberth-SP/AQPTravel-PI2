@@ -79,11 +79,9 @@ public class AdminController {
 	@ResponseBody
 	public String paquetesRecientes(ModelAndView model) throws IOException{
 			
-		List<Paquete> listContact= paqueteDao.ordenadoPorAnio();
+		List<Paquete> listContact= paqueteDao.ordernarPorFecha();
 		
-		List<Agency> agencia = agenciaDao.listAll();
 		
-		PaqueteDaoImpl nomAgen=new PaqueteDaoImpl(); 
 		
 		String response="";
 		int cont = 0;
@@ -91,9 +89,9 @@ public class AdminController {
 			
 			response += "<tr>" +
 					"<td>" + (++cont) + "</td>" +
-					"<td>" + paquet.getNombrePaquete() + "</td>" +
+					"<td>" + paquet.getNombrePaquete() + "</td>" +					
 					"<td>" + paquet.getNombreAgencia()+ "</td>" +
-					"<td>" + paquet.getDestinoPaquete() + "</td>";
+					"<td>" + paquet.getDiaModPaquete()+"/" +paquet.getMesModPaquete()+"/"+paquet.getAnioModPaquete()+ "</td>";
 	
 		}
 		

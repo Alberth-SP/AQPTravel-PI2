@@ -81,9 +81,8 @@ public class AgencyController {
 	@ResponseBody
 	public String paquetesValoracion(ModelAndView model) throws IOException{
 		
-		List<Agency> listAgency = agenciaDao.listRate();
+		List<Agency> listAgency = agenciaDao.listRate();	
 		
-		//Agencia agencia = new Agencia();
 		
 		String response="";
 		int cont = 0;
@@ -94,7 +93,7 @@ public class AgencyController {
 			
 			for(int i=0;i<5;i++) {
 				if(i<r) 
-					rate=rate+"<span class=\"glyphicon glyphicon-star\" aria-hidden=\"true\"></span>";
+					rate=rate+"<span class=\"glyphicon glyphicon-star\" aria-hidden=\"true\" style='color: #f48f00;' ></span>";
 				else {
 					rate=rate+"<span class=\"glyphicon glyphicon-star-empty\" aria-hidden=\"true\"></span>";
 				}
@@ -104,7 +103,8 @@ public class AgencyController {
 			response += "<tr>" +
 					"<td>" + (++cont) + "</td>" +
 					"<td>" + tmpAgencia.getName() + "</td>" +
-					//"<td>" + " <div id=\"stars-existing\" class=\"starrr\" data-rating="+"'"+tmpAgencia.getRate() +"'"+"></div>" + "</td>";
+					"<td>" + tmpAgencia.getRuc() + "</td>" +
+					"<td>" + tmpAgencia.getEmail() + "</td>" +
 					"<td>"+rate+"</td>";
 			
 			rate="";

@@ -69,8 +69,8 @@ public class PaqueteDaoImpl implements PaqueteDao {
 		                    + " numPaquete, estadoPaquete, ofertaPaquete,"
 		                    + " tiempoOferta, destinoPaquete, valoracionPaquete,"
 		                    + " duracionPaquete, itenerario, servicios,"
-		                    + " recomendacionesPaquete, tipoPaquete) "
-		                    + "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )",
+		                    + " recomendacionesPaquete, tipoPaquete, diaModPaquete, mesModPaquete, anioModPaquete) "
+		                    + "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,? ,? ,? )",
 		                    new String[] { "id" });					
 		            
 		            ps.setInt(1, paquete.getIdAgencia());
@@ -90,6 +90,9 @@ public class PaqueteDaoImpl implements PaqueteDao {
 		            ps.setString(15, paquete.getServicios());
 		            ps.setString(16, paquete.getRecomendaciones());	
 		            ps.setString(17, paquete.getTipoPaquete());	
+		            ps.setInt(18, paquete.getDiaModPaquete());	
+		            ps.setInt(19, paquete.getMesModPaquete());	
+		            ps.setInt(20, paquete.getAnioModPaquete());	
 		            return ps;
 				}
 				
@@ -247,10 +250,12 @@ public class PaqueteDaoImpl implements PaqueteDao {
 		return  nombreAgencia;
 	}
 
+
+	
+	
 	@Override
-	public List<Paquete> ordenadoPorAnio() {
-		
-		String sql = "SELECT * From paquete order by anioModPaquete DESC LIMIT 0, 10";
+	public List<Paquete> ordernarPorFecha() {
+		String sql = "SELECT * From paquete order by  anioModPaquete DESC, MesModPaquete DESC, diaModPaquete DESC  LIMIT 0, 20";
 
 		List<Paquete> listPaquet = jdbcTemplate.query(sql, new RowMapper<Paquete>() {
 
@@ -266,66 +271,23 @@ public class PaqueteDaoImpl implements PaqueteDao {
 				aPaquet.setEstadoPaquete(rs.getString("estadoPaquete").charAt(0));				
 				aPaquet.setDestinoPaquete(rs.getString("destinoPaquete"));
 				
+				aPaquet.setAnioModPaquete(rs.getInt("anioModPaquete"));
+				aPaquet.setMesModPaquete(rs.getInt("MesModPaquete"));
+				aPaquet.setDiaModPaquete(rs.getInt("diaModPaquete"));
 				
 				String nombreAgencia = jdbcTemplate.queryForObject(
-					    "SELECT nombreAgencia FROM Agencia WHERE idAgencia="+aPaquet.getIdAgencia(), String.class);
+					    "SELECT nombreAgencia FROM Agencia WHERE idAgencia=" + aPaquet.getIdAgencia(), String.class);
 				aPaquet.setNombreAgencia(nombreAgencia);
-				return aPaquet;
-			}
-
-		});		 
-		return listPaquet;
-	}
-
-	@Override
-	public List<Paquete> ordenadoPorMes() {
-		String sql = "SELECT * From paquete order by MesModPaquete DESC LIMIT 0, 10";
-
-		List<Paquete> listPaquet = jdbcTemplate.query(sql, new RowMapper<Paquete>() {
-
-			@Override
-			public Paquete mapRow(ResultSet rs, int rowNum) throws SQLException {
-				// TODO Auto-generated method stub
-
-				Paquete aPaquet = new Paquete();		
-				aPaquet.setIdPaquete(rs.getInt("idPaquete"));
-				aPaquet.setIdAgencia(rs.getInt("idAgencia"));				
-				aPaquet.setNombrePaquete(rs.getString("nombrePaquete"));				
-				aPaquet.setNumPaquete(rs.getInt("numPaquete"));					
-				aPaquet.setEstadoPaquete(rs.getString("estadoPaquete").charAt(0));				
-				aPaquet.setDestinoPaquete(rs.getString("destinoPaquete"));
 				
-				return aPaquet;
+				return aPaquet;			
+		
 			}
 
 		});		 
 		return listPaquet;
 	}
-
-	@Override
-	public List<Paquete> ordenadoPorDia() {
-		String sql = "SELECT * From paquete order by diaModPaquete DESC LIMIT 0, 10";
-
-		List<Paquete> listPaquet = jdbcTemplate.query(sql, new RowMapper<Paquete>() {
-
-			@Override
-			public Paquete mapRow(ResultSet rs, int rowNum) throws SQLException {
-				// TODO Auto-generated method stub
-
-				Paquete aPaquet = new Paquete();		
-				aPaquet.setIdPaquete(rs.getInt("idPaquete"));
-				aPaquet.setIdAgencia(rs.getInt("idAgencia"));				
-				aPaquet.setNombrePaquete(rs.getString("nombrePaquete"));				
-				aPaquet.setNumPaquete(rs.getInt("numPaquete"));					
-				aPaquet.setEstadoPaquete(rs.getString("estadoPaquete").charAt(0));				
-				aPaquet.setDestinoPaquete(rs.getString("destinoPaquete"));
-				
-				return aPaquet;
-			}
-
-		});		 
-		return listPaquet;
-	}
+	
+	
 	
 
 	

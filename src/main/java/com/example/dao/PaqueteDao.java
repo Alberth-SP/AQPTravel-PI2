@@ -24,11 +24,8 @@ public interface PaqueteDao {
 	
 	public String getNombreAgencia(int id);
 	
-	public List<Paquete> ordenadoPorAnio();
 	
-	public List<Paquete> ordenadoPorMes();
-	
-	public List<Paquete> ordenadoPorDia();
+	public List<Paquete> ordernarPorFecha();
 	
 	/*¨detalles paqute */	
 
