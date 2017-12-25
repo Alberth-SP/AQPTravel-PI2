@@ -37,6 +37,10 @@ if(duracion !="") datas.append("duracion",daydiff(parseDate(today), parseDate(du
 if(duracionOf !="") datas.append("duracionOf",daydiff(parseDate(today), parseDate(duracionOf)));
 if(oferta !="") datas.append("ofertaPaquete",oferta);
 
+datas.append("dia",d.getDate());
+datas.append("mes",d.getMonth()+1);
+datas.append("anio",d.getFullYear());
+
 	$.ajax({
 		url: url,		
 		type: 'POST',

@@ -65,6 +65,42 @@ public class AgenciaDao implements InterfaceDao<Agency>{
 		});		 
 		return listContact;
 	}
+	
+	
+	public List<Agency> listRate() {
+		String sql = "SELECT * From agencia order by valoracionAgencia DESC LIMIT 0, 20";
+
+		List<Agency> listContact = jdbcTemplate.query(sql, new RowMapper<Agency>() {
+
+
+			public Agency mapRow(ResultSet rs, int rowNum) throws SQLException {
+				// TODO Auto-generated method stub
+
+				Agency aContact = new Agency.BuildAgency(rs.getString("nombreAgencia"))
+						.setEmail(rs.getString("correoAgencia"))
+						.setRuc(rs.getString("rucAgencia"))
+						.setSocialReason(rs.getString("razonsocialAgencia"))
+						.setUbigeo(rs.getString("ubigeoAgencia"))
+						.setAddress(rs.getString("direccionAgencia"))
+						.setRate(rs.getInt("valoracionAgencia"))
+						.setDescription(rs.getString("descripcionAgencia"))
+						.setPhone(rs.getString("telefonoAgencia"))
+						.setDayMod(rs.getInt("diaModAgencia"))
+						.setMonthMod(rs.getInt("mesModAgencia"))
+						.setYearMod(rs.getInt("anioModAgencia"))
+						.setCodAdmin(rs.getInt("idAdmin"))
+						.setPassword(rs.getString("contrasenaAgencia"))
+						.setState(rs.getString("estadoAgencia").charAt(0))
+
+						.build();
+				aContact.setIdAgency(rs.getInt("idAgencia"));
+				return aContact;
+			}
+
+		});		 
+		return listContact;
+	}
+	
 
 	public void add(Agency t) {
 		
