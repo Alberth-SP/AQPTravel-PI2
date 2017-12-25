@@ -152,11 +152,13 @@ public class AdminDaoImpl implements AdminDao{
 				email,
 				"ROLE_ADMIN");
 	}
+	
 	private void updateStateRole(String email,char id) {
 		String sql = "UPDATE usuario SET enable = '" + id 
 				+ "' WHERE correoUsuario = '"+ email +"'";
 		jdbcTemplate.update(sql);
 	}
+	
 	public User findUserByEmail(String c) {
 		String sql = "SELECT * FROM usuario WHERE correoUsuario = '" + c +"'";
 		List<User> listContact = jdbcTemplate.query(sql, new RowMapper<User>() {

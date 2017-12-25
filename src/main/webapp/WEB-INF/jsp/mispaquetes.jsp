@@ -76,7 +76,7 @@
 				style="margin: 100px 10px 80px 10px;">
 
 				<div class="col-lg-4 content order-lg-1  personalizado-form"
-					style="height: 700px; padding: 20px 50px 0px 50px; background: white; border: 1px solid; box-shadow: 5px 10px 8px #888888;">
+					style="height: 780px; padding: 20px 50px 0px 50px; background: white; border: 1px solid; box-shadow: 5px 10px 8px #888888;">
 					<h4 style="font-weight: bold;">
 						Encuentra tu Paquete!!
 						</h4>
@@ -89,7 +89,7 @@
 								<div class="input-group">
 									<span class="input-group-addon"><span
 										class="fa fa-calendar"></span></span> <input size="5" type="text"
-										name="fecha_salida" class="form-control" id="fecha_salida"
+										name="fecha_salida" class="form-control input-sm" id="fecha_salida"
 										placeholder="--/--/--" readonly>
 								</div>
 							</div>
@@ -101,7 +101,7 @@
 									<span class="input-group-addon"><span
 										class="fa fa-calendar"></span></span> <input size="5" type="text"
 										name="fecha_regreso" placeholder="--/--/--"
-										class="form-control" id="fecha_regreso" readonly>
+										class="form-control input-sm" id="fecha_regreso" readonly>
 								</div>
 							</div>
 
@@ -112,7 +112,7 @@
 								<div class="input-group">
 									<span class="input-group-addon"><span
 										class="fa fa-globe"></span></span> <input size="5" type="text"
-										placeholder="..." class="form-control" name="destino" id="destino">
+										placeholder="..." class="form-control input-sm" name="destino" id="destino">
 								</div>
 							</div>
 
