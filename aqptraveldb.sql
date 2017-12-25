@@ -99,6 +99,15 @@ CREATE TABLE IF NOT EXISTS `agencia` (
   KEY `idAdmin` (`idAdmin`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `agencia`
+--
+
+NSERT INTO `agencia` (`idAgencia`, `nombreAgencia`, `correoAgencia`, `rucAgencia`, `razonsocialAgencia`, `ubigeoAgencia`, `direccionAgencia`, `valoracionAgencia`, `descripcionAgencia`, `telefonoAgencia`, `diaModAgencia`, `mesModAgencia`, `anioModAgencia`, `idAdmin`, `contrasenaAgencia`, `estadoAgencia`) VALUES ('001', 'Colca Tours SA', 'colcaT@gmail.com', '234512233212', 'Viajes y muestra de la diversidad cultural del pais', '1234656312', 'av. el sol 342', '3', 'La agencia consta con terminal propio y una atencion y flota de buses de primera', '239812', 12, 12, 2017, '2', 'universo123', '1');
+
+
+
+
 -- --------------------------------------------------------
 
 --
