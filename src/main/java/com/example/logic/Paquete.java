@@ -78,16 +78,16 @@ public class Paquete {
 			this.numPaquete = Integer.parseInt(data.get("stockPaquete"));
 		
 		
-		if(data.get("descripcionPaquete") != null && data.get("descripcionPaquete") != "") 
+		if(data.get("descripcionPaquete") != null && data.get("descripcionPaquete").length() > 0) 
 			this.descripcionPaquete = data.get("descripcionPaquete");
 		
-		if(data.get("itinerarioPaquete") != null && data.get("itinerarioPaquete") != "") 
+		if(data.get("itinerarioPaquete") != null && data.get("itinerarioPaquete").length() > 0) 
 			this.itinerario = data.get("itinerarioPaquete");
 		
-		if(data.get("recomendacionesPaquete") != null && data.get("recomendacionesPaquete") != "")
+		if(data.get("recomendacionesPaquete") != null && data.get("recomendacionesPaquete").length() > 0)
 			this.recomendaciones = data.get("recomendacionesPaquete");
 		
-		if(data.get("serviciosPaquete") != null && data.get("serviciosPaquete") != "") 
+		if(data.get("serviciosPaquete") != null && data.get("serviciosPaquete").length() > 0) 
 			this.servicios = data.get("serviciosPaquete");
 		
 		if(data.get("destinosPaquete") != null && data.get("destinosPaquete").length() > 0) 
