@@ -103,9 +103,8 @@ CREATE TABLE IF NOT EXISTS `agencia` (
 -- Volcado de datos para la tabla `agencia`
 --
 
-NSERT INTO `agencia` (`idAgencia`, `nombreAgencia`, `correoAgencia`, `rucAgencia`, `razonsocialAgencia`, `ubigeoAgencia`, `direccionAgencia`, `valoracionAgencia`, `descripcionAgencia`, `telefonoAgencia`, `diaModAgencia`, `mesModAgencia`, `anioModAgencia`, `idAdmin`, `contrasenaAgencia`, `estadoAgencia`) VALUES ('001', 'Colca Tours SA', 'colcaT@gmail.com', '234512233212', 'Viajes y muestra de la diversidad cultural del pais', '1234656312', 'av. el sol 342', '3', 'La agencia consta con terminal propio y una atencion y flota de buses de primera', '239812', 12, 12, 2017, '2', 'universo123', '1');
-
-
+INSERT INTO `agencia` (`idAgencia`, `nombreAgencia`, `correoAgencia`, `rucAgencia`, `razonsocialAgencia`, `ubigeoAgencia`, `direccionAgencia`, `valoracionAgencia`, `descripcionAgencia`, `telefonoAgencia`, `diaModAgencia`, `mesModAgencia`, `anioModAgencia`, `idAdmin`, `contrasenaAgencia`, `estadoAgencia`) VALUES ('001', 'Colca Tours SA', 'colcaT@gmail.com', '234512233212', 'Viajes y muestra de la diversidad cultural del pais', '1234656312', 'av. el sol 342', '3', 'La agencia consta con terminal propio y una atencion y flota de buses de primera', '239812', 12, 12, 2017, '2', 'universo123', '1'),
+('002', 'Colca Travels SA', 'tarvelColca@gmail.com', '434512443212', 'Especialista en viajescon fines culturales ', '12335632', 'av. las torres 202', '2', 'La agencia consta con terminal propio y una atencion de primera', '258412', 12, 18, 2017, '3', 'universo', '1');
 
 
 -- --------------------------------------------------------
