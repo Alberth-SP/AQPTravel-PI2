@@ -12,8 +12,7 @@
 
 
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
 
   <!-- Bootstrap CSS File -->
   <link href="<c:url value="/resources/lib/bootstrap/css/bootstrap.min.css"/>" rel="stylesheet">
@@ -45,8 +44,8 @@
           <li><a href="#call-to-action">Ofertas</a></li>
           <li><a href="mispaquetes">Mis Paquetes</a></li>
           <li><a href="#team">Nosotros</a></li>
-         
           <li><a href="#contact">Contacto</a></li>
+          <li><a href="login">Iniciar Sesión</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
@@ -58,8 +57,8 @@
   <section id="hero">
     <div class="hero-container">
       <h1>TURISMO y MÁS</h1>
-      <h2>Cultura,Entretenimiento y Relax, Reserve ahora y obtenga grandes descuentos </h2>
-      <a href="registrar" class="btn-get-started">Registrarse</a>
+      <h2 class="barra">Cultura,Entretenimiento y Relax, Reserve ahora y obtenga grandes descuentos </h2>
+     
     </div>
   </section><!-- #hero -->
 
@@ -74,7 +73,7 @@
 
           <div class="col-lg-6 content order-lg-1 order-2 personalizado-form">
             <h2 class="title">Paquetes Personalizados</h2>
-            <p>
+            <p style="font-size: 15px;font-weight: bold;">
               Encuentra el paquete que más se ajuste a tus necesidades.
             </p>
 
@@ -82,51 +81,65 @@
                 <div class="form-group row">
                   
                   <div class="col-md-6">
-                      <div class="form-group">
-                      <label for="fecha_ida" class= "label-form">Fecha Ida:</label>
-                      <input size="16" type="text" class="form-control" id="fecha_ida" readonly>
-                  </div>
+                      <span style="font-size: 15px; font-weight: bold;"
+									class="help-block">Fecha de Salida:</span>
+								<div class="input-group">
+									<span class="input-group-addon"><span
+										class="fa fa-calendar"></span></span> <input size="5" type="text"
+										name="fecha_salidaI" class="form-control" id="fecha_salidaI"
+										placeholder="--/--/--" readonly>
+								</div>
                   </div>
                   <div class="col-md-6">
-                      <div class="form-group">
-                      <label for="fecha_regreso" class= "label-form">Fecha Regreso:</label>
-                      <input size="16" type="text" class="form-control" id="fecha_regreso" readonly>
-                  </div>
-                  </div>
-                </div>
-                
-                
-                 
-                <div class="form-group row">
-                  <label for="num_adultos" class="col-sm-4 col-form-label label-form">Tipo ACtividad:</label>
-                  <div class="">
-                    <select id="num_adultos" class="form-control">
-                      <option value= "aventura" selected>Aventura</option>
-                      <option value= "naturaleza" >Naturaleza</option>
-                      <option value= "cultural" >Cultural</option>
-                      <option value= "relax" >Relax</option>
-                      <option value= "entretenimiento" >Compras/Entretenimiento</option>
-                      <option value= "Festividades" >Festividades</option>  
-                    </select>
+                      <span style="font-size: 15px; font-weight: bold;"
+									class="help-block">Fecha de Regreso:</span>
+								<div class="input-group">
+									<span class="input-group-addon"><span
+										class="fa fa-calendar"></span></span> <input size="5" type="text"
+										name="fecha_regresoI" class="form-control" id="fecha_regresoI"
+										placeholder="--/--/--" readonly>
+								</div>
                   </div>
                 </div>
-                
                 
                 <div class="form-group row">
-                  <label for="num_adultos" class="col-sm-4 col-form-label label-form">Nro. Personas:</label>
-                  <div class="col-sm-auto">
-                    <select id="num_adultos" class="form-control">
-                      <option value= "0" selected>0</option>
-                      <option value= "1">1</option>
-                      <option value= "2">2</option>
-                      <option value= "3">3</option>
-                      <option value= "4">4</option>
-                    </select>
-                  </div>
-                </div>
-                             
-               
+                <div class="col-md-12">
+                <span style="font-size: 15px; font-weight: bold;"
+									class="help-block">Ingrese Destino:</span>
+								<div class="input-group">
+									<span class="input-group-addon"><span
+										class="fa fa-globe"></span></span> <input size="5" type="text"
+										placeholder="..." class="form-control" name="destinoI" id="destinoI">
+								</div>
                 
+                
+                </div>
+                </div>
+                
+                
+                <div class="form-group row">
+                <div class="col-md-12">
+                <span style="font-size: 14px; font-weight: bold;"
+									class="help-block">Numero de Personas:</span> <select
+									id="num_personasI" name="num_personasI" class="form-control"
+									title="Numero de Pesonas">
+
+									<option value="1" selected>1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+									<option value="9">9</option>
+								</select>                
+                
+                </div>
+                
+                
+                </div>             
+                                
          
                 <div class="form-group row justify-content-between" id = "seccion3-1-footer">
                     <div id= "seccion3-1-help2" class="col-sm-auto align-self-end">
@@ -316,7 +329,7 @@
             <p class="cta-text"> Obtén descuentos y promociones especiales uniendote en nuestra página y participando de nuestras actividades. Acumula bonos de descuento por la compra de nuestros paquetes</p>
           </div>
           <div class="col-lg-3 cta-btn-container text-center">
-            <a class="cta-btn align-middle" href="#">Iniciar Sesión</a>
+            <a class="cta-btn align-middle" href="login">Iniciar Sesión</a>
           </div>
         </div>
 
@@ -495,19 +508,19 @@
   <!-- Template Main Javascript File -->
   <script src="<c:url value="/resources/js/main.js"/>"></script>
   <script type="text/javascript">
-    $("#fecha_ida").datetimepicker({
+    $("#fecha_salidaI").datetimepicker({
         format: 'yyyy-mm-dd',
         minView: 2,
         autoclose: 1
     });
-    $("#fecha_regreso").datetimepicker({
+    $("#fecha_regresoI").datetimepicker({
         format: 'yyyy-mm-dd',
         minView: 2,
         autoclose: 1
     });
   </script>
   
-  <script src="<c:url value="/resources/js/filterPage.js"/>"></script>
+  <script src="<c:url value="/resources/js/filterIndex.js"/>"></script>
 	
 </body>
 </html>

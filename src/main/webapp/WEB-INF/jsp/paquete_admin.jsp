@@ -42,7 +42,30 @@ $(document).ready(function() {
 	
 	$.post("../paquete/list_paquetes",function(data){
 		$('#list_paquete').html(data);
-		$('#tablePaquete').DataTable();
+		$('#tablePaquete').DataTable({
+			"language": {
+				"decimal": "",
+		        "emptyTable": "No hay información",
+		        "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+		        "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+		        "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+		        "infoPostFix": "",
+		        "thousands": ",",
+		        "lengthMenu": "Mostrar _MENU_ Entradas",
+		        "loadingRecords": "Cargando...",
+		        "processing": "Procesando...",
+		        "search": "Buscar:",
+		        "zeroRecords": "Sin resultados encontrados",
+		        "paginate": {
+		            "first": "Primero",
+		            "last": "Ultimo",
+		            "next": "Siguiente",
+		            "previous": "Anterior"
+		            
+		        }
+				
+	        }
+		});
 	})
     
 } );
@@ -330,31 +353,10 @@ $(document).ready(function() {
 
 										<div class="clearfix"></div>
 									</div>
-									<div class="float-right">
-
-										<!--ACTUALIZAR ESTO CON BD-->
-
-										<span class="text-muted m-r-sm">Mostrar 10 of 200
-											&nbsp;&nbsp;&nbsp; </span>
-
-										<div class="btn-group">
-											<a class="btn btn-default"><i class="fa fa-angle-left"></i></a>
-											<a class="btn btn-default"><i class="fa fa-angle-right"></i></a>
-										</div>
-										<div class="clearfix"></div>
-									</div>
+									
 								</div>
 
-								<div id="search" class="input-group custom-search-form">
-									<input type="text" class="form-control" placeholder="Buscar...">
-									<span class="input-group-btn">
-										<button class="btn btn-default" type="button">
-											<i class="fa fa-search"></i>
-
-										</button>
-									</span>
-
-								</div>
+								
 								<p>&nbsp</p>
 								<p>&nbsp</p>
 

@@ -1,6 +1,6 @@
 
 function addAdmin(){	
-	var url = "../admin/saveAdmin";
+	var url = "admin/saveAdmin";
 	
 	$.ajax({
 		url: url,

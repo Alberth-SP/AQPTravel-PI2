@@ -1,3 +1,18 @@
+
+
+
+$(document).ready(function() {
+	 
+	if( localStorage['fecha_salidaI'] != null)$('#fecha_salida').val(localStorage['fecha_salidaI']);
+	if( localStorage['fecha_regresoI'] != null)$('#fecha_regreso').val(localStorage['fecha_regresoI']);
+	if( localStorage['destinoI'] != null)$('#destino').val(localStorage['destinoI']);
+	if( localStorage['num_personasI'] != null)$('#num_personas').val(localStorage['num_personasI']);	
+	
+	searchPaquets(1);
+	    
+} );
+
+
 /* function for calcule date */
 function parseDate(str) {
     var mdy = str.split('-');
@@ -67,9 +82,7 @@ function pagination(pag){
 	searchPaquets(pag);
 }
 
-function pagefilterPage(){
-	window.location.replace("pageFiltroPaquete");
-}
+
 
 $("#checkfilter").change(function(){	
 	if(this.checked){

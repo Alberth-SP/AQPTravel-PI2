@@ -19,15 +19,17 @@ import org.springframework.web.servlet.ModelAndView;
 import com.example.dao.AdminDao;
 import com.example.dao.AgenciaDao;
 import com.example.dao.DestinyDao;
+import com.example.dao.PaqueteDao;
 import com.example.logic.Admin;
 import com.example.logic.Destiny;
+import com.example.logic.Paquete;
 import com.example.logic.Utilidades;
 import com.example.logic.Agency;
 
 /* CLASE para responder a Solicitudes  desde ADMIN */
 
 @Controller
-@SessionAttributes("nombre")
+@SessionAttributes("iduser")
 public class AdminController {
 
 	@Autowired
@@ -35,6 +37,9 @@ public class AdminController {
 	
 	@Autowired
 	DestinyDao destinyDao;
+	
+	@Autowired
+	PaqueteDao paqueteDao;
 	
 	/* Request para obtener lista de usaurios */
 	@RequestMapping(value="admin/list_admin",  method=RequestMethod.POST, produces="text/html;charset=UTF-8")
@@ -64,6 +69,31 @@ public class AdminController {
 		}
 		return response; 
 	}
+	
+	//PAQUETES RECIENTES POR AÑO 
+		@RequestMapping(value="admin/list_paquetesRecientes",  method=RequestMethod.POST, produces="text/html;charset=UTF-8")
+		@ResponseBody
+		public String paquetesRecientes(ModelAndView model) throws IOException{
+				
+			List<Paquete> listContact= paqueteDao.ordernarPorFecha();
+			
+			
+			
+			String response="";
+			int cont = 0;
+			for(Paquete paquet : listContact){
+				
+				response += "<tr>" +
+						"<td>" + (++cont) + "</td>" +
+						"<td>" + paquet.getNombrePaquete() + "</td>" +					
+						"<td>" + paquet.getNombreAgencia()+ "</td>" +
+						"<td>" + paquet.getDiaModPaquete()+"/" +paquet.getMesModPaquete()+"/"+paquet.getAnioModPaquete()+ "</td>";
+		
+			}
+			
+			return response; 
+		}
+		
 
 	/* Request para cargar la pagina del Admin */
 	@RequestMapping(value="admin/users", method=RequestMethod.GET)
@@ -102,9 +132,6 @@ public class AdminController {
 		return model2;
 	}
 	
-	
-	
-
 	/* Request para agregar usuario a la BD */
 	@RequestMapping(value="admin/saveAdmin", method=RequestMethod.POST)
 	@ResponseBody 

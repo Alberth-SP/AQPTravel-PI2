@@ -29,12 +29,17 @@ $.each(other_data,function(key,input){
 	datas.append(input.name,input.value);
 });
 
-if(destinos !="") datas.append("destinosPaquete",destinos);
+if(destinos !=""){ datas.append("destinosPaquete",destinos);}
+else{ alert("Debe seleccionar al menos un destino!"); return;}
 if(image1 !="" ) datas.append("image1",image1);
 if(image2 !="") datas.append("image2",image2);
 if(duracion !="") datas.append("duracion",daydiff(parseDate(today), parseDate(duracion)));
 if(duracionOf !="") datas.append("duracionOf",daydiff(parseDate(today), parseDate(duracionOf)));
 if(oferta !="") datas.append("ofertaPaquete",oferta);
+
+datas.append("dia",d.getDate());
+datas.append("mes",d.getMonth()+1);
+datas.append("anio",d.getFullYear());
 
 	$.ajax({
 		url: url,		

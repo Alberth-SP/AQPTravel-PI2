@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd"
+	 >
 	<mvc:annotation-driven />
-	<context:annotation-config />
-
+	<context:annotation-config/>
+	
 
 	<context:component-scan base-package="com.example.controllers" />
 
-
+	
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="maxUploadSize" value="1048576" />
@@ -38,7 +40,6 @@
 		<property name="password" value="12345" />
 	</bean>
 
-
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
 		<property name="dataSource" ref="ds"></property>
 	</bean>
@@ -48,23 +49,21 @@
 	<bean id="edao" class="com.example.dao.AdminDaoImpl">
 		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
 	</bean>
-	<bean id="cdao" class="com.example.dao.ClienteDao">
-		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
-	</bean>
+
 	<bean id="pdao" class="com.example.dao.PaqueteDaoImpl">
 		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
 	</bean>
-
+	
 	<bean id="ddao" class="com.example.dao.DestinyDaoImpl">
 		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
 	</bean>
-
+	
 	<bean id="adao" class="com.example.dao.AgenciaDao">
 		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
 	</bean>
-
-
-
+	
+	
+	
 
 
 </beans>

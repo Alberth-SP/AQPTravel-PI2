@@ -12,9 +12,9 @@ public class Paquete {
 	private Double precioPaquete = 0.0;
 	private Double precioOferta = 0.0;
 	private String tipoPaquete = "";
-	private Integer capacidadPaquete = 0;
+	private Integer capacidadPaquete = 1;
 	private String descripcionPaquete = "";
-	private Integer numPaquete = 0;
+	private Integer numPaquete = 1;
 	private char estadoPaquete = '1';
 	private char ofertaPaquete = '0';
 	private Integer tiempoOferta = 0;
@@ -29,6 +29,7 @@ public class Paquete {
 	private String servicios = "";
 	private String recomendaciones = "";
 	
+	private String nombreAgencia="";
 	
 	public Paquete() {
 		super();
@@ -226,6 +227,12 @@ public class Paquete {
 	}
 	public void setTipoPaquete(String tipoPaquete) {
 		this.tipoPaquete = tipoPaquete;
+	}
+	public String getNombreAgencia() {
+		return nombreAgencia;
+	}
+	public void setNombreAgencia(String nombreAgencia) {
+		this.nombreAgencia = nombreAgencia;
 	}
 	
 	
