@@ -12,7 +12,7 @@ public interface PaqueteDao {
 	
 	public int addPaquete(Paquete admin);
 	
-	public void updatePaquete(Paquete admin);
+	public int updatePaquete(Paquete admin);
 	
 	public void deletePaquete(Paquete admin);
 	
@@ -34,5 +34,6 @@ public interface PaqueteDao {
 	public boolean addDestiny(int idPaquete, int idFoto);	
 	public void insertDestinations(int idPaquete, List<Integer> listDestiny);
 	public List<FotosPaquete> getImagePaquete(int idPaquete);
+	public boolean updFotoPaquete(FotosPaquete foto);
 
 }

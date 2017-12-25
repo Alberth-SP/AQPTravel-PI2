@@ -36,6 +36,7 @@
 <script src="<c:url value="/resources/js/scripts.js" />"></script>
 <!--//scrolling js-->
 <script src="<c:url value="/resources/js/bootstrap.js" />"></script>
+<script src="<c:url value="/resources/js/agencia.js" />"></script>
 
 <script>
 $(document).ready(function() {
@@ -484,12 +485,34 @@ $(document).ready(function() {
 		<div class="clearfix"></div>
 	</div>
 	<!--slide bar menu end here-->
+<script src="<c:url value="/resources/js/bootstrap-datetimepicker.min.js"/>"></script>
+
+<script>
+$(document).ready(function() {
+	
+    $('#multiselectDestino').multiselect({
+    	includeSelectAllOption: true,
+    	nonSelectedText: 'selecciona los destinos',
+    	enableFiltering: true,
+    	enableCaseInsensitiveFiltering:true,
+    	buttonWidth:'380px',  	
+    	
+    }); 
+    
+    $.post("getDestinos",function(data){    	
+    	$("#multiselectDestino").html(data);
+    	$('#multiselectDestino').multiselect('rebuild');
+	});
+    
+      
+    
+});
+</script>
 <script>
 
 $('body').on('hidden.bs.modal', '.modal', function () {
     $(this).removeData('bs.modal');
   });
-
 var toggle = true;
             
 $(".sidebar-icon").click(function() {                
@@ -507,9 +530,34 @@ $(".sidebar-icon").click(function() {
   }               
                 toggle = !toggle;
             });
+            
+$("#duracionPaquete").datetimepicker({
+	format : 'yyyy-mm-dd',
+	minView : 2,
+	autoclose : 1
+});
+
+$("#duracionOfertaPaquete").datetimepicker({
+	format : 'yyyy-mm-dd',
+	minView : 2,
+	autoclose : 1
+});
+
+$("#labelOferta").click(function() {
+	if($("#ofertaPaquete").attr('checked')) {		
+		$('#ofertaPaquete').attr('checked', false);
+		$('#ofertaPaquete').val('0');
+	}	
+	else {		
+		$('#ofertaPaquete').attr('checked', true);
+		$('#ofertaPaquete').val('1');
+	}
+	
+});
 
 </script>
-	<script src="<c:url value="/resources/js/agencia.js" />"></script>
-	<script src="<c:url value="/resources/js/bootstrap-datetimepicker.min.js"/>"></script>
+<!-- mother grid end here-->
+
+<script src="<c:url value="/resources/js/paquete.js" />"></script>
 </body>
-</html>
+</html>                     

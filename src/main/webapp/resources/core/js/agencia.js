@@ -18,14 +18,11 @@ var url = "agencia/saveAgencia";
 
 		},
 		error: function(){
-			alert('Ocurrio un erro en el Proceso');
+			alert('Ingrese email');
 		}
 	});
 	
 }
-
-
-
 
 
 
@@ -47,7 +44,7 @@ function changeStateAgencia(id,state){
 			}   
 		},
 		error: function(){
-			alert('Ocurrio un error en el Proceso');
+			alert('Ocurrio un error en el Procefso');
 		}
 	});
 }

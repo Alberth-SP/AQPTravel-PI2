@@ -280,7 +280,7 @@
 													<label for="num_personas" class="col-md-3 control-label">Nro.
 														Personas: </label>
 													<div class="col-md-9">
-														<select id="num_niños" name="capacidadPaquete"  
+														<select id="num_niï¿½os" name="capacidadPaquete"  
 															class="form-control">
 															<option value="1" selected>1</option>
 															<option value="2">2</option>

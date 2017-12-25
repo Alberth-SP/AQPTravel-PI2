@@ -149,9 +149,31 @@ public class PaqueteDaoImpl implements PaqueteDao {
 	
 
 	@Override
-	public void updatePaquete(Paquete admin) {
+	public int updatePaquete(Paquete p) {
 		// TODO Auto-generated method stub
 		
+		String sql = "UPDATE paquete SET idAgencia = '" + p.getIdAgencia()
+		+ "', nombrePaquete = '" + p.getNombrePaquete()
+		+ "', precioPaquete = '" + p.getPrecioPaquete()
+		+ "', precioOferta = '" + p.getPrecioOferta()
+		+ "', capacidadPaquete = '" + p.getCapacidadPaquete()
+		+ "', descripcionPaquete = '" + p.getDescripcionPaquete()
+		+ "', numPaquete = '" + p.getNumPaquete()
+		+ "', estadoPaquete = '" + Character.toString(p.getEstadoPaquete())
+		+ "', ofertaPaquete = '" + Character.toString(p.getOfertaPaquete())
+		+ "', tiempoOferta = '" + p.getTiempoOferta()
+		+ "', destinoPaquete = '" + p.getDestinoPaquete()
+		+ "', valoracionPaquete = '" + p.getValoracionPaquete()
+		+ "', duracionPaquete = '" + p.getDuracionPaquete()
+		+ "', itenerario = '" + p.getItinerario()
+		+ "', servicios = '" + p.getServicios()
+		+ "', recomendacionesPaquete = '" + p.getRecomendaciones()
+		+ "', tipoPaquete = '" + p.getTipoPaquete()
+		+ "' WHERE idPaquete = "+ p.getIdPaquete();
+		
+		jdbcTemplate.update(sql);
+		
+		return p.getIdPaquete();
 	}
 
 	@Override
@@ -164,7 +186,49 @@ public class PaqueteDaoImpl implements PaqueteDao {
 	public Paquete findPaqueteById(int id) {
 		// TODO Auto-generated method stub
 		
-		return null;
+
+		String sql = "SELECT * FROM paquete WHERE idPaquete = " + id;
+		List<Paquete> listContact = jdbcTemplate.query(sql, new RowMapper<Paquete>() {
+
+
+			public Paquete mapRow(ResultSet rs, int rowNum) throws SQLException {
+				// TODO Auto-generated method stub
+
+				Paquete aContact = new Paquete();
+				aContact.setIdPaquete(rs.getInt("idPaquete"));
+				aContact.setIdAgencia(rs.getInt("idAgencia"));
+				aContact.setNombrePaquete(rs.getString("nombrePaquete"));
+			
+				aContact.setPrecioPaquete(rs.getDouble("precioPaquete"));
+				aContact.setPrecioOferta(rs.getDouble("precioOferta"));
+				
+				aContact.setCapacidadPaquete(rs.getInt("capacidadPaquete"));
+				aContact.setDescripcionPaquete(rs.getString("descripcionPaquete"));
+				aContact.setNumPaquete(rs.getInt("numPaquete"));
+				aContact.setEstadoPaquete(rs.getString("estadoPaquete").charAt(0));
+				aContact.setOfertaPaquete(rs.getString("ofertaPaquete").charAt(0));
+				aContact.setTiempoOferta(rs.getInt("tiempoOferta"));
+				//aContact.setMapaPaquete(mapaPaquete);
+				aContact.setDestinoPaquete(rs.getString("destinoPaquete"));
+				aContact.setValoracionPaquete(rs.getInt("valoracionPaquete"));
+				aContact.setDiaModPaquete(rs.getInt("diaModPaquete"));
+				aContact.setMesModPaquete(rs.getInt("mesModPaquete"));
+				aContact.setAnioModPaquete(rs.getInt("anioModPaquete"));
+				aContact.setDuracionPaquete(rs.getInt("duracionPaquete"));
+				aContact.setItinerario(rs.getString("itenerario"));
+				aContact.setServicios(rs.getString("servicios"));
+				aContact.setRecomendaciones(rs.getString("recomendacionesPaquete"));
+				aContact.setTipoPaquete(rs.getString("tipoPaquete"));
+				
+			
+				return aContact;
+			}
+
+		});		 
+
+		return listContact.get(0);
+		
+		
 	}
 	
 	@Override
@@ -213,7 +277,18 @@ public class PaqueteDaoImpl implements PaqueteDao {
 	}
 	
 	
-	
+	@Override
+	public boolean updFotoPaquete(FotosPaquete foto) {
+		// TODO Auto-generated method stub
+
+		String cons="update fotospaquete SET nombreFoto = ?, imagenFoto = ? WHERE idFotos = ?";
+
+		//int res = jdbcTemplate.update(sql);
+		int res = jdbcTemplate.update(cons,foto.getNombreFoto(),foto.getImagenFoto(),foto.getIdFoto());
+		
+		
+		return (res != 0);
+	}
 	
 	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
