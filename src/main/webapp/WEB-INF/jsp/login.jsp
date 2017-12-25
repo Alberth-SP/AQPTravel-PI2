@@ -223,7 +223,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
                                   <h4><span class="glyphicon glyphicon-lock"></span>&nbsp;Inicia Sesi&oacute;n</h4>
                                 </div>
                                	<div class="modal-body" style="padding:40px 50px;">
-                                  <form role="form" method="post" action="/loginServlet">
+                                  <form role="form" method="post" action="loginServlet">
                                     <div class="form-group">
                                       <label for="usrname"><span class="glyphicon glyphicon-user"></span> Usuario</label>
                                       <br>
