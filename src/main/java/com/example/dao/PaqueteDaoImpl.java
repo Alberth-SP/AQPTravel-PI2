@@ -250,6 +250,20 @@ public class PaqueteDaoImpl implements PaqueteDao {
 		
 	}
 	
+	@Override
+	public void insertOneDestiny(int idPaquete, int idDestiny) {
+		// TODO Auto-generated method stub
+		String nombreDestino = jdbcTemplate.queryForObject(
+			    "SELECT nombreDestino FROM destino WHERE idDestino=" + idDestiny, String.class);
+	
+		String sql = "UPDATE paquete SET destinoPaquete = '" + nombreDestino 
+				+ "' WHERE idPaquete = '"+ idPaquete +"'";
+		jdbcTemplate.update(sql);	
+		
+	}
+	
+	
+	
 	
 	/* request for filter paquet */
 
@@ -258,8 +272,8 @@ public class PaqueteDaoImpl implements PaqueteDao {
 		// TODO Auto-generated method stub
 		
 		String query = "select distinct agencia.nombreAgencia, paquete.precioPaquete, "
-				+ "paquete.nombrePaquete, paquete.tipoPaquete, paquete.capacidadPaquete, "
-				+ " paquete.valoracionPaquete, paquete.idPaquete "
+				+ "paquete.nombrePaquete, paquete.tipoPaquete, paquete.capacidadPaquete, paquete.destinoPaquete,"
+				+ " paquete.valoracionPaquete, paquete.idPaquete, paquete.ofertaPaquete "
 				+ "from paquete, paquetedestino, destino, agencia where "
 				+ "destino.nombreDestino LIKE '%"+param.getDestinoPaquete()+"%' and paquetedestino.idDestino = destino.idDestino "
 				+ "AND paquete.idPaquete = paqueteDestino.idPaquete and agencia.idAgencia = paquete.idAgencia"
@@ -279,6 +293,11 @@ public class PaqueteDaoImpl implements PaqueteDao {
 				aPaquet.setCapacidadPaquete(rs.getInt("capacidadPaquete"));
 				aPaquet.setDescripcionPaquete(rs.getString("nombreAgencia"));
 				aPaquet.setTipoPaquete(rs.getString("tipoPaquete"));
+				aPaquet.setPrecioPaquete(rs.getDouble("precioPaquete"));
+				aPaquet.setOfertaPaquete(rs.getString("ofertaPaquete").charAt(0));					
+				aPaquet.setDestinoPaquete(rs.getString("destinoPaquete"));
+				
+				
 				return aPaquet;
 			}
 

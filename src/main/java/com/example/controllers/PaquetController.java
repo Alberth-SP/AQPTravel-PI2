@@ -115,6 +115,7 @@ public class PaquetController {
 				
 				List<Integer> destinations = obtainList(paquete.getDestinoPaquete());
 				paquetDao.insertDestinations(idReg, destinations);
+				paquetDao.insertOneDestiny(idReg, destinations.get(0));
 			}
 			
 		
