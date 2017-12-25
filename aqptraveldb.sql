@@ -67,6 +67,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
 INSERT INTO `admin` (`idAdmin`, `nombre`, `apellidoAdmin`, `celularAdmin`, `correoAdmin`, `direccionAdmin`, `contrasenaAdmin`, `estadoAdmin`) VALUES
 (27, 'juan', 'juan', 'juan', 'juan', 'juan', 'gU0Q2hrFyLk=', '1'),
 (28, 'pedro', 'pedro', 'pedro', 'pedro', 'pedro', 'gU0Q2hrFyLk=', '1');
+(27, 'pepe', 'pepe', 'pepe', 'pepe', 'pepe', 'gU0Q2hrFyLk=', '1'),
 
 -- --------------------------------------------------------
 
