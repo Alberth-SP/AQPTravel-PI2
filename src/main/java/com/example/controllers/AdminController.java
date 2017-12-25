@@ -20,6 +20,7 @@ import com.example.dao.AdminDao;
 import com.example.dao.AgenciaDao;
 import com.example.dao.DestinyDao;
 import com.example.dao.PaqueteDao;
+import com.example.dao.PaqueteDaoImpl;
 import com.example.logic.Admin;
 import com.example.logic.Agencia;
 import com.example.logic.Destiny;
@@ -43,7 +44,6 @@ public class AdminController {
 	PaqueteDao paqueteDao;
 	
 	@Autowired
-	
 	AgenciaDao agenciaDao;
 	
 	/* Request para obtener lista de usaurios */
@@ -78,13 +78,12 @@ public class AdminController {
 	@RequestMapping(value="admin/list_paquetesRecientes",  method=RequestMethod.POST, produces="text/html;charset=UTF-8")
 	@ResponseBody
 	public String paquetesRecientes(ModelAndView model) throws IOException{
-		
-		//List<Paquete> listContact = paqueteDao.listAllPaquetes();
-		
-		
+			
 		List<Paquete> listContact= paqueteDao.ordenadoPorAnio();
 		
-		Agencia agencia = new Agencia();
+		List<Agency> agencia = agenciaDao.listAll();
+		
+		PaqueteDaoImpl nomAgen=new PaqueteDaoImpl(); 
 		
 		String response="";
 		int cont = 0;
@@ -93,7 +92,7 @@ public class AdminController {
 			response += "<tr>" +
 					"<td>" + (++cont) + "</td>" +
 					"<td>" + paquet.getNombrePaquete() + "</td>" +
-					"<td>" + agencia.getNombreAgencia() + "</td>" +
+					"<td>" + paquet.getNombreAgencia()+ "</td>" +
 					"<td>" + paquet.getDestinoPaquete() + "</td>";
 	
 		}

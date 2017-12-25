@@ -243,7 +243,7 @@ public class PaqueteDaoImpl implements PaqueteDao {
 	public String getNombreAgencia(int id) {
 		
 		String nombreAgencia = jdbcTemplate.queryForObject(
-			    "SELECT nombreAgencia FROM Agencia WHERE idAgencia= '"+id, String.class);
+			    "SELECT nombreAgencia FROM Agencia WHERE idAgencia="+id, String.class);
 		return  nombreAgencia;
 	}
 
@@ -266,6 +266,10 @@ public class PaqueteDaoImpl implements PaqueteDao {
 				aPaquet.setEstadoPaquete(rs.getString("estadoPaquete").charAt(0));				
 				aPaquet.setDestinoPaquete(rs.getString("destinoPaquete"));
 				
+				
+				String nombreAgencia = jdbcTemplate.queryForObject(
+					    "SELECT nombreAgencia FROM Agencia WHERE idAgencia="+aPaquet.getIdAgencia(), String.class);
+				aPaquet.setNombreAgencia(nombreAgencia);
 				return aPaquet;
 			}
 
