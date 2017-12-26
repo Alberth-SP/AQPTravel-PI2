@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"   pageEncoding="ISO-8859-1"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,30 +8,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-<link href="<c:url value="/resources/css/calendar.css"/> "	rel="stylesheet">
-<link href="<c:url value="/resources/css/jquery.dataTables.min.css"/> "	rel="stylesheet">
-
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="<c:url value="/resources/css/jquery.dataTables.min.css"/> "
+	rel="stylesheet">
 <script src="<c:url value="/resources/js/jquery-3.2.1.min.js" />"></script>
 <script src="<c:url value="/resources/js/jquery.dataTables.min.js" />"></script>
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 
-<link href="<c:url value="/resources/css/bootstrap.css"/> " rel="stylesheet" 	media="all">
+
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<link href="<c:url value="/resources/css/bootstrap.css"/> "
+	rel="stylesheet" media="all">
 <!-- Custom Theme files -->
-<link href="<c:url value="/resources/css/style2.css"/> " rel="stylesheet" 	media="all">
+<link href="<c:url value="/resources/css/style2.css"/> "
+	rel="stylesheet" media="all">
 <!--js-->
 
-<script src="<c:url value="/resources/js/jquery-2.1.1.min.js" />"></script>
-<!--icons-css--> 
-
-<link href="<c:url value="/resources/css/font-awesome.css"/> " rel="stylesheet" 	media="all">
+<!--icons-css-->
+<link href="<c:url value="/resources/css/font-awesome.css"/> "
+	rel="stylesheet" media="all">
 <!--Google Fonts-->
-<link href="https://fonts.googleapis.com/css?family=Carrois+Gothic|Work+Sans:400,500,600" rel="stylesheet">
-
-<link href="<c:url value="/resources/css/usuarios_admin.css"/> " rel="stylesheet" 	media="all">
-
-
-<script src="<c:url value="/resources/js/Chart.min.js" />"></script>
+<link
+	href="https://fonts.googleapis.com/css?family=Carrois+Gothic|Work+Sans:400,500,600"
+	rel="stylesheet">
+</script>
 <!--scrolling js-->
 <script src="<c:url value="/resources/js/jquery.nicescroll.js" />"></script>
 <script src="<c:url value="/resources/js/scripts.js" />"></script>
@@ -151,141 +151,168 @@ $(document).ready(function() {
 .onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-switch {
 	right: 0px;
 }
-
-
 </style>
 
 </head>
-<body>	
-<div class="page-container">	
-   <div class="left-content">
-	   <div class="mother-grid-inner">
-            <!--header start here-->
+<body>
+	<div class="page-container">
+		<div class="left-content">
+			<div class="mother-grid-inner">
+				<!--header start here-->
 				<div class="header-main">
 					<div class="header-left">
-							<div class="logo-name">
-									 <a href="index_admin.html"> <h1>AqpTravel</h1> 
-									<!--<img id="logo" src="" alt="Logo"/>--> 
-								  </a> 								
-							</div>
-							
-							<div class="clearfix"> </div>
-					</div>
-						 <div class="header-right">
-							<div class="profile_details_left"><!--notifications of menu start -->
-								<ul class="nofitications-dropdown">
-									<li class="dropdown head-dpdn">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-envelope fa-2x"></i><span class="badge">3</span></a>
-										<ul class="dropdown-menu">
-											<li>
-												<div class="notification_header">
-													<h3>Tienes (3) mensajes nuevos</h3>
-												</div>
-											</li>
-											<li><a href="#">
-											   <div class="user_img"><img src="images/p4.png" alt=""></div>
-											   <div class="notification_desc">
-												<p>Jalar de BD mensaje</p>
-												<p><span>Hace 1 hora</span></p>
-												</div>
-											   <div class="clearfix"></div>	
-											</a></li>
-											<li class="odd"><a href="#">
-												<div class="user_img"><img src="images/p2.png" alt=""></div>
-											   <div class="notification_desc">
-												<p>Jalar de BD mensaje</p>
-												<p><span>Hace 1 hora</span></p>
-												</div>
-											  <div class="clearfix"></div>	
-											</a></li>
-											<li><a href="#">
-											   <div class="user_img"><img src="images/p3.png" alt=""></div>
-											   <div class="notification_desc">
-												<p>Jalar de BD mensaje</p>
-												<p><span>Hace 2 horas</span></p>
-												</div>
-											   <div class="clearfix"></div>	
-											</a></li>
-											<li>
-												<div class="notification_bottom">
-													<a href="mensajes_admin.html">Ver Todos los mensajes</a>
-												</div> 
-											</li>
-										</ul>
-									</li>
-									<li class="dropdown head-dpdn">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-bell fa-2x"></i><span class="badge blue">3</span></a>
-										<ul class="dropdown-menu">
-											<li>
-												<div class="notification_header">
-													<h3>TÃº tienes (JalarBD) Paquetes agregados</h3>
-												</div>
-											</li>
-											<li><a href="#">
-												<div class="user_img"><img src="images/p5.png" alt=""></div>
-											   <div class="notification_desc">
-												<p>La agencia (JalarBD) agregÃ³ nuevo paquete</p>
-												<p><span>Hace una hora</span></p>
-												</div>
-											  <div class="clearfix"></div>	
-											 </a></li>
-											 <li class="odd"><a href="#">
-												<div class="user_img"><img src="images/p6.png" alt=""></div>
-											   <div class="notification_desc">
-												<p>La agencia (JalarBD) agregÃ³ nuevo paquete</p>
-												<p><span>Hace 1 hora</span></p>
-												</div>
-											   <div class="clearfix"></div>	
-											 </a></li>
-											 <li><a href="#">
-												<div class="user_img"><img src="images/p7.png" alt=""></div>
-											   <div class="notification_desc">
-												<p>La agencia (JalarBD) agregÃ³ nuevo paquete</p>
-												<p><span>Hace 1 hora</span></p>
-												</div>
-											   <div class="clearfix"></div>	
-											 </a></li>
-											 <li>
-												<div class="notification_bottom">
-													<a href="#">Ver todas las Notificaciones</a>
-												</div> 
-											</li>
-										</ul>
-									</li>	
-										
-								</ul>
-								<div class="clearfix"> </div>
-							</div>
-                            
-							<!--notification menu end -->
-							<div class="profile_details">		
-								<ul>
-									<li class="dropdown profile_details_drop">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-											<div class="profile_img">	
-												<span class="prfil-img"><img src="images/p1.png" alt=""> </span> 
-												<div class="user-name">
-													<p>Admin1</p>
-													<span>Administrador</span>
-												</div>
-												<i class="fa fa-angle-down lnr"></i>
-												<i class="fa fa-angle-up lnr"></i>
-												<div class="clearfix"></div>	
-											</div>	
-										</a>
-										<ul class="dropdown-menu drp-mnu"> 
-											<li> <a href="#"><i class="fa fa-sign-out"></i>Cerrar Sesi&oacute;n</a> </li>
-										</ul>
-									</li>
-								</ul>
-							</div>
-							<div class="clearfix"> </div>				
+						<div class="logo-name">
+							<a href="index_admin.html">
+								<h1>AqpTravel</h1> <!--<img id="logo" src="" alt="Logo"/>-->
+							</a>
 						</div>
-				     <div class="clearfix"> </div>	
+
+						<div class="clearfix"></div>
+					</div>
+					<div class="header-right">
+						<div class="profile_details_left">
+							<!--notifications of menu start -->
+							<ul class="nofitications-dropdown">
+								<li class="dropdown head-dpdn"><a href="#"
+									class="dropdown-toggle" data-toggle="dropdown"
+									aria-expanded="false"><i class="fa fa-envelope fa-2x"></i><span
+										class="badge">3</span></a>
+									<ul class="dropdown-menu">
+										<li>
+											<div class="notification_header">
+												<h3>Tienes (3) mensajes nuevos</h3>
+											</div>
+										</li>
+										<li><a href="#">
+												<div class="user_img">
+													<img src="images/p4.png" alt="">
+												</div>
+												<div class="notification_desc">
+													<p>Jalar de BD mensaje</p>
+													<p>
+														<span>Hace 1 hora</span>
+													</p>
+												</div>
+												<div class="clearfix"></div>
+										</a></li>
+										<li class="odd"><a href="#">
+												<div class="user_img">
+													<img src="images/p2.png" alt="">
+												</div>
+												<div class="notification_desc">
+													<p>Jalar de BD mensaje</p>
+													<p>
+														<span>Hace 1 hora</span>
+													</p>
+												</div>
+												<div class="clearfix"></div>
+										</a></li>
+										<li><a href="#">
+												<div class="user_img">
+													<img src="images/p3.png" alt="">
+												</div>
+												<div class="notification_desc">
+													<p>Jalar de BD mensaje</p>
+													<p>
+														<span>Hace 2 horas</span>
+													</p>
+												</div>
+												<div class="clearfix"></div>
+										</a></li>
+										<li>
+											<div class="notification_bottom">
+												<a href="mensajes_admin.html">Ver Todos los mensajes</a>
+											</div>
+										</li>
+									</ul></li>
+								<li class="dropdown head-dpdn"><a href="#"
+									class="dropdown-toggle" data-toggle="dropdown"
+									aria-expanded="false"><i class="fa fa-bell fa-2x"></i><span
+										class="badge blue">3</span></a>
+									<ul class="dropdown-menu">
+										<li>
+											<div class="notification_header">
+												<h3>TÃº tienes (JalarBD) Paquetes agregados</h3>
+											</div>
+										</li>
+										<li><a href="#">
+												<div class="user_img">
+													<img src="images/p5.png" alt="">
+												</div>
+												<div class="notification_desc">
+													<p>La agencia (JalarBD) agregÃ³ nuevo paquete</p>
+													<p>
+														<span>Hace una hora</span>
+													</p>
+												</div>
+												<div class="clearfix"></div>
+										</a></li>
+										<li class="odd"><a href="#">
+												<div class="user_img">
+													<img src="images/p6.png" alt="">
+												</div>
+												<div class="notification_desc">
+													<p>La agencia (JalarBD) agregÃ³ nuevo paquete</p>
+													<p>
+														<span>Hace 1 hora</span>
+													</p>
+												</div>
+												<div class="clearfix"></div>
+										</a></li>
+										<li><a href="#">
+												<div class="user_img">
+													<img src="images/p7.png" alt="">
+												</div>
+												<div class="notification_desc">
+													<p>La agencia (JalarBD) agregÃ³ nuevo paquete</p>
+													<p>
+														<span>Hace 1 hora</span>
+													</p>
+												</div>
+												<div class="clearfix"></div>
+										</a></li>
+										<li>
+											<div class="notification_bottom">
+												<a href="#">Ver todas las Notificaciones</a>
+											</div>
+										</li>
+									</ul></li>
+
+							</ul>
+							<div class="clearfix"></div>
+						</div>
+
+						<!--notification menu end -->
+						<div class="profile_details">
+							<ul>
+								<li class="dropdown profile_details_drop"><a href="#"
+									class="dropdown-toggle" data-toggle="dropdown"
+									aria-expanded="false">
+										<div class="profile_img">
+											<span class="prfil-img"><img src="images/p1.png"
+												alt=""> </span>
+											<div class="user-name">
+												<p>Admin1</p>
+												<span>Administrador</span>
+											</div>
+											<i class="fa fa-angle-down lnr"></i> <i
+												class="fa fa-angle-up lnr"></i>
+											<div class="clearfix"></div>
+										</div>
+								</a>
+									<ul class="dropdown-menu drp-mnu">
+										<li><a href="#"><i class="fa fa-sign-out"></i>Cerrar
+												Sesi&oacute;n</a></li>
+									</ul></li>
+							</ul>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="clearfix"></div>
 				</div>
-<!--heder end here-->
-<!-- script-for sticky-nav -->
-		<script>
+				<!--heder end here-->
+				<!-- script-for sticky-nav -->
+				<script>
 		$(document).ready(function() {
 			 var navoffeset=$(".header-main").offset().top;
 			 $(window).scroll(function(){
@@ -299,142 +326,262 @@ $(document).ready(function() {
 			 
 		});
 		</script>
-		<!-- /script-for sticky-nav -->
-        
-        
-        
-<!--ACA LLENAN USTEDES-->
-<div class="inner-block">
-    <div class="blank">
-    	<div class="col-md-12 chit-chat-layer1-left">
-			<div class="work-progres">
-				<div class="chit-chat-heading">
-                                  Gesti&oacute;n de Sitios tur&iacute;sticos 	
-                           
-                              	<p> &nbsp </p>	  
-               </div>
-               
-               <div class="mail-toolbar clearfix" style="width:150%">
-				     <div class="float-left">
-				        <div class="btn btn_1 btn-default mrg5R">
-				           <i class="fa fa-refresh"> </i>
-				        </div>
-				           <a class="btn btn-primary" data-toggle='modal' href="../admin/destinos/agregarDestino_admin" data-target='#myModal' aria-label='Delete' >
-  								<i class='fa fa-pencil' aria-hidden='true'></i> &nbsp;Agregar Nuevo</a>
-				       
-				        
-				        <div class="clearfix"> </div>
+				<!-- /script-for sticky-nav -->
+
+
+
+				<!--ACA LLENAN USTEDES-->
+				<div class="inner-block">
+					<div class="blank">
+						<div class="col-md-12 chit-chat-layer1-left">
+							<div class="work-progres">
+								<div class="chit-chat-heading">
+									Gesti&oacute;n de Sitios tur&iacute;sticos
+
+									<p>&nbsp</p>
+								</div>
+
+								<div class="mail-toolbar clearfix" style="width: 150%">
+									<div class="float-left">
+										<div class="btn btn_1 btn-default mrg5R">
+											<i class="fa fa-refresh"> </i>
+										</div>
+										<a class="btn btn-primary" data-toggle='modal'
+											data-target='#myModalDestino' aria-label='Delete'> <i
+											class='fa fa-pencil' aria-hidden='true'></i> &nbsp;Agregar
+											Nuevo
+										</a>
+
+
+										<div class="clearfix"></div>
+									</div>
+									<div class="float-right">
+
+										<!--ACTUALIZAR ESTO CON BD-->
+
+										<span class="text-muted m-r-sm">Mostrar 10 of 200
+											&nbsp;&nbsp;&nbsp; </span>
+
+										<div class="btn-group">
+											<a class="btn btn-default"><i class="fa fa-angle-left"></i></a>
+											<a class="btn btn-default"><i class="fa fa-angle-right"></i></a>
+										</div>
+										<div class="clearfix"></div>
+									</div>
+								</div>
+
+
+								<p>&nbsp</p>
+								<p>&nbsp</p>
+
+								<div class="table-responsive">
+									<table id="tableDestinos" class="table table-hover display"
+										cellspacing="0" width="100%">
+										<thead>
+											<tr>
+												<th>Nro</th>
+												<th>Nombre de Sitio Tur&iacute;stico</th>
+												<th>Estado</th>
+												<th>Opciones</th>
+											</tr>
+										</thead>
+										<tbody id="list_destinos">
+
+										</tbody>
+									</table>
+
+
+
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
-				    <div class="float-right">
-                    
-                    			<!--ACTUALIZAR ESTO CON BD-->
-                                
-	                            <span class="text-muted m-r-sm">Mostrar 10 of 200   &nbsp;&nbsp;&nbsp;   </span>
-	                          
-	                            <div class="btn-group">
-	                                <a class="btn btn-default"><i class="fa fa-angle-left"></i></a>
-	                                <a class="btn btn-default"><i class="fa fa-angle-right"></i></a>
-	                            </div>	
-	                       <div class="clearfix"> </div>		        
-				    </div>
-	               </div>
-                            
-                            <div id="search" class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Buscar...">
-                                <span class="input-group-btn">
-                                	<button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                    
-                                </button>
-                            	</span>
-                            	
-                            </div>
-                            <p> &nbsp </p><p> &nbsp </p>
-                            
-                            <div class="table-responsive">
-                                <table id = "tableDestinos" class="table table-hover display" cellspacing="0" width="100%">
-                                	<thead>
-                                		<tr>
-                                		    <th>Nro</th>
-                                			<th>Nombre de Sitio Tur&iacute;stico</th>
-                                           	<th>Estado</th>
-                                			<th>Opciones</th>
-                                		</tr>
-                                	</thead>
-                                	<tbody id="list_destinos">
-                                		
-                                	</tbody>
-                                </table>
-                                
-                                
-                                
-                            </div>
+
+
+
+				<!--copy rights start here-->
+				<div class="copyrights">
+					<p>
+						Â© 2017 AQPTravel Todos los derechos Reservados |
+						Dise&ntilde;ado por <a href="http://tecsofts.com/" target="_blank">TecSoft</a>
+					</p>
+				</div>
+				<!--COPY rights end here-->
 			</div>
 		</div>
-    </div>
-</div>
 
- <!-- Modal HTML -->
-    <div id="myModal" class="modal fade">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <!-- Content will be loaded here from "remote.php" file -->
-            </div>
-        </div>
-    </div>
-    <div id="myModal2" class="modal fade">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content2">
-                <!-- Content will be loaded here from "remote.php" file -->
-            </div>
-        </div>
-    </div>
-<!--inner block end here-->
+		<!--slider menu-->
+		<div class="sidebar-menu">
+			<div class="logo">
+				<a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span>
+				</a> <a href="#"> <span id="logo"></span> <!--<img id="logo" src="" alt="Logo"/>-->
+				</a>
+			</div>
+			<div class="menu">
+				<ul id="menu">
+					<li id="menu-home"><a href="../admin"><i
+							class="fa fa-tachometer"></i><span>Dashboard</span></a></li>
+					<li><a href="../admin/mensajes"><i class="fa fa-envelope"></i><span>Mensajes</span></a>
+
+					</li>
+					<li id="menu-comunicacao"><a href="#"><i
+							class="fa fa-cogs"></i><span>Configuraciones</span><span
+							class="fa fa-angle-right" style="float: right"></span></a>
+						<ul>
+							<li><a href="../admin/users">Usuarios</a></li>
+							<li><a href="../admin/agencias">Agencias
+									Tur&iacute;sticas</a></li>
+							<li><a href="../admin/paquetes">Paquetes
+									Tur&iacute;sticas</a></li>
+
+							<!-- AGREGUEN ESTOOOOOOOOOOOOOOO -->
+							<li><a href="../admin/destinos">Sitios Tur&iacute;sticos</a></li>
+
+							<li><a href="#">Restaurar Informaci&oacute;n</a></li>
+						</ul></li>
+					<li><a href="#"><i class="fa fa-book nav_icon"></i><span>Reportes</span></a></li>
+
+
+				</ul>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+
+	<!--  modal SAVE-->
+	<div id="myModalDestino" class="modal fade">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+
+				<form id="form_regDestino">
+					<div class="panel panel-default"
+						style="font-family: 'Ruda', sans-serif;">
+						<div class="panel-heading"
+							style="border-bottom: solid #CCC 1px; padding-top: 25px; padding-left: 25px">
+							<h3 class="panel-title">
+								<strong style="font-size: 30px">Agregar Nuevo Destino </strong>
+								Formulario
+							</h3>
+						</div>
+						<div class="panel-body">
+							<div class="col-md-12">
+								<fieldset>
+									<legend> Datos del Sitio Tusitico</legend>
+
+									<div class="form-group">
+										<label class="col-md-4 control-label">Nombre de
+											Destino:</label>
+										<div class="col-md-8">
+											<div class="input-group">
+												<span class="input-group-addon"><span
+													class="fa fa-pencil"></span></span> <input type="text"
+													class="form-control" name="nombreDestino"
+													id="nombreDestino" maxlength="70" />
+
+											</div>
+
+										</div>
+									</div>
+									<br>
+
+
+									<div class="form-group">
+										<label class="col-md-4 control-label">EstadoDestino: </label>
+										<div class="col-md-8">
+											<div class="input-group">
+												<label class="radio-inline"><input type="radio"
+													name="estadoDestino" value="0">Deshabilidato</label> <label
+													class="radio-inline"><input type="radio"
+													name="estadoDestino" value="1" checked>Habilitado</label>
+											</div>
+
+										</div>
+									</div>
+
+
+								</fieldset>
+
+							</div>
+
+						</div>
+						<div class="panel-footer">
+							<button class="btn btn-default" data-dismiss="modal">Salir</button>
+
+							<button type="button" class="btn btn-primary pull-right"
+								onclick="addDestino()">Registrar</button>
+
+						</div>
+					</div>
+
+				</form>
+
+			</div>
+		</div>
+	</div>
+
+
+	<!--  modal Update-->
+	<div id="myModalDestinoEditar" class="modal fade">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+
+				<form id="form_regDestinoE">
+					<div class="panel panel-default"
+						style="font-family: 'Ruda', sans-serif;">
+						<div class="panel-heading"
+							style="border-bottom: solid #CCC 1px; padding-top: 25px; padding-left: 25px">
+							<h3 class="panel-title">
+								<strong style="font-size: 30px">Modificar Destino </strong>
+								Formulario
+							</h3>
+						</div>
+						<div class="panel-body">
+							<div class="col-md-12">
+								<fieldset>
+									<legend> Datos del Sitio Tusitico</legend>
+
+									<div class="form-group">
+										<label class="col-md-4 control-label">Nombre de
+											Destino:</label>
+										<div class="col-md-8">
+											<div class="input-group">
+												<span class="input-group-addon"><span
+													class="fa fa-pencil"></span></span> <input type="text"
+													class="form-control" name="nombreDestinoE"
+													id="nombreDestinoE" maxlength="70" /> <input type="hidden"
+													class="form-control" name="idDestinoE" id="idDestinoE" />
+
+											</div>
+
+										</div>
+									</div>
+									<br>
+
+								</fieldset>
+
+							</div>
+
+						</div>
+						<div class="panel-footer">
+							<button class="btn btn-default" data-dismiss="modal">Cancelar</button>
+
+							<button type="button" class="btn btn-primary pull-right"
+								onclick="editDestino()">Modificar</button>
+
+						</div>
+					</div>
+
+				</form>
+
+			</div>
+		</div>
+	</div>
 
 
 
-
-<!--copy rights start here-->
-<div class="copyrights">
-	 <p>Â© 2017 AQPTravel Todos los derechos Reservados | Dise&ntilde;ado por  <a href="http://tecsofts.com/" target="_blank">TecSoft</a> </p>
-</div>	
-<!--COPY rights end here-->
-</div>
-</div>
-
-<!--slider menu-->
-    <div class="sidebar-menu">
-		  	<div class="logo"> <a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a> <a href="#"> <span id="logo" ></span> 
-			      <!--<img id="logo" src="" alt="Logo"/>--> 
-			  </a> </div>		  
-		    <div class="menu">
-		      <ul id="menu" >
-		        <li id="menu-home" ><a href="../admin"><i class="fa fa-tachometer"></i><span>Dashboard</span></a></li>
-		        <li><a href="../admin/mensajes"><i class="fa fa-envelope"></i><span>Mensajes</span></a>
-		         
-		        </li>
-		        <li id="menu-comunicacao" ><a href="#"><i class="fa fa-cogs"></i><span>Configuraciones</span><span class="fa fa-angle-right" style="float: right"></span></a>
-                <ul>
-		            <li><a href="../admin/users">Usuarios</a></li>
-		            <li><a href="../admin/agencias">Agencias Tur&iacute;sticas</a></li>	
-                    <li><a href="../admin/paquetes">Paquetes Tur&iacute;sticas</a></li>
-                    
-                    <!-- AGREGUEN ESTOOOOOOOOOOOOOOO -->  
-                    <li><a href="../admin/destinos">Sitios Tur&iacute;sticos</a></li>	
-                    
-                    <li><a href="#">Restaurar Informaci&oacute;n</a></li>            
-		          </ul>
-		        </li>
-		          <li><a href="#"><i class="fa fa-book nav_icon"></i><span>Reportes</span></a></li>
-		       
-		        
-		      </ul>
-		    </div>
-	 </div>
-	<div class="clearfix"> </div>
-</div>
-<!--slide bar menu end here-->
-<script>
+	<!--slide bar menu end here-->
+	<script>
 var toggle = true;
             
 $(".sidebar-icon").click(function() {                
@@ -454,6 +601,20 @@ $(".sidebar-icon").click(function() {
             })
             </script>
 </body>
-</html>                     
+
+<script src="<c:url value="/resources/js/destino.js" />"></script>
+<script
+	src="<c:url value="/resources/js/bootstrap-datetimepicker.min.js"/>"></script>
+<script type="text/javascript">
 	
+	$(function() {
+	    $('input[type=text]').on('keypress', function(e) {
+	        if (e.which == 32){
+	        	if($(this).val().length==0)return false;
+	        }	            
+	    });
+	});
+	</script>
+</html>
+
 

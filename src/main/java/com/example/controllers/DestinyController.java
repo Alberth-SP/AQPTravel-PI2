@@ -65,7 +65,7 @@ public class DestinyController  {
 						+ "</td>";
 			}			
 			//../admin/destinos/20/updatedestino
-			response += "<td> <a class='btn btn-warning' data-toggle='modal' href='../admin/destinos/"+tmpDestino.getIdDestino()+"/updatedestino' data-target='#myModal2' aria-label='Delete'>"
+			response += "<td> <a class='btn btn-warning' data-toggle='modal' onclick='updatedestino("+tmpDestino.getIdDestino() +", \""+tmpDestino.getNombreDestino()+"\")' data-target='#myModalDestinoEditar' aria-label='Delete'>"
 					+ "	<i class='fa fa-pencil' aria-hidden='true'></i>&nbsp;Editar	</a> </td></tr>";
 		}
 		
@@ -81,7 +81,7 @@ public class DestinyController  {
 		
 		String []a1 = request.getParameterValues("key");	
 		String []a2 = request.getParameterValues("state");
-		destinyDao.changeStateDestiny(Integer.parseInt(a1[0]), a2[0].charAt(0));		
+		destinyDao.changeStateDestiny(Integer.parseInt(a1[0]), Integer.parseInt(a2[0]));		
 		return "true";		
 		
 	}
@@ -92,72 +92,36 @@ public class DestinyController  {
 	
 	@RequestMapping(value="admin/destinos/updateDestino", method=RequestMethod.POST)
 	@ResponseBody 
-	public ModelAndView updateDestino(@RequestBody MultiValueMap<String,String> params) throws IOException{    
+	public String updateDestino(@RequestBody MultiValueMap<String,String> params) throws IOException{    
 	
-
-
-
-		BuildDestiny a =new BuildDestiny(params.getFirst("nombreDestino"));
-		a.setNombreDestino(params.getFirst("nombreDestino"));
-		a.setIdDestino(Integer.parseInt(params.getFirst("idDestino")));
-		a.setEstadoDestino(Integer.parseInt(params.getFirst("estadoDestino")));
+		Destiny destino = new Destiny();
+		destino.setIdDestino(Integer.parseInt(params.getFirst("idDestinoE")));
+		destino.setNombreDestino(params.getFirst("nombreDestinoE"));	
 		
-		Destiny destino=new Destiny(a);
-		destino.setEstadoDestino(Integer.parseInt(params.getFirst("estadoDestino")));
 		destinyDao.updateDestiny(destino);
-		
-		
 
-		return new ModelAndView("redirect:../destinos"); 
-		
+		return "true"; 		
 	} 
+	
+	
 	
 	@RequestMapping(value="admin/destinos/saveDestino", method=RequestMethod.POST)
 	@ResponseBody 
 	public String savedestino(@RequestBody MultiValueMap<String,String> params) throws IOException{    
-        System.out.println("ESTOY A PUNTO DE GURADAR!!!!!");
-		BuildDestiny a=new BuildDestiny(params.getFirst("nombredestino"));
+        System.out.println("ESTOY A PUNTO DE GURADAR!!!!!");		
 		
-		a.setNombreDestino(params.getFirst("nombreDestino"));
-		//a.setIdDestino(Integer.parseInt(params.getFirst("idDestino")));
-		a.setEstadoDestino(Integer.parseInt(params.getFirst("estadoDestino")));
+		Destiny destino=new Destiny();
 		
-		Destiny destino=new Destiny(a);
+		destino.setNombreDestino(params.getFirst("nombreDestino"));		
+		destino.setEstadoDestino(Integer.parseInt(params.getFirst("estadoDestino")));
+		
 		destinyDao.addDestiny(destino);
 		
 		return "true";
 	} 
 	
-	//admin/destino/savedestino
-	// show update form
-	@RequestMapping(value = "/admin/destinos/{id}/updatedestino", method = RequestMethod.GET)
-	public String updatedestino(@PathVariable("id") int id, Model model) {
-
-		//logger.debug("showUpdateUserForm() : {}", id);
-
-		//User user = userService.findById(id);
-		Destiny tmpDestino;
-		
-		tmpDestino=destinyDao.findDestinyById(id);
-		
-		model.addAttribute("destinoForm2");
-		
-		populateDefaultModel(model);
-		
-		return "updatedestino";
-
-	}
 	
-	//../admin/destinos/agregarDestino_admin
-	@RequestMapping(value="/admin/destinos/agregarDestino_admin", method=RequestMethod.GET)
-	public String agregarDestino_admin(Model model) {    
-		
-		model.addAttribute("destinoForm");
-		
-		populateDefaultModel(model);
-		
-		return "agregarDestino_admin";
-	}
+
 	
 	private void populateDefaultModel(Model model) {
 /*

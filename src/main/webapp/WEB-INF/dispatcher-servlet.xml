@@ -58,6 +58,10 @@
 		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
 	</bean>
 	
+	<bean id="cdao" class="com.example.dao.ClienteDao">
+		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
+	</bean>
+	
 	
 	
 

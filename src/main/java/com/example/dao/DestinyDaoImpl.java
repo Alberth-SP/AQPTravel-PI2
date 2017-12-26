@@ -47,12 +47,9 @@ public class DestinyDaoImpl implements DestinyDao {
 	@Override
 	public void addDestiny(Destiny destiny) {
 
-		String sql = "INSERT INTO destino(nombreADestino,estadoDestino) values (?, ?)";
+		String sql = "INSERT INTO destino(nombreDestino,estadoDestino) values (?, ?)";
 
-		jdbcTemplate.update(sql,
-				destiny.getNombreDestino(),
-				destiny.getEstadoDestino()
-				);	
+		jdbcTemplate.update(sql,destiny.getNombreDestino(),	destiny.getEstadoDestino());	
 		
 
 	}
@@ -60,10 +57,8 @@ public class DestinyDaoImpl implements DestinyDao {
 	@Override
 	public void updateDestiny(Destiny destiny) {
 		String sql = "UPDATE destino SET nombreDestino = '" + destiny.getNombreDestino()
-		+ "', estadoDestino = '" + Integer.parseInt(destiny.getEstadoDestino()+"")
 		+ "' WHERE idDestino = "+ destiny.getIdDestino();
 		jdbcTemplate.update(sql);
-
 	}
 
 	@Override
@@ -94,7 +89,7 @@ public class DestinyDaoImpl implements DestinyDao {
 	}
 
 	@Override
-	public void changeStateDestiny(int id, char state) {
+	public void changeStateDestiny(int id, int state) {
 		Destiny ag=findDestinyById(id);
 		String sql = "UPDATE destino SET estadoDestino = '" + state 
 				+ "' WHERE idDestino = "+ id +"";

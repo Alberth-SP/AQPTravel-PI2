@@ -520,6 +520,14 @@
         minView: 2,
         autoclose: 1
     });
+    
+    $(function() {
+	    $('input[type=text]').on('keypress', function(e) {
+	        if (e.which == 32){
+	        	if($(this).val().length==0)return false;
+	        }	            
+	    });
+	});
   </script>
   
   <script src="<c:url value="/resources/js/filterIndex.js"/>"></script>

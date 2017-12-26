@@ -356,6 +356,17 @@
 		
 	</script>
 	<script src="<c:url value="/resources/js/filterPage.js"/>"></script>
+	
+	<script type="text/javascript">
+	
+	$(function() {
+	    $('input[type=text]').on('keypress', function(e) {
+	        if (e.which == 32){
+	        	if($(this).val().length==0)return false;
+	        }	            
+	    });
+	});
+	</script>
 </body>
 
 
