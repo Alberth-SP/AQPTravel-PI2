@@ -22,6 +22,12 @@ public interface PaqueteDao {
 	
 	public List<Paquete> listFilterPaquetes(Paquete param);
 	
+	public String getNombreAgencia(int id);
+	
+	public List<Paquete> ordernarPorFecha();
+	
+	public void insertOneDestiny(int idPaquete, int destiny);
+	
 	/*¨detalles paqute */	
 
 	public boolean addFotoPaquete(FotosPaquete foto);

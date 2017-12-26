@@ -321,12 +321,12 @@
                                                 <label class="col-md-3 control-label">Valoracion de la Agencia</label>
                                                 <div class="col-md-9">                                                                                            
                                                     <select class="form-control select"  name="valoracionAgencia">
-                                                        <option value="0">000</option>
-                                                        <option value="1">111</option>
-                                                        <option value="2">222</option>
-                                                        <option value="3">333</option>
-                                                        <option value="4">444</option>
-                                                        <option value="5">555</option>
+                                                        <option value="0">0</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
                                                     </select>
                                                     <span class="help-block">Seleccione valoracion de Agencia</span>
                                                 </div>

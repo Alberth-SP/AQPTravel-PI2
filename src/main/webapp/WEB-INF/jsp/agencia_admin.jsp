@@ -36,6 +36,7 @@
 <script src="<c:url value="/resources/js/scripts.js" />"></script>
 <!--//scrolling js-->
 <script src="<c:url value="/resources/js/bootstrap.js" />"></script>
+<script src="<c:url value="/resources/js/agencia.js" />"></script>
 
 <script>
 $(document).ready(function() {

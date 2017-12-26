@@ -74,7 +74,7 @@ public class PaquetController {
 			
 			response += "<td> <a class='btn btn-warning' data-toggle='modal' href='../admin/paquetes/"+paquet.getIdPaquete()+"/updatePaquete' data-target='#myModal' aria-label='Delete'>"
 					+ "	<i class='fa fa-pencil' aria-hidden='true'></i>&nbsp;Editar	</a> </td></tr>";
-		}
+			}
 		
 		return response; 
 	}
@@ -108,17 +108,32 @@ public class PaquetController {
 		MultipartFile image2 = request.getFile("image2");	
 		
 		Paquete paquete = new Paquete(data);
-		System.out.println("capa: "+paquete.getCapacidadPaquete());
+
+		paquete.setAnioModPaquete(Integer.parseInt(request.getParameter("anio")));
+		paquete.setMesModPaquete(Integer.parseInt(request.getParameter("mes")));
+		paquete.setDiaModPaquete(Integer.parseInt(request.getParameter("dia")));
+		
+		System.out.println("size: "+paquete.getDescripcionPaquete().length()+" - "
+				+ paquete.getItinerario().length() +" - "+ paquete.getServicios().length() +" - " +paquete.getRecomendaciones().length());
 		int idReg = paquetDao.addPaquete(paquete);	
 		
 		if(idReg > 0){
-			if(image1 != null) paquetDao.addFotoPaquete(new FotosPaquete(idReg, image1.getOriginalFilename(), image1.getBytes()));
-			if(image2 != null) paquetDao.addFotoPaquete(new FotosPaquete(idReg, image2.getOriginalFilename(), image2.getBytes()));
+			if(image1 != null){
+				String namePhoto = image1.getOriginalFilename();
+				if(namePhoto.length() > 32) namePhoto = namePhoto.substring(0, 32);
+				paquetDao.addFotoPaquete(new FotosPaquete(idReg, namePhoto, image1.getBytes()));
+			}
+			if(image2 != null){
+				String namePhoto = image2.getOriginalFilename();
+				if(namePhoto.length() > 32) namePhoto = namePhoto.substring(0, 32);
+				paquetDao.addFotoPaquete(new FotosPaquete(idReg,namePhoto, image2.getBytes()));
+			}
 			if(paquete.getDestinoPaquete().length() > 0){
 				
 				
 				List<Integer> destinations = obtainList(paquete.getDestinoPaquete());
 				paquetDao.insertDestinations(idReg, destinations);
+				paquetDao.insertOneDestiny(idReg, destinations.get(0));
 			}
 			
 		
@@ -126,7 +141,7 @@ public class PaquetController {
 		return "true";
 	} 	
 	
-	
+
 	@RequestMapping(value="admin/paquete/updatePaquete", method=RequestMethod.POST)
 	@ResponseBody 
 	public String updatePaquete(MultipartHttpServletRequest request) throws IOException{    
@@ -251,6 +266,7 @@ public class PaquetController {
 		}
 		return "true";
 	} 
+
 	private List<Integer> obtainList(String streamList){
 		List<Integer> list = new ArrayList<>();
 		
@@ -274,6 +290,7 @@ public class PaquetController {
 	@ResponseBody
 	public String changeStateAdmin(HttpServletRequest request) throws IOException{
 		
+	
 		String []a1 = request.getParameterValues("key");	
 		String []a2 = request.getParameterValues("state");
 	
@@ -287,12 +304,12 @@ public class PaquetController {
 	@RequestMapping(value = "admin/imageController/{imageId}")
 	@ResponseBody
 	public byte[] getImage(@PathVariable int imageId)  {
-		List<FotosPaquete> fotos = paquetDao.getImagePaquete(imageId); 		
+		List<FotosPaquete> fotos = paquetDao.getImagePaquete(imageId);	
+		
 		return fotos.get(0).getImagenFoto();
 	}
 	
-	
-	
+
 	@RequestMapping(value = "/admin/paquetes/{id}/updatePaquete", method = RequestMethod.GET)
 	public String updateAgencia(@PathVariable("id") int id, Model model) {
 

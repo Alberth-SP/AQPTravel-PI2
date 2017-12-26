@@ -49,42 +49,35 @@ import com.fasterxml.jackson.databind.util.JSONPObject;
 /* CLASE para responder a Solicitudes  desde HOME */
 
 @Controller
+@SessionAttributes("iduser")
 public class HomeController {
 
 
 	@Autowired
 	PaqueteDao paquetDao;
+	@Autowired
+	AdminDao admin;
 	
 	/* Request para pagina principal */
 	@RequestMapping(value="/index", method=RequestMethod.GET ,produces="text/html;charset=UTF-8")
-	public ModelAndView indexs(ModelAndView model) throws IOException{
-
-		model.setViewName("index");	 		
-		return model;
+	public String indexs(ModelMap model){
+		model.put("iduser", "empty");
+		return "index";
 	}
-
-
-
 	/* Request para pagina principal */
 	@RequestMapping(value="/", method=RequestMethod.GET ,produces="text/html;charset=UTF-8")
-	public ModelAndView index(ModelAndView model) throws IOException{
-
-		model.setViewName("index");	 		
-		return model;
+	public String showLoginPage(ModelMap model) {
+		model.put("iduser", "empty");
+		return "index";
 	}
-
-	/* Request para formulario de registro de usurio */
-	@RequestMapping(value="registrar", method=RequestMethod.GET,produces="text/html;charset=UTF-8")
-	public ModelAndView register(ModelAndView model) throws IOException{
-		model.setViewName("registrar");
-		return model;
-	}
-	
 	/* Request para pagina principal de usuario */
 	@RequestMapping(value="pagina_usuario", method=RequestMethod.GET,produces="text/html;charset=UTF-8")
-	public ModelAndView getPageMainAdmin(ModelAndView model) throws IOException{
-		model.setViewName("pagina_usuario");
-		return model;
+	public String getPageMainAdmin(ModelMap model){
+		
+		String correo=(String) model.get("iduser");
+		if(admin.findRolByEmail(correo).equals("ROLE_CU"))
+			return "pagina_usuario";
+		return "noauto";
 	}
 	
 	
@@ -92,7 +85,6 @@ public class HomeController {
 	public String showLoginPage() {
 		return "login";
 	}
-
 	/* request para devolver pagina de filtro de paquete */
 	@RequestMapping(value="pageFiltroPaquete", method=RequestMethod.GET)
 	public ModelAndView getPageFilterPaquet(ModelAndView model) throws IOException{
@@ -166,24 +158,29 @@ public class HomeController {
 						+ "style='padding: 12px 10px 10px 0px; margin: 10px 0px;"
 						+ " background: white; border: 1px solid; box-shadow: 5px 8px 8px #888888;'>"
 						+ "<div class='col-lg-6 resultados-item filter-app'>"
-						+ "	<a href=''> <img src='admin/imageController/"+onePaquet.getIdPaquete()+"'	alt='gsaga'>"
+						+ "	<a href=''> <img src='admin/imageController/"+onePaquet.getIdPaquete()+"'	alt='imagen'>"
 						+ "<div class='details'>"
-						+ "<h4>PARACAS - $200</h4>"
+						+ "<h4>"+onePaquet.getDestinoPaquete()+" - S/."+onePaquet.getPrecioPaquete()+"</h4>"
 						+ "<a href='' class='link-mas'>Detalles</a>"
 						+ "</div>"
 						+ "</a> </div>"
 						+ "	<div class='col-lg-6 '>"
 						+ "<a href=''>"
-						+ "<h4 style='font-weight: bold; color: black;'>"+onePaquet.getNombrePaquete()+"</h4></a><span>";
+						+ "<h3 style='font-weight: bold; color: black;'>"+onePaquet.getNombrePaquete()+"</h3></a><span>";
 				        
 				         for(int i=0;i<onePaquet.getValoracionPaquete();i++)
 				        	listContent += " <i class='fa fa-star' aria-hidden='true' style='color: #f48f00;'> </i>";
 				        	
 						
-				         listContent +=  "</span>"
-						+ "<p style='font-size: 14px;'>Agencia: "+onePaquet.getDescripcionPaquete()+"</p>"
-						+ "<p style='font-size: 14px;'>Capacidad: "+onePaquet.getCapacidadPaquete() +" personas.</p>"
-						+ "<p style='font-size: 14px;'>Actividad: "+onePaquet.getTipoPaquete()+"</p></div></div>";
+				         listContent +=  "<br></span>"
+						+ "<span> <p style='margin-bottom:4px;font-size: 14px;font-weight: bold;'>Agencia: "+onePaquet.getDescripcionPaquete()+"</span><br>"
+						+ "<pspan style='margin-bottom:4px; font-size: 14px;font-weight: bold;'>Capacidad: "+onePaquet.getCapacidadPaquete() +" personas.</span><br>"
+						+ "<span style='margin-bottom:8px; font-size: 14px;font-weight: bold;'>Actividad: "+onePaquet.getTipoPaquete()+"</span><br></span>";				        
+				         
+				         if(onePaquet.getOfertaPaquete() == '1'){
+				        	 listContent +=  "<p> <button type='button' class='btn btn-danger'>En Oferta</button> </p>";
+				         }
+				         listContent += "</div></div>";
 			}
 
 			res.add("true");

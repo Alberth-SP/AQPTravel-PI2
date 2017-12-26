@@ -27,9 +27,6 @@ var url = "agencia/saveAgencia";
 
 
 
-
-
-
 function changeStateAgencia(id,state){  
 	var url = "agencia/changeStateAgencia";
    

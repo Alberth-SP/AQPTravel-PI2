@@ -83,6 +83,7 @@ public class AgencyController {
 	@ResponseBody
 	public String changeStateAdmin(HttpServletRequest request) throws IOException{
 		
+		System.out.println("checcckkkkk");;
 		String []a1 = request.getParameterValues("key");	
 		String []a2 = request.getParameterValues("state");
 		agenciaDao.changeState(Integer.parseInt(a1[0]), a2[0].charAt(0));		

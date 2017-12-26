@@ -16,6 +16,7 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 
 import com.example.logic.Admin;
+import com.example.logic.Rol;
 import com.example.logic.User;
 import com.example.logic.Utilidades;
 
@@ -151,15 +152,43 @@ public class AdminDaoImpl implements AdminDao{
 				email,
 				"ROLE_ADMIN");
 	}
+	
 	private void updateStateRole(String email,char id) {
 		String sql = "UPDATE usuario SET enable = '" + id 
 				+ "' WHERE correoUsuario = '"+ email +"'";
 		jdbcTemplate.update(sql);
 	}
+	
 	public User findUserByEmail(String c) {
-		return null;
+		String sql = "SELECT * FROM usuario WHERE correoUsuario = '" + c +"'";
+		List<User> listContact = jdbcTemplate.query(sql, new RowMapper<User>() {
+			public User mapRow(ResultSet rs, int rowNum) throws SQLException {
+				// TODO Auto-generated method stub
+
+				User aContact = new User();
+				aContact.setCorreoUsuario(rs.getString("correoUsuario"));
+				aContact.setContrasena(rs.getString("contrasenaUsuario"));
+				aContact.setEnable(rs.getInt("enable"));
+				return aContact;
+			}
+
+		});		 
+		return listContact.get(0);	
 	}
 	public String findRolByEmail(String c) {
-		return "";
+		String sql = "SELECT * FROM rol WHERE correoUsuario = '" + c +"'";
+		List<Rol> listContact = jdbcTemplate.query(sql, new RowMapper<Rol>() {
+			public Rol mapRow(ResultSet rs, int rowNum) throws SQLException {
+				// TODO Auto-generated method stub
+
+				Rol aContact = new Rol();
+				aContact.setRol(rs.getString("rol"));
+				aContact.setCorreoUsuario(rs.getString("correoUsuario"));
+				aContact.setIdRol(rs.getInt("idRol"));
+				return aContact;
+			}
+
+		});		 
+		return listContact.get(0).getRol();
 	}
 }
