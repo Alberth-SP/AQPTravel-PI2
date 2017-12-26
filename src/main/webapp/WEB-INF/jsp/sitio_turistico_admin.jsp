@@ -3,14 +3,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Administrador</title>
+<title>Administrador-Destinos</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 <link href="<c:url value="/resources/css/calendar.css"/> "	rel="stylesheet">
-
+<link href="<c:url value="/resources/css/jquery.dataTables.min.css"/> "	rel="stylesheet">
 
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="<c:url value="/resources/js/jquery-3.2.1.min.js" />"></script>
+<script src="<c:url value="/resources/js/jquery.dataTables.min.js" />"></script>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 
 <link href="<c:url value="/resources/css/bootstrap.css"/> " rel="stylesheet" 	media="all">
@@ -29,7 +31,130 @@
 
 
 <script src="<c:url value="/resources/js/Chart.min.js" />"></script>
-<!--//charts-->
+<!--scrolling js-->
+<script src="<c:url value="/resources/js/jquery.nicescroll.js" />"></script>
+<script src="<c:url value="/resources/js/scripts.js" />"></script>
+<!--//scrolling js-->
+<script src="<c:url value="/resources/js/bootstrap.js" />"></script>
+
+<script>
+$(document).ready(function() {
+	
+
+	$.post("../destinos/list_destinos",function(data){
+		$('#list_destinos').html(data);
+		$('#tableDestinos').DataTable({
+			"language": {
+				"decimal": "",
+		        "emptyTable": "No hay información",
+		        "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+		        "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+		        "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+		        "infoPostFix": "",
+		        "thousands": ",",
+		        "lengthMenu": "Mostrar _MENU_ Entradas",
+		        "loadingRecords": "Cargando...",
+		        "processing": "Procesando...",
+		        "search": "Buscar:",
+		        "zeroRecords": "Sin resultados encontrados",
+		        "paginate": {
+		            "first": "Primero",
+		            "last": "Ultimo",
+		            "next": "Siguiente",
+		            "previous": "Anterior"
+		            
+		        }
+				
+	        }
+		});
+
+	})
+    
+} );
+
+</script>
+<style type="text/css" media=screen>
+.onoffswitch {
+	position: relative;
+	width: 83px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+}
+
+.onoffswitch-checkbox {
+	display: none;
+}
+
+.onoffswitch-label {
+	display: block;
+	overflow: hidden;
+	cursor: pointer;
+	border: 2px solid #999999;
+	border-radius: 20px;
+}
+
+.onoffswitch-inner {
+	display: block;
+	width: 200%;
+	margin-left: -100%;
+	transition: margin 0.3s ease-in 0s;
+}
+
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+	display: block;
+	float: left;
+	width: 50%;
+	height: 26px;
+	padding: 0;
+	line-height: 26px;
+	font-size: 9px;
+	color: white;
+	font-family: Trebuchet, Arial, sans-serif;
+	font-weight: bold;
+	box-sizing: border-box;
+}
+
+.onoffswitch-inner:before {
+	content: "Activo";
+	padding-left: 10px;
+	background-color: #5cb85c;
+	color: #FFFFFF;
+}
+
+.onoffswitch-inner:after {
+	content: "Desactivo";
+	padding-right: 10px;
+	background-color: #EEEEEE;
+	color: #999999;
+	text-align: right;
+}
+
+.onoffswitch-switch {
+	display: block;
+	width: 18px;
+	margin: 4px;
+	background: #FFFFFF;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 53px;
+	border: 2px solid #999999;
+	border-radius: 20px;
+	transition: all 0.3s ease-in 0s;
+}
+
+.onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-inner {
+	margin-left: 0;
+}
+
+.onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-switch {
+	right: 0px;
+}
+
+
+</style>
+
 </head>
 <body>	
 <div class="page-container">	
@@ -194,8 +319,8 @@
 				        <div class="btn btn_1 btn-default mrg5R">
 				           <i class="fa fa-refresh"> </i>
 				        </div>
-				           <a class="btn btn-primary" href="registrar_sitio_turistico-admin.jsp">
-  								<i class="fa fa-plus fa-lg"></i> &nbsp;Agregar Nuevo</a>
+				           <a class="btn btn-primary" data-toggle='modal' href="../admin/destinos/agregarDestino_admin" data-target='#myModal' aria-label='Delete' >
+  								<i class='fa fa-pencil' aria-hidden='true'></i> &nbsp;Agregar Nuevo</a>
 				       
 				        
 				        <div class="clearfix"> </div>
@@ -227,840 +352,17 @@
                             <p> &nbsp </p><p> &nbsp </p>
                             
                             <div class="table-responsive">
-                                <table class="table table-hover">
+                                <table id = "tableDestinos" class="table table-hover display" cellspacing="0" width="100%">
                                 	<thead>
                                 		<tr>
+                                		    <th>Nro</th>
                                 			<th>Nombre de Sitio Tur&iacute;stico</th>
-                                			<th>Descripci&oacute;n</th>
-                                			<th>Estado</th>
+                                           	<th>Estado</th>
                                 			<th>Opciones</th>
                                 		</tr>
                                 	</thead>
-                                	<tbody>
-                                		<tr>
-                                			<td>Arequipa Fullday</td>
-                                			<td>Agencia Arequipa Travel</td>
-                                			<td>
-                                				<div class="onoffswitch">
-												    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-												    <label class="onoffswitch-label" for="myonoffswitch">
-												        <span class="onoffswitch-inner"></span>
-												        <span class="onoffswitch-switch"></span>
-												    </label>
-												</div>
-                                			</td>
-                                			<td>
-                                				<a class="btn btn-warning" href="" aria-label="Delete">
-  													<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Editar
-												</a>
-                                			</td>
-                                		</tr>
+                                	<tbody id="list_destinos">
                                 		
-                                		<tr>
-                                			<td>Arequipa Fullday</td>
-                                			<td>Agencia Arequipa Travel</td>
-                                			<td>
-                                				<div class="onoffswitch">
-												    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-												    <label class="onoffswitch-label" for="myonoffswitch">
-												        <span class="onoffswitch-inner"></span>
-												        <span class="onoffswitch-switch"></span>
-												    </label>
-												</div>
-                                			</td>
-                                			<td>
-                                				<a class="btn btn-warning" href="" aria-label="Delete">
-  													<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Editar
-												</a>
-                                			</td>
-                                		</tr>
-                                		
-                                		
-                                		<tr>
-                                			<td>Arequipa Fullday</td>
-                                			<td>Agencia Arequipa Travel</td>
-                                			<td>
-                                				<div class="onoffswitch">
-												    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-												    <label class="onoffswitch-label" for="myonoffswitch">
-												        <span class="onoffswitch-inner"></span>
-												        <span class="onoffswitch-switch"></span>
-												    </label>
-												</div>
-                                			</td>
-                                			<td>
-                                				<a class="btn btn-warning" href="" aria-label="Delete">
-  													<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Editar
-												</a>
-                                			</td>
-                                		</tr>
-                                		
-                                		<tr>
-                                			<td>Arequipa Fullday</td>
-                                			<td>Agencia Arequipa Travel</td>
-                                			<td>
-                                				<div class="onoffswitch">
-												    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-												    <label class="onoffswitch-label" for="myonoffswitch">
-												        <span class="onoffswitch-inner"></span>
-												        <span class="onoffswitch-switch"></span>
-												    </label>
-												</div>
-                                			</td>
-                                			<td>
-                                				<a class="btn btn-warning" href="" aria-label="Delete">
-  													<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Editar
-												</a>
-                                			</td>
-                                		</tr>
-                                		
-                                		<tr>
-                                			<td>Arequipa Fullday</td>
-                                			<td>Agencia Arequipa Travel</td>
-                                			<td>
-                                				<div class="onoffswitch">
-												    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-												    <label class="onoffswitch-label" for="myonoffswitch">
-												        <span class="onoffswitch-inner"></span>
-												        <span class="onoffswitch-switch"></span>
-												    </label>
-												</div>
-                                			</td>
-                                			<td>
-                                				<a class="btn btn-warning" href="" aria-label="Delete">
-  													<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Editar
-												</a>
-                                			</td>
-                                		</tr>
-                                		
-                                		<tr>
-                                			<td>Arequipa Fullday</td>
-                                			<td>Agencia Arequipa Travel</td>
-                                			<td>
-                                				<div class="onoffswitch">
-												    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-												    <label class="onoffswitch-label" for="myonoffswitch">
-												        <span class="onoffswitch-inner"></span>
-												        <span class="onoffswitch-switch"></span>
-												    </label>
-												</div>
-                                			</td>
-                                			<td>
-                                				<a class="btn btn-warning" href="" aria-label="Delete">
-  													<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Editar
-												</a>
-                                			</td>
-                                		</tr>
-                                		
-                                		<tr>
-                                			<td>Arequipa Fullday</td>
-                                			<td>Agencia Arequipa Travel</td>
-                                			<td>
-                                				<div class="onoffswitch">
-												    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-												    <label class="onoffswitch-label" for="myonoffswitch">
-												        <span class="onoffswitch-inner"></span>
-												        <span class="onoffswitch-switch"></span>
-												    </label>
-												</div>
-                                			</td>
-                                			<td>
-                                				<a class="btn btn-warning" href="" aria-label="Delete">
-  													<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Editar
-												</a>
-                                			</td>
-                                		</tr>
-                                		
-                                		<tr>
-                                			<td>Arequipa Fullday</td>
-                                			<td>Agencia Arequipa Travel</td>
-                                			<td>
-                                				<div class="onoffswitch">
-												    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-												    <label class="onoffswitch-label" for="myonoffswitch">
-												        <span class="onoffswitch-inner"></span>
-												        <span class="onoffswitch-switch"></span>
-												    </label>
-												</div>
-                                			</td>
-                                			<td>
-                                				<a class="btn btn-warning" href="" aria-label="Delete">
-  													<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Editar
-												</a>
-                                			</td>
-                                		</tr>
-                                		
-                                		
-                                		<tr>
-                                			<td>Arequipa Fullday</td>
-                                			<td>Agencia Arequipa Travel</td>
-                                			<td>
-                                				<div class="onoffswitch">
-												    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-												    <label class="onoffswitch-label" for="myonoffswitch">
-												        <span class="onoffswitch-inner"></span>
-												        <span class="onoffswitch-switch"></span>
-												    </label>
-												</div>
-                                			</td>
-                                			<td>
-                                				<a class="btn btn-warning" href="" aria-label="Delete">
-  													<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Editar
-												</a>
-                                			</td>
-                                		</tr>
-                                		
-                                		<tr>
-                                			<td>Arequipa Fullday</td>
-                                			<td>Agencia Arequipa Travel</td>
-                                			<td>
-                                				<div class="onoffswitch">
-												    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-												    <label class="onoffswitch-label" for="myonoffswitch">
-												        <span class="onoffswitch-inner"></span>
-												        <span class="onoffswitch-switch"></span>
-												    </label>
-												</div>
-                                			</td>
-                                			<td>
-                                				<a class="btn btn-warning" href="" aria-label="Delete">
-  													<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Editar
-												</a>
-                                			</td>
-                                		</tr>
-                                		
-                                		
-                                		<tr>
-                                			<td>Arequipa Fullday</td>
-                                			<td>Agencia Arequipa Travel</td>
-                                			<td>
-                                				<div class="onoffswitch">
-												    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-												    <label class="onoffswitch-label" for="myonoffswitch">
-												        <span class="onoffswitch-inner"></span>
-												        <span class="onoffswitch-switch"></span>
-												    </label>
-												</div>
-                                			</td>
-                                			<td>
-                                				<a class="btn btn-warning" href="" aria-label="Delete">
-  													<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Editar
-												</a>
-                                			</td>
-                                		</tr>
-                                		
-                                		<tr>
-                                			<td>Arequipa Fullday</td>
-                                			<td>Agencia Arequipa Travel</td>
-                                			<td>
-                                				<div class="onoffswitch">
-												    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-												    <label class="onoffswitch-label" for="myonoffswitch">
-												        <span class="onoffswitch-inner"></span>
-												        <span class="onoffswitch-switch"></span>
-												    </label>
-												</div>
-                                			</td>
-                                			<td>
-                                				<a class="btn btn-warning" href="" aria-label="Delete">
-  													<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Editar
-												</a>
-                                			</td>
-                                		</tr>
-                                		
-                                		
-                                		<tr>
-                                			<td>Arequipa Fullday</td>
-                                			<td>Agencia Arequipa Travel</td>
-                                			<td>
-                                				<div class="onoffswitch">
-												    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-												    <label class="onoffswitch-label" for="myonoffswitch">
-												        <span class="onoffswitch-inner"></span>
-												        <span class="onoffswitch-switch"></span>
-												    </label>
-												</div>
-                                			</td>
-                                			<td>
-                                				<a class="btn btn-warning" href="" aria-label="Delete">
-  													<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Editar
-												</a>
-                                			</td>
-                                		</tr>
-                                		
-                                		
-                                		<tr>
-                                			<td>Arequipa Fullday</td>
-                                			<td>Agencia Arequipa Travel</td>
-                                			<td>
-                                				<div class="onoffswitch">
-												    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-												    <label class="onoffswitch-label" for="myonoffswitch">
-												        <span class="onoffswitch-inner"></span>
-												        <span class="onoffswitch-switch"></span>
-												    </label>
-												</div>
-                                			</td>
-                                			<td>
-                                				<a class="btn btn-warning" href="" aria-label="Delete">
-  													<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Editar
-												</a>
-                                			</td>
-                                		</tr>
-                                		
-                                		
-                                		<tr>
-                                			<td>Arequipa Fullday</td>
-                                			<td>Agencia Arequipa Travel</td>
-                                			<td>
-                                				<div class="onoffswitch">
-												    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-												    <label class="onoffswitch-label" for="myonoffswitch">
-												        <span class="onoffswitch-inner"></span>
-												        <span class="onoffswitch-switch"></span>
-												    </label>
-												</div>
-                                			</td>
-                                			<td>
-                                				<a class="btn btn-warning" href="" aria-label="Delete">
-  													<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Editar
-												</a>
-                                			</td>
-                                		</tr>
-                                		
-                                		
-                                		<tr>
-                                			<td>Arequipa Fullday</td>
-                                			<td>Agencia Arequipa Travel</td>
-                                			<td>
-                                				<div class="onoffswitch">
-												    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-												    <label class="onoffswitch-label" for="myonoffswitch">
-												        <span class="onoffswitch-inner"></span>
-												        <span class="onoffswitch-switch"></span>
-												    </label>
-												</div>
-                                			</td>
-                                			<td>
-                                				<a class="btn btn-warning" href="" aria-label="Delete">
-  													<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Editar
-												</a>
-                                			</td>
-                                		</tr>
-                                		
-                                		
-                                		<tr>
-                                			<td>Arequipa Fullday</td>
-                                			<td>Agencia Arequipa Travel</td>
-                                			<td>
-                                				<div class="onoffswitch">
-												    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-												    <label class="onoffswitch-label" for="myonoffswitch">
-												        <span class="onoffswitch-inner"></span>
-												        <span class="onoffswitch-switch"></span>
-												    </label>
-												</div>
-                                			</td>
-                                			<td>
-                                				<a class="btn btn-warning" href="" aria-label="Delete">
-  													<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Editar
-												</a>
-                                			</td>
-                                		</tr>
-                                		
-                                		
-                                		<tr>
-                                			<td>Arequipa Fullday</td>
-                                			<td>Agencia Arequipa Travel</td>
-                                			<td>
-                                				<div class="onoffswitch">
-												    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-												    <label class="onoffswitch-label" for="myonoffswitch">
-												        <span class="onoffswitch-inner"></span>
-												        <span class="onoffswitch-switch"></span>
-												    </label>
-												</div>
-                                			</td>
-                                			<td>
-                                				<a class="btn btn-warning" href="" aria-label="Delete">
-  													<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Editar
-												</a>
-                                			</td>
-                                		</tr>
-                                		
-                                		<tr>
-                                			<td>Arequipa Fullday</td>
-                                			<td>Agencia Arequipa Travel</td>
-                                			<td>
-                                				<div class="onoffswitch">
-												    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-												    <label class="onoffswitch-label" for="myonoffswitch">
-												        <span class="onoffswitch-inner"></span>
-												        <span class="onoffswitch-switch"></span>
-												    </label>
-												</div>
-                                			</td>
-                                			<td>
-                                				<a class="btn btn-warning" href="" aria-label="Delete">
-  													<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Editar
-												</a>
-                                			</td>
-                                		</tr>
-                                		
-                                		<tr>
-                                			<td>Arequipa Fullday</td>
-                                			<td>Agencia Arequipa Travel</td>
-                                			<td>
-                                				<div class="onoffswitch">
-												    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-												    <label class="onoffswitch-label" for="myonoffswitch">
-												        <span class="onoffswitch-inner"></span>
-												        <span class="onoffswitch-switch"></span>
-												    </label>
-												</div>
-                                			</td>
-                                			<td>
-                                				<a class="btn btn-warning" href="" aria-label="Delete">
-  													<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Editar
-												</a>
-                                			</td>
-                                		</tr>
-                                		
-                                		<tr>
-                                			<td>Arequipa Fullday</td>
-                                			<td>Agencia Arequipa Travel</td>
-                                			<td>
-                                				<div class="onoffswitch">
-												    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-												    <label class="onoffswitch-label" for="myonoffswitch">
-												        <span class="onoffswitch-inner"></span>
-												        <span class="onoffswitch-switch"></span>
-												    </label>
-												</div>
-                                			</td>
-                                			<td>
-                                				<a class="btn btn-warning" href="" aria-label="Delete">
-  													<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Editar
-												</a>
-                                			</td>
-                                		</tr>
-                                		
-                                		
-                                		<tr>
-                                			<td>Arequipa Fullday</td>
-                                			<td>Agencia Arequipa Travel</td>
-                                			<td>
-                                				<div class="onoffswitch">
-												    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-												    <label class="onoffswitch-label" for="myonoffswitch">
-												        <span class="onoffswitch-inner"></span>
-												        <span class="onoffswitch-switch"></span>
-												    </label>
-												</div>
-                                			</td>
-                                			<td>
-                                				<a class="btn btn-warning" href="" aria-label="Delete">
-  													<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Editar
-												</a>
-                                			</td>
-                                		</tr>
-                                		
-                                		
-                                		<tr>
-                                			<td>Arequipa Fullday</td>
-                                			<td>Agencia Arequipa Travel</td>
-                                			<td>
-                                				<div class="onoffswitch">
-												    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-												    <label class="onoffswitch-label" for="myonoffswitch">
-												        <span class="onoffswitch-inner"></span>
-												        <span class="onoffswitch-switch"></span>
-												    </label>
-												</div>
-                                			</td>
-                                			<td>
-                                				<a class="btn btn-warning" href="" aria-label="Delete">
-  													<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Editar
-												</a>
-                                			</td>
-                                		</tr>
-                                		
-                                		
-                                		<tr>
-                                			<td>Arequipa Fullday</td>
-                                			<td>Agencia Arequipa Travel</td>
-                                			<td>
-                                				<div class="onoffswitch">
-												    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-												    <label class="onoffswitch-label" for="myonoffswitch">
-												        <span class="onoffswitch-inner"></span>
-												        <span class="onoffswitch-switch"></span>
-												    </label>
-												</div>
-                                			</td>
-                                			<td>
-                                				<a class="btn btn-warning" href="" aria-label="Delete">
-  													<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Editar
-												</a>
-                                			</td>
-                                		</tr>
-                                		
-                                		
-                                		<tr>
-                                			<td>Arequipa Fullday</td>
-                                			<td>Agencia Arequipa Travel</td>
-                                			<td>
-                                				<div class="onoffswitch">
-												    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-												    <label class="onoffswitch-label" for="myonoffswitch">
-												        <span class="onoffswitch-inner"></span>
-												        <span class="onoffswitch-switch"></span>
-												    </label>
-												</div>
-                                			</td>
-                                			<td>
-                                				<a class="btn btn-warning" href="" aria-label="Delete">
-  													<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Editar
-												</a>
-                                			</td>
-                                		</tr>
-                                		
-                                		
-                                		<tr>
-                                			<td>Arequipa Fullday</td>
-                                			<td>Agencia Arequipa Travel</td>
-                                			<td>
-                                				<div class="onoffswitch">
-												    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-												    <label class="onoffswitch-label" for="myonoffswitch">
-												        <span class="onoffswitch-inner"></span>
-												        <span class="onoffswitch-switch"></span>
-												    </label>
-												</div>
-                                			</td>
-                                			<td>
-                                				<a class="btn btn-warning" href="" aria-label="Delete">
-  													<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Editar
-												</a>
-                                			</td>
-                                		</tr>
-                                		
-                                		
-                                		<tr>
-                                			<td>Arequipa Fullday</td>
-                                			<td>Agencia Arequipa Travel</td>
-                                			<td>
-                                				<div class="onoffswitch">
-												    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-												    <label class="onoffswitch-label" for="myonoffswitch">
-												        <span class="onoffswitch-inner"></span>
-												        <span class="onoffswitch-switch"></span>
-												    </label>
-												</div>
-                                			</td>
-                                			<td>
-                                				<a class="btn btn-warning" href="" aria-label="Delete">
-  													<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Editar
-												</a>
-                                			</td>
-                                		</tr>
-                                		
-                                		
-                                		<tr>
-                                			<td>Arequipa Fullday</td>
-                                			<td>Agencia Arequipa Travel</td>
-                                			<td>
-                                				<div class="onoffswitch">
-												    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-												    <label class="onoffswitch-label" for="myonoffswitch">
-												        <span class="onoffswitch-inner"></span>
-												        <span class="onoffswitch-switch"></span>
-												    </label>
-												</div>
-                                			</td>
-                                			<td>
-                                				<a class="btn btn-warning" href="" aria-label="Delete">
-  													<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Editar
-												</a>
-                                			</td>
-                                		</tr>
-                                		
-                                		<tr>
-                                			<td>Arequipa Fullday</td>
-                                			<td>Agencia Arequipa Travel</td>
-                                			<td>
-                                				<div class="onoffswitch">
-												    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-												    <label class="onoffswitch-label" for="myonoffswitch">
-												        <span class="onoffswitch-inner"></span>
-												        <span class="onoffswitch-switch"></span>
-												    </label>
-												</div>
-                                			</td>
-                                			<td>
-                                				<a class="btn btn-warning" href="" aria-label="Delete">
-  													<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Editar
-												</a>
-                                			</td>
-                                		</tr>
-                                		
-                                		
-                                		<tr>
-                                			<td>Arequipa Fullday</td>
-                                			<td>Agencia Arequipa Travel</td>
-                                			<td>
-                                				<div class="onoffswitch">
-												    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-												    <label class="onoffswitch-label" for="myonoffswitch">
-												        <span class="onoffswitch-inner"></span>
-												        <span class="onoffswitch-switch"></span>
-												    </label>
-												</div>
-                                			</td>
-                                			<td>
-                                				<a class="btn btn-warning" href="" aria-label="Delete">
-  													<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Editar
-												</a>
-                                			</td>
-                                		</tr>
-                                		
-                                		
-                                		<tr>
-                                			<td>Arequipa Fullday</td>
-                                			<td>Agencia Arequipa Travel</td>
-                                			<td>
-                                				<div class="onoffswitch">
-												    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-												    <label class="onoffswitch-label" for="myonoffswitch">
-												        <span class="onoffswitch-inner"></span>
-												        <span class="onoffswitch-switch"></span>
-												    </label>
-												</div>
-                                			</td>
-                                			<td>
-                                				<a class="btn btn-warning" href="" aria-label="Delete">
-  													<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Editar
-												</a>
-                                			</td>
-                                		</tr>
-                                		
-                                		
-                                		<tr>
-                                			<td>Arequipa Fullday</td>
-                                			<td>Agencia Arequipa Travel</td>
-                                			<td>
-                                				<div class="onoffswitch">
-												    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-												    <label class="onoffswitch-label" for="myonoffswitch">
-												        <span class="onoffswitch-inner"></span>
-												        <span class="onoffswitch-switch"></span>
-												    </label>
-												</div>
-                                			</td>
-                                			<td>
-                                				<a class="btn btn-warning" href="" aria-label="Delete">
-  													<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Editar
-												</a>
-                                			</td>
-                                		</tr>
-                                		
-                                		
-                                		<tr>
-                                			<td>Arequipa Fullday</td>
-                                			<td>Agencia Arequipa Travel</td>
-                                			<td>
-                                				<div class="onoffswitch">
-												    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-												    <label class="onoffswitch-label" for="myonoffswitch">
-												        <span class="onoffswitch-inner"></span>
-												        <span class="onoffswitch-switch"></span>
-												    </label>
-												</div>
-                                			</td>
-                                			<td>
-                                				<a class="btn btn-warning" href="" aria-label="Delete">
-  													<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Editar
-												</a>
-                                			</td>
-                                		</tr>
-                                		
-                                		<tr>
-                                			<td>Arequipa Fullday</td>
-                                			<td>Agencia Arequipa Travel</td>
-                                			<td>
-                                				<div class="onoffswitch">
-												    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-												    <label class="onoffswitch-label" for="myonoffswitch">
-												        <span class="onoffswitch-inner"></span>
-												        <span class="onoffswitch-switch"></span>
-												    </label>
-												</div>
-                                			</td>
-                                			<td>
-                                				<a class="btn btn-warning" href="" aria-label="Delete">
-  													<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Editar
-												</a>
-                                			</td>
-                                		</tr>
-                                		
-                                		
-                                		<tr>
-                                			<td>Arequipa Fullday</td>
-                                			<td>Agencia Arequipa Travel</td>
-                                			<td>
-                                				<div class="onoffswitch">
-												    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-												    <label class="onoffswitch-label" for="myonoffswitch">
-												        <span class="onoffswitch-inner"></span>
-												        <span class="onoffswitch-switch"></span>
-												    </label>
-												</div>
-                                			</td>
-                                			<td>
-                                				<a class="btn btn-warning" href="" aria-label="Delete">
-  													<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Editar
-												</a>
-                                			</td>
-                                		</tr>
-                                		
-                                		<tr>
-                                			<td>Arequipa Fullday</td>
-                                			<td>Agencia Arequipa Travel</td>
-                                			<td>
-                                				<div class="onoffswitch">
-												    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-												    <label class="onoffswitch-label" for="myonoffswitch">
-												        <span class="onoffswitch-inner"></span>
-												        <span class="onoffswitch-switch"></span>
-												    </label>
-												</div>
-                                			</td>
-                                			<td>
-                                				<a class="btn btn-warning" href="" aria-label="Delete">
-  													<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Editar
-												</a>
-                                			</td>
-                                		</tr>
-                                		
-                                		
-                                		<tr>
-                                			<td>Arequipa Fullday</td>
-                                			<td>Agencia Arequipa Travel</td>
-                                			<td>
-                                				<div class="onoffswitch">
-												    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-												    <label class="onoffswitch-label" for="myonoffswitch">
-												        <span class="onoffswitch-inner"></span>
-												        <span class="onoffswitch-switch"></span>
-												    </label>
-												</div>
-                                			</td>
-                                			<td>
-                                				<a class="btn btn-warning" href="" aria-label="Delete">
-  													<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Editar
-												</a>
-                                			</td>
-                                		</tr>
-                                		
-                                		
-                                		<tr>
-                                			<td>Arequipa Fullday</td>
-                                			<td>Agencia Arequipa Travel</td>
-                                			<td>
-                                				<div class="onoffswitch">
-												    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-												    <label class="onoffswitch-label" for="myonoffswitch">
-												        <span class="onoffswitch-inner"></span>
-												        <span class="onoffswitch-switch"></span>
-												    </label>
-												</div>
-                                			</td>
-                                			<td>
-                                				<a class="btn btn-warning" href="" aria-label="Delete">
-  													<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Editar
-												</a>
-                                			</td>
-                                		</tr>
-                                		
-                                		
-                                		<tr>
-                                			<td>Arequipa Fullday</td>
-                                			<td>Agencia Arequipa Travel</td>
-                                			<td>
-                                				<div class="onoffswitch">
-												    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-												    <label class="onoffswitch-label" for="myonoffswitch">
-												        <span class="onoffswitch-inner"></span>
-												        <span class="onoffswitch-switch"></span>
-												    </label>
-												</div>
-                                			</td>
-                                			<td>
-                                				<a class="btn btn-warning" href="" aria-label="Delete">
-  													<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Editar
-												</a>
-                                			</td>
-                                		</tr>
-                                		
-                                		
-                                		<tr>
-                                			<td>Arequipa Fullday</td>
-                                			<td>Agencia Arequipa Travel</td>
-                                			<td>
-                                				<div class="onoffswitch">
-												    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-												    <label class="onoffswitch-label" for="myonoffswitch">
-												        <span class="onoffswitch-inner"></span>
-												        <span class="onoffswitch-switch"></span>
-												    </label>
-												</div>
-                                			</td>
-                                			<td>
-                                				<a class="btn btn-warning" href="" aria-label="Delete">
-  													<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Editar
-												</a>
-                                			</td>
-                                		</tr>
-                                		
-                                		
-                                		<tr>
-                                			<td>Arequipa Fullday</td>
-                                			<td>Agencia Arequipa Travel</td>
-                                			<td>
-                                				<div class="onoffswitch">
-												    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-												    <label class="onoffswitch-label" for="myonoffswitch">
-												        <span class="onoffswitch-inner"></span>
-												        <span class="onoffswitch-switch"></span>
-												    </label>
-												</div>
-                                			</td>
-                                			<td>
-                                				<a class="btn btn-warning" href="" aria-label="Delete">
-  													<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Editar
-												</a>
-                                			</td>
-                                		</tr>
-                                		
-                                		
-                                		<tr>
-                                			<td>Arequipa Fullday</td>
-                                			<td>Agencia Arequipa Travel</td>
-                                			<td>
-                                				<div class="onoffswitch">
-												    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-												    <label class="onoffswitch-label" for="myonoffswitch">
-												        <span class="onoffswitch-inner"></span>
-												        <span class="onoffswitch-switch"></span>
-												    </label>
-												</div>
-                                			</td>
-                                			<td>
-                                				<a class="btn btn-warning" href="" aria-label="Delete">
-  													<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Editar
-												</a>
-                                			</td>
-                                		</tr>
                                 	</tbody>
                                 </table>
                                 
@@ -1071,6 +373,22 @@
 		</div>
     </div>
 </div>
+
+ <!-- Modal HTML -->
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <!-- Content will be loaded here from "remote.php" file -->
+            </div>
+        </div>
+    </div>
+    <div id="myModal2" class="modal fade">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content2">
+                <!-- Content will be loaded here from "remote.php" file -->
+            </div>
+        </div>
+    </div>
 <!--inner block end here-->
 
 

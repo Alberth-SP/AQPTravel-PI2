@@ -471,7 +471,7 @@ $(document).ready(function() {
 									Tur&iacute;sticas</a></li>
 
 							<!-- AGREGUEN ESTOOOOOOOOOOOOOOO -->
-							<li><a href="../admin/destinos">Sitios Tur&iacute;sticos</a></li>
+							<li><a href="../admin/destinos"> Tur&iacute;sticos</a></li>
 
 							<li><a href="#">Restaurar Informaci&oacute;n</a></li>
 						</ul></li>
