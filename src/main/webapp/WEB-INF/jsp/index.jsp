@@ -25,6 +25,11 @@
   <link href="<c:url value="/resources/css/style.css"/>" rel="stylesheet">
   <link href="<c:url value="/resources/css/bootstrap-datetimepicker.min.css"/>" rel="stylesheet">
   
+  <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
 	<header id="header">
@@ -193,123 +198,216 @@
 
         <div class="row" id="portfolio-wrapper">
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <a href="">
+            <div data-toggle="modal" data-target=".modal1">
               <img src="<c:url value="/resources/img/portfolio/aventura1.jpg"/>" alt="">
               <div class="details">
                 <h4>Paracas - $200</h4>
-                <a href="" class="link-mas">Detalles</a>
+                <div  class="link-mas">Detalles</div>
               </div>
-            </a>
+            </div>
           </div>
+<!-- Inicio Modal -->
 
+    <div class="portfolio-modal modal fade modal1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+               . 
+            <div class="modal-content">
+               
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl">
+                        </div>
+                    </div>
+                </div>
+                    <center><h2 class="letraCS">COLCA - Full day</h2></center><br>     
+                <div class="container">
+                  
+                  
+                  <!--Error-->
+                  
+                   <div class="row">
+               
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                 <p class="text-justify ">
+                 
+                                    <strong>itinerario</strong><br>
+                                    <strong>3:00</strong> Recogo de su hotel en Arequipa, se sale de la ciudad blanca tomando la carretera hacia el noreste que conduce por Yura carretera que va hacia PUNO-CUZCO, hasta el cruce de Patahuasi de ahi se va hacia la izquierda.<br>
+                                    <strong>6:30</strong> Llegamos a Chivay donde se tomará desayuno despues se continuara el viaje a lo largo del valle del Colca haciendo una parada en el poblado de Yanque para dobservar la danza del wititi.<br>
+                                    <strong>7:00-7:30</strong>Luego siguiendo el viaje hasta la cruz del condor, obejtivo principal del viaje donde usted tendrá una hora para poder disfrutar del maravilloso paisaje, la profondidad del Cañon del Colca uno de los mas profundos del Mundo, mientras se espera el majestuoso vuelo del condor.<br>
+                                    <strong>11:00</strong>  Seguidan,ente se retorna haciendo paradas en los miradores: Huayrapunco, Antawilque, Maca, piscina de aguas termales de Yanque<br>
+                                    <strong>13:00</strong> Almuerzo buffet en un restaurante turistico en Chivay, despues del alumerzo retorno a la ciudad de Arequipa haciendo paradas:
+                                    en el mirador de los volcanes parte mas alta de la ruta 4,910 m.s.n.m, Reserva Nacional de Salinas y aguada blanca, donde usted verá los caméllidos SudAmericanos: Llama, Alpaca y Vicuñas.<br>
+                                    <strong>5:30</strong> Arrivamos a la ciudad de Arequipa                                                
+
+                                    </p>
+                                  <center>
+                                    <div class="alert alert-info text-left">
+                                      <strong>Incluye</strong> <br>
+                                      <span class="glyphicon glyphicon-road"></span>  Transporte<br>
+                                      <span class="glyphicon glyphicon-home"></span>  Hotel<br>
+                                      <span class="glyphicon glyphicon-cutlery"></span>  Desayuno<br>
+                                      <span class="glyphicon glyphicon-bitcoin"></span>  Guia Bilingue(Español-Inglés)<br>
+
+                                    </div>
+                                       <div class="alert alert-warning text-left">
+                                      <strong>No Incluye</strong> <br>
+                                     <span class="glyphicon glyphicon-list-alt"></span>  Ticket Turístico<br>
+                                      <span class="glyphicon glyphicon-cutlery"></span>  Almuerzo<br>
+                                    <span class="glyphicon glyphicon-ok"></span>  Entrada a las piscinas termales<br>
+
+                                    </div><br>
+                                           <!--button type="button" class="btn btn-primary btn-md">Comprar</button>
+                                            <button  type="button" class="btn btn-primary btn-md" >Reservar</button-->
+                                                               
+                                                <!---Stripe--->
+                           <center>   <form action="/your-server-side-code" method="POST">
+                                  <script
+                                    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                    data-key="pk_test_5MYbqVS9s3IdfhxryW8HFL29"
+                                    data-amount="999"
+                                    data-name="AqpTravel"
+                                    data-description="Oferton"
+                                    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                                    data-locale="auto"
+                                    data-zip-code="true"
+                                    data-currency="dol">
+                                  </script>
+                                </form>
+                             </center>   
+                                <!--  Fni Stripe-->
+                                   
+
+                             </div>
+                                            <br>
+                                           <br>
+                                           <br>
+                                       <!--Contenido de publicidad -->
+                                       
+                                        <!--fin de publicidad-->
+                                    </div>
+                  <!--fin Error-->
+                </div>
+
+
+<br>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Regresar</button>
+                            
+                                
+
+                            </div>
+                        </div>
+                    </div>  
+
+<!-- Fin Modal -->
           <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <a href="">
+            <div data-toggle="modal" data-target=".modal1">
               <img src="<c:url value="/resources/img/portfolio/naturaleza2.jpg"/>" alt="">
               <div class="details">
                 <h4>Titicaca - $230</h4>
-                <a href="" class="link-mas">Detalles</a>
+                <div data-toggle="modal" data-target=".modal1" class="link-mas">Detalles</div>
               </div>
-            </a>
+            </div>
           </div>
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <a href="">
+             <div data-toggle="modal" data-target=".modal1">
               <img src="<c:url value="/resources/img/portfolio/aventura3.jpg"/>" alt="">
               <div class="details">
                 <h4>Ayacucho - $170</h4>
-                <a href="" class="link-mas">Detalles</a>
+                <div data-toggle="modal" data-target=".modal1" class="link-mas">Detalles</div>
               </div>
-            </a>
+            </div>
           </div>
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <a href="">
+           <div data-toggle="modal" data-target=".modal1">
               <img src="<c:url value="/resources/img/portfolio/cultura1.jpg"/>" alt="">
               <div class="details">
                 <h4>Lambayeque - $250</h4>
-                <a href="" class="link-mas">Detalles</a>
+                <div data-toggle="modal" data-target=".modal1" class="link-mas">Detalles</div>
               </div>
-            </a>
+            </div>
           </div>
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <a href="">
+            <div data-toggle="modal" data-target=".modal1">
               <img src="<c:url value="/resources/img/portfolio/cultura2.jpg"/>" alt="">
               <div class="details">
                 <h4>Arequipa - $175</h4>
-                <a href="" class="link-mas">Detalles</a>
+               <div data-toggle="modal" data-target=".modal1" class="link-mas">Detalles</div>
               </div>
-            </a>
+            </div>
           </div>
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <a href="">
+            <div data-toggle="modal" data-target=".modal1">
               <img src="<c:url value="/resources/img/portfolio/naturaleza3.jpg"/>" alt="">
               <div class="details">
                 <h4>Cañon Colca - $200</h4>
-                <a href="" class="link-mas">Detalles</a>
+               <div data-toggle="modal" data-target=".modal1" class="link-mas">Detalles</div>
               </div>
-            </a>
+            </div>
           </div>
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <a href="">
+             <div data-toggle="modal" data-target=".modal1">
               <img src="<c:url value="/resources/img/portfolio/cultura3.jpg"/>" alt="">
               <div class="details">
                 <h4>Cusco - $250</h4>
-                <a href="" class="link-mas">Detalles</a>
+               <div data-toggle="modal" data-target=".modal1" class="link-mas">Detalles</div>
               </div>
-            </a>
+            </div>
           </div>
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <a href="">
+             <div data-toggle="modal" data-target=".modal1">
               <img src="<c:url value="/resources/img/portfolio/aventura2.jpg"/>" alt="">
               <div class="details">
                 <h4>Piura - $300</h4>
-                <a href="" class="link-mas">Detalles</a>
+                <div data-toggle="modal" data-target=".modal1" class="link-mas">Detalles</div>
               </div>
-            </a>
+            </div>
           </div>
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-logo">
-            <a href="">
+            <div data-toggle="modal" data-target=".modal1">
               <img src="<c:url value="/resources/img/portfolio/relax1.jpg"/>" alt="">
               <div class="details">
                 <h4>Mancora - $450</h4>
-                <a href="" class="link-mas">Detalles</a>
+                <div data-toggle="modal" data-target=".modal1" class="link-mas">Detalles</div>
               </div>
-            </a>
+            </div>
           </div>
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-logo">
-            <a href="">
+           <div data-toggle="modal" data-target=".modal1">
               <img src="<c:url value="/resources/img/portfolio/relax3.jpg"/>" alt="">
               <div class="details">
                 <h4>Cañete - $250</h4>
-                <a href="" class="link-mas">Detalles</a>
+              <div data-toggle="modal" data-target=".modal1" class="link-mas">Detalles</div>
               </div>
-            </a>
+            </div>
           </div>
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <a href="">
+            <div data-toggle="modal" data-target=".modal1">
               <img src="<c:url value="/resources/img/portfolio/naturaleza1.jpg"/>" alt="">
               <div class="details">
                 <h4>Manu - $350</h4>
-                <a href="" class="link-mas">Detalles</a>
+           <div data-toggle="modal" data-target=".modal1" class="link-mas">Detalles</div>
               </div>
-            </a>
+            </div>
           </div>
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-logo">
-            <a href="">
+            <div data-toggle="modal" data-target=".modal1">
               <img src="<c:url value="/resources/img/portfolio/relax2.jpg"/>" alt="">
               <div class="details">
                 <h4>Tambopata - $275</h4>
-                <a href="" class="link-mas">Detalles</a>
+             <div data-toggle="modal" data-target=".modal1" class="link-mas">Detalles</div>
               </div>
-            </a>
+            </div>
           </div>
 
         </div>
