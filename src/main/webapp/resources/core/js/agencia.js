@@ -1,5 +1,20 @@
 function addAgencia(){	
 	
+	if($('#nombreAgencia').val().length == 0){
+		alert("Ingrese nombre de agencia");
+		return;
+	}
+	
+	if($('#emailAgencia').val().length == 0){
+		alert("debe ingresar un email");
+		return;
+	}
+	
+	if($('#telefonoAgencia').val()!= "" > 0 && isNaN($('#telefonoAgencia').val())){
+		alert("debe ingresar un numero telefonico");
+		return;
+	}
+	
 var url = "agencia/saveAgencia";
 	
 	$.ajax({
@@ -18,7 +33,7 @@ var url = "agencia/saveAgencia";
 
 		},
 		error: function(){
-			alert('Ingrese email');
+			alert('Error!!');
 		}
 	});
 	

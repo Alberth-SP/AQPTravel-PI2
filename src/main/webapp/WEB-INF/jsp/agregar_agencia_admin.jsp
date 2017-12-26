@@ -228,7 +228,7 @@
                                                 <div class="col-md-9">                                            
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                                        <input type="text" class="form-control" name="nombreAgencia" />
+                                                        <input type="text" class="form-control" name="nombreAgencia" id="nombreAgencia"/>
                                                     </div>                                            
                                                     <span class="help-block">Ingrese el Nombre de la agencia</span>
                                                 </div>
@@ -297,7 +297,7 @@
                                                 <div class="col-md-9">                                            
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                                        <input type="text" class="form-control" name="telefonoAgencia" />
+                                                        <input type="text" class="form-control" name="telefonoAgencia" id="telefonoAgencia"/>
                                                     </div>                                            
                                                     <span class="help-block">Ingrese el telefono de la agencia</span>
                                                 </div>
