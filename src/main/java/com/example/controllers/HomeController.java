@@ -91,7 +91,6 @@ public class HomeController {
 		model.setViewName("mispaquetes");
 		return model;
 	}
-
 	/*Request for filter packet in query */
 	@RequestMapping(value="searchFilterPaquet", method=RequestMethod.POST)
 	@ResponseBody 
@@ -158,29 +157,24 @@ public class HomeController {
 						+ "style='padding: 12px 10px 10px 0px; margin: 10px 0px;"
 						+ " background: white; border: 1px solid; box-shadow: 5px 8px 8px #888888;'>"
 						+ "<div class='col-lg-6 resultados-item filter-app'>"
-						+ "	<a href=''> <img src='admin/imageController/"+onePaquet.getIdPaquete()+"'	alt='imagen'>"
+						+ "	<a href=''> <img src='admin/imageController/"+onePaquet.getIdPaquete()+"'	alt='gsaga'>"
 						+ "<div class='details'>"
-						+ "<h4>"+onePaquet.getDestinoPaquete()+" - S/."+onePaquet.getPrecioPaquete()+"</h4>"
+						+ "<h4>PARACAS - $200</h4>"
 						+ "<a href='' class='link-mas'>Detalles</a>"
 						+ "</div>"
 						+ "</a> </div>"
 						+ "	<div class='col-lg-6 '>"
 						+ "<a href=''>"
-						+ "<h3 style='font-weight: bold; color: black;'>"+onePaquet.getNombrePaquete()+"</h3></a><span>";
+						+ "<h4 style='font-weight: bold; color: black;'>"+onePaquet.getNombrePaquete()+"</h4></a><span>";
 				        
 				         for(int i=0;i<onePaquet.getValoracionPaquete();i++)
 				        	listContent += " <i class='fa fa-star' aria-hidden='true' style='color: #f48f00;'> </i>";
 				        	
 						
-				         listContent +=  "<br></span>"
-						+ "<span> <p style='margin-bottom:4px;font-size: 14px;font-weight: bold;'>Agencia: "+onePaquet.getDescripcionPaquete()+"</span><br>"
-						+ "<pspan style='margin-bottom:4px; font-size: 14px;font-weight: bold;'>Capacidad: "+onePaquet.getCapacidadPaquete() +" personas.</span><br>"
-						+ "<span style='margin-bottom:8px; font-size: 14px;font-weight: bold;'>Actividad: "+onePaquet.getTipoPaquete()+"</span><br></span>";				        
-				         
-				         if(onePaquet.getOfertaPaquete() == '1'){
-				        	 listContent +=  "<p> <button type='button' class='btn btn-danger'>En Oferta</button> </p>";
-				         }
-				         listContent += "</div></div>";
+				         listContent +=  "</span>"
+						+ "<p style='font-size: 14px;'>Agencia: "+onePaquet.getDescripcionPaquete()+"</p>"
+						+ "<p style='font-size: 14px;'>Capacidad: "+onePaquet.getCapacidadPaquete() +" personas.</p>"
+						+ "<p style='font-size: 14px;'>Actividad: "+onePaquet.getTipoPaquete()+"</p></div></div>";
 			}
 
 			res.add("true");
@@ -226,7 +220,4 @@ public class HomeController {
 		return temp;
 		
 	}
-
-
-
 }

@@ -1,5 +1,22 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> master
 Built-By: davidecuz
 Build-Jdk: 1.8.0_151
+<<<<<<< HEAD
+=======
+=======
+Built-By: alberth
+Build-Jdk: 1.8.0_144
+>>>>>>> 8b62ce5435ff67ff9a00fa77ec442341682ff2a9
+=======
+Built-By: dschp
+Build-Jdk: 1.8.0_151
+>>>>>>> 1d1859e2b48959f05a17a974ec7ea39d4ba0af74
+>>>>>>> master
 Created-By: Maven Integration for Eclipse
 

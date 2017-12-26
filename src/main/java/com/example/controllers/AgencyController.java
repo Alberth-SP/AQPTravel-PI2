@@ -177,22 +177,19 @@ public class AgencyController {
 		a.setEmail(params.getFirst("emailAgencia"));
 		a.setUbigeo(params.getFirst("ubigeoAgencia"));
 		a.setDirecction(params.getFirst("direccionAgencia"));
-		a.setRate(Integer.parseInt(params.getFirst("valoracionAgencia")));
+		a.setRate(0);
 		a.setDescription(params.getFirst("descripcionAgencia"));
 		a.setPhone(params.getFirst("telefonoAgencia"));
-		a.setDayMod(Integer.parseInt(params.getFirst("fechaAgencia").substring(8, 10)));
-		a.setMonthMod(Integer.parseInt(params.getFirst("fechaAgencia").substring(5, 7)));
-		a.setYearMod(Integer.parseInt(params.getFirst("fechaAgencia").substring(0, 4)));
-		a.setCodAdmin(Integer.parseInt(params.getFirst("adminAgencia")));
+		a.setDayMod(0);
+		a.setMonthMod(0);
+		a.setYearMod(0);
+		a.setCodAdmin(1);
+		a.setState('0');
 		a.setPassword(params.getFirst("passAgencia"));
-		a.setState(params.getFirst("estadoAgencia").charAt(0));
-	
-
-		
 		Agency agencia=new Agency(a);
 		agenciaDao.add(agencia);
 		
-		return "true";
+		return "Listo, espera el mensaje de confirmación gracias";
 	} 
 	
 	//admin/agencia/saveAgencia
