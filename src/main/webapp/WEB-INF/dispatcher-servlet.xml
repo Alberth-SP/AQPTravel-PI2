@@ -63,6 +63,10 @@
 		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
 	</bean>
 	
+	<bean id="rdao" class="com.example.dao.ReporteDao">
+		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
+	</bean>
+	
 	
 	
 

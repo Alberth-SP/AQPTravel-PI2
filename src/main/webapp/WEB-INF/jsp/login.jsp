@@ -36,9 +36,7 @@
 		});
 
 	});
-	
 </script>
-
 </head>
 <body>
 <body>
@@ -66,12 +64,12 @@
 									<div class="form-group">
 										<input name="username" id="correo" tabindex="1"
 											class="form-control" placeholder="Correo" value=""
-											type="text" required>
+											type="text">
 									</div>
 									<div class="form-group">
 										<input name="password" id="contrasena" 
 											tabindex="2" class="form-control" placeholder="Password"
-											type="password"required>
+											type="password">
 									</div>
 									<div class="form-group">
 										<div class="row">
@@ -84,36 +82,34 @@
 									</div>
 
 								</form>
-								<form id="register-form" role="form" style="display: none;" action="customer/save" method="POST">
+								<form id="register-form"
+									action="https://phpoll.com/register/process" method="post"
+									role="form" style="display: none;">
 									<div class="form-group">
-										<input name="nombre" id="nombre" tabindex="1"
-											class="form-control" placeholder="Nombre" value=""
-											type="text" required>
-									</div>
-									<div class="form-group">
-										<input name="apellido" id="apellido" tabindex="1"
-											class="form-control" placeholder="Apellido" value=""
-											type="text" required>
+										<input name="username" id="username" tabindex="1"
+											class="form-control" placeholder="Username" value=""
+											type="text">
 									</div>
 									<div class="form-group">
 										<input name="email" id="email" tabindex="1"
-											class="form-control" placeholder="Correo" value=""
-											type="email" required>
+											class="form-control" placeholder="Email Address" value=""
+											type="email">
 									</div>
 									<div class="form-group">
 										<input name="password" id="password" tabindex="2"
-											class="form-control" placeholder="Password" type="password" required>
+											class="form-control" placeholder="Password" type="password">
 									</div>
 									<div class="form-group">
-										<input name="telefono" id="telefono" tabindex="2"
-											class="form-control" placeholder="Telefono" type="text" onkeypress="return numeros(event)" required >
+										<input name="confirm-password" id="confirm-password"
+											tabindex="2" class="form-control"
+											placeholder="Confirm Password" type="password">
 									</div>
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
 												<input name="register-submit" id="register-submit"
 													tabindex="4" class="form-control btn btn-register"
-													value="Registrarse" type="button" onClick="addCliente()">
+													value="Register Now" type="submit">
 											</div>
 										</div>
 									</div>
@@ -127,7 +123,6 @@
 	</div>
 
 
-<script src="<c:url value="/resources/js/cliente.js" />"></script>
-<script src="<c:url value="/resources/js/jquery.min.js" />"></script>
+
 </body>
 </html>
