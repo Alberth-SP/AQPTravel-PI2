@@ -104,12 +104,21 @@ public class PaquetController {
 		paquete.setMesModPaquete(Integer.parseInt(request.getParameter("mes")));
 		paquete.setDiaModPaquete(Integer.parseInt(request.getParameter("dia")));
 		
-		System.out.println("capa: "+paquete.getCapacidadPaquete());
+		System.out.println("size: "+paquete.getDescripcionPaquete().length()+" - "
+				+ paquete.getItinerario().length() +" - "+ paquete.getServicios().length() +" - " +paquete.getRecomendaciones().length());
 		int idReg = paquetDao.addPaquete(paquete);	
 		
 		if(idReg > 0){
-			if(image1 != null) paquetDao.addFotoPaquete(new FotosPaquete(idReg, image1.getOriginalFilename(), image1.getBytes()));
-			if(image2 != null) paquetDao.addFotoPaquete(new FotosPaquete(idReg, image2.getOriginalFilename(), image2.getBytes()));
+			if(image1 != null){
+				String namePhoto = image1.getOriginalFilename();
+				if(namePhoto.length() > 32) namePhoto = namePhoto.substring(0, 32);
+				paquetDao.addFotoPaquete(new FotosPaquete(idReg, namePhoto, image1.getBytes()));
+			}
+			if(image2 != null){
+				String namePhoto = image2.getOriginalFilename();
+				if(namePhoto.length() > 32) namePhoto = namePhoto.substring(0, 32);
+				paquetDao.addFotoPaquete(new FotosPaquete(idReg,namePhoto, image2.getBytes()));
+			}
 			if(paquete.getDestinoPaquete().length() > 0){
 				
 				
@@ -159,7 +168,8 @@ public class PaquetController {
 	@RequestMapping(value = "admin/imageController/{imageId}")
 	@ResponseBody
 	public byte[] getImage(@PathVariable int imageId)  {
-		List<FotosPaquete> fotos = paquetDao.getImagePaquete(imageId); 		
+		List<FotosPaquete> fotos = paquetDao.getImagePaquete(imageId);	
+		
 		return fotos.get(0).getImagenFoto();
 	}
 	

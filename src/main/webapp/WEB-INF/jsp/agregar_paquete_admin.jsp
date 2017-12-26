@@ -238,7 +238,7 @@
                                                 <div class="col-md-9">                                            
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                                        <input type="text" class="form-control" name="nombrePaquete" />
+                                                        <input type="text" class="form-control" name="nombrePaquete" id="nombrePaquete"  maxlength="70" required/>
                                                     </div>                                            
                                                     <span class="help-block">Ingrese el Nombre del Paquete a Agregar</span>
                                                 </div>
@@ -268,7 +268,7 @@
                                                 <div class="col-md-9">                                            
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                        <input type="text" class="form-control" name="duracionPaquete" id="duracionPaquete" readonly />
+                                                        <input type="text" class="form-control" placeholder="--/--/--" name="duracionPaquete" id="duracionPaquete" readonly />
                                                     </div>                                            
                                                     <span class="help-block">Ingrese la duraci&oacute;n del Paquete a Agregar</span>
                                                 </div>
@@ -327,7 +327,7 @@
 															title="Choose one of the following...">
 														
 															
-														</select> <span class="help-block">Seleccione llos destinosturisticos del paquete</span>
+														</select> <span class="help-block">Seleccione los destinosturisticos del paquete</span>
 													
 													</div>
 												</div>
@@ -342,7 +342,7 @@
                                                 <div class="col-md-9">
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><span class="fa  fa-usd"></span></span>
-                                                        <input type="text" class="form-control" name="precioPaquete" maxlength="5" pattern="+[1-9]*[0-9]{3}\\+.*[0.9]{2}">                                            
+                                                        <input type="text" id="precioPaquete" class="form-control" name="precioPaquete" maxlength="5" pattern="+[1-9]*[0-9]{3}\\+.*[0.9]{2}">                                            
                                                     </div>
                                                     <span class="help-block">Ingrese precio sin Descuentos</span>
                                                 </div>
@@ -354,7 +354,7 @@
                                                 <div class="col-md-9">
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><span class="fa  fa-usd"></span></span>
-                                                        <input type="text" name="precioOferta" class="form-control"  maxlength="5" pattern="+[1-9]*[0-9]{3}\\+.*[0.9]{2}">                                            
+                                                        <input type="text" name="precioOferta" id="precioOferta" class="form-control"  maxlength="5" pattern="+[1-9]*[0-9]{3}\\+.*[0.9]{2}">                                            
                                                     </div>
                                                     <span class="help-block">Ingrese precio para Decuentos</span>
                                                 </div>
@@ -365,7 +365,7 @@
                                                 <div class="col-md-9">
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><span class="fa fa-refresh"></span></span>
-                                                        <input type="text" class="form-control" name="stockPaquete" maxlength="5" pattern="[0-9]">                                            
+                                                        <input type="text" class="form-control" id="stockPaquete" name="stockPaquete" maxlength="5" pattern="[0-9]">                                            
                                                     </div>
                                                     <span class="help-block">Ingrese Stock actual del Paquete</span>
                                                 </div>
@@ -392,7 +392,7 @@
                                                 <div class="col-md-9">                                            
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                        <input type="text" class="form-control" name="duracionOfertaPaquete" id="duracionOfertaPaquete" readonly />
+                                                        <input type="text" class="form-control" placeholder="--/--/--" name="duracionOfertaPaquete" id="duracionOfertaPaquete" readonly />
                                                     </div>                                            
                                                     <span class="help-block">Ingrese la duraci&oacute;n de la Oferta del Paquete</span>
                                                 </div>
@@ -408,7 +408,7 @@
 	                    		<div class="form-group">
 	                            	<label class="col-md-3 control-label">Descripción del Paquete</label>
 	                              	<div class="col-md-9 col-xs-12">                                            
-	                                	<textarea class="form-control" rows="6" name="descripcionPaquete"></textarea>
+	                                	<textarea class="form-control" rows="6" name="descripcionPaquete" maxlength="65530"></textarea>
 	                                    <span class="help-block">Ingrese la descripción detallada del Paquete</span>
 	                              	</div>
 	                          	</div>
@@ -416,7 +416,7 @@
 	                          	<div class="form-group">
 	                            	<label class="col-md-3 control-label">Itinerario del Paquete</label>
 	                              	<div class="col-md-9 col-xs-12">                                            
-	                                	<textarea class="form-control" rows="10" name="itinerarioPaquete"></textarea>
+	                                	<textarea class="form-control" rows="10" name="itinerarioPaquete" maxlength="220"></textarea>
 	                                    <span class="help-block">Ingrese el itinerario del Paquete</span>
 	                              	</div>
 	                          	</div>
@@ -424,7 +424,7 @@
 	                          	<div class="form-group">
 	                            	<label class="col-md-3 control-label">Recomendaciones del Paquete</label>
 	                              	<div class="col-md-9 col-xs-12">                                            
-	                                	<textarea class="form-control" rows="6" name="recomendacionesPaquete"></textarea>
+	                                	<textarea class="form-control" rows="6" name="recomendacionesPaquete" maxlength="220"></textarea>
 	                                    <span class="help-block">Ingrese las recomendaciones del Paquete</span>
 	                              	</div>
 	                          	</div>
@@ -432,7 +432,7 @@
 	                          	<div class="form-group">
 	                            	<label class="col-md-3 control-label" >Servicios incluidos en el Paquete</label>
 	                              	<div class="col-md-9 col-xs-12">                                            
-	                                	<textarea class="form-control" rows="6" name="serviciosPaquete"></textarea>
+	                                	<textarea class="form-control" rows="6" name="serviciosPaquete" maxlength="220"> </textarea>
 	                                    <span class="help-block">Ingrese los servicios incluidos en el Paquete</span>
 	                              	</div>
 	                          	</div>
