@@ -1,27 +1,56 @@
 package com.example.logic;
 
+import com.example.logic.Agency.BuildAgency;
+import com.example.logic.Destiny.BuildDestiny;
+
 public class Destiny {
 	
 	private int idDestino;
 	private int idPaquete;
 	private String nombreDestino;
-	private char estadoDestino;
+	private int estadoDestino;
 	
+	public static class BuildDestiny implements Builder<Destiny>{
+		
+		//Required parameters 
+		//private final String nombreDestino;
+		
+		//Parameters initialized 
+		private int idDestino=0;
+		private String nombreDestino="";
+		private int estadoDestino=0;
 	
+		public BuildDestiny(String nombreDestino) {
+			this.nombreDestino=nombreDestino;
+		}
+		public Destiny build() {
+			return new Destiny(this);
+		}
+		public BuildDestiny setIdDestino(int idDestino) {
+			this.idDestino = idDestino;
+			return this;
+		}
+		public BuildDestiny setEstadoDestino(int estadoDestino) {
+			this.estadoDestino = estadoDestino;
+			return this;
+		}
+		public BuildDestiny setNombreDestino(String nombreDestino) {
+			this.nombreDestino = nombreDestino;
+			return this;
+		}
+	}
 	
 	public Destiny() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Destiny(int idDestino, int idPaquete, String nombreDestino, char estadoDestino) {
+	public Destiny(BuildDestiny build) {
 		super();
-		this.idDestino = idDestino;
-		this.idPaquete = idPaquete;
-		this.nombreDestino = nombreDestino;
-		this.estadoDestino = estadoDestino;
+		this.idDestino = build.idDestino;
+		this.nombreDestino = build.nombreDestino;
+		this.estadoDestino = build.estadoDestino;
 	}
-	
-	
+
 	public int getIdDestino() {
 		return idDestino;
 	}
@@ -40,10 +69,10 @@ public class Destiny {
 	public void setNombreDestino(String nombreDestino) {
 		this.nombreDestino = nombreDestino;
 	}
-	public char getEstadoDestino() {
+	public int getEstadoDestino() {
 		return estadoDestino;
 	}
-	public void setEstadoDestino(char estadoDestino) {
+	public void setEstadoDestino(int estadoDestino) {
 		this.estadoDestino = estadoDestino;
 	}
 	

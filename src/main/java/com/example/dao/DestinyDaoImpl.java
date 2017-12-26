@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
 import com.example.logic.Admin;
+import com.example.logic.Agency;
 import com.example.logic.Destiny;
 
 public class DestinyDaoImpl implements DestinyDao {
@@ -21,7 +22,7 @@ public class DestinyDaoImpl implements DestinyDao {
 
 
 		// TODO Auto-generated method stub		
-		String sql = "SELECT idDestino, nombreDestino FROM destino";
+		String sql = "SELECT idDestino, nombreDestino, estadoDestino FROM destino";
 
 		List<Destiny> listDestiny = jdbcTemplate.query(sql, new RowMapper<Destiny>() {
 
@@ -33,6 +34,7 @@ public class DestinyDaoImpl implements DestinyDao {
 
 				aDestiny.setIdDestino(rs.getInt("idDestino"));
 				aDestiny.setNombreDestino(rs.getString("nombreDestino"));
+				aDestiny.setEstadoDestino(rs.getInt("estadoDestino"));
 				return aDestiny;
 			}
 
@@ -44,14 +46,19 @@ public class DestinyDaoImpl implements DestinyDao {
 
 	@Override
 	public void addDestiny(Destiny destiny) {
-		// TODO Auto-generated method stub
+
+		String sql = "INSERT INTO destino(nombreDestino,estadoDestino) values (?, ?)";
+
+		jdbcTemplate.update(sql,destiny.getNombreDestino(),	destiny.getEstadoDestino());	
+		
 
 	}
 
 	@Override
 	public void updateDestiny(Destiny destiny) {
-		// TODO Auto-generated method stub
-
+		String sql = "UPDATE destino SET nombreDestino = '" + destiny.getNombreDestino()
+		+ "' WHERE idDestino = "+ destiny.getIdDestino();
+		jdbcTemplate.update(sql);
 	}
 
 	@Override
@@ -62,13 +69,31 @@ public class DestinyDaoImpl implements DestinyDao {
 
 	@Override
 	public Destiny findDestinyById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "SELECT * FROM destino WHERE idDestino = " + id;
+		List<Destiny> listContact = jdbcTemplate.query(sql, new RowMapper<Destiny>() {
+
+
+			public Destiny mapRow(ResultSet rs, int rowNum) throws SQLException {
+				// TODO Auto-generated method stub
+
+				Destiny aContact = new Destiny.BuildDestiny(rs.getString("nombreDestino"))
+						.setEstadoDestino(rs.getString("estadoDestino").charAt(0))
+						.build();
+				aContact.setIdDestino(rs.getInt("idDestino"));		
+				return aContact;
+			}
+
+		});		 
+
+		return listContact.get(0);
 	}
 
 	@Override
-	public void changeStateDestiny(int id, char state) {
-		// TODO Auto-generated method stub
+	public void changeStateDestiny(int id, int state) {
+		Destiny ag=findDestinyById(id);
+		String sql = "UPDATE destino SET estadoDestino = '" + state 
+				+ "' WHERE idDestino = "+ id +"";
+				jdbcTemplate.update(sql);
 
 	}
 	

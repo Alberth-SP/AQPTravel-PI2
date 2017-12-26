@@ -440,7 +440,7 @@
             <div class="form">
               <div id="sendmessage">Mensaje Enviado</div>
               <div id="errormessage"></div>
-              <form action="" method="post" role="form" class="contactForm">
+              <form method="POST" action="http://formspree.io/darwinqsot@gmail.com" id="my-formContacto" >
                 <div class="form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Nombre" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                   <div class="validation"></div>
@@ -466,9 +466,9 @@
 
       </div>
     </section><!-- #contact -->
+    
 
   </main>
-
   <!--==========================
     Footer
   ============================-->
@@ -516,6 +516,8 @@
 
   <!-- Template Main Javascript File -->
   <script src="<c:url value="/resources/js/main.js"/>"></script>
+  <script src="<c:url value="/resources/js/enviar_correo.js"/>"></script>
+  <script src="<c:url value="/resources/js/form_object.js"/>"></script>
   <script type="text/javascript">
     $("#fecha_salidaI").datetimepicker({
         format: 'yyyy-mm-dd',
@@ -527,6 +529,14 @@
         minView: 2,
         autoclose: 1
     });
+    
+    $(function() {
+	    $('input[type=text]').on('keypress', function(e) {
+	        if (e.which == 32){
+	        	if($(this).val().length==0)return false;
+	        }	            
+	    });
+	});
   </script>
   
   <script src="<c:url value="/resources/js/filterIndex.js"/>"></script>

@@ -17,6 +17,6 @@ public interface DestinyDao {
 
 	public Destiny findDestinyById(int id);
 
-	public void changeStateDestiny(int id, char state);
+	public void changeStateDestiny(int id, int state);
 
 }
