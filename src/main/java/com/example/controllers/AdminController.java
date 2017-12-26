@@ -147,8 +147,8 @@ public class AdminController {
 		admin.setPassword(params.getFirst("contrasenaAdmin"));		
 		
 		adminDao.addAdmin(admin);
-		return "true";
-	} 	
+		return "Listo!, Gracias y Bienvenido";
+	} 		
 
 	/* Request para envio de pagina de Paquete */
 	@RequestMapping(value="admin/paquetes", method=RequestMethod.GET)

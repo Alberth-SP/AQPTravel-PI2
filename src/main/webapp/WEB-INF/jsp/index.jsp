@@ -42,7 +42,6 @@
           <li><a href="#portfolio">Destinos</a></li>
           <li><a href="#services">Actividades</a></li>
           <li><a href="#call-to-action">Ofertas</a></li>
-          <li><a href="mispaquetes">Mis Paquetes</a></li>
           <li><a href="#team">Nosotros</a></li>
           <li><a href="#contact">Contacto</a></li>
           <li><a href="login">Iniciar Sesión</a></li>
@@ -374,7 +373,17 @@
       </div>
     </section><!-- #services -->
 
-    
+    <!--==========================
+      Registro Agencias
+    ============================-->
+    <section id="services">
+      <div class="container wow fadeIn">
+        <div class="section-header">
+          <h3 class="section-title">Desea que su empresa aparezca en el sitio</h3>
+          <p class="section-description">Para el registro de su empresa puede seguir el siguiente <a href="admin/agregar_agencias">enlace</a> </p>
+        </div>
+      </div>
+    </section><!-- #services -->
 
     
     <!--==========================
