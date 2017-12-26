@@ -1125,6 +1125,7 @@ body.mobile-nav-active #mobile-nav-toggle {
  p .misTitulo{
   font-size: 8px;
 }
+
 .modal-header, .modal-header h4, .close {
 	 background-color:#333;
       color:white !important;
@@ -1138,11 +1139,12 @@ body.mobile-nav-active #mobile-nav-toggle {
   	margin:0.4em 0.4em;
   	font-size: 30px;
   }
+  /*
 .modal{
 	left:32%;
 	top:22%;
 	height:110%;
-}
+}*/
 .modal p a{
     color: red; 
 }
@@ -1157,6 +1159,10 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 .form-control {
     height: 50px;
+}
+.letraCS{
+    color: #fed136;
+    font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial, cursive;
 }
 
 /******************************************************/
