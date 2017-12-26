@@ -8,8 +8,8 @@ function addAdmin(){
 		data: $('#form_regUsuario').serialize(),      
 		success: function(result){
 			if(result){  
-
-				alert('sucess add Admin!' + result);                        
+				alert(result);
+				location.href = "index";
 			}
 			else{
 				alert('ocurrio algun ERROR, vuelva a intentarlo ');
@@ -18,6 +18,7 @@ function addAdmin(){
 		},
 		error: function(){
 			alert('Correo ya registrado!');
+			location.href = "index";
 		}
 	});
 }

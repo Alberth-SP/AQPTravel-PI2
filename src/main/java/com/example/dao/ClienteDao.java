@@ -59,13 +59,12 @@ public class ClienteDao implements InterfaceDao<Customer>{
 	public void add(Customer t) {
 		addUserForRole(t.getEmail(),t.getPassword());
 		addRole(t.getEmail());
-		String sql = "INSERT INTO cliente(nombreCliente, apellidoCliente, correoCliente, telefonoCliente, estadoCliente, contrasenaCliente) VALUES (?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO cliente(nombreCliente, apellidoCliente, correoCliente, telefonoCliente, contrasenaCliente) VALUES (?,?,?,?,?)";
 		jdbcTemplate.update(sql,
 				t.getName(),
 				t.getLastname(),
 				t.getEmail(),
 				t.getPhone(),
-				t.getState(),
 				t.getPassword()
 				);
 	}

@@ -162,4 +162,3 @@ function changeCheckBox2(id, check){
 	}
 	changeStatePaquete(id, state);		
 }
-
