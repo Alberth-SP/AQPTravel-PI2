@@ -219,7 +219,9 @@
                         </div>
                     </div>
                 </div>
-                    <center><h2 class="letraCS">COLCA - Full day</h2></center><br>     
+                  <br>
+                  <br>
+                    <center><h2 class="letraCS">Paracas</h2></center><br>     
                 <div class="container">
                   
                   
@@ -233,7 +235,7 @@
                  
                                     <strong>itinerario</strong><br>
                                     <strong>3:00</strong> Recogo de su hotel en Arequipa, se sale de la ciudad blanca tomando la carretera hacia el noreste que conduce por Yura carretera que va hacia PUNO-CUZCO, hasta el cruce de Patahuasi de ahi se va hacia la izquierda.<br>
-                                    <strong>6:30</strong> Llegamos a Chivay donde se tomará desayuno despues se continuara el viaje a lo largo del valle del Colca haciendo una parada en el poblado de Yanque para dobservar la danza del wititi.<br>
+                                    <strong>6:30</strong> Llegamos a Chivay donde se tomará desayuno despues se continuara el viaje a Paracas haciendo una parada en el poblado de Yanque para dobservar la danza del wititi.<br>
                                     <strong>7:00-7:30</strong>Luego siguiendo el viaje hasta la cruz del condor, obejtivo principal del viaje donde usted tendrá una hora para poder disfrutar del maravilloso paisaje, la profondidad del Cañon del Colca uno de los mas profundos del Mundo, mientras se espera el majestuoso vuelo del condor.<br>
                                     <strong>11:00</strong>  Seguidan,ente se retorna haciendo paradas en los miradores: Huayrapunco, Antawilque, Maca, piscina de aguas termales de Yanque<br>
                                     <strong>13:00</strong> Almuerzo buffet en un restaurante turistico en Chivay, despues del alumerzo retorno a la ciudad de Arequipa haciendo paradas:
@@ -242,32 +244,40 @@
 
                                     </p>
                                   <center>
+                                  <div class="row">
+                                  <div class="col-sm-6" >
                                     <div class="alert alert-info text-left">
                                       <strong>Incluye</strong> <br>
                                       <span class="glyphicon glyphicon-road"></span>  Transporte<br>
                                       <span class="glyphicon glyphicon-home"></span>  Hotel<br>
                                       <span class="glyphicon glyphicon-cutlery"></span>  Desayuno<br>
                                       <span class="glyphicon glyphicon-bitcoin"></span>  Guia Bilingue(Español-Inglés)<br>
-
+								</div>
+														
                                     </div>
+                                    <div class="col-sm-6" >	
                                        <div class="alert alert-warning text-left">
+
                                       <strong>No Incluye</strong> <br>
                                      <span class="glyphicon glyphicon-list-alt"></span>  Ticket Turístico<br>
                                       <span class="glyphicon glyphicon-cutlery"></span>  Almuerzo<br>
                                     <span class="glyphicon glyphicon-ok"></span>  Entrada a las piscinas termales<br>
 
                                     </div><br>
+                                  </div>
+                                   </div>
                                            <!--button type="button" class="btn btn-primary btn-md">Comprar</button>
                                             <button  type="button" class="btn btn-primary btn-md" >Reservar</button-->
                                                                
-                                                <!---Stripe--->
-                           <center>   <form action="/your-server-side-code" method="POST">
+                            <!---Stripe--->
+                           <center>  
+                            <form action="https://checkout.stripe.com/validation.js" method="POST">
                                   <script
                                     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                                     data-key="pk_test_5MYbqVS9s3IdfhxryW8HFL29"
                                     data-amount="999"
                                     data-name="AqpTravel"
-                                    data-description="Oferton"
+                                    data-description="Disfruta"
                                     data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
                                     data-locale="auto"
                                     data-zip-code="true"
@@ -275,7 +285,7 @@
                                   </script>
                                 </form>
                              </center>   
-                                <!--  Fni Stripe-->
+                           <!--  Fni Stripe-->
                                    
 
                              </div>
