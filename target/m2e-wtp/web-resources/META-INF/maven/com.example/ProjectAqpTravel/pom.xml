@@ -5,7 +5,7 @@
 	<artifactId>ProjectAqpTravel</artifactId>
 	<version>0.0.1</version>
 	<packaging>war</packaging>
-	<name>SpringMVC Maven Webapp</name>
+	<name>AqpTravel</name>
 	<url>http://maven.apache.org</url>
 
 	<dependencies>
@@ -101,7 +101,7 @@
 
 	</dependencies>
 	<build>
-		<finalName>SpringMVC4</finalName>
+		<finalName>AqpTravel</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

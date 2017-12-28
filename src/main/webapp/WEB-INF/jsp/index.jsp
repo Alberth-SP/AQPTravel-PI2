@@ -157,7 +157,7 @@
                  <div class="col-lg-5 background1"></div>
                  <div class="col-lg-7 acerca-de">
                    <h3 class="title">Nosotros</h3>
-                   <p><strong>PERUVIAJES</strong>, les da la bienvenida. Nuestra pasión por el turismo les asegurará una experiencia inolvidable y de gran calidad.</p>
+                   <p><strong>AQPTravel</strong>, les da la bienvenida. Nuestra pasión por el turismo les asegurará una experiencia inolvidable y de gran calidad.</p>
                  </div>
               </div>
 
@@ -415,7 +415,7 @@
 
               <div>
                 <i class="fa fa-envelope"></i>
-                <p>peruviajes@gmail.com</p>
+                <p>aqptravel@gmail.com</p>
               </div>
 
               <div>
