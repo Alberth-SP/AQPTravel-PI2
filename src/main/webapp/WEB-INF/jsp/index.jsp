@@ -479,7 +479,7 @@
 
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong>PeruViajes</strong>. All Rights Reserved
+        &copy; Copyright <strong>AQPTravel</strong>. All Rights Reserved
       </div>
       <div class="credits">
         <!--
@@ -488,7 +488,6 @@
           Licensing information: https://bootstrapmade.com/license/
           Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Regna
         -->
-        Epis Team<a href="https://bootstrapmade.com/">EPISUNSA</a>
       </div>
     </div>
   </footer><!-- #footer -->
