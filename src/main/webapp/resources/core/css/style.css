@@ -95,10 +95,12 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 997;
 }
 
-#header #logo {
+#header #logo #logo-p{
   float: left;
 }
-
+#logo-p{
+	color:#FFF;
+}
 #header #logo h1 {
   font-size: 42px;
   margin: 0;

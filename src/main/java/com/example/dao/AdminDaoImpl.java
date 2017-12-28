@@ -171,7 +171,6 @@ public class AdminDaoImpl implements AdminDao{
 				aContact.setEnable(rs.getInt("enable"));
 				return aContact;
 			}
-
 		});		 
 		return listContact.get(0);	
 	}

@@ -9,17 +9,20 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.dao.AdminDao;
+import com.example.dao.AgenciaDao;
 import com.example.dao.PaqueteDao;
 import com.example.logic.Admin;
 import com.example.logic.Agencia;
@@ -27,28 +30,33 @@ import com.example.logic.FotosPaquete;
 import com.example.logic.Paquete;
 
 @Controller
+@SessionAttributes("iduser")
 public class PaquetController {
 	
 	@Autowired
 	PaqueteDao paquetDao;
-	
+	@Autowired
+	AdminDao ad;
+	@Autowired
+	AgenciaDao ag;
 	
 	@RequestMapping(value="paquete/list_paquetes",  method=RequestMethod.POST, produces="text/html;charset=UTF-8")
 	@ResponseBody
-	public String listContact(ModelAndView model) throws IOException{
+	public String listContact(ModelAndView model,ModelMap mp) throws IOException{
 		
 		List<Paquete> listContact = paquetDao.listAllPaquetes();
 		
 		Agencia agencia = new Agencia();
-		
+		String c=(String) mp.get("iduser");
+		Integer val=ag.findByEmail(c).getIdAgency();
 		String response="";
 		int cont = 0;
 		for(Paquete paquet : listContact){
-			
+			if(paquet.getIdAgencia()==val)
 			response += "<tr>" +
 					"<td>" + (++cont) + "</td>" +
 					"<td>" + paquet.getNombrePaquete() + "</td>" +
-					"<td>" + agencia.getNombreAgencia() + "</td>" +
+					"<td>" + ag.findById(paquet.getIdAgencia()).getName() + "</td>" +
 					"<td>" + paquet.getDestinoPaquete() + "</td>";
 			
 			if(paquet.getEstadoPaquete() == '1'){
@@ -63,17 +71,14 @@ public class PaquetController {
 						+ "</td>";
 			}			
 			
-			response += "<td> <a class='btn btn-warning' href='editar_paquete_admin.html' aria-label='Delete'>"
-					+ "	<i class='fa fa-pencil' aria-hidden='true'></i>&nbsp;Editar	</a> </td></tr>";
-		}
-		
+		}	
 		return response; 
 	}
 	
 	
 	@RequestMapping(value="admin/paquete/savePaquete", method=RequestMethod.POST)
 	@ResponseBody 
-	public String savePaquete(MultipartHttpServletRequest request) throws IOException{    
+	public String savePaquete(MultipartHttpServletRequest request,ModelMap mp) throws IOException{    
 	
 		HashMap<String, String> data = new HashMap<>();
 		 
@@ -97,8 +102,9 @@ public class PaquetController {
 			
 		MultipartFile image1 = request.getFile("image1");
 		MultipartFile image2 = request.getFile("image2");	
-		
+		String c=(String) mp.get("iduser");
 		Paquete paquete = new Paquete(data);
+		paquete.setIdAgencia(ag.findByEmail(c).getIdAgency());
 
 		paquete.setAnioModPaquete(Integer.parseInt(request.getParameter("anio")));
 		paquete.setMesModPaquete(Integer.parseInt(request.getParameter("mes")));
@@ -129,7 +135,7 @@ public class PaquetController {
 			
 		
 		}		
-		return "true";
+		return "Paquete Guardado!";
 	} 	
 	
 	private List<Integer> obtainList(String streamList){

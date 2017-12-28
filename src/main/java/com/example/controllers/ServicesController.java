@@ -44,19 +44,18 @@ public class ServicesController {
 		{
 			modelp.put("iduser",adminDao.findUserByEmail(c).getCorreoUsuario());
 			if(adminDao.findRolByEmail(c).equals("ROLE_ADMIN")&& adminDao.findUserByEmail(c).getEnable()==1)
-				return "pagina_usuario_main";
-			else if(adminDao.findRolByEmail(c).equals("ROLE_AG"))
 				return "agencia_admin";
+			else if(adminDao.findRolByEmail(c).equals("ROLE_AG"))
+				return "paquete_admin";
 			else
 				return "pagina_usuario";
 		}
+		modelp.put("iduser", "empty");
 		return "noauto";
 	}
-	@RequestMapping(value = "welcome", method = RequestMethod.GET)
+	@RequestMapping(value = "logout", method = RequestMethod.GET)
 	public String showLoginPage(ModelMap model, String name) {
-		String iduser = (String) model.get("iduser");
-		if(adminDao.findRolByEmail(iduser).equals("ROLE_ADMIN"))
-			return "welcome";
-		return "noauto";
+		model.put("iduser", "empty");
+		return "index";
 	}
 }

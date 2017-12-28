@@ -75,12 +75,9 @@
               </center>
             </div>
 
-            <h2 id="nombre-usuario" class="text-center">Alberth-SP</h2>
-            <p id="mi-correo" class="text-center">alberth@gmail.com</p>
+            <h2 id="nombre-usuario" class="text-center">${iduser}</h2>
 
-            <center><button type="button" class="btn btn-warning btn-lg this-btn"  data-toggle="modal" data-target="#exampleModal">Información</button></center>
-
-           <center><button type="button" class="btn btn-outline-info btn-lg this-btn"  data-toggle="modal" data-target="#exampleModal2">Crear Paquete</button></center>
+            
 
 
 
@@ -475,7 +472,7 @@
 
               <div>
                 <i class="fa fa-envelope"></i>
-                <p>peruviajes@gmail.com</p>
+                <p>apqtravel@gmail.com</p>
               </div>
 
               <div>
@@ -539,7 +536,7 @@
 
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong>PeruViajes</strong>. All Rights Reserved
+        &copy; Copyright <strong>AQPTravel</strong>. All Rights Reserved
       </div>
       <div class="credits">
         <!--

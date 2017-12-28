@@ -44,7 +44,7 @@ $('#duracionOfertaPaquete').change(function() {
 
 function addPaquete(){	
 
-	var url = "paquete/savePaquete";
+	var url = "../admin/paquete/savePaquete";
 
 	if($('#nombrePaquete').val().length == 0){
 		alert("Debe poner un nombre al paquete");
@@ -161,4 +161,7 @@ function changeCheckBox2(id, check){
 		state="1";
 	}
 	changeStatePaquete(id, state);		
+}
+function regresar(){
+	window.location.replace("paquetes");
 }

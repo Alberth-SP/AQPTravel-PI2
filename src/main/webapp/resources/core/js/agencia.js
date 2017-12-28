@@ -80,3 +80,6 @@ function numeros(e){
 function regresar(){
 	window.location.replace("../index");
 }
+function recargar(){
+	window.location.replace("../admin/agencias");
+}

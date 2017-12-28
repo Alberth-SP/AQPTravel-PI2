@@ -15,7 +15,7 @@ public class Agency {
 	private final Integer dayMod;
 	private final Integer monthMod;
 	private final Integer yearMod;
-	private final Integer codAdmin; 
+	private Integer codAdmin; 
 	private final String password;
 	private char state;
 	
@@ -177,6 +177,9 @@ public class Agency {
 	}
 	public int getYearMod() {
 		return yearMod;
+	}
+	public void set(Integer v) {
+		this.codAdmin=v;
 	}
 	public Integer getCodAdmin() {
 		return codAdmin;

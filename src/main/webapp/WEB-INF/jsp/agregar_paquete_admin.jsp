@@ -79,109 +79,23 @@
 				<div class="header-main">
 					<div class="header-left">
 							<div class="logo-name">
-									 <a href="index_admin.html"> <h1>AqpTravel</h1> 
+									 <a href="index_admin.html"> <h1>AQPTravel</h1> 
 									<!--<img id="logo" src="" alt="Logo"/>--> 
 								  </a> 								
 							</div>
 							
 							<div class="clearfix"> </div>
 					</div>
-						 <div class="header-right">
-							<div class="profile_details_left"><!--notifications of menu start -->
-								<ul class="nofitications-dropdown">
-									<li class="dropdown head-dpdn">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-envelope fa-2x"></i><span class="badge">3</span></a>
-										<ul class="dropdown-menu">
-											<li>
-												<div class="notification_header">
-													<h3>Tienes (3) mensajes nuevos</h3>
-												</div>
-											</li>
-											<li><a href="#">
-											   <div class="user_img"><img src="<c:url value="/resources/images/p4.png" />" alt=""></div>
-											   <div class="notification_desc">
-												<p>Jalar de BD mensaje</p>
-												<p><span>Hace 1 hora</span></p>
-												</div>
-											   <div class="clearfix"></div>	
-											</a></li>
-											<li class="odd"><a href="#">
-												<div class="user_img"><img src="<c:url value="/resources/images/p2.png" />" alt=""></div>
-											   <div class="notification_desc">
-												<p>Jalar de BD mensaje</p>
-												<p><span>Hace 1 hora</span></p>
-												</div>
-											  <div class="clearfix"></div>	
-											</a></li>
-											<li><a href="#">
-											   <div class="user_img"><img src="<c:url value="/resources/images/p3.png" />" alt=""></div>
-											   <div class="notification_desc">
-												<p>Jalar de BD mensaje</p>
-												<p><span>Hace 2 horas</span></p>
-												</div>
-											   <div class="clearfix"></div>	
-											</a></li>
-											<li>
-												<div class="notification_bottom">
-													<a href="mensajes_admin.html">Ver Todos los mensajes</a>
-												</div> 
-											</li>
-										</ul>
-									</li>
-									<li class="dropdown head-dpdn">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-bell fa-2x"></i><span class="badge blue">3</span></a>
-										<ul class="dropdown-menu">
-											<li>
-												<div class="notification_header">
-													<h3>TÃº tienes (JalarBD) Paquetes agregados</h3>
-												</div>
-											</li>
-											<li><a href="#">
-												<div class="user_img"><img src="<c:url value="/resources/images/p5.png" />" alt=""></div>
-											   <div class="notification_desc">
-												<p>La agencia (JalarBD) agregÃ³ nuevo paquete</p>
-												<p><span>Hace una hora</span></p>
-												</div>
-											  <div class="clearfix"></div>	
-											 </a></li>
-											 <li class="odd"><a href="#">
-												<div class="user_img"><img src="<c:url value="/resources/images/p6.png" />" alt=""></div>
-											   <div class="notification_desc">
-												<p>La agencia (JalarBD) agregÃ³ nuevo paquete</p>
-												<p><span>Hace 1 hora</span></p>
-												</div>
-											   <div class="clearfix"></div>	
-											 </a></li>
-											 <li><a href="#">
-												<div class="user_img"><img src="<c:url value="/resources/images/p7.png" />" alt=""></div>
-											   <div class="notification_desc">
-												<p>La agencia (JalarBD) agregÃ³ nuevo paquete</p>
-												<p><span>Hace 1 hora</span></p>
-												</div>
-											   <div class="clearfix"></div>	
-											 </a></li>
-											 <li>
-												<div class="notification_bottom">
-													<a href="#">Ver todas las Notificaciones</a>
-												</div> 
-											</li>
-										</ul>
-									</li>	
-										
-								</ul>
-								<div class="clearfix"> </div>
-							</div>
-                            
 							<!--notification menu end -->
 							<div class="profile_details">		
 								<ul>
 									<li class="dropdown profile_details_drop">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 											<div class="profile_img">	
-												<span class="prfil-img"><img src="<c:url value="/resources/images/p1.png" />" alt=""> </span> 
+												
 												<div class="user-name">
-													<p>Admin1</p>
-													<span>Administrador</span>
+													<p>${iduser}</p>
+													<span>Agencia</span>
 												</div>
 												<i class="fa fa-angle-down lnr"></i>
 												<i class="fa fa-angle-up lnr"></i>
@@ -189,7 +103,7 @@
 											</div>	
 										</a>
 										<ul class="dropdown-menu drp-mnu"> 
-											<li> <a href="#"><i class="fa fa-sign-out"></i>Cerrar Sesi&oacute;n</a> </li>
+											<li> <a href="../index"><i class="fa fa-sign-out"></i>Cerrar Sesi&oacute;n</a> </li>
 										</ul>
 									</li>
 								</ul>
@@ -406,7 +320,7 @@
                     		<fieldset>
 	                    		<legend> Descripci&oacute;n General </legend>
 	                    		<div class="form-group">
-	                            	<label class="col-md-3 control-label">Descripción del Paquete</label>
+	                            	<label class="col-md-3 control-label">Descripci&oacute;n del Paquete</label>
 	                              	<div class="col-md-9 col-xs-12">                                            
 	                                	<textarea class="form-control" rows="6" name="descripcionPaquete" maxlength="65530"></textarea>
 	                                    <span class="help-block">Ingrese la descripción detallada del Paquete</span>
@@ -443,7 +357,7 @@
                     </div>
     				<div class="panel-footer">
     				<button class="btn btn-default">Limpiar</button>
-    				
+    				<button class="btn btn-default" onClick="regresar()">Regresar</button>
     				<button type="button" class="btn btn-primary pull-right"  onclick="addPaquete()" >Registrar</button>
                    	 	</div>
     			</div>
@@ -465,39 +379,6 @@
 <!--COPY rights end here-->
 </div>
 </div>
-
-<!--slider menu-->
-    <div class="sidebar-menu">
-		  	<div class="logo"> <a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a> <a href="#"> <span id="logo" ></span> 
-			      <!--<img id="logo" src="" alt="Logo"/>--> 
-			  </a> </div>		  
-		    <div class="menu">
-		      <ul id="menu" >
-		        <li id="menu-home" ><a href="../admin"><i class="fa fa-tachometer"></i><span>Dashboard</span></a></li>
-		        <li><a href="../admin/mensajes"><i class="fa fa-envelope"></i><span>Mensajes</span></a>
-		         
-		        </li>
-		        <li id="menu-comunicacao" ><a href="#"><i class="fa fa-cogs"></i><span>Configuraciones</span><span class="fa fa-angle-right" style="float: right"></span></a>
-                <ul>
-		            <li><a href="../admin/users">Usuarios</a></li>
-		            <li><a href="../admin/agencias">Agencias Tur&iacute;sticas</a></li>	
-                    <li><a href="../admin/paquetes">Paquetes Tur&iacute;sticas</a></li>
-                    
-					<!-- AGREGUEN ESTOOOOOOOOOOOOOOO -->                   
-                    <li><a href="../admin/destinos">Sitios Tur&iacute;sticos</a></li>	
-                    
-                    <li><a href="#">Restaurar Informaci&oacute;n</a></li>            
-		          </ul>
-		        </li>
-		          <li><a href="#"><i class="fa fa-book nav_icon"></i><span>Reportes</span></a></li>
-		       
-		        
-		      </ul>
-		    </div>
-	 </div>
-	<div class="clearfix"> </div>
-</div>
-<!--slide bar menu end here-->
 <script src="<c:url value="/resources/js/bootstrap-datetimepicker.min.js"/>"></script>
 
 <script>

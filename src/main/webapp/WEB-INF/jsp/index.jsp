@@ -4,7 +4,7 @@
 <html >
 <head>
  
-  <title>PERUVIAJES</title>
+  <title>AQPTRAVEL</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta content="" name="keywords">
@@ -30,10 +30,8 @@
 	<header id="header">
     <div class="container">
 
-      <div id="logo" class="pull-left">
-        <a href="#hero"><img src="<c:url value="/resources/img/LOGO1.png"/>" alt="" title="" /></img></a>
-        <!-- Uncomment below if you prefer to use a text logo -->
-        <!--<h1><a href="#hero">Regna</a></h1>-->
+      <div id="logo-p" class="pull-left">
+        <h1>AQPTravel</h1>
       </div>
 
       <nav id="nav-menu-container">

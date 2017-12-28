@@ -13,12 +13,14 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -33,24 +35,26 @@ import com.example.logic.Agency.BuildAgency;
 import com.example.logic.Paquete;
 
 @Controller
+@SessionAttributes("iduser")
 public class AgencyController {
 	
 	@Autowired
 	AgenciaDao agenciaDao;
+	@Autowired
+	AdminDao ad;
 	
 	
 	@RequestMapping(value="agencia/list_agencias",  method=RequestMethod.POST, produces="text/html;charset=UTF-8")
 	@ResponseBody
-	public String listAgency(ModelAndView model) throws IOException{
+	public String listAgency(ModelAndView model,ModelMap mp) throws IOException{
 		
 		List<Agency> listAgency = agenciaDao.listAll();
-		
+	
 		//Agencia agencia = new Agencia();
 		
 		String response="";
 		int cont = 0;
 		for(Agency tmpAgencia : listAgency){
-			
 			response += "<tr>" +
 					"<td>" + (++cont) + "</td>" +
 					"<td>" + tmpAgencia.getName() + "</td>" +
@@ -68,9 +72,6 @@ public class AgencyController {
 						+ "<input type='checkbox' name='' class=' ' id='' value='desactivo' onchange='changeCheckBoxAgencia("+tmpAgencia.getIdAgency()+", this)' >"
 						+ "</td>";
 			}			
-			//../admin/agencias/20/updateAgencia
-			response += "<td> <a class='btn btn-warning' data-toggle='modal' href='../admin/agencias/"+tmpAgencia.getIdAgency()+"/updateAgencia' data-target='#myModal' aria-label='Delete'>"
-					+ "	<i class='fa fa-pencil' aria-hidden='true'></i>&nbsp;Editar	</a> </td></tr>";
 		}
 		
 		return response; 
@@ -121,12 +122,15 @@ public class AgencyController {
 	
 	@RequestMapping(value="admin/agencia/changeStateAgencia", method=RequestMethod.POST)
 	@ResponseBody
-	public String changeStateAdmin(HttpServletRequest request) throws IOException{
-		
+	public String changeStateAdmin(HttpServletRequest request, ModelMap mp) throws IOException{
+		String c=(String) mp.get("iduser");
 		String []a1 = request.getParameterValues("key");	
 		String []a2 = request.getParameterValues("state");
-		agenciaDao.changeState(Integer.parseInt(a1[0]), a2[0].charAt(0));		
-		return "true";		
+		Agency ag=agenciaDao.findById(Integer.parseInt(a1[0]));
+		ag.set(ad.findAdminByEmail(c).getIdAdmin());
+		agenciaDao.update(ag);
+		agenciaDao.changeState(Integer.parseInt(a1[0]), a2[0].charAt(0));
+		return "Se actualizo Estado";		
 		
 	}
 	
@@ -192,8 +196,8 @@ public class AgencyController {
 		return "Listo, espera el mensaje de confirmación gracias";
 	} 
 	
-	//admin/agencia/saveAgencia
-	// show update form
+//	admin/agencia/saveAgencia
+//	 show update form
 	@RequestMapping(value = "/admin/agencias/{id}/updateAgencia", method = RequestMethod.GET)
 	public String updateAgencia(@PathVariable("id") int id, Model model) {
 

@@ -163,125 +163,12 @@ $(document).ready(function() {
 					<div class="header-left">
 						<div class="logo-name">
 							<a href="index_admin.html">
-								<h1>AqpTravel</h1> <!--<img id="logo" src="" alt="Logo"/>-->
+								<h1>AQPTravel</h1> <!--<img id="logo" src="" alt="Logo"/>-->
 							</a>
 						</div>
 
 						<div class="clearfix"></div>
 					</div>
-					<div class="header-right">
-						<div class="profile_details_left">
-							<!--notifications of menu start -->
-							<ul class="nofitications-dropdown">
-								<li class="dropdown head-dpdn"><a href="#"
-									class="dropdown-toggle" data-toggle="dropdown"
-									aria-expanded="false"><i class="fa fa-envelope fa-2x"></i><span
-										class="badge">3</span></a>
-									<ul class="dropdown-menu">
-										<li>
-											<div class="notification_header">
-												<h3>Tienes (3) mensajes nuevos</h3>
-											</div>
-										</li>
-										<li><a href="#">
-												<div class="user_img">
-													<img src="/resources/core/images/p4.png" alt="">
-												</div>
-												<div class="notification_desc">
-													<p>Jalar de BD mensaje</p>
-													<p>
-														<span>Hace 1 hora</span>
-													</p>
-												</div>
-												<div class="clearfix"></div>
-										</a></li>
-										<li class="odd"><a href="#">
-												<div class="user_img">
-													<img src="images/p2.png" alt="">
-												</div>
-												<div class="notification_desc">
-													<p>Jalar de BD mensaje</p>
-													<p>
-														<span>Hace 1 hora</span>
-													</p>
-												</div>
-												<div class="clearfix"></div>
-										</a></li>
-										<li><a href="#">
-												<div class="user_img">
-													<img src="images/p3.png" alt="">
-												</div>
-												<div class="notification_desc">
-													<p>Jalar de BD mensaje</p>
-													<p>
-														<span>Hace 2 horas</span>
-													</p>
-												</div>
-												<div class="clearfix"></div>
-										</a></li>
-										<li>
-											<div class="notification_bottom">
-												<a href="mensajes_admin.html">Ver Todos los mensajes</a>
-											</div>
-										</li>
-									</ul></li>
-								<li class="dropdown head-dpdn"><a href="#"
-									class="dropdown-toggle" data-toggle="dropdown"
-									aria-expanded="false"><i class="fa fa-bell fa-2x"></i><span
-										class="badge blue">3</span></a>
-									<ul class="dropdown-menu">
-										<li>
-											<div class="notification_header">
-												<h3>TÃº tienes (JalarBD) Paquetes agregados</h3>
-											</div>
-										</li>
-										<li><a href="#">
-												<div class="user_img">
-													<img src="images/p5.png" alt="">
-												</div>
-												<div class="notification_desc">
-													<p>La agencia (JalarBD) agregÃ³ nuevo paquete</p>
-													<p>
-														<span>Hace una hora</span>
-													</p>
-												</div>
-												<div class="clearfix"></div>
-										</a></li>
-										<li class="odd"><a href="#">
-												<div class="user_img">
-													<img src="images/p6.png" alt="">
-												</div>
-												<div class="notification_desc">
-													<p>La agencia (JalarBD) agregÃ³ nuevo paquete</p>
-													<p>
-														<span>Hace 1 hora</span>
-													</p>
-												</div>
-												<div class="clearfix"></div>
-										</a></li>
-										<li><a href="#">
-												<div class="user_img">
-													<img src="images/p7.png" alt="">
-												</div>
-												<div class="notification_desc">
-													<p>La agencia (JalarBD) agregÃ³ nuevo paquete</p>
-													<p>
-														<span>Hace 1 hora</span>
-													</p>
-												</div>
-												<div class="clearfix"></div>
-										</a></li>
-										<li>
-											<div class="notification_bottom">
-												<a href="#">Ver todas las Notificaciones</a>
-											</div>
-										</li>
-									</ul></li>
-
-							</ul>
-							<div class="clearfix"></div>
-						</div>
-
 						<!--notification menu end -->
 						<div class="profile_details">
 							<ul>
@@ -292,16 +179,14 @@ $(document).ready(function() {
 											<span class="prfil-img"><img src="images/p1.png"
 												alt=""> </span>
 											<div class="user-name">
-												<p>Admin1</p>
-												<span>Administrador</span>
+												<p>${iduser} </p>
+												<span><a href="../index">Cerrar
+												Sesi&oacute;n</a></span>
 											</div>
-											<i class="fa fa-angle-down lnr"></i> <i
-												class="fa fa-angle-up lnr"></i>
-											<div class="clearfix"></div>
 										</div>
 								</a>
 									<ul class="dropdown-menu drp-mnu">
-										<li><a href="#"><i class="fa fa-sign-out"></i>Cerrar
+										<li><a href="../index"><i class="fa fa-sign-out"></i>Cerrar
 												Sesi&oacute;n</a></li>
 									</ul></li>
 							</ul>
@@ -343,9 +228,9 @@ $(document).ready(function() {
 
 								<div class="mail-toolbar clearfix" style="width: 150%">
 									<div class="float-left">
-										<div class="btn btn_1 btn-default mrg5R">
+										<a class="btn btn_1 btn-default mrg5R" href="admin/paquetes">
 											<i class="fa fa-refresh"> </i>
-										</div>
+										</a>
 										<a class="btn btn-primary" href="../admin/agregar_paquetes">
 											<i class="fa fa-plus fa-lg"></i> &nbsp;Agregar Nuevo
 										</a>
@@ -371,7 +256,6 @@ $(document).ready(function() {
 												<th>Agencia Tur&iacute;stica</th>												
 												<th>Destino</th>
 												<th>Estado</th>
-												<th>Opciones</th>
 											</tr>
 
 										</thead>
@@ -382,7 +266,6 @@ $(document).ready(function() {
 												<th>Agencia Tur&iacute;stica</th>											
 												<th>Destino</th>
 												<th>Estado</th>
-												<th>Opciones</th>
 
 											</tr>
 										</tfoot>
@@ -406,7 +289,7 @@ $(document).ready(function() {
 				<!--copy rights start here-->
 				<div class="copyrights">
 					<p>
-						Â© 2017 AQPTravel Todos los derechos Reservados |
+						2017 AQPTravel Todos los derechos Reservados |
 						Dise&ntilde;ado por <a href="http://tecsofts.com/" target="_blank">TecSoft</a>
 					</p>
 				</div>
@@ -414,43 +297,6 @@ $(document).ready(function() {
 			</div>
 		</div>
 
-		<!--slider menu-->
-		<div class="sidebar-menu">
-			<div class="logo">
-				<a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span>
-				</a> <a href="#"> <span id="logo"></span> <!--<img id="logo" src="" alt="Logo"/>-->
-				</a>
-			</div>
-			<div class="menu">
-				<ul id="menu">
-					<li id="menu-home"><a href="../admin"><i
-							class="fa fa-tachometer"></i><span>Dashboard</span></a></li>
-					<li><a href="../admin/mensajes"><i class="fa fa-envelope"></i><span>Mensajes</span></a>
-
-					</li>
-					<li id="menu-comunicacao"><a href="#"><i
-							class="fa fa-cogs"></i><span>Configuraciones</span><span
-							class="fa fa-angle-right" style="float: right"></span></a>
-						<ul>
-							<li><a href="../admin/users">Usuarios</a></li>
-							<li><a href="../admin/agencias">Agencias Tur&iacute;sticas</a></li>
-							<li><a href="../admin/paquetes">Paquetes
-									Tur&iacute;sticas</a></li>
-
-							<!-- AGREGUEN ESTOOOOOOOOOOOOOOO -->
-							<li><a href="../admin/destinos">Sitios Tur&iacute;sticos</a></li>
-
-							<li><a href="#">Restaurar Informaci&oacute;n</a></li>
-						</ul></li>
-					<li><a href="#"><i class="fa fa-book nav_icon"></i><span>Reportes</span></a></li>
-
-
-				</ul>
-			</div>
-		</div>
-		<div class="clearfix"></div>
-	</div>
-	<!--slide bar menu end here-->
 	<script>
 var toggle = true;
             
@@ -471,7 +317,7 @@ $(".sidebar-icon").click(function() {
             });
 </script>
 
-	<script src="<c:url value="/resources/js/bootstrap.js" />"></script>}
+	<script src="<c:url value="/resources/js/bootstrap.js" />"></script>
 	<script src="<c:url value="/resources/js/paquete.js" />"></script>
 </body>
 </html>
