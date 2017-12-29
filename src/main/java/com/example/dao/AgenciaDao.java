@@ -195,7 +195,7 @@ public class AgenciaDao implements InterfaceDao<Agency>{
 
 	public void changeState(int id, char state) {
 		Agency ag=findById(id);
-		updateStateRole(ag.getEmail(),ag.getState());
+		updateStateRole(ag.getEmail(),state);
 		String sql = "UPDATE agencia SET estadoAgencia = '" + state 
 				+ "' WHERE idAgencia = "+ id +"";
 				jdbcTemplate.update(sql);

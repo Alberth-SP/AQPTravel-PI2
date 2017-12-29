@@ -76,7 +76,7 @@
 				style="margin: 100px 10px 80px 10px;">
 
 				<div class="col-lg-4 content order-lg-1  personalizado-form"
-					style="height: 700px; padding: 20px 50px 0px 50px; background: white; border: 1px solid; box-shadow: 5px 10px 8px #888888;">
+					style="height: 780px; padding: 20px 50px 0px 50px; background: white; border: 1px solid; box-shadow: 5px 10px 8px #888888;">
 					<h4 style="font-weight: bold;">
 						Encuentra tu Paquete!!
 						</h4>
